@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CrossOrigin, FetchPriority, LinkAs, ReferrerPolicy, Rel } from './constants'
+import { CrossOrigin, FetchPriority, LinkAs, ReferrerPolicy, Rel } from '.'
 
 export const LinkEntrySchema = z.object({
   /**
@@ -119,7 +119,7 @@ export const LinkEntrySchema = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-type
    */
   type: z.string(),
-}).partial()
+})
 
 export const LinkEntriesSchema = z.array(LinkEntrySchema)
 

@@ -1,4 +1,4 @@
-import type { MetaFlatInput, MetaInput } from 'zhead'
+import type { MetaFlatInput, MetaInput } from '../schema'
 
 export function resolveMetaFlat<T extends MetaFlatInput>(input: T): MetaInput {
   // const output: MetaInput = []

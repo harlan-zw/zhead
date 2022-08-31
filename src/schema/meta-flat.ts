@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import {
+  AppleMobileWebAppStatusBarStyle,
   GoogleBotContent,
   GoogleContent,
   MaxImagePreview,
@@ -7,14 +8,9 @@ import {
   OgImageType,
   OgTypes,
   OgVideoType, ReferrerPolicy, TwitterCard,
-} from './constants'
+} from '.'
 
-export const MetaFlatDocumentSchema = z.object({
-  /**
-   * Use this tag to provide a short description of the page.
-   * In some situations, this description is used in the snippet shown in search results.
-   */
-  description: z.string(),
+export const MetaFlatDevices = z.object({
   /**
    * Indicates a suggested color that user agents should use to customize the display of the page or
    * of the surrounding user interface.
@@ -22,6 +18,52 @@ export const MetaFlatDocumentSchema = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
    */
   themeColor: z.string(),
+  /**
+   * Sets whether a web application runs in full-screen mode.
+   */
+  mobileWebAppCapable: z.literal('yes'),
+  /**
+   * Sets whether a web application runs in full-screen mode.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  appleMobileWebAppCapable: z.literal('yes'),
+  /**
+   * Sets the style of the status bar for a web application.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  appleMobileWebAppStatusBarStyle: z.enum(AppleMobileWebAppStatusBarStyle),
+  /**
+   * Make the app title different from the page title.
+   */
+  appleMobileWebAppTitle: z.string(),
+  /**
+   * Enables or disables automatic detection of possible phone numbers in a webpage in Safari on iOS.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  formatDetection: z.literal('telephone=no'),
+  /**
+   * Tile image for windows.
+   */
+  msapplicationTileImage: z.string().url(),
+  /**
+   * Tile colour for windows
+   */
+  msapplicationTileColor: z.string(),
+  /**
+   * URL of a config for windows tile.
+   */
+  msapplicationConfig: z.string().url(),
+})
+
+export const MetaFlatDocumentSchema = z.object({
+  /**
+   * Use this tag to provide a short description of the page.
+   * In some situations, this description is used in the snippet shown in search results.
+   */
+  description: z.string(),
   /**
    * Specifies one or more color schemes with which the document is compatible.
    * The browser will use this information in tandem with the user's browser or device settings to determine what colors

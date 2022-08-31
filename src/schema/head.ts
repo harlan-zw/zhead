@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { LinkEntriesSchema, MetaEntriesSchema } from 'zhead'
 import { BaseSchema } from './base'
 import { StyleEntriesSchema } from './style'
 import { ScriptEntriesSchema } from './script'
+import { LinkEntriesSchema, MetaEntriesSchema } from '.'
 
 export const HeadSchema = z.object({
   /**
@@ -47,7 +47,7 @@ export const HeadSchema = z.object({
       children: z.string(),
     }),
   ),
-}).partial()
+}).deepPartial()
 
 export type HeadInput = z.infer<typeof HeadSchema>
 

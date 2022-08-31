@@ -26,7 +26,11 @@ export const Rel = [
   'shortlink',
   'stylesheet',
   'tag',
+  'apple-touch-icon',
+  'apple-touch-startup-image',
 ] as const
+
+export const AppleMobileWebAppStatusBarStyle = ['default', 'black', 'black-translucent'] as const
 
 export const StandardMetaDataNames = [
   // HTML specification
