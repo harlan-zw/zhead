@@ -1,4 +1,4 @@
-<h1 align='center'>zHead</h1>
+__<h1 align='center'>zHead</h1>
 
 <p align="center">
 <a href='https://github.com/vueuse/schema-org/actions/workflows/test.yml'>
@@ -38,14 +38,6 @@ Fully typed utilities for defining, validating and building best-practice docume
 - ✍️ Render to HTML and JSON [useHead](https://github.com/vueuse/head) compatible
 - 🌳 Fully composable, tree-shakable and extensible
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Basic usage](#basic-usage)
-- [Primitives](#primitives)
-- [Literals](#literals)
-- [Strings](#strings)
-
 ## Installation
 
 ```bash
@@ -67,10 +59,9 @@ const head = defineHead({
   title: 'My Page',
 })
 
-/* head */
-// {
-//   title: 'My Page',
-// }
+/*{
+   title: 'My Page',
+}*/
 ```
 
 ### resolveHead
@@ -85,13 +76,11 @@ const head = resolveHead({
     { httpEquiv: 'content-security-policy', content: 'content-src none' }
   ]
 })
-
-/* head */
-// {
-//   meta: [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
-//   ]
-// }
+  /*{
+    meta: [
+      { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+    ]
+  }*/
 ```
 
 ### resolveMetaFlat
@@ -106,12 +95,11 @@ const head = defineHead({
     httpEquiv: 'content-src none',
   })
 })
-/* head */
-// {
-//   meta: [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
-//   ]
-// }
+/*{
+  meta: [
+    { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+  ]
+}*/
 ```
 
 ### buildSeoHead
@@ -134,39 +122,6 @@ const head = buildSeoHead({
 })
 ```
 
-## Flat Meta Tags
-
-Decorator functions for using the zHead's type system.
-
-#### defineHead
-
-```ts
-import { defineHead } from 'zhead'
-
-defineHead({
-  // ...
-})
-```
-
-```ts
-interface Head {
-  title?: MaybeRef<string>
-  titleTemplate?: MaybeRef<string> | ((title?: string) => string)
-  meta?: MaybeRef<HeadAttrs[]>
-  link?: MaybeRef<HeadAttrs[]>
-  base?: MaybeRef<HeadAttrs>
-  style?: MaybeRef<HeadAttrs[]>
-  script?: MaybeRef<HeadAttrs[]>
-  noscript?: MaybeRef<HeadAttrs[]>
-  htmlAttrs?: MaybeRef<HeadAttrs>
-  bodyAttrs?: MaybeRef<HeadAttrs>
-}
-```
-
-### Resolves
-
-
-
 ## Sponsors
 
 <p align="center">
@@ -178,4 +133,4 @@ interface Head {
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)__
