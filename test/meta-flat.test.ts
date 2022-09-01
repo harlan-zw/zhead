@@ -291,8 +291,8 @@ describe('meta flat', () => {
       twitterAppIdIpad: '1234567890',
       twitterAppUrlIpad: 'https://example.com',
       twitterAppNameGoogleplay: 'my app',
-      twitterAppIdGooglePlay: '1234567890',
-      twitterAppUrlGooglePlay: 'https://example.com',
+      twitterAppIdGoogleplay: '1234567890',
+      twitterAppUrlGoogleplay: 'https://example.com',
       twitterData1: 'my data',
       twitterLabel1: 'my label',
       twitterData2: 'my data',
@@ -383,7 +383,7 @@ describe('meta flat', () => {
         },
         {
           "content": "1234567890",
-          "name": "fb-app-id",
+          "property": "fb:app_id",
         },
         {
           "content": "summary",
@@ -467,11 +467,11 @@ describe('meta flat', () => {
         },
         {
           "content": "1234567890",
-          "property": "twitter:app:id:google:play",
+          "property": "twitter:app:id:googleplay",
         },
         {
           "content": "https://example.com",
-          "property": "twitter:app:url:google:play",
+          "property": "twitter:app:url:googleplay",
         },
         {
           "content": "my data",

@@ -513,11 +513,11 @@ export const MetaFlatRFDaSchema = z.object({
    *
    * Used with app card
    */
-  twitterAppIdGooglePlay: z.string(),
+  twitterAppIdGoogleplay: z.string(),
   /**
    * Your app’s custom URL scheme
    */
-  twitterAppUrlGooglePlay: z.string().url(),
+  twitterAppUrlGoogleplay: z.string().url(),
   /**
    * Top customizable data field, can be a relatively short string (ie “$3.99”)
    */

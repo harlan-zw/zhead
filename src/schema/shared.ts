@@ -6,4 +6,4 @@ import { z } from 'zod'
  *
  * @see https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
  */
-export const DataSchema = z.record(z.string().startsWith('data-'), z.string()).optional()
+export const DataSchema = z.record(z.string().startsWith('data'), z.string()).optional()

@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { resolveKeyCasing } from '../resolve/utils'
+import { maybeString } from './utils'
 import {
   DataSchema,
   HttpEquiv,
@@ -36,7 +37,7 @@ const HTMLMetaEntry = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
-  name: z.union([z.enum(StandardMetaDataNames), z.string()]),
+  name: maybeString(z.enum(StandardMetaDataNames)),
 }).partial()
 
 export const RFDaSchema = z.object({

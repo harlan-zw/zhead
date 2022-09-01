@@ -18,6 +18,10 @@ export const FlatMetaResolve: Record<keyof MetaFlatInput, FlatMetaResolver> = {
     childSeparator: ' ',
     metaKey: 'http-equiv',
   },
+  fbAppId: {
+    keyValue: 'fb:app_id',
+    metaKey: 'property',
+  },
   contentType: {
     metaKey: 'http-equiv',
   },

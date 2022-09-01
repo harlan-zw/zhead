@@ -1,6 +1,6 @@
 import type { HeadInput } from './schema'
 
-export default function inferSocialShare(input: HeadInput) {
+export function inferSocialShare(input: HeadInput) {
   // clone
   // const output = { ...input }
   // const defaultMetaTags = resolveMetaTags({

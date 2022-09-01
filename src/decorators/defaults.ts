@@ -1,13 +1,12 @@
-import type { HeadInput } from './schema'
-import { resolveMetaFlat } from './resolve'
+import type { HeadInput } from '../schema'
+import { resolveMetaFlat } from '../resolve'
 
-export default function withDefaults(input: HeadInput) {
+export function withDefaults(input: HeadInput) {
   // clone
   const output = { ...input }
   const defaultMetaTags = resolveMetaFlat({
     charset: 'utf-8',
     viewport: {
-      width: 122,
       initialScale: 1,
     },
   })

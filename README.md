@@ -31,9 +31,8 @@ Fully typed utilities for defining, validating and building best-practice docume
 
 ## Features
 
-- 🇹 Fully typed head Schema
-- 💎 [Zod-powered](https://zod.dev/) validation
-- 🧙 Resolve flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
+- 💎 Fully typed, [Zod-powered](https://zod.dev/) Schema with optional validation
+- 🧙 Resolve typed, flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
 - ✨ Generate minimal tags with maximum SEO `buildSeoHead`
 - 📦 All keys allow camelCase `dataSomething` -> `data-something`
 - ✍️ Render to HTML and JSON [useHead](https://github.com/vueuse/head) compatible
@@ -46,15 +45,6 @@ Fully typed utilities for defining, validating and building best-practice docume
 - [Primitives](#primitives)
 - [Literals](#literals)
 - [Strings](#strings)
-- [Numbers](#numbers)
-- [NaNs](#nans)
-- [Booleans](#booleans)
-- [Dates](#dates)
-- [Zod enums](#zod-enums)
-- [Native enums](#native-enums)
-- [Optionals](#optionals)
-- [Nullables](#nullables)
-- [Objects](#objects)
 
 ## Installation
 
@@ -62,69 +52,73 @@ Fully typed utilities for defining, validating and building best-practice docume
 npm add zhead
 ```
 
-## Basic Usage
+## API
 
-Use the `defineHead` decorator for a simple fully-typed head schema.
+### defineHead
+
+Use this decorator for a simple fully-typed head schema. 
+
+By default, it will only allow camelCase keys, you can convert them at runtime using `resolveHead.`
 
 ```ts
 import { defineHead } from 'zhead'
 
 const head = defineHead({
   title: 'My Page',
-  base: {
-    href: 'https://example.com',
-    target: '_blank',
-  },
-  meta: [
-    { charset: 'utf-8' }
-  ]
 })
 
-/* output */
-
+/* head */
 // {
 //   title: 'My Page',
-//     base: {
-//     href: 'https://example.com',
-//       target: '_blank',
-//   },
-//   meta: [
-//     { charset: 'utf-8' }
-//   ]
 // }
 ```
 
-Use the `resolveHead` function to resolve the head schema into a format ready for the browser.
+### resolveHead
+
+Use the `resolveHead` function to convert any camel-cased keys to a casing that browsers will understand..
 
 ```ts
 import { resolveHead } from 'zhead'
 
 const head = resolveHead({
-  title: 'My Page',
-  base: {
-    href: 'https://example.com',
-    target: '_blank',
-  },
   meta: [
-    { charset: 'utf-8' }
+    { httpEquiv: 'content-security-policy', content: 'content-src none' }
   ]
 })
 
-/* output */
-
+/* head */
 // {
-//   title: 'My Page',
-//     base: {
-//     href: 'https://example.com',
-//       target: '_blank',
-//   },
 //   meta: [
-//     { charset: 'utf-8' }
+//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
 //   ]
 // }
 ```
 
-Building a head with SEO inferences, using flat meta.
+### resolveMetaFlat
+
+Use this function to describe your meta tags with a flat fully-typed, object.
+
+```ts
+import { defineHead, resolveMetaFlat } from 'zhead'
+
+const head = defineHead({
+  meta: resolveMetaFlat({
+    httpEquiv: 'content-src none',
+  })
+})
+/* head */
+// {
+//   meta: [
+//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+//   ]
+// }
+```
+
+### buildSeoHead
+
+Use this function to generate a minimal SEO head with maximum SEO.
+
+Internally this function uses the `withDefaults` and `inferSocialShare` utilities.
 
 ```ts
 import { buildSeoHead, resolveMetaFlat } from 'zhead'
@@ -140,7 +134,7 @@ const head = buildSeoHead({
 })
 ```
 
-### Defines
+## Flat Meta Tags
 
 Decorator functions for using the zHead's type system.
 

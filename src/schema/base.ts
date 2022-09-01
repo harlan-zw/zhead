@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import {maybeString} from "./utils";
+import { maybeString } from './utils'
 
 export const BaseSchema = maybeString(z.object({
   /**

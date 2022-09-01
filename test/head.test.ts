@@ -1,15 +1,15 @@
 import { describe, it } from 'vitest'
-import {resolveHead, resolveHeadFlat} from '../src'
+import { defineHead, resolveHeadFlat } from '../src'
 
 describe('head', () => {
   it('define head', () => {
-    const tags = resolveHead({
+    const tags = defineHead({
       title: 'test',
       link: [
         { href: 'style.css', as: 'style', crossorigin: 'anonymous' },
       ],
       meta: [
-        { name: 'description', property: 'test', dataTest: 'something' },
+        { name: 'description', content: 'test' },
       ],
     })
 
@@ -24,9 +24,8 @@ describe('head', () => {
         ],
         "meta": [
           {
-            "data-test": "something",
+            "content": "test",
             "name": "description",
-            "property": "test",
           },
         ],
         "title": "test",
@@ -42,8 +41,8 @@ describe('head', () => {
         target: '_blank',
       },
       meta: [
-        { charset: 'utf-8' }
-      ]
+        { charset: 'utf-8' },
+      ],
     })
 
     expect(head).toMatchInlineSnapshot(`
