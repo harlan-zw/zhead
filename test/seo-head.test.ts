@@ -66,7 +66,7 @@ describe('seo head', () => {
     const tags = resolveSeoHead({
       title: 'My Title',
       meta: [
-        { name: 'description', content: 'Some description', }
+        { name: 'description', content: 'Some description' },
       ],
     })
 
@@ -101,5 +101,4 @@ describe('seo head', () => {
       }
     `)
   })
-
 })

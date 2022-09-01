@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import {generateHtml, generateHtmlStrict, generateTags, generateTagsStrict, resolveMetaFlat} from '../src'
+import { generateHtml, generateHtmlStrict, generateTags, generateTagsStrict, resolveMetaFlat } from '../src'
 
 describe('generate', () => {
   it('example tags', () => {
@@ -10,7 +10,7 @@ describe('generate', () => {
       ],
       meta: [
         { name: 'description', content: 'test' },
-      ]
+      ],
     })
 
     expect(head).toMatchInlineSnapshot(`
@@ -45,7 +45,7 @@ describe('generate', () => {
       ],
       meta: [
         { name: 'description', content: 'test' },
-      ]
+      ],
     })
 
     expect(head).toMatchInlineSnapshot(`

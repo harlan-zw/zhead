@@ -1,6 +1,6 @@
 import type { HeadInput } from '../schema'
 import type { HeadTag } from './tags'
-import {generateTags, generateTagsStrict,} from './tags'
+import { generateTags, generateTagsStrict } from './tags'
 
 export const SELF_CLOSING_TAGS = ['meta', 'link', 'base']
 
@@ -29,7 +29,6 @@ const tagToString = (tag: HeadTag) => {
 export function generateHtml<T extends HeadInput>(input: T): string {
   return generateTags(input).map(t => tagToString(t)).join('\n')
 }
-
 
 export function generateHtmlStrict<T extends HeadInput>(input: T): string {
   return generateTagsStrict(input).map(t => tagToString(t)).join('\n')

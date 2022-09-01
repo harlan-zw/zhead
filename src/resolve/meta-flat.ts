@@ -8,7 +8,7 @@ interface FlatMetaResolver {
   resolve?: <K extends string, T>(key: K, value: T) => T | void
 }
 
-export const FlatMetaResolve: Record<keyof MetaFlatInput, FlatMetaResolver> = {
+export const FlatMetaResolve: Record<string, FlatMetaResolver> = {
   robots: {
     childSeparator: ':',
   },
@@ -121,6 +121,7 @@ export function resolveMetaFlat<T extends MetaFlatInput>(input: T): MetaInput {
     if (key === 'charset') {
       output.push({
         // key may change
+        // @ts-expect-error untyped
         [key]: value,
       })
     }

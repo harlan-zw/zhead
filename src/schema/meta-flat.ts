@@ -596,13 +596,16 @@ export const MetaFlatDevices = z.object({
   msapplicationConfig: z.string().url(),
 })
 
-export const MetaFlatSchema
-  = z.object({})
-    .merge(MetaFlatDocumentSchema)
-    .merge(MetaFlatPragmaSchema)
-    .merge(MetaFlatRFDaSchema)
-    .merge(MetaFlatDevices)
-    .partial()
+export const MetaFlatSchema = z.object({})
+  .merge(MetaFlatDocumentSchema)
+  .merge(MetaFlatPragmaSchema)
+  .merge(MetaFlatRFDaSchema)
+  .merge(MetaFlatDevices)
+  .partial()
+
+export const MetaFlatKeys = MetaFlatSchema.keyof().enum
+
+export type MetaFlatKeyInput = typeof MetaFlatKeys
 
 export type MetaFlatInput = z.infer<typeof MetaFlatSchema>
 

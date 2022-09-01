@@ -1,4 +1,4 @@
-import type {HeadInput, MetaFlatInput} from '../schema'
+import type { HeadInput, MetaFlatInput } from '../schema'
 import { resolveHead } from './head'
 import { flattenMeta, resolveMetaFlat } from './meta-flat'
 
