@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { resolveKeyCasing } from '../resolve/utils'
 import {
   DataSchema,
   HttpEquiv,
@@ -36,8 +37,7 @@ const HTMLMetaEntry = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
   name: z.union([z.enum(StandardMetaDataNames), z.string()]),
-})
-
+}).partial()
 
 export const RFDaSchema = z.object({
   /**
@@ -69,7 +69,7 @@ export const RFDaSchema = z.object({
    * (the resource that the metadata is about).
    */
   typeof: z.string(),
-})
+}).partial()
 
 const MetaEntrySchema = z.intersection(HTMLMetaEntry.merge(RFDaSchema), DataSchema)
 
@@ -80,5 +80,7 @@ export const MetaEntriesSchema = z.array(
 export type MetaInput = z.TypeOf<typeof MetaEntriesSchema>
 
 export function defineMeta<T extends MetaInput>(input: T) {
-  return input
+  return input.map((entry) => {
+    return resolveKeyCasing(entry)
+  })
 }

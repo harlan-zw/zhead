@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { maybeArray, maybeString } from './utils'
 import {
   AppleMobileWebAppStatusBarStyle,
   GoogleBotContent,
@@ -10,58 +11,12 @@ import {
   OgVideoType, ReferrerPolicy, TwitterCard,
 } from '.'
 
-export const MetaFlatDevices = z.object({
-  /**
-   * Indicates a suggested color that user agents should use to customize the display of the page or
-   * of the surrounding user interface.
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
-   */
-  themeColor: z.string(),
-  /**
-   * Sets whether a web application runs in full-screen mode.
-   */
-  mobileWebAppCapable: z.literal('yes'),
-  /**
-   * Sets whether a web application runs in full-screen mode.
-   *
-   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-   */
-  appleMobileWebAppCapable: z.literal('yes'),
-  /**
-   * Sets the style of the status bar for a web application.
-   *
-   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-   */
-  appleMobileWebAppStatusBarStyle: z.enum(AppleMobileWebAppStatusBarStyle),
-  /**
-   * Make the app title different from the page title.
-   */
-  appleMobileWebAppTitle: z.string(),
-  /**
-   * Enables or disables automatic detection of possible phone numbers in a webpage in Safari on iOS.
-   *
-   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
-   */
-  formatDetection: z.literal('telephone=no'),
-  /**
-   * Tile image for windows.
-   */
-  msapplicationTileImage: z.string().url(),
-  /**
-   * Tile colour for windows
-   */
-  msapplicationTileColor: z.string(),
-  /**
-   * URL of a config for windows tile.
-   */
-  msapplicationConfig: z.string().url(),
-})
-
 export const MetaFlatDocumentSchema = z.object({
   /**
    * Use this tag to provide a short description of the page.
    * In some situations, this description is used in the snippet shown in search results.
+   *
+   * @see https://developers.google.com/search/docs/advanced/appearance/snippet#meta-descriptions
    */
   description: z.string(),
   /**
@@ -74,38 +29,50 @@ export const MetaFlatDocumentSchema = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
    */
   colorScheme: z.string(),
-
   /**
    * The name of the application running in the web page.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
    */
   applicationName: z.string(),
   /**
    * The name of the document's author.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
    */
   author: z.string(),
   /**
    * The name of the creator of the document, such as an organization or institution.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#other_metadata_names
    */
   creator: z.string(),
   /**
    * The name of the document's publisher.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#other_metadata_names
    */
   publisher: z.string(),
   /**
    * The identifier of the software that generated the page.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification
    */
   generator: z.string(),
   /**
    * Controls the HTTP Referer header of requests sent from the document.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification
    */
   referrer: z.enum(ReferrerPolicy),
   /**
    * This tag tells the browser how to render a page on a mobile device.
    * Presence of this tag indicates to Google that the page is mobile friendly.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_other_specifications
    */
   viewport: z.union([
     z.string(),
-    // @todo resolve
     z.object({
       /**
        * Defines the pixel width of the viewport that you want the web site to be rendered at.
@@ -152,7 +119,7 @@ export const MetaFlatDocumentSchema = z.object({
   /**
    * Control the behavior of search engine crawling and indexing.
    */
-  robots: z.object({
+  robots: maybeString(z.object({
     /**
      * There are no restrictions for indexing or serving.
      * This directive is the default value and has no effect if explicitly listed.
@@ -216,12 +183,12 @@ export const MetaFlatDocumentSchema = z.object({
     /**
      * Do not show this page in search results after the specified date/time.
      */
-    unavailableAfter: z.date(),
+    unavailable_after: z.date(),
     /**
      * Do not index images on this page.
      */
     noimageindex: z.boolean(),
-  }).partial(),
+  }).partial()),
   google: z.enum(GoogleContent),
   googlebot: z.enum(GoogleBotContent),
 
@@ -238,14 +205,48 @@ export const MetaFlatDocumentSchema = z.object({
 }).partial()
 
 export const MetaFlatPragmaSchema = z.object({
-  contentSecurityPolicy: z.string(),
-  contentType: z.string(),
+  contentSecurityPolicy: z.union([
+    z.string(),
+    z.object({
+      childSrc: z.string(),
+      connectSrc: z.string(),
+      defaultSrc: z.string(),
+      fontSrc: z.string(),
+      imgSrc: z.string(),
+      manifestSrc: z.string(),
+      mediaSrc: z.string(),
+      objectSrc: z.string(),
+      prefetchSrc: z.string(),
+      scriptSrc: z.string(),
+      scriptSrcElem: z.string(),
+      scriptSrcAttr: z.string(),
+      styleSrc: z.string(),
+      styleSrcElem: z.string(),
+      styleSrcAttr: z.string(),
+      workerSrc: z.string(),
+      baseUri: z.string(),
+      sandbox: z.string(),
+      formAction: z.string(),
+      frameAncestors: z.string(),
+      navigateTo: z.string(),
+      reportUri: z.string(),
+      reportTo: z.string(),
+      requireSriFor: z.string(),
+      requireTrustedTypesFor: z.string(),
+      trustedTypes: z.string(),
+      upgradeInsecureRequests: z.string(),
+    }).partial(),
+  ]),
+  contentType: z.literal('text/html; charset=utf-8'),
   defaultStyle: z.string(),
-  xUaCompatible: z.string(),
-  refresh: z.object({
-    seconds: z.number().min(0),
-    url: z.string().url(),
-  }),
+  xUaCompatible: z.literal('IE=edge'),
+  refresh: z.union([
+    z.string(),
+    z.object({
+      seconds: z.number().min(0),
+      url: z.string().url(),
+    }),
+  ]),
 }).partial()
 
 export const MetaFlatRFDaSchema = z.object({
@@ -284,7 +285,7 @@ export const MetaFlatRFDaSchema = z.object({
   /**
    * An array of other locales this page is available in.
    */
-  ogLocaleAlternate: z.string(),
+  ogLocaleAlternate: maybeArray(z.string()),
 
   /**
    * The word that appears before this object's title in a sentence.
@@ -321,12 +322,12 @@ export const MetaFlatRFDaSchema = z.object({
   /**
    * Width of video in pixels. This property is required for videos.
    */
-  ogVideoWidth: z.number(),
+  ogVideoWidth: maybeString(z.number()),
 
   /**
    * Height of video in pixels. This property is required for videos.
    */
-  ogVideoHeight: z.number(),
+  ogVideoHeight: maybeString(z.number()),
 
   // OpenGraph Image
 
@@ -352,12 +353,12 @@ export const MetaFlatRFDaSchema = z.object({
   /**
    * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
    */
-  ogImageWidth: z.number(),
+  ogImageWidth: maybeString(z.number()),
 
   /**
    * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
    */
-  ogImageHeight: z.number(),
+  ogImageHeight: maybeString(z.number()),
 
   // Twitter meta
 
@@ -367,7 +368,7 @@ export const MetaFlatRFDaSchema = z.object({
    * In order to use Facebook Insights you must add the app ID to your page.
    * Insights lets you view analytics for traffic to your site from Facebook. Find the app ID in your App Dashboard.
    */
-  fbAppId: z.string(),
+  fbAppId: maybeString(z.number()),
   /**
    * The card type
    *
@@ -425,7 +426,7 @@ export const MetaFlatRFDaSchema = z.object({
    *
    * @example 1296047337022742529
    */
-  twitterSiteId: z.union([z.string(), z.number()]),
+  twitterSiteId: maybeString(z.number()),
   /**
    * The @username who created the pages content.
    *
@@ -439,7 +440,7 @@ export const MetaFlatRFDaSchema = z.object({
    *
    * Used with summary, summary_large_image cards
    */
-  twitterCreatorId: z.union([z.string(), z.number()]),
+  twitterCreatorId: maybeString(z.number()),
   /**
    * HTTPS URL of player iframe
    *
@@ -452,13 +453,13 @@ export const MetaFlatRFDaSchema = z.object({
    *
    * Used with player card
    */
-  twitterPlayerWidth: z.number(),
+  twitterPlayerWidth: maybeString(z.number()),
   /**
    * Height of iframe in pixels
    *
    * Used with player card
    */
-  twitterPlayerHeight: z.number(),
+  twitterPlayerHeight: maybeString(z.number()),
   /**
    * URL to raw video or audio stream
    *
@@ -533,12 +534,63 @@ export const MetaFlatRFDaSchema = z.object({
    * Customizable label or units for the information in twitter:data2 (best practice: use all caps)
    */
   twitterLabel2: z.string(),
+
 }).partial()
 
-export const MetaFlatSchema = z.object({})
+export const MetaFlatDevices = z.object({
+  /**
+   * Indicates a suggested color that user agents should use to customize the display of the page or
+   * of the surrounding user interface.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
+   */
+  themeColor: z.string(),
+  /**
+   * Sets whether a web application runs in full-screen mode.
+   */
+  mobileWebAppCapable: z.literal('yes'),
+  /**
+   * Sets whether a web application runs in full-screen mode.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  appleMobileWebAppCapable: z.literal('yes'),
+  /**
+   * Sets the style of the status bar for a web application.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  appleMobileWebAppStatusBarStyle: z.enum(AppleMobileWebAppStatusBarStyle),
+  /**
+   * Make the app title different from the page title.
+   */
+  appleMobileWebAppTitle: z.string(),
+  /**
+   * Enables or disables automatic detection of possible phone numbers in a webpage in Safari on iOS.
+   *
+   * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+   */
+  formatDetection: z.literal('telephone=no'),
+  /**
+   * Tile image for windows.
+   */
+  msapplicationTileImage: z.string().url(),
+  /**
+   * Tile colour for windows
+   */
+  msapplicationTileColor: z.string(),
+  /**
+   * URL of a config for windows tile.
+   */
+  msapplicationConfig: z.string().url(),
+}).partial()
+
+export const MetaFlatSchema = z.intersection(z.record(z.any()), z.object({})
   .merge(MetaFlatDocumentSchema)
   .merge(MetaFlatPragmaSchema)
   .merge(MetaFlatRFDaSchema)
+  .merge(MetaFlatDevices),
+)
 
 export type MetaFlatInput = z.infer<typeof MetaFlatSchema>
 

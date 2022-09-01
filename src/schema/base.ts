@@ -1,6 +1,7 @@
 import { z } from 'zod'
+import {maybeString} from "./utils";
 
-export const BaseSchema = z.object({
+export const BaseSchema = maybeString(z.object({
   /**
    * The base URL to be used throughout the document for relative URLs. Absolute and relative URLs are allowed.
    *
@@ -14,4 +15,4 @@ export const BaseSchema = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base#attr-target
    */
   target: z.string(),
-})
+}))

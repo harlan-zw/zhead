@@ -1,34 +1,38 @@
 import { describe, it } from 'vitest'
-import { resolveMetaFlat } from '../src'
+import { defineMeta } from '../src'
 
 describe('metatags', () => {
-  it('define meta tags', () => {
-    const tags = resolveMetaFlat({
-      ogTitle: 'My Title',
-    })
+  it('charset', () => {
+    const tags = defineMeta([
+      {
+        charset: 'utf-8',
+      },
+    ])
 
     expect(tags).toMatchInlineSnapshot(`
-      {
-        "ogTitle": "My Title",
-      }
+      [
+        {
+          "charset": "utf-8",
+        },
+      ]
     `)
   })
 
-  it('viewport', () => {
-    const tags = resolveMetaFlat({
-      viewport: {
-        maximumScale: 2100,
-        viewportFit: 'auto',
+  it('charset', () => {
+    const tags = defineMeta([
+      {
+        httpEquiv: 'refresh',
+        content: '30',
       },
-    })
+    ])
 
     expect(tags).toMatchInlineSnapshot(`
-      {
-        "viewport": {
-          "maximumScale": 2100,
-          "viewportFit": "auto",
+      [
+        {
+          "content": "30",
+          "http-equiv": "refresh",
         },
-      }
+      ]
     `)
   })
 })

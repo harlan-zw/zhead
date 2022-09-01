@@ -1,6 +1,7 @@
 export const Rel = [
   'alternate',
   'author',
+  'shortcut icon',
   'bookmark',
   'canonical',
   'dns-prefetch',
@@ -49,6 +50,7 @@ export const StandardMetaDataNames = [
   'googlebot',
   'robots',
   'publisher',
+  // @todo og / twitter / ms / apple
 ] as const
 
 export const HttpEquiv = [

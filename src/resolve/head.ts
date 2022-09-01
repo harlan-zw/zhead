@@ -1,4 +1,3 @@
-
 // export function resolveHead<T extends HeadInput>(input: T): HeadInput {
 //   const validated = validateMetaTags(input)
 //   // const output: MetaInput = []

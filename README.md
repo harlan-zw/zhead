@@ -1,4 +1,4 @@
-<h1 align='center'>zhead</h1>
+<h1 align='center'>zHead</h1>
 
 <p align="center">
 <a href='https://github.com/vueuse/schema-org/actions/workflows/test.yml'>
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-Typed utilities for defining, validating and building your document &lt;head&gt;.  
+Fully typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.  
 </p>
 
 <p align="center">
@@ -31,23 +31,118 @@ Typed utilities for defining, validating and building your document &lt;head&gt;
 
 ## Features
 
-- 💎 [Zod-powered](https://zod.dev/) types and validation
-- 👮 SEO critical data with `withDefaults`
-- ✨ Resolves Social Share tags `resolveHead`
-- 🌳 Resolve flat meta tags `resolveMetaTags`
+- 🇹 Fully typed head Schema
+- 💎 [Zod-powered](https://zod.dev/) validation
+- 🧙 Resolve flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
+- ✨ Generate minimal tags with maximum SEO `buildSeoHead`
+- 📦 All keys allow camelCase `dataSomething` -> `data-something`
 - ✍️ Render to HTML and JSON [useHead](https://github.com/vueuse/head) compatible
+- 🌳 Fully composable, tree-shakable and extensible
 
-## Install
+## Table of Contents
+
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+- [Primitives](#primitives)
+- [Literals](#literals)
+- [Strings](#strings)
+- [Numbers](#numbers)
+- [NaNs](#nans)
+- [Booleans](#booleans)
+- [Dates](#dates)
+- [Zod enums](#zod-enums)
+- [Native enums](#native-enums)
+- [Optionals](#optionals)
+- [Nullables](#nullables)
+- [Objects](#objects)
+
+## Installation
 
 ```bash
 npm add zhead
 ```
 
-## Usage
+## Basic Usage
+
+Use the `defineHead` decorator for a simple fully-typed head schema.
+
+```ts
+import { defineHead } from 'zhead'
+
+const head = defineHead({
+  title: 'My Page',
+  base: {
+    href: 'https://example.com',
+    target: '_blank',
+  },
+  meta: [
+    { charset: 'utf-8' }
+  ]
+})
+
+/* output */
+
+// {
+//   title: 'My Page',
+//     base: {
+//     href: 'https://example.com',
+//       target: '_blank',
+//   },
+//   meta: [
+//     { charset: 'utf-8' }
+//   ]
+// }
+```
+
+Use the `resolveHead` function to resolve the head schema into a format ready for the browser.
+
+```ts
+import { resolveHead } from 'zhead'
+
+const head = resolveHead({
+  title: 'My Page',
+  base: {
+    href: 'https://example.com',
+    target: '_blank',
+  },
+  meta: [
+    { charset: 'utf-8' }
+  ]
+})
+
+/* output */
+
+// {
+//   title: 'My Page',
+//     base: {
+//     href: 'https://example.com',
+//       target: '_blank',
+//   },
+//   meta: [
+//     { charset: 'utf-8' }
+//   ]
+// }
+```
+
+Building a head with SEO inferences, using flat meta.
+
+```ts
+import { buildSeoHead, resolveMetaFlat } from 'zhead'
+
+const head = buildSeoHead({
+  title: 'Learn about zHead - zHead',
+  description: 'Describing the basic usage of zHead.',
+  meta: resolveMetaFlat({
+    ogTitle: 'Learn about zHead',
+    ogSiteName: 'zHead',
+    twitter: '@harlan_zw',
+  })
+})
+```
 
 ### Defines
 
-Decorator functions for using the zhead's type system.
+Decorator functions for using the zHead's type system.
 
 #### defineHead
 
