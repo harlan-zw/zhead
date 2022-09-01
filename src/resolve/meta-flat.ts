@@ -82,6 +82,21 @@ export function resolveMetaFlatNestedValue(value: unknown, definition?: FlatMeta
   return `${separator}${value}`
 }
 
+export function flattenMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
+  const meta: MetaFlatInput = {}
+  for (const input of inputs) {
+    // turn : into a capital letter
+    let key = (input.name || input.property || input.httpEquiv)?.replace(/:([a-z])/g, (_, letter) => letter.toUpperCase())
+    if (key === 'fbApp_id')
+      key = 'fbAppId'
+
+    if (key)
+      // @ts-expect-error untyped
+      meta[key] = input.content
+  }
+  return meta
+}
+
 export function resolveMetaFlat<T extends MetaFlatInput>(input: T): MetaInput {
   const output: MetaInput = []
   for (let [key, value] of Object.entries(input)) {

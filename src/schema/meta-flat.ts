@@ -13,6 +13,16 @@ import {
 
 export const MetaFlatDocumentSchema = z.object({
   /**
+   * This attribute declares the document's character encoding.
+   * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
+   * because UTF-8 is the only valid encoding for HTML5 documents.
+   * <meta> elements which declare a character encoding must be located entirely within the first 1024 bytes
+   * of the document.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset
+   */
+  charset: z.string(),
+  /**
    * Use this tag to provide a short description of the page.
    * In some situations, this description is used in the snippet shown in search results.
    *
@@ -71,8 +81,7 @@ export const MetaFlatDocumentSchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_other_specifications
    */
-  viewport: z.union([
-    z.string(),
+  viewport: maybeString(
     z.object({
       /**
        * Defines the pixel width of the viewport that you want the web site to be rendered at.
@@ -114,81 +123,83 @@ export const MetaFlatDocumentSchema = z.object({
        */
       viewportFit: z.union([z.literal('auto'), z.literal('contain'), z.literal('cover')]),
     }).partial(),
-  ]),
+  ),
 
   /**
    * Control the behavior of search engine crawling and indexing.
    */
-  robots: maybeString(z.object({
-    /**
-     * There are no restrictions for indexing or serving.
-     * This directive is the default value and has no effect if explicitly listed.
-     */
-    all: z.boolean(),
-    /**
-     * Do not show this page, media, or resource in search results.
-     * If you don't specify this directive, the page, media, or resource may be indexed and shown in search results.
-     */
-    noindex: z.boolean(),
-    /**
-     * Do not follow the links on this page.
-     * If you don't specify this directive, Google may use the links on the page to discover those linked pages.
-     */
-    nofollow: z.boolean(),
-    /**
-     * Equivalent to noindex, nofollow.
-     */
-    none: z.boolean(),
-    /**
-     * Do not show a cached link in search results.
-     * If you don't specify this directive,
-     * Google may generate a cached page and users may access it through the search results.
-     */
-    noarchive: z.boolean(),
-    /**
-     * Do not show a sitelinks search box in the search results for this page.
-     * If you don't specify this directive, Google may generate a search box specific to your site in search results,
-     * along with other direct links to your site.
-     */
-    nositelinkssearchbox: z.boolean(),
-    /**
-     *
-     * Do not show a text snippet or video preview in the search results for this page.
-     * A static image thumbnail (if available) may still be visible, when it results in a better user experience.
-     */
-    nosnippet: z.boolean(),
-    /**
-     * Google is allowed to index the content of a page if it's embedded in another
-     * page through iframes or similar HTML tags, in spite of a noindex directive.
-     *
-     * indexifembedded only has an effect if it's accompanied by noindex.
-     */
-    indexifembedded: z.boolean(),
-    /**
-     * Use a maximum of [number] characters as a textual snippet for this search result.
-     */
-    maxSnippet: z.number(),
-    /**
-     * Set the maximum size of an image preview for this page in a search results.
-     */
-    maxImagePreview: z.enum(MaxImagePreview),
-    /**
-     * Use a maximum of [number] seconds as a video snippet for videos on this page in search results.
-     */
-    maxVideoPreview: z.number(),
-    /**
-     * Don't offer translation of this page in search results.
-     */
-    notranslate: z.boolean(),
-    /**
-     * Do not show this page in search results after the specified date/time.
-     */
-    unavailable_after: z.date(),
-    /**
-     * Do not index images on this page.
-     */
-    noimageindex: z.boolean(),
-  }).partial()),
+  robots: maybeString(
+    z.object({
+      /**
+       * There are no restrictions for indexing or serving.
+       * This directive is the default value and has no effect if explicitly listed.
+       */
+      all: z.boolean(),
+      /**
+       * Do not show this page, media, or resource in search results.
+       * If you don't specify this directive, the page, media, or resource may be indexed and shown in search results.
+       */
+      noindex: z.boolean(),
+      /**
+       * Do not follow the links on this page.
+       * If you don't specify this directive, Google may use the links on the page to discover those linked pages.
+       */
+      nofollow: z.boolean(),
+      /**
+       * Equivalent to noindex, nofollow.
+       */
+      none: z.boolean(),
+      /**
+       * Do not show a cached link in search results.
+       * If you don't specify this directive,
+       * Google may generate a cached page and users may access it through the search results.
+       */
+      noarchive: z.boolean(),
+      /**
+       * Do not show a sitelinks search box in the search results for this page.
+       * If you don't specify this directive, Google may generate a search box specific to your site in search results,
+       * along with other direct links to your site.
+       */
+      nositelinkssearchbox: z.boolean(),
+      /**
+       *
+       * Do not show a text snippet or video preview in the search results for this page.
+       * A static image thumbnail (if available) may still be visible, when it results in a better user experience.
+       */
+      nosnippet: z.boolean(),
+      /**
+       * Google is allowed to index the content of a page if it's embedded in another
+       * page through iframes or similar HTML tags, in spite of a noindex directive.
+       *
+       * indexifembedded only has an effect if it's accompanied by noindex.
+       */
+      indexifembedded: z.boolean(),
+      /**
+       * Use a maximum of [number] characters as a textual snippet for this search result.
+       */
+      maxSnippet: z.number(),
+      /**
+       * Set the maximum size of an image preview for this page in a search results.
+       */
+      maxImagePreview: z.enum(MaxImagePreview),
+      /**
+       * Use a maximum of [number] seconds as a video snippet for videos on this page in search results.
+       */
+      maxVideoPreview: z.number(),
+      /**
+       * Don't offer translation of this page in search results.
+       */
+      notranslate: z.boolean(),
+      /**
+       * Do not show this page in search results after the specified date/time.
+       */
+      unavailable_after: z.date(),
+      /**
+       * Do not index images on this page.
+       */
+      noimageindex: z.boolean(),
+    }).partial(),
+  ),
   google: z.enum(GoogleContent),
   googlebot: z.enum(GoogleBotContent),
 
@@ -202,7 +213,7 @@ export const MetaFlatDocumentSchema = z.object({
    * @see https://developers.google.com/search/docs/advanced/guidelines/safesearch
    */
   rating: z.literal('adult'),
-}).partial()
+})
 
 export const MetaFlatPragmaSchema = z.object({
   contentSecurityPolicy: z.union([
@@ -247,7 +258,7 @@ export const MetaFlatPragmaSchema = z.object({
       url: z.string().url(),
     }),
   ]),
-}).partial()
+})
 
 export const MetaFlatRFDaSchema = z.object({
   /**
@@ -535,7 +546,7 @@ export const MetaFlatRFDaSchema = z.object({
    */
   twitterLabel2: z.string(),
 
-}).partial()
+})
 
 export const MetaFlatDevices = z.object({
   /**
@@ -583,14 +594,15 @@ export const MetaFlatDevices = z.object({
    * URL of a config for windows tile.
    */
   msapplicationConfig: z.string().url(),
-}).partial()
+})
 
-export const MetaFlatSchema = z.intersection(z.record(z.any()), z.object({})
-  .merge(MetaFlatDocumentSchema)
-  .merge(MetaFlatPragmaSchema)
-  .merge(MetaFlatRFDaSchema)
-  .merge(MetaFlatDevices),
-)
+export const MetaFlatSchema
+  = z.object({})
+    .merge(MetaFlatDocumentSchema)
+    .merge(MetaFlatPragmaSchema)
+    .merge(MetaFlatRFDaSchema)
+    .merge(MetaFlatDevices)
+    .partial()
 
 export type MetaFlatInput = z.infer<typeof MetaFlatSchema>
 

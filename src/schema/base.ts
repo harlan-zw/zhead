@@ -15,4 +15,4 @@ export const BaseSchema = maybeString(z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base#attr-target
    */
   target: z.string(),
-}))
+}).partial())

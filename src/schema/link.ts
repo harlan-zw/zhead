@@ -120,11 +120,10 @@ export const LinkEntrySchema = z.object({
    */
   type: z.string(),
 })
+  .merge(z.object({
+    key: z.string(),
+  }).partial())
 
 export const LinkEntriesSchema = z.array(LinkEntrySchema)
 
 export type LinkInput = z.infer<typeof LinkEntriesSchema>
-
-export function defineLink<T extends LinkInput>(input: T) {
-  return input
-}

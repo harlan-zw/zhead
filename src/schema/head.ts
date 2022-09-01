@@ -45,6 +45,7 @@ export const HeadSchema = z.object({
   noscript: z.array(
     z.object({
       children: z.string(),
+      key: z.string(),
     }),
   ),
 }).deepPartial()

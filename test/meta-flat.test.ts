@@ -1,5 +1,6 @@
 import { describe, it } from 'vitest'
 import {
+  flattenMeta,
   resolveMetaFlat,
 } from '../src'
 
@@ -509,6 +510,57 @@ describe('meta flat', () => {
           "property": "og:locale:alternate",
         },
       ]
+    `)
+  })
+
+  it('flatten meta', () => {
+    const flattened = flattenMeta([
+      {
+        name: 'description',
+        content: 'desc',
+      },
+      {
+        name: 'description',
+        content: 'desc 2',
+      },
+      {
+        property: 'og:locale:alternate',
+        content: 'fr',
+        key: 'fr',
+      },
+      {
+        property: 'og:locale:alternate',
+        content: 'zh',
+        key: 'zh',
+      },
+
+      // pragma
+      {
+        'content': '5;url=https://example.com',
+        'http-equiv': 'refresh',
+      },
+      {
+        'content': 'default-src \'self\' https://example.com; content-src none',
+        'http-equiv': 'content-security-policy',
+      },
+
+      {
+        content: '720',
+        property: 'og:image:height',
+      },
+      {
+        content: '1234567890',
+        property: 'fb:app_id',
+      },
+    ])
+
+    expect(flattened).toMatchInlineSnapshot(`
+      {
+        "description": "desc 2",
+        "fbAppId": "1234567890",
+        "ogImageHeight": "720",
+        "ogLocaleAlternate": "zh",
+      }
     `)
   })
 })

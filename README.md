@@ -1,4 +1,4 @@
-__<h1 align='center'>zHead</h1>
+<h1 align='center'>zHead</h1>
 
 <p align="center">
 <a href='https://github.com/vueuse/schema-org/actions/workflows/test.yml'>
@@ -59,9 +59,9 @@ const head = defineHead({
   title: 'My Page',
 })
 
-/*{
-   title: 'My Page',
-}*/
+// {
+//    title: 'My Page',
+// }
 ```
 
 ### resolveHead
@@ -76,11 +76,11 @@ const head = resolveHead({
     { httpEquiv: 'content-security-policy', content: 'content-src none' }
   ]
 })
-  /*{
-    meta: [
-      { 'http-equiv': 'content-security-policy', content: 'content-src none' }
-    ]
-  }*/
+// {
+//   meta: [
+//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+//   ]
+// }
 ```
 
 ### resolveMetaFlat
@@ -95,31 +95,113 @@ const head = defineHead({
     httpEquiv: 'content-src none',
   })
 })
-/*{
-  meta: [
-    { 'http-equiv': 'content-security-policy', content: 'content-src none' }
-  ]
-}*/
+// {
+//   meta: [
+//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+//   ]
+// }
 ```
 
-### buildSeoHead
+### resolveSeoHead
 
 Use this function to generate a minimal SEO head with maximum SEO.
 
 Internally this function uses the `withDefaults` and `inferSocialShare` utilities.
 
 ```ts
-import { buildSeoHead, resolveMetaFlat } from 'zhead'
+import { resolveSeoHead, resolveMetaFlat } from 'zhead'
 
-const head = buildSeoHead({
+const head = resolveSeoHead({
   title: 'Learn about zHead - zHead',
   description: 'Describing the basic usage of zHead.',
-  meta: resolveMetaFlat({
-    ogTitle: 'Learn about zHead',
-    ogSiteName: 'zHead',
-    twitter: '@harlan_zw',
-  })
 })
+
+// {
+//   "title": "My Title",
+//   "meta": [
+//     {
+//       "content": "Some description",
+//       "name": "description",
+//     },
+//     {
+//       "charset": "utf-8",
+//     },
+//     {
+//       "content": "initial-scale=1, width=device-width",
+//       "name": "viewport",
+//     },
+//     {
+//       "content": "My Title",
+//       "property": "og:title",
+//     },
+//     {
+//       "content": "Some description",
+//       "property": "og:description",
+//     },
+//     {
+//       "content": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+//       "name": "robots",
+//     },
+//   ],
+// }
+```
+
+### generateHtml
+
+```ts
+import { generateHtml } from 'zhead'
+
+const html = generateHtml({
+  title: 'test',
+  script: [
+    { src: 'https://example.com/script.js' },
+  ],
+  meta: [
+    { name: 'description', content: 'test' },
+  ]
+})
+
+// <title>test</title>
+// <meta content="test" name="description">
+// <script src="https://example.com/script.js"></script>
+```
+
+### generateTags
+
+```ts
+import { generateTags } from 'zhead'
+
+const tags = generateTags({
+  title: 'test',
+  script: [
+    { src: 'https://example.com/script.js' },
+  ],
+  meta: [
+    { name: 'description', content: 'test' },
+  ]
+})
+
+// [
+//   {
+//     "props": {
+//       "children": "test",
+//     },
+//     "tag": "title",
+//   },
+//   {
+//     "props": {
+//       "content": "test",
+//       "name": "description",
+//     },
+//     "tag": "meta",
+//   },
+//   {
+//     "props": {
+//       "src": "https://example.com/script.js",
+//     },
+//     "tag": "script",
+//   },
+// ]
 ```
 
 ## Sponsors
@@ -133,4 +215,4 @@ const head = buildSeoHead({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)__
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)

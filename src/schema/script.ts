@@ -78,11 +78,19 @@ export const ScriptEntrySchema = z.object({
    */
   type: z.enum(ScriptType),
 
-  /**
-   * Internal property to render the child output of a style.
-   */
-  children: z.string(),
 })
+  .merge(z.object({
+    /**
+     * Deduping property
+     */
+    key: z.string(),
+    /**
+     * Internal property to render the child output of a style.
+     */
+    children: z.string(),
+  }).partial())
+  .catchall(z.string())
+  .partial()
   // can't use defer without src
   // @todo test
   .refine((data) => {

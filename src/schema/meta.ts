@@ -1,8 +1,6 @@
 import { z } from 'zod'
-import { resolveKeyCasing } from '../resolve/utils'
 import { maybeString } from './utils'
 import {
-  DataSchema,
   HttpEquiv,
   StandardMetaDataNames,
 } from '.'
@@ -72,16 +70,14 @@ export const RFDaSchema = z.object({
   typeof: z.string(),
 }).partial()
 
-const MetaEntrySchema = z.intersection(HTMLMetaEntry.merge(RFDaSchema), DataSchema)
+const MetaEntrySchema = HTMLMetaEntry
+  .merge(RFDaSchema)
+  .merge(z.object({
+    key: z.string(),
+  }).partial())
 
 export const MetaEntriesSchema = z.array(
   MetaEntrySchema,
 )
 
 export type MetaInput = z.TypeOf<typeof MetaEntriesSchema>
-
-export function defineMeta<T extends MetaInput>(input: T) {
-  return input.map((entry) => {
-    return resolveKeyCasing(entry)
-  })
-}

@@ -22,10 +22,16 @@ export const StyleEntrySchema = z.object({
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-title
    */
   title: z.string(),
-  /**
-   * Internal property to render the child output of a style.
-   */
-  children: z.string(),
 })
+  .merge(z.object({
+    /**
+     * Deduping property
+     */
+    key: z.string(),
+    /**
+     * Internal property to render the child output of a style.
+     */
+    children: z.string(),
+  }).partial())
 
 export const StyleEntriesSchema = z.array(StyleEntrySchema)

@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { defineHead, resolveHeadFlat } from '../src'
+import { defineHead } from '../src'
 
 describe('head', () => {
   it('define head', () => {
@@ -30,43 +30,6 @@ describe('head', () => {
         ],
         "title": "test",
       }
-    `)
-  })
-
-  it('readme example', () => {
-    const head = resolveHeadFlat({
-      title: 'My Page',
-      base: {
-        href: 'https://example.com',
-        target: '_blank',
-      },
-      meta: [
-        { charset: 'utf-8' },
-      ],
-    })
-
-    expect(head).toMatchInlineSnapshot(`
-      [
-        {
-          "attributes": {
-            "children": "My Page",
-          },
-          "tag": "title",
-        },
-        {
-          "attributes": {
-            "href": "https://example.com",
-            "target": "_blank",
-          },
-          "tag": "base",
-        },
-        {
-          "attributes": {
-            "charset": "utf-8",
-          },
-          "tag": "meta",
-        },
-      ]
     `)
   })
 })
