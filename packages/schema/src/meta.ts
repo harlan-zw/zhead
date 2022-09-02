@@ -70,11 +70,18 @@ const RFDaSchema = z.object({
   typeof: z.string(),
 }).partial()
 
-const MetaEntrySchema = HTMLMetaEntry
-  .merge(RFDaSchema)
-  .merge(z.object({
-    key: z.string(),
-  }).partial())
+const MetaEntrySchema =
+  z.object({})
+    .merge(HTMLMetaEntry)
+    .merge(RFDaSchema)
+    .merge(z.object({
+      key: z.string(),
+    }).partial())
+    .refine((data) => {
+      return !(!data.content && !data.charset)
+    }, {
+      message: 'The attribute `content` must be included.',
+    })
 
 export const MetaEntriesSchema = z.array(
   MetaEntrySchema,
