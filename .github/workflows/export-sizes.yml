@@ -1,4 +1,4 @@
-name: Test
+name: Export Sizes
 
 on:
   push:
@@ -38,5 +38,14 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Test
-        run: pnpm run test
+      - name: Run package sizes
+        run: pnpm run export:sizes
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: "chore: update export size report"
+          add: "packages/zhead/export-size-report.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
