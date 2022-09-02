@@ -1,4 +1,4 @@
-import { PropertyPrefixKeys } from '../resolve'
+export const PropertyPrefixKeys = /^(og|twitter|fb)/
 
 export function packKey(key: string) {
   key = key.replace(/([A-Z])/g, '-$1').toLowerCase()

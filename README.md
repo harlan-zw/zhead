@@ -35,7 +35,7 @@ Fully typed utilities for defining, validating and building best-practice docume
 - 📦 Supports camelCase'd keys `dataSomething` -> `data-something`
 - ✨ Generate minimal tags with maximum SEO `buildSeoHead`
 - ✍️ Render to HTML and [useHead](https://github.com/vueuse/head) compatible tags
-- 🌳 Composable, tree-shakable and tiny (< 1kb)
+- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
 ## Installation
 
