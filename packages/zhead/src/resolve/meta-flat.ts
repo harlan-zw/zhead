@@ -1,6 +1,6 @@
 import type { MetaFlatInput, MetaInput } from '@zhead/schema'
-import type { ValidSeperators } from '..'
-import { packKey, packKeysDeep, transformValues } from '..'
+import type { ValidSeperators } from '../transforms'
+import { PropertyPrefixKeys, packKey, packKeysDeep, transformValues } from '../transforms'
 
 export type ValidMetaType = 'name' | 'http-equiv' | 'property' | 'charset'
 
@@ -12,9 +12,7 @@ interface PackingDefinition<T = any> {
   resolve?: (value: T) => string
 }
 
-export const PropertyPrefixKeys = /^(og|twitter|fb)/
-
-export const MetaPackingSchema: Record<string, PackingDefinition> = {
+const MetaPackingSchema: Record<string, PackingDefinition> = {
   robots: {
     childSeparator: ':',
   },
@@ -65,17 +63,17 @@ export const MetaPackingSchema: Record<string, PackingDefinition> = {
   },
 }
 
-export const MetaPackingSchemaFlat = Object.entries(MetaPackingSchema).map(([key, value]) => [key, value.keyValue])
-
 export function resolveMetaKeyType(key: string): ValidMetaType {
   return PropertyPrefixKeys.test(key) ? 'property' : (MetaPackingSchema[key]?.metaKey || 'name')
 }
 
 export function packMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
+  const mappedPackingSchema = Object.entries(MetaPackingSchema)
+    .map(([key, value]) => [key, value.keyValue])
   const meta: MetaFlatInput = {}
   for (const input of inputs) {
     let key = input.name || input.property || input.httpEquiv || ''
-    key = MetaPackingSchemaFlat.filter(k => k[1] === key)?.[0]?.[0] || key
+    key = mappedPackingSchema.filter(k => k[1] === key)?.[0]?.[0] || key
     // turn : into a capital letter
     key = key.replace(/:([a-z])/g, (_, letter) => letter.toUpperCase())
     if (key)
