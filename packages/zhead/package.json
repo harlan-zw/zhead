@@ -1,0 +1,43 @@
+{
+  "name": "zhead",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.8.0",
+  "description": "Node Schema.org for Simple and Automated Google Rich Results",
+  "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "homepage": "https://github.com/harlan-zw/zhead#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harlan-zw/zhead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harlan-zw/zhead/issues"
+  },
+  "keywords": [
+    "meta tags",
+    "node",
+    "seo"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild .",
+    "stub": "unbuild . --stub"
+  },
+  "dependencies": {
+    "@zhead/schema": "workspace:*"
+  }
+}
