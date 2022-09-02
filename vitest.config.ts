@@ -3,10 +3,13 @@
 /// <reference types="vitest/globals" />
 
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   resolve: {
     alias: {
+      "zhead": resolve(__dirname, "packages/zhead/src/index.ts"),
+      "@zhead/schema": resolve(__dirname, "packages/schema/src/index.ts"),
     }
   },
   test: {

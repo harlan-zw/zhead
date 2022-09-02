@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x]
         # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [ubuntu-latest]
       fail-fast: false
@@ -40,3 +40,16 @@ jobs:
 
       - name: Test
         run: pnpm run test
+
+
+      - name: Run package sizes
+        run: pnpm run export:sizes
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: "chore: update export size report"
+          add: "packages/zhead/export-size-report.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

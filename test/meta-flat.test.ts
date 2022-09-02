@@ -1,12 +1,9 @@
 import { describe, it } from 'vitest'
-import {
-  flattenMeta,
-  resolveMetaFlat,
-} from '../src'
+import { packMeta, unpackMeta } from 'zhead'
 
 describe('meta flat', () => {
   it('charset', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       charset: 'utf-8',
     })
 
@@ -21,7 +18,7 @@ describe('meta flat', () => {
 
   // done
   it('define document', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       description: 'test',
       colorScheme: 'dark',
       applicationName: 'My website',
@@ -113,7 +110,7 @@ describe('meta flat', () => {
   })
   // done
   it('define document strings', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       robots: 'noindex, nofollow, max-snippet:20, max-image-preview:large',
       viewport: 'width=600, height=600, user-scalable=yes, maximum-scale=5, initial-scale=1, viewport-fit=auto',
     })
@@ -134,7 +131,7 @@ describe('meta flat', () => {
 
   // done
   it('define pragma', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       refresh: {
         seconds: 5,
         url: 'https://example.com',
@@ -175,7 +172,7 @@ describe('meta flat', () => {
   })
   // done
   it('define pragma strings', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       refresh: '5;url=https://example.com',
       contentSecurityPolicy: 'default-src \'self\' https://example.com; content-src none',
     })
@@ -195,7 +192,7 @@ describe('meta flat', () => {
   })
 
   it('define device', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       themeColor: 'red',
       mobileWebAppCapable: 'yes',
       appleMobileWebAppCapable: 'yes',
@@ -250,7 +247,7 @@ describe('meta flat', () => {
   })
 
   it('define RFDa', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       ogUrl: 'https://example.com',
       ogTitle: 'my title',
       ogDescription: 'my description',
@@ -495,7 +492,7 @@ describe('meta flat', () => {
   })
 
   it('define multiple og:locale:alternate', () => {
-    const tags = resolveMetaFlat({
+    const tags = unpackMeta({
       ogLocaleAlternate: ['en_US', 'fr_FR'],
     })
 
@@ -514,7 +511,7 @@ describe('meta flat', () => {
   })
 
   it('flatten meta', () => {
-    const flattened = flattenMeta([
+    const flattened = packMeta([
       {
         name: 'description',
         content: 'desc',

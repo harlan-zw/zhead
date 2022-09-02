@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { resolveHead } from '../src'
+import { resolveHead } from 'zhead'
 
 describe('seo head', () => {
   it('build seo head', () => {

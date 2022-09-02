@@ -3,7 +3,7 @@ import { maybeString } from './utils'
 import {
   HttpEquiv,
   StandardMetaDataNames,
-} from '.'
+} from './constants'
 
 const HTMLMetaEntry = z.object({
   /**
@@ -38,7 +38,7 @@ const HTMLMetaEntry = z.object({
   name: maybeString(z.enum(StandardMetaDataNames)),
 }).partial()
 
-export const RFDaSchema = z.object({
+const RFDaSchema = z.object({
   /**
    * A URI or CURIE specifying the resource the metadata is about.
    */

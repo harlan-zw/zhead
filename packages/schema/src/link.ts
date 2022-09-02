@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CrossOrigin, FetchPriority, LinkAs, ReferrerPolicy, Rel } from '.'
+import { CrossOrigin, FetchPriority, LinkAs, ReferrerPolicy, Rel } from './constants'
 
 export const LinkEntrySchema = z.object({
   /**

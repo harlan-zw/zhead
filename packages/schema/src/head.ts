@@ -51,7 +51,3 @@ export const HeadSchema = z.object({
 }).deepPartial()
 
 export type HeadInput = z.infer<typeof HeadSchema>
-
-export function defineHead<T extends HeadInput>(input: T) {
-  return input
-}

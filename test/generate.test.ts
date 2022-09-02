@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { generateHtml, generateHtmlStrict, generateTags, generateTagsStrict, resolveMetaFlat } from '../src'
+import { generateHtml, generateHtmlStrict, generateTags, generateTagsStrict, unpackMeta } from 'zhead'
 
 describe('generate', () => {
   it('example tags', () => {
@@ -86,7 +86,7 @@ describe('generate', () => {
         {
           charset: 'utf-8',
         },
-        ...resolveMetaFlat({
+        ...unpackMeta({
           ogTitle: 'test',
         }),
         {

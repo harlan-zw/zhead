@@ -9,9 +9,9 @@ import {
   OgImageType,
   OgTypes,
   OgVideoType, ReferrerPolicy, TwitterCard,
-} from '.'
+} from './constants'
 
-export const MetaFlatDocumentSchema = z.object({
+const MetaFlatDocumentSchema = z.object({
   /**
    * This attribute declares the document's character encoding.
    * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
@@ -215,52 +215,47 @@ export const MetaFlatDocumentSchema = z.object({
   rating: z.literal('adult'),
 })
 
-export const MetaFlatPragmaSchema = z.object({
-  contentSecurityPolicy: z.union([
-    z.string(),
-    z.object({
-      childSrc: z.string(),
-      connectSrc: z.string(),
-      defaultSrc: z.string(),
-      fontSrc: z.string(),
-      imgSrc: z.string(),
-      manifestSrc: z.string(),
-      mediaSrc: z.string(),
-      objectSrc: z.string(),
-      prefetchSrc: z.string(),
-      scriptSrc: z.string(),
-      scriptSrcElem: z.string(),
-      scriptSrcAttr: z.string(),
-      styleSrc: z.string(),
-      styleSrcElem: z.string(),
-      styleSrcAttr: z.string(),
-      workerSrc: z.string(),
-      baseUri: z.string(),
-      sandbox: z.string(),
-      formAction: z.string(),
-      frameAncestors: z.string(),
-      navigateTo: z.string(),
-      reportUri: z.string(),
-      reportTo: z.string(),
-      requireSriFor: z.string(),
-      requireTrustedTypesFor: z.string(),
-      trustedTypes: z.string(),
-      upgradeInsecureRequests: z.string(),
-    }).partial(),
-  ]),
+const MetaFlatPragmaSchema = z.object({
+  contentSecurityPolicy: maybeString(z.object({
+    childSrc: z.string(),
+    connectSrc: z.string(),
+    defaultSrc: z.string(),
+    fontSrc: z.string(),
+    imgSrc: z.string(),
+    manifestSrc: z.string(),
+    mediaSrc: z.string(),
+    objectSrc: z.string(),
+    prefetchSrc: z.string(),
+    scriptSrc: z.string(),
+    scriptSrcElem: z.string(),
+    scriptSrcAttr: z.string(),
+    styleSrc: z.string(),
+    styleSrcElem: z.string(),
+    styleSrcAttr: z.string(),
+    workerSrc: z.string(),
+    baseUri: z.string(),
+    sandbox: z.string(),
+    formAction: z.string(),
+    frameAncestors: z.string(),
+    navigateTo: z.string(),
+    reportUri: z.string(),
+    reportTo: z.string(),
+    requireSriFor: z.string(),
+    requireTrustedTypesFor: z.string(),
+    trustedTypes: z.string(),
+    upgradeInsecureRequests: z.string(),
+  }).partial()),
   contentType: z.literal('text/html; charset=utf-8'),
   defaultStyle: z.string(),
   xUaCompatible: z.literal('IE=edge'),
-  refresh: z.union([
-    z.string(),
-    z.object({
-      seconds: z.number().min(0),
-      url: z.string().url(),
-    }),
-  ]),
+  refresh: maybeString(z.object({
+    seconds: z.number().min(0),
+    url: z.string().url(),
+  }),
+  ),
 })
 
-export const MetaFlatRFDaSchema = z.object({
+const MetaFlatRFDaSchema = z.object({
   /**
    * The canonical URL for your page.
    *
@@ -548,7 +543,7 @@ export const MetaFlatRFDaSchema = z.object({
 
 })
 
-export const MetaFlatDevices = z.object({
+const MetaFlatDevices = z.object({
   /**
    * Indicates a suggested color that user agents should use to customize the display of the page or
    * of the surrounding user interface.
@@ -603,12 +598,5 @@ export const MetaFlatSchema = z.object({})
   .merge(MetaFlatDevices)
   .partial()
 
-export const MetaFlatKeys = MetaFlatSchema.keyof().enum
-
-export type MetaFlatKeyInput = typeof MetaFlatKeys
-
 export type MetaFlatInput = z.infer<typeof MetaFlatSchema>
 
-export function defineMetaFlat<T extends MetaFlatInput>(input: T) {
-  return input
-}

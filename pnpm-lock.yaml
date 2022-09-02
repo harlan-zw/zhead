@@ -1,34 +1,44 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@antfu/eslint-config': ^0.26.2
-  '@types/fs-extra': ^9.0.13
-  '@vitest/ui': ^0.22.1
-  bumpp: ^8.2.1
-  eslint: ^8.23.0
-  fs-extra: ^10.1.0
-  jsdom: ^20.0.0
-  typescript: ^4.8.2
-  unbuild: ^0.8.9
-  utility-types: ^3.10.0
-  vitest: ^0.22.1
-  zod: ^3.18.0
+importers:
 
-dependencies:
-  zod: 3.18.0
+  .:
+    specifiers:
+      '@antfu/eslint-config': ^0.26.2
+      '@types/fs-extra': ^9.0.13
+      '@vitest/ui': ^0.22.1
+      bumpp: ^8.2.1
+      eslint: ^8.23.0
+      fs-extra: ^10.1.0
+      jsdom: ^20.0.0
+      typescript: ^4.8.2
+      unbuild: ^0.8.9
+      utility-types: ^3.10.0
+      vitest: ^0.22.1
+    devDependencies:
+      '@antfu/eslint-config': 0.26.2_yqf6kl63nyoq5megxukfnom5rm
+      '@types/fs-extra': 9.0.13
+      '@vitest/ui': 0.22.1
+      bumpp: 8.2.1
+      eslint: 8.23.0
+      fs-extra: 10.1.0
+      jsdom: 20.0.0
+      typescript: 4.8.2
+      unbuild: 0.8.9
+      utility-types: 3.10.0
+      vitest: 0.22.1_r26ddduqt3xuel6y6oroghsjvu
 
-devDependencies:
-  '@antfu/eslint-config': 0.26.2_yqf6kl63nyoq5megxukfnom5rm
-  '@types/fs-extra': 9.0.13
-  '@vitest/ui': 0.22.1
-  bumpp: 8.2.1
-  eslint: 8.23.0
-  fs-extra: 10.1.0
-  jsdom: 20.0.0
-  typescript: 4.8.2
-  unbuild: 0.8.9
-  utility-types: 3.10.0
-  vitest: 0.22.1_r26ddduqt3xuel6y6oroghsjvu
+  packages/schema:
+    specifiers:
+      zod: ^3.18.0
+    dependencies:
+      zod: 3.18.0
+
+  packages/zhead:
+    specifiers:
+      '@zhead/schema': workspace:*
+    dependencies:
+      '@zhead/schema': link:../schema
 
 packages:
 

@@ -32,10 +32,10 @@ Fully typed utilities for defining, validating and building best-practice docume
 
 - 💎 Fully typed, [Zod-powered](https://zod.dev/) Schema with optional validation
 - 🧙 Resolve typed, flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
+- 📦 Supports camelCase'd keys `dataSomething` -> `data-something`
 - ✨ Generate minimal tags with maximum SEO `buildSeoHead`
-- 📦 All keys allow camelCase `dataSomething` -> `data-something`
-- ✍️ Render to HTML and JSON [useHead](https://github.com/vueuse/head) compatible
-- 🌳 Fully composable, tree-shakable and extensible
+- ✍️ Render to HTML and [useHead](https://github.com/vueuse/head) compatible tags
+- 🌳 Composable, tree-shakable and tiny (< 1kb)
 
 ## Installation
 

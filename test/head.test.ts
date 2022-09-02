@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { defineHead } from '../src'
+import { defineHead } from 'zhead'
 
 describe('head', () => {
   it('define head', () => {

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CrossOrigin, FetchPriority, ReferrerPolicy, ScriptType } from '.'
+import { CrossOrigin, FetchPriority, ReferrerPolicy, ScriptType } from './constants'
 
 export const ScriptEntrySchema = z.object({
   /**

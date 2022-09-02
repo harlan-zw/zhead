@@ -1,6 +1,5 @@
 {
-  "name": "zhead-monorepo",
-  "private": "true",
+  "name": "@zhead/schema",
   "version": "0.0.1",
   "packageManager": "pnpm@7.8.0",
   "description": "Node Schema.org for Simple and Automated Google Rich Results",
@@ -35,24 +34,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm -r --filter=./packages/** run build",
-    "stub": "pnpm -r --parallel --filter=./packages/** run stub",
-    "test": "vitest",
-    "export:sizes": "cd packages/zhead && npx export-size . -o",
-    "release": "bumpp package.json --commit --push --tag",
-    "lint": "eslint \"{packages,test}/**/*.{ts,vue,json,yml}\" --fix"
+    "build": "unbuild .",
+    "stub": "unbuild . --stub"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.26.2",
-    "@types/fs-extra": "^9.0.13",
-    "@vitest/ui": "^0.22.1",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.23.0",
-    "fs-extra": "^10.1.0",
-    "jsdom": "^20.0.0",
-    "typescript": "^4.8.2",
-    "unbuild": "^0.8.9",
-    "utility-types": "^3.10.0",
-    "vitest": "^0.22.1"
+  "dependencies": {
+    "zod": "^3.18.0"
   }
 }

@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { resolveMetaFlat, resolveSeoHead } from '../src'
+import { resolveSeoHead, unpackMeta } from 'zhead'
 
 describe('seo head', () => {
   it('build seo head', () => {
@@ -8,7 +8,7 @@ describe('seo head', () => {
       link: [
         { href: 'style.css', as: 'style', crossorigin: 'anonymous' },
       ],
-      meta: resolveMetaFlat({
+      meta: unpackMeta({
         description: 'test',
         dataTestSomething: 'test',
         somegibberish: 'ttreg',
