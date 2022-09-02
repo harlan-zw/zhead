@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "name": "zhead",
+    "dependencies": [
+      "@zhead/schema"
+    ],
+    "versions": {
+      "export-size": "0.5.2",
+      "esbuild": "^0.13.8",
+      "brotli-size": "^4.0.0"
+    }
+  },
+  "exports": [
+    {
+      "name": "resolveSeoHead",
+      "path": "dist/index.mjs",
+      "minified": 2373,
+      "minzipped": 955,
+      "bundled": 4620
+    },
+    {
+      "name": "generateHtmlStrict",
+      "path": "dist/index.mjs",
+      "minified": 1786,
+      "minzipped": 759,
+      "bundled": 3065
+    },
+    {
+      "name": "generateHtml",
+      "path": "dist/index.mjs",
+      "minified": 1720,
+      "minzipped": 731,
+      "bundled": 2935
+    },
+    {
+      "name": "unpackMeta",
+      "path": "dist/index.mjs",
+      "minified": 1663,
+      "minzipped": 674,
+      "bundled": 3207
+    },
+    {
+      "name": "generateTagsStrict",
+      "path": "dist/index.mjs",
+      "minified": 1339,
+      "minzipped": 564,
+      "bundled": 2213
+    },
+    {
+      "name": "generateTags",
+      "path": "dist/index.mjs",
+      "minified": 1273,
+      "minzipped": 543,
+      "bundled": 2095
+    },
+    {
+      "name": "resolveHead",
+      "path": "dist/index.mjs",
+      "minified": 1023,
+      "minzipped": 442,
+      "bundled": 1679
+    },
+    {
+      "name": "packKeysDeep",
+      "path": "dist/index.mjs",
+      "minified": 992,
+      "minzipped": 432,
+      "bundled": 1611
+    },
+    {
+      "name": "packMeta",
+      "path": "dist/index.mjs",
+      "minified": 860,
+      "minzipped": 400,
+      "bundled": 1388
+    },
+    {
+      "name": "stringifyAttrs",
+      "path": "dist/index.mjs",
+      "minified": 907,
+      "minzipped": 400,
+      "bundled": 1495
+    },
+    {
+      "name": "transformValues",
+      "path": "dist/index.mjs",
+      "minified": 955,
+      "minzipped": 395,
+      "bundled": 1591
+    },
+    {
+      "name": "packKey",
+      "path": "dist/index.mjs",
+      "minified": 819,
+      "minzipped": 355,
+      "bundled": 1272
+    },
+    {
+      "name": "transformValue",
+      "path": "dist/index.mjs",
+      "minified": 790,
+      "minzipped": 343,
+      "bundled": 1264
+    },
+    {
+      "name": "resolveMetaKeyType",
+      "path": "dist/index.mjs",
+      "minified": 746,
+      "minzipped": 326,
+      "bundled": 1210
+    },
+    {
+      "name": "PropertyPrefixKeys",
+      "path": "dist/index.mjs",
+      "minified": 682,
+      "minzipped": 294,
+      "bundled": 1077
+    },
+    {
+      "name": "defineHead",
+      "path": "dist/index.mjs",
+      "minified": 684,
+      "minzipped": 288,
+      "bundled": 1071
+    },
+    {
+      "name": "MetaPackingSchema",
+      "path": "dist/index.mjs",
+      "minified": 661,
+      "minzipped": 281,
+      "bundled": 1031
+    },
+    {
+      "name": "MetaPackingSchemaFlat",
+      "path": "dist/index.mjs",
+      "minified": 661,
+      "minzipped": 281,
+      "bundled": 1035
+    }
+  ]
+}
