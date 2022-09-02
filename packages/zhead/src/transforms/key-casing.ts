@@ -1,8 +1,6 @@
-import { MetaPackingSchema, PropertyPrefixKeys } from '../resolve'
+import { PropertyPrefixKeys } from '../resolve'
 
 export function packKey(key: string) {
-  if (MetaPackingSchema[key]?.keyValue)
-    return MetaPackingSchema[key].keyValue as string
   key = key.replace(/([A-Z])/g, '-$1').toLowerCase()
   if (PropertyPrefixKeys.test(key)) {
     key = key

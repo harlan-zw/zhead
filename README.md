@@ -65,7 +65,7 @@ const head = defineHead({
 
 ### resolveHead
 
-Use the `resolveHead` function to convert any camel-cased keys to a casing that browsers will understand..
+Use the `resolveHead` function to convert keys to kebab-case deeply.
 
 ```ts
 import { resolveHead } from 'zhead'

@@ -92,7 +92,10 @@ export function unpackMeta<T extends MetaFlatInput>(input: T): MetaInput {
     const definition = MetaPackingSchema[definitionKey]
     const metaKey = resolveMetaKeyType(definitionKey)
 
-    key = packKey(key)
+    if (MetaPackingSchema[key]?.keyValue)
+      key = MetaPackingSchema[key].keyValue as string
+    else
+      key = packKey(key)
     value = packKeysDeep(value)
 
     if (definition?.resolve)
