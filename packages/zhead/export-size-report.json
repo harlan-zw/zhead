@@ -14,9 +14,9 @@
     {
       "name": "resolveSeoHead",
       "path": "dist/index.mjs",
-      "minified": 2377,
-      "minzipped": 965,
-      "bundled": 4620
+      "minified": 2428,
+      "minzipped": 978,
+      "bundled": 4706
     },
     {
       "name": "unpackMeta",
@@ -42,9 +42,9 @@
     {
       "name": "packMeta",
       "path": "dist/index.mjs",
-      "minified": 860,
-      "minzipped": 404,
-      "bundled": 1388
+      "minified": 911,
+      "minzipped": 419,
+      "bundled": 1474
     },
     {
       "name": "generateTagsStrict",
