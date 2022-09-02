@@ -536,14 +536,14 @@ describe('meta flat', () => {
         'content': '5;url=https://example.com',
         'http-equiv': 'refresh',
       },
+
       {
         'content': 'default-src \'self\' https://example.com; content-src none',
         'http-equiv': 'content-security-policy',
       },
-
       {
-        content: '720',
-        property: 'og:image:height',
+        name: 'description',
+        content: 'desc',
       },
       {
         content: '1234567890',
@@ -553,10 +553,11 @@ describe('meta flat', () => {
 
     expect(flattened).toMatchInlineSnapshot(`
       {
-        "description": "desc 2",
+        "contentSecurityPolicy": "default-src 'self' https://example.com; content-src none",
+        "description": "desc",
         "fbAppId": "1234567890",
-        "ogImageHeight": "720",
         "ogLocaleAlternate": "zh",
+        "refresh": "5;url=https://example.com",
       }
     `)
   })

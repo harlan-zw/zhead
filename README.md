@@ -1,4 +1,4 @@
-<h1 align='center'>zHead</h1>
+_<h1 align='center'>zHead</h1>
 
 <p align="center">
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
@@ -43,7 +43,7 @@ Fully typed utilities for defining, validating and building best-practice docume
 npm add zhead
 ```
 
-## API
+## Resolving API
 
 ### defineHead
 
@@ -65,7 +65,7 @@ const head = defineHead({
 
 ### resolveHead
 
-Use the `resolveHead` function to convert keys to kebab-case deeply.
+Use the `resolveHead` function to define your head and convert keys to kebab-case deeply.
 
 ```ts
 import { resolveHead } from 'zhead'
@@ -82,30 +82,70 @@ const head = resolveHead({
 // }
 ```
 
-### resolveMetaFlat
+### unpackMeta
 
-Use this function to describe your meta tags with a flat fully-typed, object.
+Define your meta tags in a simple object with full type-safety.
 
 ```ts
 import { defineHead, resolveMetaFlat } from 'zhead'
 
-const head = defineHead({
-  meta: resolveMetaFlat({
-    httpEquiv: 'content-src none',
-  })
+const meta = unpackMeta({
+    contentSecurityPolicy: {
+      contentSrc: 'none'
+    },
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      userScalable: 'yes',
+    }
 })
-// {
-//   meta: [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
+
+//   [
+//     { 'http-equiv': 'content-security-policy', content: 'content-src none' },
+//     { 'name': 'viewport', content: 'width=device-width, user-scalable=yes, initial-scale=1' }
 //   ]
+```
+
+### packMeta
+
+Turn array meta tags into a flat packed object.
+
+```ts
+import { defineHead, resolveMetaFlat } from 'zhead'
+
+const meta = packMeta([
+  {
+    'content': 'default-src \'self\' https://example.com; content-src none',
+    'http-equiv': 'content-security-policy',
+  },
+  {
+    name: 'description',
+    content: 'desc',
+  },
+  {
+    content: '1234567890',
+    property: 'fb:app_id',
+  },
+])
+
+// {
+//   "description": "desc",
+//   "fbAppId": "1234567890",
+//   "contentSecurityPolicy": "default-src 'self' https://example.com; content-src none"
 // }
 ```
 
 ### resolveSeoHead
 
-Use this function to generate a minimal SEO head with maximum SEO.
+Generate a minimal SEO head with maximum SEO.
 
 Internally this function uses the `withDefaults` and `inferSocialShare` utilities.
+
+- Adds utf-8 charset
+- Sets default best practice viewport
+- Infers social share tags from `title` and `description`
+- Sets twitter card to `summary_large_image`
+- Sets robots best practice
 
 ```ts
 import { resolveSeoHead, resolveMetaFlat } from 'zhead'
@@ -144,6 +184,37 @@ const head = resolveSeoHead({
 //   ],
 // }
 ```
+
+## Validation API
+
+```ts
+import { resolveHead } from 'zhead'
+import { HeadSchema } from "@zhead/schema";
+
+const tags = resolveHead({
+  meta: [
+    { description: 'My Description' }
+  ]
+})
+
+HeadSchema.safeParse(tags)
+
+// {
+//   "error": [ZodError: [
+//     {
+//       "code": "custom",
+//       "message": "The attribute `content` must be included.",
+//       "path": [
+//         "meta",
+//         0
+//       ]
+//     }
+//   ]],
+//   "success": false,
+// }
+```
+
+## Generate API
 
 ### generateHtml
 
@@ -214,4 +285,4 @@ const tags = generateTags({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_

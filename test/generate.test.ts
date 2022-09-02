@@ -58,7 +58,6 @@ describe('generate', () => {
   it('tags malformed example', () => {
     const head = generateTagsStrict({
       meta: [
-        { },
       ],
       script: [
         { src: 'https://example.com/script.js', dataTestId: '12345' },
@@ -82,7 +81,6 @@ describe('generate', () => {
   it('html malformed example', () => {
     const head = generateHtmlStrict({
       meta: [
-        { },
         {
           charset: 'utf-8',
         },

@@ -72,10 +72,15 @@ export function packMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
     .map(([key, value]) => [key, value.keyValue])
   const meta: MetaFlatInput = {}
   for (const input of inputs) {
-    let key = input.name || input.property || input.httpEquiv || ''
+    // @ts-expect-error untyped casing
+    let key = input.name || input.property || input.httpEquiv || input['http-equiv'] || ''
     key = mappedPackingSchema.filter(k => k[1] === key)?.[0]?.[0] || key
     // turn : into a capital letter
-    key = key.replace(/:([a-z])/g, (_, letter) => letter.toUpperCase())
+    // @ts-expect-error untyped
+    const replacer = (_, letter) => letter?.toUpperCase()
+    key = key
+      .replace(/:([a-z])/g, replacer)
+      .replace(/-([a-z])/g, replacer)
     if (key)
       // @ts-expect-error untyped
       meta[key] = input.content
