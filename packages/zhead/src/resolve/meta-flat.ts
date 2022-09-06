@@ -67,6 +67,10 @@ export function resolveMetaKeyType(key: string): ValidMetaType {
   return PropertyPrefixKeys.test(key) ? 'property' : (MetaPackingSchema[key]?.metaKey || 'name')
 }
 
+/**
+ * Convert an array of meta entries to a flat object.
+ * @param inputs
+ */
 export function packMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
   const mappedPackingSchema = Object.entries(MetaPackingSchema)
     .map(([key, value]) => [key, value.keyValue])
@@ -88,6 +92,10 @@ export function packMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
   return meta
 }
 
+/**
+ * Converts a flat meta object into an array of meta entries.
+ * @param input
+ */
 export function unpackMeta<T extends MetaFlatInput>(input: T): MetaInput {
   const output: MetaInput = []
   for (let [key, value] of Object.entries(input)) {
