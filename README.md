@@ -19,7 +19,7 @@ Fully typed utilities for defining, validating and building best-practice docume
 <tbody>
 <td align="center">
 <img width="800" height="0" /><br>
-<i>Status:</i> In Development</b> <br>
+<i>Status:</i> Pre-release</b> <br>
 <sup> Please report any issues 🐛</sup><br>
 <sub>Made possible by my <a href="https://github.com/sponsors/harlan-zw">Sponsor Program 💖</a><br> Follow me <a href="https://twitter.com/harlan_zw">@harlan_zw</a> 🐦 • Join <a href="https://discord.gg/275MBUBvgP">Discord</a> for help</sub><br>
 <img width="800" height="0" />
@@ -32,7 +32,7 @@ Fully typed utilities for defining, validating and building best-practice docume
 
 - 💎 Fully typed, [Zod-powered](https://zod.dev/) Schema with optional validation
 - 🧙 Resolve typed, flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
-- 📦 Supports camelCase'd keys `dataSomething` -> `data-something`
+- 📦 Converts keys to / from camelCase `dataSomething` -> `data-something`
 - ✨ Generate minimal tags with maximum SEO `buildSeoHead`
 - ✍️ Render to HTML and [useHead](https://github.com/vueuse/head) compatible tags
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
