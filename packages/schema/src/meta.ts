@@ -68,7 +68,7 @@ export const RFDaSchema = z.object({
    * (the resource that the metadata is about).
    */
   typeof: z.string(),
-})
+}).partial()
 
 export const MetaEntrySchema =
   z.object({})
