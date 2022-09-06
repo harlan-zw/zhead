@@ -5,7 +5,7 @@ import {
   StandardMetaDataNames,
 } from './constants'
 
-const HTMLMetaEntry = z.object({
+export const HTMLMetaEntry = z.object({
   /**
    * This attribute declares the document's character encoding.
    * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
@@ -38,7 +38,7 @@ const HTMLMetaEntry = z.object({
   name: maybeString(z.enum(StandardMetaDataNames)),
 }).partial()
 
-const RFDaSchema = z.object({
+export const RFDaSchema = z.object({
   /**
    * A URI or CURIE specifying the resource the metadata is about.
    */
@@ -68,9 +68,9 @@ const RFDaSchema = z.object({
    * (the resource that the metadata is about).
    */
   typeof: z.string(),
-}).partial()
+})
 
-const MetaEntrySchema =
+export const MetaEntrySchema =
   z.object({})
     .merge(HTMLMetaEntry)
     .merge(RFDaSchema)

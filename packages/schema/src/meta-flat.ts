@@ -11,7 +11,7 @@ import {
   OgVideoType, ReferrerPolicy, TwitterCard,
 } from './constants'
 
-const MetaFlatDocumentSchema = z.object({
+export const MetaFlatDocumentSchema = z.object({
   /**
    * This attribute declares the document's character encoding.
    * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
@@ -215,7 +215,7 @@ const MetaFlatDocumentSchema = z.object({
   rating: z.literal('adult'),
 })
 
-const MetaFlatPragmaSchema = z.object({
+export const MetaFlatPragmaSchema = z.object({
   contentSecurityPolicy: maybeString(z.object({
     childSrc: z.string(),
     connectSrc: z.string(),
@@ -255,7 +255,7 @@ const MetaFlatPragmaSchema = z.object({
   ),
 })
 
-const MetaFlatRFDaSchema = z.object({
+export const MetaFlatRFDaSchema = z.object({
   /**
    * The canonical URL for your page.
    *
@@ -543,7 +543,7 @@ const MetaFlatRFDaSchema = z.object({
 
 })
 
-const MetaFlatDevices = z.object({
+export const MetaFlatDevices = z.object({
   /**
    * Indicates a suggested color that user agents should use to customize the display of the page or
    * of the surrounding user interface.
