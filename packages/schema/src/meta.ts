@@ -18,6 +18,12 @@ type FixCase<T extends string> =
           `og${infer R}` | `twitter${infer R}`
           ? KebabColon<T> : Kebab<T>
 
+type ContentKeys<T extends string> = T extends
+  `og${infer R}` | `twitter${infer R}` ? never : T
+
+type PropertyKeys<T extends string> = T extends
+  `og${infer R}` | `twitter${infer R}` ? T : never
+
 export interface Meta {
   /**
    * This attribute declares the document's character encoding.
@@ -34,7 +40,7 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content
    */
-  content: string
+  content: MetaFlat[keyof MetaFlat] | string
   /**
    * Defines a pragma directive. The attribute is named http-equiv(alent) because all the allowed values are names of
    * particular HTTP headers.
@@ -52,7 +58,13 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
-  name: FixCase<keyof MetaFlat> | string
+  name: FixCase<ContentKeys<keyof MetaFlat>> | string
+  /**
+   * The property attribute is used to define a property associated with the content attribute.
+   *
+   * Mainly used for og and twitter meta tags.
+   */
+  property: FixCase<PropertyKeys<keyof MetaFlat>> | string
   /**
    * @internal This property is used to dedupe the link tags
    */
