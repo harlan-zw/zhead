@@ -9,7 +9,8 @@
   "homepage": "https://github.com/harlan-zw/zhead#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harlan-zw/zhead.git"
+    "url": "git+https://github.com/harlan-zw/zhead.git",
+    "directory": "packages/zod"
   },
   "bugs": {
     "url": "https://github.com/harlan-zw/zhead/issues"

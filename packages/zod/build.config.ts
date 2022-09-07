@@ -32,7 +32,8 @@ export default defineBuildConfig({
           })
 
           await writeFile(resolve(__dirname, `./src/${f}.ts`), output.getZodSchemasFile(''), 'utf-8')
-        } catch {
+        }
+        catch {
           // ignore
         }
       }

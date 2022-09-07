@@ -3,7 +3,7 @@
   "private": "true",
   "version": "0.2.0",
   "packageManager": "pnpm@7.8.0",
-  "description": "Node Schema.org for Simple and Automated Google Rich Results",
+  "description": "Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/harlan-zw",
@@ -18,7 +18,8 @@
   "keywords": [
     "meta tags",
     "node",
-    "seo"
+    "seo",
+    "head"
   ],
   "sideEffects": false,
   "exports": {

@@ -1,6 +1,5 @@
 import type { Head, MetaFlatInput } from '@zhead/schema'
-import { resolveHead } from './head'
-import { packMeta, unpackMeta } from './meta-flat'
+import { packMeta, unpackMeta } from '../meta'
 
 export function resolveSeoHead<T extends Head>(input: T) {
   const output = { ...input }
@@ -11,7 +10,7 @@ export function resolveSeoHead<T extends Head>(input: T) {
     ),
   )
   output.meta = unpackMeta(metaFlat)
-  return resolveHead(output)
+  return output
 }
 
 function withDefaultMeta(head: Head, metaFlat: MetaFlatInput) {

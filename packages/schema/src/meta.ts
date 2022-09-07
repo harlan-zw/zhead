@@ -1,19 +1,19 @@
 import type { MetaFlat } from './meta-flat'
 
-type Kebab<T extends string, A extends string = ""> =
+type Kebab<T extends string, A extends string = ''> =
   T extends `${infer F}${infer R}` ?
-    Kebab<R, `${A}${F extends Lowercase<F> ? "" : "-"}${Lowercase<F>}`> :
+    Kebab<R, `${A}${F extends Lowercase<F> ? '' : '-'}${Lowercase<F>}`> :
     A
 
-type KebabColon<T extends string, A extends string = ""> =
+type KebabColon<T extends string, A extends string = ''> =
   T extends `${infer F}${infer R}` ?
-    KebabColon<R, `${A}${F extends Lowercase<F> ? "" : ":"}${Lowercase<F>}`> :
+    KebabColon<R, `${A}${F extends Lowercase<F> ? '' : ':'}${Lowercase<F>}`> :
     A
 
 type FixCase<T extends string> =
-  T extends 'fbAppId' ? `fb:app_id` :
-    T extends 'ogImageSecureUrl' ? `og:image:secure_url` :
-      T extends 'ogVideoSecureUrl' ? `og:video:secure_url` :
+  T extends 'fbAppId' ? 'fb:app_id' :
+    T extends 'ogImageSecureUrl' ? 'og:image:secure_url' :
+      T extends 'ogVideoSecureUrl' ? 'og:video:secure_url' :
         T extends
           `og${infer R}` | `twitter${infer R}`
           ? KebabColon<T> : Kebab<T>
@@ -41,11 +41,11 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv
    */
-  httpEquiv: 'content-security-policy' |
-    'content-type' |
-    'default-style' |
-    'x-ua-compatible' |
-    'refresh'
+  ['http-equiv']: 'content-security-policy' |
+  'content-type' |
+  'default-style' |
+  'x-ua-compatible' |
+  'refresh'
   /**
    * The name and content attributes can be used together to provide document metadata in terms of name-value pairs,
    * with the name attribute giving the metadata name, and the content attribute giving the value.

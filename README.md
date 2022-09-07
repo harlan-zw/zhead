@@ -1,14 +1,14 @@
 <h1 align='center'>zhead</h1>
 
 <p align="center">
+
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
-<img src='https://github.com/harlan-zw/zhead/actions/workflows/test.yml/badge.svg' >
 </a>
-<a href="https://www.npmjs.com/package/zhead" target="__blank"><img src="https://img.shields.io/npm/v/zhead?color=2B90B6&label=" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/zhead" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/zhead?color=349dbe&label="></a>
-<br>
-<a href="https://github.com/harlan-zw/zhead" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/zhead?style=social"></a>
+<a href="https://www.npmjs.com/package/zhead" target="__blank"><img src="https://img.shields.io/npm/v/zhead?style=flat&colorA=002438&colorB=28CF8D" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/zhead" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/zhead?flat&colorA=002438&colorB=28CF8D"></a>
+<a href="https://github.com/harlan-zw/zhead" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/harlan-zw/zhead?flat&colorA=002438&colorB=28CF8D"></a>
 </p>
+
 
 <p align="center">
 Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.  
@@ -30,27 +30,36 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 ## Features
 
-- 🇹 Fully typed document &lt;head&gt; with inline doc
-- 💎 [Zod](https://zod.dev/) powered Validation
-- 🧙 Resolve flat meta tags (100+ documented definitions), e.g. ` { ogTitle: 'Test' }`
-- 📦 Converts camelCase `dataSomething` -> `data-something`
-- ✨ Generate minimal tags with maximum SEO `buildSeoHead`
-- ✍️ Render to HTML and [useHead](https://github.com/vueuse/head) compatible tags
+- 🇹 Fully typed document &lt;head&gt; with inline doc `@zhead/schema`
+- 💎 [Zod](https://zod.dev/) powered schema parsing and validation `@zhead/zod`
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
+
+Numerous utilities `zhead`
+- 🧙 Resolve flat meta tags (100+ documented definitions), e.g. ` { ogTitle: 'Test' }`
+- ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
+- ✍️ Output to HTML and [useHead](https://github.com/vueuse/head) compatible tags
 
 ## Installation
 
 ```bash
-npm add zhead
+npm install --save-dev zhead
+
+# Using yarn
+yarn add --dev nzhead
 ```
 
-## Resolving API
+## Sub Packages
+
+For functionality outside the core utils, see the package documentation:
+
+- [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema) - Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.
+- [`@zhead/zod`](https://github.com/harlan-zw/zhead/tree/main/packages/zod) - Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.
+
+## API
 
 ### defineHead
 
-Use this decorator for a simple fully-typed head schema. 
-
-By default, it will only allow camelCase keys, you can convert them at runtime using `resolveHead.`
+Use this decorator for a simple fully-typed head schema.
 
 ```ts
 import { defineHead } from 'zhead'
@@ -61,25 +70,6 @@ const head = defineHead({
 
 // {
 //    title: 'My Page',
-// }
-```
-
-### resolveHead
-
-Use the `resolveHead` function to define your head and convert keys to kebab-case deeply.
-
-```ts
-import { resolveHead } from 'zhead'
-
-const head = resolveHead({
-  meta: [
-    { httpEquiv: 'content-security-policy', content: 'content-src none' }
-  ]
-})
-// {
-//   meta: [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' }
-//   ]
 // }
 ```
 
