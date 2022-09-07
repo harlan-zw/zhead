@@ -180,7 +180,7 @@ const head = resolveSeoHead({
 
 ```ts
 import { defineHead } from 'zhead'
-import { headSchema } from "@zhead/schema";
+import { headSchema } from "@zhead/zod";
 
 const tags = defineHead({
   meta: [
