@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-Fully typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.  
+Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.  
 </p>
 
 <p align="center">
@@ -30,9 +30,10 @@ Fully typed utilities for defining, validating and building best-practice docume
 
 ## Features
 
-- 💎 Fully typed, [Zod-powered](https://zod.dev/) Schema with optional validation
-- 🧙 Resolve typed, flat meta tags, e.g. ` { ogTitle: 'Test', robots: { maxSnippet: -1 } }`
-- 📦 Converts keys to / from camelCase `dataSomething` -> `data-something`
+- 🇹 Fully typed document &lt;head&gt; with inline doc
+- 💎 [Zod](https://zod.dev/) powered Validation
+- 🧙 Resolve flat meta tags (100+ documented definitions), e.g. ` { ogTitle: 'Test' }`
+- 📦 Converts camelCase `dataSomething` -> `data-something`
 - ✨ Generate minimal tags with maximum SEO `buildSeoHead`
 - ✍️ Render to HTML and [useHead](https://github.com/vueuse/head) compatible tags
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
