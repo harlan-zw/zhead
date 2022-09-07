@@ -1,0 +1,38 @@
+{
+  "name": "@zhead/zod",
+  "version": "0.1.4",
+  "packageManager": "pnpm@7.8.0",
+  "description": "",
+  "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "homepage": "https://github.com/harlan-zw/zhead#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harlan-zw/zhead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harlan-zw/zhead/issues"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild .",
+    "stub": "unbuild . --stub"
+  },
+  "dependencies": {
+    "zod": "^3.19.0"
+  }
+}

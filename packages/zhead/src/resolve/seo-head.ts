@@ -1,8 +1,8 @@
-import type { HeadInput, MetaFlatInput } from '@zhead/schema'
+import type { Head, MetaFlatInput } from '@zhead/schema'
 import { resolveHead } from './head'
 import { packMeta, unpackMeta } from './meta-flat'
 
-export function resolveSeoHead<T extends HeadInput>(input: T) {
+export function resolveSeoHead<T extends Head>(input: T) {
   const output = { ...input }
   const metaFlat = withInferredSeoMeta(output,
     withDefaultMeta(
@@ -14,7 +14,7 @@ export function resolveSeoHead<T extends HeadInput>(input: T) {
   return resolveHead(output)
 }
 
-function withDefaultMeta(head: HeadInput, metaFlat: MetaFlatInput) {
+function withDefaultMeta(head: Head, metaFlat: MetaFlatInput) {
   if (!metaFlat.charset)
     metaFlat.charset = 'utf-8'
 
@@ -27,7 +27,7 @@ function withDefaultMeta(head: HeadInput, metaFlat: MetaFlatInput) {
   return metaFlat
 }
 
-function withInferredSeoMeta(head: HeadInput, metaFlat: MetaFlatInput): MetaFlatInput {
+function withInferredSeoMeta(head: Head, metaFlat: MetaFlatInput): MetaFlatInput {
   if (metaFlat.ogImage && !metaFlat.twitterCard)
     metaFlat.twitterCard = 'summary_large_image'
 

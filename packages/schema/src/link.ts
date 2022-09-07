@@ -1,7 +1,4 @@
-import { z } from 'zod'
-import { CrossOrigin, FetchPriority, LinkAs, ReferrerPolicy, Rel } from './constants'
-
-export const LinkEntrySchema = z.object({
+export interface Link {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
    * It specifies the type of content being loaded by the <link>, which is necessary for request matching,
@@ -10,26 +7,41 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  as: z.enum(LinkAs),
+  as: 'audio' |
+  'document' |
+  'embed' |
+  'fetch' |
+  'font' |
+  'image' |
+  'object' |
+  'script' |
+  'style' |
+  'track' |
+  'video' |
+  'worker'
   /**
    * This enumerated attribute indicates whether CORS must be used when fetching the resource.
    * CORS-enabled images can be reused in the <canvas> element without being tainted.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin
    */
-  crossorigin: z.enum(CrossOrigin),
+  crossorigin: '' |
+  'anonymous' |
+  'use-credentials'
   /**
    * Provides a hint of the relative priority to use when fetching a preloaded resource.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-fetchpriority
    */
-  fetchpriority: z.enum(FetchPriority),
+  fetchpriority: 'high' |
+  'low' |
+  'auto'
   /**
    * This attribute specifies the URL of the linked resource. A URL can be absolute or relative.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-href
    */
-  href: z.string(),
+  href: string
   /**
    * This attribute indicates the language of the linked resource. It is purely advisory.
    * Allowed values are specified by RFC 5646: Tags for Identifying Languages (also known as BCP 47).
@@ -37,14 +49,14 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-hreflang
    */
-  hreflang: z.string(),
+  hreflang: string
   /**
    * For rel="preload" and as="image" only, the imagesizes attribute is a sizes attribute that indicates to preload
    * the appropriate resource used by an img element with corresponding values for its srcset and sizes attributes.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-imagesizes
    */
-  imagesizes: z.string(),
+  imagesizes: string
   /**
    * For rel="preload" and as="image" only, the imagesrcset attribute is a sourceset attribute that indicates
    * to preload the appropriate resource used by an img element with corresponding values for its srcset and
@@ -52,7 +64,7 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-imagesrcset
    */
-  imagesrcset: z.string(),
+  imagesrcset: string
   /**
    * Contains inline metadata — a base64-encoded cryptographic hash of the resource (file)
    * you're telling the browser to fetch.
@@ -60,7 +72,7 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-integrity
    */
-  integrity: z.string(),
+  integrity: string
   /**
    * This attribute specifies the media that the linked resource applies to.
    * Its value must be a media type / media query.
@@ -69,7 +81,7 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-integrity
    */
-  media: z.string(),
+  media: string
 
   /**
    * Identifies a resource that might be required by the next navigation and that the user agent should retrieve it.
@@ -77,22 +89,58 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-prefetch
    */
-  prefetch: z.string(),
+  prefetch: string
 
   /**
    * A string indicating which referrer to use when fetching the resource.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-referrerpolicy
    */
-  referrerpolicy: z.enum(ReferrerPolicy),
-
+  referrerpolicy: '' |
+  'no-referrer' |
+  'no-referrer-when-downgrade' |
+  'origin' |
+  'origin-when-cross-origin' |
+  'same-origin' |
+  'strict-origin' |
+  'strict-origin-when-cross-origin' |
+  'unsafe-url'
   /**
    * This attribute names a relationship of the linked document to the current document.
    * The attribute must be a space-separated list of link type values.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel
    */
-  rel: z.enum(Rel),
+  rel: 'alternate' |
+  'author' |
+  'shortcut icon' |
+  'bookmark' |
+  'canonical' |
+  'dns-prefetch' |
+  'external' |
+  'help' |
+  'icon' |
+  'license' |
+  'manifest' |
+  'me' |
+  'modulepreload' |
+  'next' |
+  'nofollow' |
+  'noopener' |
+  'noreferrer' |
+  'opener' |
+  'pingback' |
+  'preconnect' |
+  'prefetch' |
+  'preload' |
+  'prerender' |
+  'prev' |
+  'search' |
+  'shortlink' |
+  'stylesheet' |
+  'tag' |
+  'apple-touch-icon' |
+  'apple-touch-startup-image'
   /**
    * This attribute defines the sizes of the icons for visual media contained in the resource.
    * It must be present only if the rel contains a value of icon or a non-standard type
@@ -100,14 +148,14 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-sizes
    */
-  sizes: z.string(),
+  sizes: string
   /**
    * The title attribute has special semantics on the <link> element.
    * When used on a <link rel="stylesheet"> it defines a default or an alternate stylesheet.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-title
    */
-  title: z.string(),
+  title: string
   /**
    * This attribute is used to define the type of the content linked to.
    * The value of the attribute should be a MIME type such as text/html, text/css, and so on.
@@ -118,12 +166,11 @@ export const LinkEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-type
    */
-  type: z.string(),
-})
-  .merge(z.object({
-    key: z.string(),
-  }).partial())
+  type: string
+  /**
+   * @internal This property is used to dedupe the link tags
+   */
+  key: string
+}
 
-export const LinkEntriesSchema = z.array(LinkEntrySchema)
-
-export type LinkInput = z.infer<typeof LinkEntriesSchema>
+export type LinkEntries = Partial<Link>[]

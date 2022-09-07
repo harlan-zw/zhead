@@ -1,5 +1,5 @@
-import type { HeadTag } from '@zhead/schema'
 import { stringifyAttrs } from '../transforms'
+import type { HeadTag } from './tags'
 
 export const SelfClosingTags = ['meta', 'link', 'base']
 

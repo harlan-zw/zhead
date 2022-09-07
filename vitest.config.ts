@@ -10,6 +10,7 @@ export default defineConfig({
     alias: {
       "zhead": resolve(__dirname, "packages/zhead/src/index.ts"),
       "@zhead/schema": resolve(__dirname, "packages/schema/src/index.ts"),
+      "@zhead/zod": resolve(__dirname, "packages/zod/src/index.ts"),
     }
   },
   test: {

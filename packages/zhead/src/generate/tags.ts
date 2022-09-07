@@ -1,22 +1,31 @@
-import type { HeadInput, HeadTag } from '@zhead/schema'
-import { HeadSchema } from '@zhead/schema'
-import { packKeysDeep } from '../transforms'
+import type { Head } from '@zhead/schema'
+import { headSchema } from '@zhead/zod'
+import { changeKeyCasingDeep } from '../transforms'
 
-export function generateTagsStrict<T extends HeadInput>(input: T) {
+export interface HeadTag {
+  tag: string
+  props: {
+    body?: boolean
+    [k: string]: any
+  }
+}
+
+export function generateTagsStrict<T extends Head>(input: T) {
   // strips unused keys
-  const parsed = HeadSchema.parse(input)
+  const parsed = headSchema
+    .parse(input)
   return generateTags(parsed)
 }
 
 function primitiveToTag(tag: string, v: string | object): HeadTag | undefined {
   if (typeof v === 'object') {
     if (Object.keys(v).length > 0)
-      return ({ tag, props: packKeysDeep(v) })
+      return ({ tag, props: changeKeyCasingDeep(v) })
   }
   else { return ({ tag, props: { children: v } }) }
 }
 
-export function generateTags<T extends HeadInput>(input: T) {
+export function generateTags<T extends Head>(input: T) {
   // strips unused keys
   const output: HeadTag[] = []
   for (const tag of Object.keys(input)) {

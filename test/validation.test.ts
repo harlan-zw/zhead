@@ -1,17 +1,16 @@
 import { describe, it } from 'vitest'
 import { resolveHead } from 'zhead'
-import { HeadSchema } from "@zhead/schema";
+import { headSchema } from '@zhead/zod'
 
 describe('validation', () => {
   it('can validate', () => {
     const tags = resolveHead({
       meta: [
-        { description: 'My Description' }
-      ]
+        { description: 'My Description' },
+      ],
     })
 
-
-    expect(HeadSchema.safeParse(tags)).toMatchInlineSnapshot(`
+    expect(headSchema.safeParse(tags)).toMatchInlineSnapshot(`
       {
         "error": [ZodError: [
         {

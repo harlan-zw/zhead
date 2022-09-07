@@ -1,13 +1,11 @@
-import { z } from 'zod'
-
-export const StyleEntrySchema = z.object({
+export interface Style {
   /**
    * This attribute defines which media the style should be applied to.
    * Its value is a media query, which defaults to all if the attribute is missing.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-media
    */
-  media: z.string(),
+  media: string
   /**
    * A cryptographic nonce (number used once) used to allow inline styles in a style-src Content-Security-Policy.
    * The server must generate a unique nonce value each time it transmits a policy.
@@ -15,23 +13,21 @@ export const StyleEntrySchema = z.object({
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-nonce
    */
-  nonce: z.string(),
+  nonce: string
   /**
    * This attribute specifies alternative style sheet sets.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-title
    */
-  title: z.string(),
-})
-  .merge(z.object({
-    /**
-     * Deduping property
-     */
-    key: z.string(),
-    /**
-     * Internal property to render the child output of a style.
-     */
-    children: z.string(),
-  }).partial())
+  title: string
+  /**
+   * @internal This property is used to dedupe the link tags
+   */
+  key: string
+  /**
+   * @internal Content of the script tag
+   */
+  children: string
+}
 
-export const StyleEntriesSchema = z.array(StyleEntrySchema)
+export type StyleEntries = Partial<Style>[]

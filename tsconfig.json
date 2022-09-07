@@ -20,7 +20,9 @@
       "zhead": ["packages/zhead/src/index.ts"],
       "zhead/*": ["packages/zhead/*"],
       "@zhead/schema": ["packages/schema/src/index.ts"],
-      "@zhead/schema/*": ["packages/schema/*"]
+      "@zhead/schema/*": ["packages/schema/*"],
+      "@zhead/zod": ["packages/zod/src/index.ts"],
+      "@zhead/zod/*": ["packages/zod/*"]
     }
   },
 }
