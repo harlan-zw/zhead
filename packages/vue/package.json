@@ -1,5 +1,5 @@
 {
-  "name": "@zhead/schema",
+  "name": "@zhead/vue",
   "version": "0.2.1",
   "packageManager": "pnpm@7.8.0",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
@@ -9,15 +9,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harlan-zw/zhead.git",
-    "directory": "packages/schema"
+    "directory": "packages/vue"
   },
   "bugs": {
     "url": "https://github.com/harlan-zw/zhead/issues"
   },
-  "keywords": [
-    "head",
-    "types"
-  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -33,10 +29,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild .",
-    "stub": "unbuild . --stub"
+    "build": "",
+    "stub": ""
   },
-  "dependencies": {
-    "zod": "^3.19.0"
+  "devDependencies": {
+    "vue": "^3.2.38"
   }
 }
