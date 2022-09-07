@@ -26,7 +26,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-defer
    */
-  defer: string
+  defer: boolean
   /**
    * Provides a hint of the relative priority to use when fetching an external script.
    *
@@ -50,7 +50,6 @@ export interface Script {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nomodule
    */
   nomodule: boolean
-
   /**
    * A cryptographic nonce (number used once) to allow scripts in a script-src Content-Security-Policy.
    * The server must generate a unique nonce value each time it transmits a policy.
