@@ -1,9 +1,9 @@
 import { describe, it } from 'vitest'
-import { resolveHead } from 'zhead'
+import { defineHead } from 'zhead'
 
 describe('metatags', () => {
   it('charset', () => {
-    const tags = resolveHead({
+    const tags = defineHead({
       meta: [
         {
           charset: 'utf-8',
@@ -23,10 +23,10 @@ describe('metatags', () => {
   })
 
   it('http equiv', () => {
-    const tags = resolveHead({
+    const tags = defineHead({
       meta: [
         {
-          httpEquiv: 'refresh',
+          ['http-equiv']: 'refresh',
           content: '30',
         },
       ],
@@ -38,6 +38,52 @@ describe('metatags', () => {
           {
             "content": "30",
             "http-equiv": "refresh",
+          },
+        ],
+      }
+    `)
+  })
+
+  it('typing', () => {
+    const tags = defineHead({
+      meta: [
+        {
+          name: 'google',
+          content: 'My Description',
+        },
+        {
+          property: 'og:image',
+          content: 'https://example.com/image.jpg',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'referrer',
+          content: 'origin-when-cross-origin',
+        },
+      ],
+    })
+
+    expect(tags).toMatchInlineSnapshot(`
+      {
+        "meta": [
+          {
+            "content": "My Description",
+            "name": "google",
+          },
+          {
+            "content": "https://example.com/image.jpg",
+            "property": "og:image",
+          },
+          {
+            "content": "summary_large_image",
+            "property": "twitter:card",
+          },
+          {
+            "content": "origin-when-cross-origin",
+            "name": "referrer",
           },
         ],
       }

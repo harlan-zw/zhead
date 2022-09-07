@@ -179,16 +179,16 @@ const head = resolveSeoHead({
 ## Validation API
 
 ```ts
-import { resolveHead } from 'zhead'
-import { HeadSchema } from "@zhead/schema";
+import { defineHead } from 'zhead'
+import { headSchema } from "@zhead/schema";
 
-const tags = resolveHead({
+const tags = defineHead({
   meta: [
     { description: 'My Description' }
   ]
 })
 
-HeadSchema.safeParse(tags)
+headSchema.safeParse(tags)
 
 // {
 //   "error": [ZodError: [

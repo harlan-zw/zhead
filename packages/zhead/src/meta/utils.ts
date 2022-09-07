@@ -1,4 +1,5 @@
-import {PropertyPrefixKeys, ValidSeparators} from "zhead/src/transforms";
+import type { ValidSeparators } from '../transforms'
+import { PropertyPrefixKeys } from '../transforms'
 
 export type ValidMetaType = 'name' | 'http-equiv' | 'property' | 'charset'
 

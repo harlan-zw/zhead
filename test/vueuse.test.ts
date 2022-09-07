@@ -1,9 +1,9 @@
 import { describe, it } from 'vitest'
-import { resolveHead } from 'zhead'
+import { defineHead } from 'zhead'
 
 describe('seo head', () => {
   it('build seo head', () => {
-    const tags = resolveHead({
+    const tags = defineHead({
       title: 'hello',
       base: {
         href: '/base',
@@ -31,8 +31,8 @@ describe('seo head', () => {
       script: [
         {
           src: 'foo.js',
-          dataSomething: 'test',
-          someRubbish: 'test',
+          ['data-something']: 'test',
+          ['some-rubbish']: 'test',
         },
       ],
     })

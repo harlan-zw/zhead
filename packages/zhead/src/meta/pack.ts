@@ -1,6 +1,6 @@
-import {MetaEntries, MetaFlatInput} from "@zhead/schema";
-import {packArray} from "packrup";
-import {MetaPackingSchema} from "./utils";
+import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
+import { packArray } from 'packrup'
+import { MetaPackingSchema } from './utils'
 
 /**
  * Convert an array of meta entries to a flat object.

@@ -1,11 +1,12 @@
 import { describe, it } from 'vitest'
-import { resolveHead } from 'zhead'
+import { defineHead } from 'zhead'
 import { headSchema } from '@zhead/zod'
 
 describe('validation', () => {
   it('can validate', () => {
-    const tags = resolveHead({
+    const tags = defineHead({
       meta: [
+        // @ts-expect-error throwing type
         { description: 'My Description' },
       ],
     })

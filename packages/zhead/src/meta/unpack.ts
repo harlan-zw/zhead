@@ -1,7 +1,7 @@
-import {MetaEntries, MetaFlatInput} from "@zhead/schema";
-import {unpackToArray} from "packrup";
-import {changeKeyCasingDeep, fixKeyCase, transformValues} from "../transforms";
-import {resolveMetaKeyType, MetaPackingSchema } from "./utils";
+import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
+import { unpackToArray } from 'packrup'
+import { changeKeyCasingDeep, fixKeyCase, transformValues } from '../transforms'
+import { MetaPackingSchema, resolveMetaKeyType } from './utils'
 
 /**
  * Converts a flat meta object into an array of meta entries.
