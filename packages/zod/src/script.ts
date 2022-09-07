@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const scriptSchema = z.object({
   async: z.boolean(),
   crossorigin: z.union([z.literal(''), z.literal('anonymous'), z.literal('use-credentials')]),
-  defer: z.string(),
+  defer: z.boolean(),
   fetchpriority: z.union([z.literal('high'), z.literal('low'), z.literal('auto')]),
   integrity: z.string(),
   nomodule: z.boolean(),
