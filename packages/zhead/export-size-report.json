@@ -2,7 +2,9 @@
   "meta": {
     "name": "zhead",
     "dependencies": [
-      "@zhead/schema"
+      "@zhead/schema",
+      "@zhead/zod",
+      "packrup"
     ],
     "versions": {
       "export-size": "0.5.2",
@@ -14,72 +16,72 @@
     {
       "name": "resolveSeoHead",
       "path": "dist/index.mjs",
-      "minified": 2428,
-      "minzipped": 978,
-      "bundled": 4706
+      "minified": 2523,
+      "minzipped": 989,
+      "bundled": 4605
     },
     {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 1618,
-      "minzipped": 661,
-      "bundled": 3099
+      "minified": 1680,
+      "minzipped": 676,
+      "bundled": 3008
     },
     {
       "name": "generateHtmlStrict",
       "path": "dist/index.mjs",
-      "minified": 1167,
-      "minzipped": 548,
-      "bundled": 2133
+      "minified": 1180,
+      "minzipped": 557,
+      "bundled": 2216
     },
     {
       "name": "generateHtml",
       "path": "dist/index.mjs",
-      "minified": 1101,
-      "minzipped": 515,
-      "bundled": 2003
+      "minified": 1114,
+      "minzipped": 527,
+      "bundled": 2086
     },
     {
       "name": "packMeta",
       "path": "dist/index.mjs",
-      "minified": 911,
-      "minzipped": 419,
-      "bundled": 1474
+      "minified": 962,
+      "minzipped": 429,
+      "bundled": 1506
     },
     {
       "name": "generateTagsStrict",
       "path": "dist/index.mjs",
-      "minified": 720,
-      "minzipped": 352,
-      "bundled": 1281
+      "minified": 733,
+      "minzipped": 361,
+      "bundled": 1364
     },
     {
       "name": "generateTags",
       "path": "dist/index.mjs",
-      "minified": 654,
-      "minzipped": 326,
-      "bundled": 1163
+      "minified": 667,
+      "minzipped": 334,
+      "bundled": 1246
     },
     {
       "name": "resolveMetaKeyType",
       "path": "dist/index.mjs",
-      "minified": 697,
-      "minzipped": 294,
-      "bundled": 1102
+      "minified": 710,
+      "minzipped": 301,
+      "bundled": 1151
     },
     {
       "name": "resolveHead",
       "path": "dist/index.mjs",
-      "minified": 404,
-      "minzipped": 226,
-      "bundled": 747
+      "minified": 417,
+      "minzipped": 235,
+      "bundled": 830
     },
     {
       "name": "defineHead",
       "path": "dist/index.mjs",
-      "minified": 61,
-      "minzipped": 65,
-      "bundled": 139
+      "minified": 74,
+      "minzipped": 70,
+      "bundled": 188
     }
   ]
 }
