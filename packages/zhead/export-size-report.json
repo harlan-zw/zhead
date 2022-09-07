@@ -16,16 +16,16 @@
     {
       "name": "resolveSeoHead",
       "path": "dist/index.mjs",
-      "minified": 2523,
-      "minzipped": 989,
-      "bundled": 4605
+      "minified": 2492,
+      "minzipped": 979,
+      "bundled": 4506
     },
     {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 1680,
-      "minzipped": 676,
-      "bundled": 3008
+      "minified": 1683,
+      "minzipped": 673,
+      "bundled": 2998
     },
     {
       "name": "generateHtmlStrict",
@@ -61,20 +61,6 @@
       "minified": 667,
       "minzipped": 334,
       "bundled": 1246
-    },
-    {
-      "name": "resolveMetaKeyType",
-      "path": "dist/index.mjs",
-      "minified": 710,
-      "minzipped": 301,
-      "bundled": 1151
-    },
-    {
-      "name": "resolveHead",
-      "path": "dist/index.mjs",
-      "minified": 417,
-      "minzipped": 235,
-      "bundled": 830
     },
     {
       "name": "defineHead",
