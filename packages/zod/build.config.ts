@@ -24,13 +24,17 @@ export default defineBuildConfig({
       ]
 
       for (const f of files) {
-        const sourceText = await readFile(resolve(__dirname, `../schema/src/${f}.ts`), 'utf-8')
+        try {
+          const sourceText = await readFile(resolve(__dirname, `../schema/src/${f}.ts`), 'utf-8')
 
-        const output = generate({
-          sourceText,
-        })
+          const output = generate({
+            sourceText,
+          })
 
-        await writeFile(resolve(__dirname, `./src/${f}.ts`), output.getZodSchemasFile(''), 'utf-8')
+          await writeFile(resolve(__dirname, `./src/${f}.ts`), output.getZodSchemasFile(''), 'utf-8')
+        } catch {
+          // ignore
+        }
       }
     },
   },
