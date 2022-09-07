@@ -1,14 +1,15 @@
-import type { MetaFlatInput, MetaInput } from '@zhead/schema'
-import type { ValidSeperators } from '../transforms'
-import { PropertyPrefixKeys, packKey, packKeysDeep, transformValues } from '../transforms'
+import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
+import { packArray, unpackToArray } from 'packrup'
+import type { ValidSeparators } from '../transforms'
+import { PropertyPrefixKeys, changeKeyCasingDeep, fixKeyCase, transformValues } from '../transforms'
 
 export type ValidMetaType = 'name' | 'http-equiv' | 'property' | 'charset'
 
 interface PackingDefinition<T = any> {
   metaKey?: ValidMetaType
   keyValue?: string
-  childSeparator?: ValidSeperators
-  separator?: ValidSeperators
+  childSeparator?: ValidSeparators
+  separator?: ValidSeparators
   resolve?: (value: T) => string
 }
 
@@ -71,62 +72,50 @@ export function resolveMetaKeyType(key: string): ValidMetaType {
  * Convert an array of meta entries to a flat object.
  * @param inputs
  */
-export function packMeta<T extends MetaInput>(inputs: T): MetaFlatInput {
+export function packMeta<T extends MetaEntries>(inputs: T): MetaFlatInput {
   const mappedPackingSchema = Object.entries(MetaPackingSchema)
     .map(([key, value]) => [key, value.keyValue])
-  const meta: MetaFlatInput = {}
-  for (const input of inputs) {
-    // @ts-expect-error untyped casing
-    let key = input.name || input.property || input.httpEquiv || input['http-equiv'] || ''
-    key = mappedPackingSchema.filter(k => k[1] === key)?.[0]?.[0] || key
-    // turn : into a capital letter
-    // @ts-expect-error untyped
-    const replacer = (_, letter) => letter?.toUpperCase()
-    key = key
-      .replace(/:([a-z])/g, replacer)
-      .replace(/-([a-z])/g, replacer)
-    if (key)
+
+  return packArray(inputs, {
+    key: ['name', 'property', 'httpEquiv', 'http-equiv', 'charset'],
+    value: ['content', 'charset'],
+    resolveKey(k) {
+      let key = (mappedPackingSchema.filter(sk => sk[1] === k)?.[0]?.[0] || k) as string
+      // turn : into a capital letter
       // @ts-expect-error untyped
-      meta[key] = input.content
-  }
-  return meta
+      const replacer = (_, letter) => letter?.toUpperCase()
+      key = key
+        .replace(/:([a-z])/g, replacer)
+        .replace(/-([a-z])/g, replacer)
+      return key as string
+    },
+  })
 }
 
 /**
  * Converts a flat meta object into an array of meta entries.
  * @param input
  */
-export function unpackMeta<T extends MetaFlatInput>(input: T): MetaInput {
-  const output: MetaInput = []
-  for (let [key, value] of Object.entries(input)) {
-    const definitionKey = key
-    const definition = MetaPackingSchema[definitionKey]
-    const metaKey = resolveMetaKeyType(definitionKey)
+export function unpackMeta<T extends MetaFlatInput>(input: T): MetaEntries {
+  return unpackToArray((input), {
+    key({key}) {
+      return resolveMetaKeyType(key) as string
+    },
+    value({key}) {
+      return key === 'charset' ? 'charset' : 'content'
+    },
+    resolveKeyData: ({key}) => {
+      return MetaPackingSchema[key]?.keyValue || fixKeyCase(key)
+    },
+    resolveValueData: ({value, key}) => {
+      if (typeof value === 'object') {
+        const definition = MetaPackingSchema[key]
+        if (definition && typeof definition.resolve === 'function')
+          return definition.resolve(value)
 
-    if (MetaPackingSchema[key]?.keyValue)
-      key = MetaPackingSchema[key].keyValue as string
-    else
-      key = packKey(key)
-    value = packKeysDeep(value)
-
-    if (definition?.resolve)
-      value = definition.resolve(value)
-    else if (typeof value === 'object' && !Array.isArray(value))
-      value = transformValues(value, { ...definition })
-
-    const values = Array.isArray(value) ? value : [value]
-    values.forEach((value) => {
-      if (metaKey === 'charset') {
-        output.push({ [metaKey]: value })
+        return transformValues(changeKeyCasingDeep(value), MetaPackingSchema[key])
       }
-      else {
-        output.push({
-          // key may change
-          [metaKey]: key,
-          content: value,
-        })
-      }
-    })
-  }
-  return output as unknown as MetaInput
+      return typeof value === 'number' ? value.toString() : value
+    },
+  })
 }

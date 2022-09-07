@@ -352,7 +352,7 @@ describe('meta flat', () => {
           "property": "og:video:width",
         },
         {
-          "content": 720,
+          "content": "720",
           "property": "og:video:height",
         },
         {
@@ -376,7 +376,7 @@ describe('meta flat', () => {
           "property": "og:image:width",
         },
         {
-          "content": 720,
+          "content": "720",
           "property": "og:image:height",
         },
         {
@@ -428,7 +428,7 @@ describe('meta flat', () => {
           "property": "twitter:player:width",
         },
         {
-          "content": 720,
+          "content": "720",
           "property": "twitter:player:height",
         },
         {
@@ -515,10 +515,12 @@ describe('meta flat', () => {
       {
         name: 'description',
         content: 'desc',
+        key: 'desc',
       },
       {
         name: 'description',
         content: 'desc 2',
+        key: 'desc',
       },
       {
         property: 'og:locale:alternate',
@@ -544,6 +546,7 @@ describe('meta flat', () => {
       {
         name: 'description',
         content: 'desc',
+        key: 'desc',
       },
       {
         content: '1234567890',

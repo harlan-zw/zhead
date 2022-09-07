@@ -1,8 +1,8 @@
-export type ValidSeperators = '=' | '' | ' ' | '; ' | ':' | ','
+export type ValidSeparators = '=' | '' | ' ' | '; ' | ':' | ','
 
 export interface TransformValueOptions {
-  separator?: ValidSeperators
-  childSeparator?: ValidSeperators
+  separator?: ValidSeparators
+  childSeparator?: ValidSeparators
 }
 
 export const stringifyAttrs = (attrs: Record<string, any>) => {

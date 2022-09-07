@@ -1,10 +1,10 @@
-import type { HeadInput } from '@zhead/schema'
-import { packKeysDeep } from '../transforms'
+import type { Head } from '@zhead/schema'
+import { changeKeyCasingDeep } from '../transforms'
 
-export function defineHead<T extends HeadInput>(input: T) {
+export function defineHead<T extends Head>(input: T) {
   return input
 }
 
-export function resolveHead<T extends HeadInput>(input: T) {
-  return packKeysDeep({ ...input })
+export function resolveHead<T extends Head>(input: T) {
+  return changeKeyCasingDeep({ ...input })
 }

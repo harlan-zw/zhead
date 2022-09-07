@@ -38,6 +38,8 @@
     "stub": "unbuild . --stub"
   },
   "dependencies": {
-    "@zhead/schema": "workspace:*"
+    "@zhead/schema": "workspace:*",
+    "@zhead/zod": "workspace:*",
+    "packrup": "^0.0.6"
   }
 }
