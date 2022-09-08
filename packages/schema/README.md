@@ -16,6 +16,7 @@ yarn add --dev @zhead/schema
 - `Head` - `<head>` schema. [head.ts](./src/head.ts)
 - `Link` - `<link>` schema. [link.ts](./src/link.ts)
 - `Meta` - `<meta>` schema. [meta.ts](./src/meta.ts)
+- `MetaFlat` - `<meta>` schema as a flat object. [meta-flat.ts](./src/meta-flat.ts) (see `zhead` `unpackMeta` function)
 - `Script` - `<script>` schema. [script.ts](./src/script.ts)
 - `Style` - `<style>` schema. [style.ts](./src/style.ts)
 
