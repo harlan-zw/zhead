@@ -38,6 +38,7 @@ describe('metatags', () => {
         "meta": [
           {
             "content": "30",
+            "data-test": "123",
             "http-equiv": "refresh",
           },
         ],

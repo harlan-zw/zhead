@@ -36,6 +36,14 @@ describe('head', () => {
             "name": "description",
           },
         ],
+        "script": [
+          {
+            "data-site": "VDJUVDNA",
+            "data-spa": "auto",
+            "defer": true,
+            "src": "https://idea-lets-dance.harlanzw.com/script.js",
+          },
+        ],
         "title": "test",
       }
     `)
