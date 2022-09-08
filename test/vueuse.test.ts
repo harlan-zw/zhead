@@ -30,9 +30,9 @@ describe('seo head', () => {
       ],
       script: [
         {
-          src: 'foo.js',
-          ['data-something']: 'test',
-          ['some-rubbish']: 'test',
+          'src': 'foo.js',
+          'data-something': 'test',
+          'some-rubbish': 'test',
         },
       ],
     })

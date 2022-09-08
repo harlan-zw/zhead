@@ -26,8 +26,8 @@ describe('metatags', () => {
     const tags = defineHead({
       meta: [
         {
-          ['http-equiv']: 'refresh',
-          content: '30',
+          'http-equiv': 'refresh',
+          'content': '30',
         },
       ],
     })

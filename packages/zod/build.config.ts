@@ -13,28 +13,30 @@ export default defineBuildConfig({
     { input: 'src/index', name: 'index' },
   ],
   hooks: {
-    'build:before': async function () {
-      const files = [
-        'meta-flat',
-        'meta',
-        'link',
-        'script',
-        'style',
-        'base',
-      ]
+    'build:before': async function (f) {
+      if (f.options.stub) {
+        const files = [
+          'meta-flat',
+          'meta',
+          'link',
+          'script',
+          'style',
+          'base',
+        ]
 
-      for (const f of files) {
-        try {
-          const sourceText = await readFile(resolve(__dirname, `../schema/src/${f}.ts`), 'utf-8')
+        for (const f of files) {
+          try {
+            const sourceText = await readFile(resolve(__dirname, `../schema/src/${f}.ts`), 'utf-8')
 
-          const output = generate({
-            sourceText,
-          })
+            const output = generate({
+              sourceText,
+            })
 
-          await writeFile(resolve(__dirname, `./src/${f}.ts`), output.getZodSchemasFile(''), 'utf-8')
-        }
-        catch {
-          // ignore
+            await writeFile(resolve(__dirname, `./src/${f}.ts`), output.getZodSchemasFile(''), 'utf-8')
+          }
+          catch {
+            // ignore
+          }
         }
       }
     },
