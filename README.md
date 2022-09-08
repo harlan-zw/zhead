@@ -45,7 +45,7 @@ Numerous utilities `zhead`
 npm install --save-dev zhead
 
 # Using yarn
-yarn add --dev nzhead
+yarn add --dev zhead
 ```
 
 ## Sub Packages
