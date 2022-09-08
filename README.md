@@ -1,4 +1,4 @@
-<h1 align='center'>zhead</h1>
+_<h1 align='center'>zhead</h1>
 
 <p align="center">
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
@@ -52,13 +52,13 @@ yarn add --dev zhead
 
 ### TypeScript 
 
-Typescript base schema for document &lt;head&gt;
+Typescript base schema for document &lt;head&gt;. Only ships types for easy access to type augmentation.
 
 [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
 
 ### Validation and parsing
 
-Zod schema for validating and parsing head tags.
+[Zod](https://zod.dev/) schema for validating and parsing head tags.
 
 [`@zhead/zod`](./tree/main/packages/zod)
 
@@ -94,20 +94,20 @@ Define your meta tags in a simple object with full type-safety.
 import { defineHead, resolveMetaFlat } from 'zhead'
 
 const meta = unpackMeta({
-    contentSecurityPolicy: {
-      contentSrc: 'none'
-    },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      userScalable: 'yes',
-    }
+  contentSecurityPolicy: {
+    contentSrc: 'none'
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    userScalable: 'yes',
+  }
 })
 
-//   [
-//     { 'http-equiv': 'content-security-policy', content: 'content-src none' },
-//     { 'name': 'viewport', content: 'width=device-width, user-scalable=yes, initial-scale=1' }
-//   ]
+//  [
+//    { 'http-equiv': 'content-security-policy', content: 'content-src none' },
+//    { 'name': 'viewport', content: 'width=device-width, user-scalable=yes, initial-scale=1' }
+//  ]
 ```
 
 ### packMeta
@@ -261,4 +261,4 @@ const tags = generateTags({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
