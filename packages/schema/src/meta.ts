@@ -51,7 +51,8 @@ export interface Meta {
   'content-type' |
   'default-style' |
   'x-ua-compatible' |
-  'refresh'
+  'refresh' |
+  'accept-ch'
   /**
    * The name and content attributes can be used together to provide document metadata in terms of name-value pairs,
    * with the name attribute giving the metadata name, and the content attribute giving the value.
