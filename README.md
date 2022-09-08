@@ -32,12 +32,13 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 - 🇹 Fully typed document &lt;head&gt; with inline doc `@zhead/schema`
 - 💎 [Zod](https://zod.dev/) powered schema parsing and validation `@zhead/zod`
+- 🔨 Vue bindings for deep `Ref` and `Computed` type support, [useHead](https://github.com/vueuse/head) compatible `@zhead/vue`
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
 Numerous utilities `zhead`
-- 🧙 Resolve flat meta tags (100+ documented definitions), e.g. ` { ogTitle: 'Test' }`
+- 🧙 Resolve flat meta tags (100+ documented definitions) `unpackMeta`
 - ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
-- ✍️ Output to HTML and [useHead](https://github.com/vueuse/head) compatible tags
+- ✍️ Output to HTML `generateHtml`
 
 ## Installation
 
