@@ -4,6 +4,14 @@ A wrapper around zhead for Vue.js.
 
 Provides refable and computed types for head schema and flat meta tags.
 
+## Installation
+
+```bash
+npm install --save-dev @zhead/vue
+
+# Using yarn
+yarn add --dev @zhead/vue
+```
 
 ## API
 

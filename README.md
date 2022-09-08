@@ -49,15 +49,25 @@ npm install --save-dev zhead
 yarn add --dev zhead
 ```
 
-## Sub Packages
+## Packages
 
-For functionality outside the core utils, see the package documentation:
+### Core
+
+- `zhead` Provides the base utils for defining, validating and building head schema.
+
+### TypeScript
 
 - [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema) - Typescript base schema for document &lt;head&gt;
-- [`@zhead/zod`](https://github.com/harlan-zw/zhead/tree/main/packages/zod) - Zod schema for validating and parsing head tags.
+
+### Validation and parsing
+
+- [`@zhead/zod`](./tree/main/packages/zod) - Zod schema for validating and parsing head tags.
+
+### Framework bindings
+
 - [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue) - Vue bindings for handling of `Ref` and `Computed` head tags.
 
-## API
+## `zhead` API
 
 ### defineHead
 
@@ -178,34 +188,6 @@ const head = resolveSeoHead({
 // }
 ```
 
-## Validation API
-
-```ts
-import { defineHead } from 'zhead'
-import { headSchema } from "@zhead/zod";
-
-const tags = defineHead({
-  meta: [
-    { description: 'My Description' }
-  ]
-})
-
-headSchema.safeParse(tags)
-
-// {
-//   "error": [ZodError: [
-//     {
-//       "code": "custom",
-//       "message": "The attribute `content` must be included.",
-//       "path": [
-//         "meta",
-//         0
-//       ]
-//     }
-//   ]],
-//   "success": false,
-// }
-```
 
 ## Generate API
 
