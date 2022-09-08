@@ -1,24 +1,26 @@
-import type { ValidSeparators } from '../transforms'
+import type { TransformValueOptions } from 'packrup'
 import { PropertyPrefixKeys } from '../transforms'
 
 export type ValidMetaType = 'name' | 'http-equiv' | 'property' | 'charset'
 
-export interface PackingDefinition<T = any> {
+export interface PackingDefinition {
   metaKey?: ValidMetaType
   keyValue?: string
-  childSeparator?: ValidSeparators
-  separator?: ValidSeparators
-  resolve?: (value: T) => string
+  unpack?: TransformValueOptions
 }
 
 export const MetaPackingSchema: Record<string, PackingDefinition> = {
   robots: {
-    childSeparator: ':',
+    unpack: {
+      keyValueSeparator: ':',
+    },
   },
   // Pragma directives
   contentSecurityPolicy: {
-    separator: '; ',
-    childSeparator: ' ',
+    unpack: {
+      keyValueSeparator: ' ',
+      entrySeparator: '; ',
+    },
     metaKey: 'http-equiv',
   },
   fbAppId: {
@@ -52,13 +54,8 @@ export const MetaPackingSchema: Record<string, PackingDefinition> = {
   xUaCompatible: {
     metaKey: 'http-equiv',
   },
-  refresh: <PackingDefinition<string | { seconds: number; url: string }>> {
+  refresh: {
     metaKey: 'http-equiv',
-    resolve(value) {
-      if (typeof value === 'string')
-        return value
-      return `${value.seconds};url=${value.url}`
-    },
   },
 }
 

@@ -1,7 +1,6 @@
 <h1 align='center'>zhead</h1>
 
 <p align="center">
-
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
 </a>
 <a href="https://www.npmjs.com/package/zhead" target="__blank"><img src="https://img.shields.io/npm/v/zhead?style=flat&colorA=002438&colorB=28CF8D" alt="NPM version"></a>

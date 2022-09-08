@@ -1,6 +1,6 @@
 import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
-import { unpackToArray } from 'packrup'
-import { changeKeyCasingDeep, fixKeyCase, transformValues } from '../transforms'
+import { unpackToArray, unpackToString } from 'packrup'
+import { changeKeyCasingDeep, fixKeyCase } from '../transforms'
 import { MetaPackingSchema, resolveMetaKeyType } from './utils'
 
 /**
@@ -21,10 +21,22 @@ export function unpackMeta<T extends MetaFlatInput>(input: T): MetaEntries {
     resolveValueData({ value, key }) {
       if (typeof value === 'object') {
         const definition = MetaPackingSchema[key]
-        if (definition && typeof definition.resolve === 'function')
-          return definition.resolve(value)
 
-        return transformValues(changeKeyCasingDeep(value), MetaPackingSchema[key])
+        // refresh is weird...
+        if (key === 'refresh')
+          return `${value.seconds};url=${value.url}`
+
+        return unpackToString(
+          changeKeyCasingDeep(value), {
+            entrySeparator: ', ',
+            keyValueSeparator: '=',
+            resolve({ value, key }) {
+              if (typeof value === 'boolean')
+                return `${key}`
+            },
+            ...definition?.unpack,
+          },
+        )
       }
       return typeof value === 'number' ? value.toString() : value
     },

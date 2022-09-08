@@ -51,11 +51,11 @@ importers:
     specifiers:
       '@zhead/schema': workspace:*
       '@zhead/zod': workspace:*
-      packrup: ^0.0.6
+      packrup: ^0.1.0
     dependencies:
       '@zhead/schema': link:../schema
       '@zhead/zod': link:../zod
-      packrup: 0.0.6
+      packrup: 0.1.0
 
   packages/zod:
     specifiers:
@@ -3628,8 +3628,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /packrup/0.0.6:
-    resolution: {integrity: sha512-WdZU2JMpIWiV22R5jhg86AZcOadKi59ta07WCuEvdv/TOyVlsOz+amo6Odt3GAMFAqx1lrhJ3mdC9dJf5cAQ+A==}
+  /packrup/0.1.0:
+    resolution: {integrity: sha512-HnUl9ztHGty5ZK13WM8Q7854SWPKH/eCT+MiTO0P1qCu1Y4S5PPJ8E9MwD3cnjSr7PUPzXDnmOVJIKM043OfJQ==}
     dev: false
 
   /parent-module/1.0.1:
