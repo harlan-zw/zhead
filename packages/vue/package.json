@@ -2,6 +2,7 @@
   "name": "@zhead/vue",
   "version": "0.2.3",
   "packageManager": "pnpm@7.8.0",
+  "description": "Use zhead with types for Vue ref's and computed.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/harlan-zw",
@@ -29,8 +30,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "",
-    "stub": ""
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "@zhead/schema": "workspace:*",
+    "zhead": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.38"

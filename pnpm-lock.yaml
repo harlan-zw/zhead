@@ -38,7 +38,12 @@ importers:
 
   packages/vue:
     specifiers:
+      '@zhead/schema': workspace:*
       vue: ^3.2.38
+      zhead: workspace:*
+    dependencies:
+      '@zhead/schema': link:../schema
+      zhead: link:../zhead
     devDependencies:
       vue: 3.2.38
 
