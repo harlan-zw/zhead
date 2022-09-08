@@ -16,58 +16,58 @@
     {
       "name": "resolveSeoHead",
       "path": "dist/index.mjs",
-      "minified": 2492,
-      "minzipped": 979,
-      "bundled": 4506
+      "minified": 2290,
+      "minzipped": 915,
+      "bundled": 4079
     },
     {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 1683,
-      "minzipped": 673,
-      "bundled": 2998
+      "minified": 1481,
+      "minzipped": 605,
+      "bundled": 2571
     },
     {
       "name": "generateHtmlStrict",
       "path": "dist/index.mjs",
-      "minified": 1180,
-      "minzipped": 557,
-      "bundled": 2216
+      "minified": 1137,
+      "minzipped": 541,
+      "bundled": 2050
     },
     {
       "name": "generateHtml",
       "path": "dist/index.mjs",
-      "minified": 1114,
-      "minzipped": 527,
-      "bundled": 2086
+      "minified": 1071,
+      "minzipped": 521,
+      "bundled": 1920
     },
     {
       "name": "packMeta",
       "path": "dist/index.mjs",
-      "minified": 962,
-      "minzipped": 429,
-      "bundled": 1506
+      "minified": 923,
+      "minzipped": 396,
+      "bundled": 1442
     },
     {
       "name": "generateTagsStrict",
       "path": "dist/index.mjs",
       "minified": 733,
       "minzipped": 361,
-      "bundled": 1364
+      "bundled": 1380
     },
     {
       "name": "generateTags",
       "path": "dist/index.mjs",
       "minified": 667,
       "minzipped": 334,
-      "bundled": 1246
+      "bundled": 1262
     },
     {
       "name": "defineHead",
       "path": "dist/index.mjs",
       "minified": 74,
       "minzipped": 70,
-      "bundled": 188
+      "bundled": 204
     }
   ]
 }
