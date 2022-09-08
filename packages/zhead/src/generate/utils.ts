@@ -1,5 +1,5 @@
+import { unpackToString } from 'packrup'
 import type { HeadTag } from './tags'
-import {unpackToString} from "packrup";
 
 export const SelfClosingTags = ['meta', 'link', 'base']
 
@@ -14,7 +14,7 @@ export const tagToString = (tag: HeadTag) => {
     resolve({ key, value }) {
       if (typeof value === 'boolean')
         return key
-    }
+    },
   })
   attrs = attrs ? ` ${attrs}` : ''
   if (SelfClosingTags.includes(tag.tag))

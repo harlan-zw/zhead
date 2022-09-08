@@ -173,4 +173,10 @@ export interface Link {
   key: string
 }
 
-export type LinkEntries = Partial<Link>[]
+export type LinkEntries = Partial<
+  Link &
+  // pass through for data attributes
+  {
+    [key: string]: string | boolean
+  }
+  >[]

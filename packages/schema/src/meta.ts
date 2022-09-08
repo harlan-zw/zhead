@@ -71,4 +71,10 @@ export interface Meta {
   key: string
 }
 
-export type MetaEntries = Partial<Meta>[]
+export type MetaEntries = Partial<
+  Meta &
+  // pass through for data attributes
+  {
+    [key: string]: string | boolean
+  }
+  >[]

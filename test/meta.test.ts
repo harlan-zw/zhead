@@ -28,6 +28,7 @@ describe('metatags', () => {
         {
           'http-equiv': 'refresh',
           'content': '30',
+          'data-test': '123',
         },
       ],
     })

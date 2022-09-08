@@ -95,4 +95,10 @@ export interface Script {
   children: string
 }
 
-export type ScriptEntries = Partial<Script>[]
+export type ScriptEntries = Partial<
+  Script &
+  // pass through for data attributes
+  {
+    [key: string]: string | boolean
+  }
+>[]

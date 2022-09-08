@@ -5,6 +5,14 @@ describe('head', () => {
   it('define head', () => {
     const tags = defineHead({
       title: 'test',
+      script: [
+        {
+          'src': 'https://idea-lets-dance.harlanzw.com/script.js',
+          'data-spa': 'auto',
+          'data-site': 'VDJUVDNA',
+          'defer': true,
+        },
+      ],
       link: [
         { href: 'style.css', as: 'style', crossorigin: 'anonymous' },
       ],

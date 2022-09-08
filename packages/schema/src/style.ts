@@ -30,4 +30,10 @@ export interface Style {
   children: string
 }
 
-export type StyleEntries = Partial<Style>[]
+export type StyleEntries = Partial<
+  Style &
+  // pass through for data attributes
+  {
+    [key: string]: string | boolean
+  }
+  >[]
