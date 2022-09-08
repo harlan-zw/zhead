@@ -52,8 +52,9 @@ yarn add --dev nzhead
 
 For functionality outside the core utils, see the package documentation:
 
-- [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema) - Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.
-- [`@zhead/zod`](https://github.com/harlan-zw/zhead/tree/main/packages/zod) - Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.
+- [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema) - Typescript base schema for document &lt;head&gt;
+- [`@zhead/zod`](https://github.com/harlan-zw/zhead/tree/main/packages/zod) - Zod schema for validating and parsing head tags.
+- [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/zod) - Vue bindings for handling of `Ref` and `Computed` head tags.
 
 ## API
 
