@@ -48,7 +48,7 @@ npm install --save-dev zhead
 yarn add --dev zhead
 ```
 
-## Sub Packages
+## Sub-packages
 
 ### TypeScript 
 
