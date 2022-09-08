@@ -50,17 +50,23 @@ yarn add --dev zhead
 
 ## Sub Packages
 
-### TypeScript - [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
+### TypeScript 
 
 Typescript base schema for document &lt;head&gt;
 
-### Validation and parsing - [`@zhead/zod`](./tree/main/packages/zod)
+[`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
+
+### Validation and parsing
 
 Zod schema for validating and parsing head tags.
 
-### Framework bindings - [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
+[`@zhead/zod`](./tree/main/packages/zod)
+
+### Framework bindings 
 
 Vue bindings for handling of `Ref` and `Computed` head tags.
+
+[`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
 
 ## API
 
