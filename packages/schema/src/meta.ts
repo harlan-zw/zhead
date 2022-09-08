@@ -58,13 +58,13 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
-  name: FixCase<ContentKeys<keyof MetaFlat>> | string
+  name: FixCase<ContentKeys<keyof MetaFlat>>
   /**
    * The property attribute is used to define a property associated with the content attribute.
    *
    * Mainly used for og and twitter meta tags.
    */
-  property: FixCase<PropertyKeys<keyof MetaFlat>> | string
+  property: FixCase<PropertyKeys<keyof MetaFlat>>
   /**
    * @internal This property is used to dedupe the link tags
    */
