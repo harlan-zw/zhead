@@ -29,12 +29,12 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 ## Features
 
-- 🇹 Fully typed document &lt;head&gt; with inline doc `@zhead/schema`
-- 💎 [Zod](https://zod.dev/) powered schema parsing and validation `@zhead/zod`
-- 🔨 Vue bindings for deep `Ref` and `Computed` type support, [useHead](https://github.com/vueuse/head) compatible `@zhead/vue`
+- 🇹 Fully typed document &lt;head&gt; with inline doc
+- 💎 [Zod](https://zod.dev/) powered schema parsing and validation
+- 🔨 Vue bindings for deep `Ref` and `Computed` type support, [useHead](https://github.com/vueuse/head) compatible
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
-Numerous utilities `zhead`
+Numerous utilities
 - 🧙 Resolve flat meta tags ([100+ typed](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)) `unpackMeta`
 - ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
 - ✍️ Output to HTML `generateHtml`
@@ -48,25 +48,21 @@ npm install --save-dev zhead
 yarn add --dev zhead
 ```
 
-## Packages
+## Sub Packages
 
-### Core
+### TypeScript - [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
 
-- `zhead` Provides the base utils for defining, validating and building head schema.
+Typescript base schema for document &lt;head&gt;
 
-### TypeScript
+### Validation and parsing - [`@zhead/zod`](./tree/main/packages/zod)
 
-- [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema) - Typescript base schema for document &lt;head&gt;
+Zod schema for validating and parsing head tags.
 
-### Validation and parsing
+### Framework bindings - [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
 
-- [`@zhead/zod`](./tree/main/packages/zod) - Zod schema for validating and parsing head tags.
+Vue bindings for handling of `Ref` and `Computed` head tags.
 
-### Framework bindings
-
-- [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue) - Vue bindings for handling of `Ref` and `Computed` head tags.
-
-## `zhead` API
+## API
 
 ### defineHead
 
