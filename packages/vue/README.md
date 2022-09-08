@@ -2,7 +2,7 @@
 
 A wrapper around zhead for Vue.js.
 
-Provides refable and computed types for head schema and flat meta tags.
+Provides refable and computed types for head schema deeply and flat meta tags.
 
 ## Installation
 

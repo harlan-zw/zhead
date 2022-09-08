@@ -1,4 +1,4 @@
-_<h1 align='center'>zhead</h1>
+<h1 align='center'>zhead</h1>
 
 <p align="center">
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
@@ -261,4 +261,4 @@ const tags = generateTags({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
