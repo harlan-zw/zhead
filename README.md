@@ -35,7 +35,7 @@ Typed utilities for defining, validating and building best-practice document &lt
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
 Numerous utilities `zhead`
-- 🧙 Resolve flat meta tags (100+ documented definitions) `unpackMeta`
+- 🧙 Resolve flat meta tags ([100+ typed](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)) `unpackMeta`
 - ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
 - ✍️ Output to HTML `generateHtml`
 
