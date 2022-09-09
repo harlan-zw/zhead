@@ -1,8 +1,6 @@
 # `@zhead/head`
 
-A wrapper around zhead for Vue.js.
-
-Provides refable and computed types for head schema deeply and flat meta tags.
+A wrapper around zhead for Vue, providing deep reactivity with types for head schema and meta tags packing.
 
 ## Installation
 
@@ -22,7 +20,7 @@ import { defineHead } from '@zhead/vue'
 
 const title = ref('My Awesome Title')
 
-defineHead({
+const head = defineHead({
   title,
   meta: computed(() => {
       return [
@@ -31,6 +29,14 @@ defineHead({
       ]
   })
 })
+
+// {
+//   title: 'My Awesome Title',
+//   meta: [
+//     { name: 'description', content: 'My awesome description' },
+//     { name: 'keywords', content: 'awesome, vue, zhead' },
+//   ]
+// }
 ```
 
 ### packMeta
@@ -44,10 +50,11 @@ packMeta([
   { name: 'description', content: description },
 ])
 
-// {
+
+// Ref<{
 //   name: 'description',
 //   content: ref('My Awesome Title')
-// }
+// }>
 ```
 
 ### unpackMeta
@@ -61,9 +68,9 @@ unpackmeta({
   description,
 })
 
-// [
+// Ref<[
 //    { name: 'description', content: ref('My Awesome Title') },
-// ]
+// ]>
 ```
 
 ## Types

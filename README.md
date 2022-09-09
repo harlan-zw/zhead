@@ -31,7 +31,7 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 - 🇹 Fully typed document &lt;head&gt; with inline doc
 - 💎 [Zod](https://zod.dev/) powered schema parsing and validation
-- 🔨 Vue bindings for deep `Ref` and `Computed` type support, [useHead](https://github.com/vueuse/head) compatible
+- 🔨 Vue bindings for deep reactive `Ref` and `Computed` support, [useHead](https://github.com/vueuse/head) compatible
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
 Numerous utilities
@@ -64,7 +64,7 @@ Typescript base schema for document &lt;head&gt;. Only ships types for easy acce
 
 ### Framework bindings 
 
-Vue bindings for handling of `Ref` and `Computed` head tags.
+Vue bindings for handling deep reactive `Ref` and `Computed` head tags.
 
 [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
 
