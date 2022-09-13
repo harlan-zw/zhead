@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import {defineHead, renderTemplate} from 'zhead'
+import { defineHead, renderTemplate } from 'zhead'
 
 describe('title', () => {
   it('%s shortcut', () => {
@@ -15,7 +15,7 @@ describe('title', () => {
   it('fn', () => {
     const tags = defineHead({
       title: 'test 2',
-      titleTemplate: (title) => `${title} - My Site`
+      titleTemplate: title => `${title} - My Site`,
     })
 
     const title = renderTemplate(tags.titleTemplate, tags.title)
