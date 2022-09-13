@@ -1,20 +1,20 @@
 import type { ComputedRef, Ref } from 'vue'
 import type {
   Base as BasePlain,
+  BodyAttributes as BodyAttributesPlain,
   Head as HeadPlain,
+  HtmlAttributes as HtmlAttributesPlain,
   LinkEntries as LinkEntriesPlain,
   Link as LinkPlain,
   MetaEntries as MetaEntriesPlain,
   MetaFlat as MetaFlatPlain,
   Meta as MetaPlain,
-  ScriptEntries as ScriptEntriesPlain,
-  Script as ScriptPlain,
   NoscriptEntries as NoscriptEntriesPlain,
   Noscript as NoscriptPlain,
+  ScriptEntries as ScriptEntriesPlain,
+  Script as ScriptPlain,
   StyleEntries as StyleEntriesPlain,
   Style as StylePlain,
-  BodyAttributes as BodyAttributesPlain,
-  HtmlAttributes as HtmlAttributesPlain
 } from '@zhead/schema'
 
 type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
