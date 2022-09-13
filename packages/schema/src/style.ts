@@ -1,3 +1,5 @@
+import type { Stringable } from './types'
+
 export interface Style {
   /**
    * This attribute defines which media the style should be applied to.
@@ -34,6 +36,6 @@ export type StyleEntries = Partial<
   Style &
   // pass through for data attributes
   {
-    [key: string]: string | boolean
+    [key: string]: Stringable
   }
   >[]

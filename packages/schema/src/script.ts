@@ -1,3 +1,5 @@
+import type { Stringable } from '@zhead/schema/src/types'
+
 export interface Script {
   /**
    * For classic scripts, if the async attribute is present,
@@ -99,6 +101,6 @@ export type ScriptEntries = Partial<
   Script &
   // pass through for data attributes
   {
-    [key: string]: string | boolean
+    [key: string]: Stringable
   }
 >[]

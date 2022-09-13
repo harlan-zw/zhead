@@ -1,4 +1,5 @@
 import type { MetaFlat } from './meta-flat'
+import type { Stringable } from './types'
 
 type Kebab<T extends string, A extends string = ''> =
   T extends `${infer F}${infer R}` ?
@@ -76,6 +77,6 @@ export type MetaEntries = Partial<
   Meta &
   // pass through for data attributes
   {
-    [key: string]: string | boolean
+    [key: string]: Stringable
   }
   >[]

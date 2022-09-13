@@ -1,3 +1,5 @@
+import type { Stringable } from './types'
+
 export interface Link {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
@@ -177,6 +179,6 @@ export type LinkEntries = Partial<
   Link &
   // pass through for data attributes
   {
-    [key: string]: string | boolean
+    [key: string]: Stringable
   }
   >[]
