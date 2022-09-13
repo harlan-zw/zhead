@@ -37,6 +37,7 @@ Typed utilities for defining, validating and building best-practice document &lt
 Numerous utilities
 - 🧙 Resolve flat meta tags ([100+ typed](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)) `unpackMeta`
 - ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
+- 📣 Title template support `renderTitle`
 - ✍️ Output to HTML `generateHtml`
 
 ## Installation
