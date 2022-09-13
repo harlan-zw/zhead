@@ -63,6 +63,13 @@
       "bundled": 1262
     },
     {
+      "name": "renderTemplate",
+      "path": "dist/index.mjs",
+      "minified": 121,
+      "minzipped": 99,
+      "bundled": 357
+    },
+    {
       "name": "defineHead",
       "path": "dist/index.mjs",
       "minified": 74,
