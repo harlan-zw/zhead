@@ -3,6 +3,9 @@ import type { StyleEntries } from './style'
 import type { ScriptEntries } from './script'
 import type { LinkEntries } from './link'
 import type { MetaEntries } from './meta'
+import type { HtmlAttributes } from './html-attributes'
+import type { BodyAttributes } from './body-attributes'
+import type { NoscriptEntries } from './noscript'
 
 export interface Head {
   /**
@@ -46,4 +49,23 @@ export interface Head {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
   script?: ScriptEntries
+  /**
+   * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
+   * or if scripting is currently turned off in the browser.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+   */
+  noscript?: NoscriptEntries
+  /**
+   * Attributes for the <html> HTML element.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
+   */
+  htmlAttrs?: HtmlAttributes
+  /**
+   * Attributes for the <body> HTML element.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+   */
+  bodyAttrs?: BodyAttributes
 }
