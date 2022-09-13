@@ -10,6 +10,7 @@ import type {
   Noscript,
   Script,
   Style,
+  UnsafeKeys
 } from '@zhead/schema'
 
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
@@ -18,25 +19,21 @@ export type MaybeRefObject<T> = MaybeRef<T> | {
   [key in keyof T]?: MaybeRef<T[key]>
 }
 
-export type HeadEntry<T> = MaybeRefObject<Partial<T &
-// pass through for untyped attributes (data-*)
-{
-  [key: string]: string | boolean | number
-}>>
+export type HeadEntry<T, E extends Record<string, any>> = MaybeRefObject<Partial<T & E>>
 
-export type ScriptRef = HeadEntry<Script>
-export type MetaRef = HeadEntry<Meta>
-export type StyleRef = HeadEntry<Style>
-export type LinkRef = HeadEntry<Link>
-export type NoscriptRef = HeadEntry<Noscript>
+export type ScriptRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<Script, E>
+export type MetaRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<Meta, E>
+export type StyleRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<Style, E>
+export type LinkRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<Link, E>
+export type NoscriptRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<Noscript, E>
 export type BaseRef = MaybeRefObject<Partial<Base>>
-export type HtmlAttributesRef = HeadEntry<HtmlAttributes>
-export type BodyAttributesRef = HeadEntry<BodyAttributes>
+export type HtmlAttributesRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<HtmlAttributes, E>
+export type BodyAttributesRef<E extends Record<string, any> = UnsafeKeys> = HeadEntry<BodyAttributes, E>
 export type MetaFlatRef = MaybeRefObject<Partial<MetaFlat>>
 
 export { Head } from '@zhead/schema'
 
-export interface ReactiveHead {
+export interface ReactiveHead<E extends Record<string, any> = UnsafeKeys> {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
@@ -62,44 +59,44 @@ export interface ReactiveHead {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  link?: MaybeRef<MaybeRef<LinkRef>[]>
+  link?: MaybeRef<MaybeRef<LinkRef<E>>[]>
   /**
    * The <meta> element represents metadata that cannot be expressed in other HTML elements, like <link> or <script>.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
    */
-  meta?: MaybeRef<MaybeRef<MetaRef>[]>
+  meta?: MaybeRef<MaybeRef<MetaRef<E>>[]>
   /**
    * The <style> HTML element contains style information for a document, or part of a document.
    * It contains CSS, which is applied to the contents of the document containing the <style> element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
    */
-  style?: MaybeRef<MaybeRef<StyleRef>[]>
+  style?: MaybeRef<MaybeRef<StyleRef<E>>[]>
   /**
    * The <script> HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: MaybeRef<MaybeRef<ScriptRef>[]>
+  script?: MaybeRef<MaybeRef<ScriptRef<E>>[]>
   /**
    * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
    * or if scripting is currently turned off in the browser.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
    */
-  noscript?: MaybeRef<MaybeRef<NoscriptRef>[]>
+  noscript?: MaybeRef<MaybeRef<NoscriptRef<E>>[]>
   /**
    * Attributes for the <html> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
    */
-  htmlAttrs?: MaybeRef<HtmlAttributesRef>
+  htmlAttrs?: MaybeRef<HtmlAttributesRef<E>>
   /**
    * Attributes for the <body> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
    */
-  bodyAttrs?: MaybeRef<BodyAttributesRef>
+  bodyAttrs?: MaybeRef<BodyAttributesRef<E>>
 }
 

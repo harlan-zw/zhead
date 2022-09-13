@@ -1,5 +1,3 @@
-import type { UnsafeKeys } from './types'
-
 export interface Style {
   /**
    * This attribute defines which media the style should be applied to.
@@ -22,14 +20,6 @@ export interface Style {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-title
    */
   title: string
-  /**
-   * @internal This property is used to dedupe the link tags
-   */
-  key: string
-  /**
-   * @internal Content of the script tag
-   */
-  children: string
 }
 
-export type StyleEntries = Partial<Style & UnsafeKeys>[]
+export type StyleEntries<T extends Record<string, any>> = Partial<Style & T>[]

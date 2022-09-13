@@ -1,5 +1,3 @@
-import type { UnsafeKeys } from './types'
-
 export interface Link {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
@@ -175,4 +173,4 @@ export interface Link {
   key: string
 }
 
-export type LinkEntries = Partial<Link & UnsafeKeys>[]
+export type LinkEntries<T extends Record<string, any>> = Partial<Link & T>[]

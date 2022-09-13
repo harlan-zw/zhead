@@ -1,5 +1,3 @@
-import type { UnsafeKeys } from '@zhead/schema/src/types'
-
 export interface Script {
   /**
    * For classic scripts, if the async attribute is present,
@@ -87,14 +85,6 @@ export interface Script {
   type: '' |
   'text/javascript' |
   'module'
-  /**
-   * @internal This property is used to dedupe the link tags
-   */
-  key: string
-  /**
-   * @internal Content of the script tag
-   */
-  children: string
 }
 
-export type ScriptEntries = Partial<Script & UnsafeKeys>[]
+export type ScriptEntries<T extends Record<string, any>> = Partial<Script & T>[]

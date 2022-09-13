@@ -1,5 +1,5 @@
+import type { UnsafeKeys } from '@zhead/schema/src/types'
 import type { MetaFlat } from './meta-flat'
-import type { UnsafeKeys } from './types'
 
 type Kebab<T extends string, A extends string = ''> =
   T extends `${infer F}${infer R}` ?
@@ -73,4 +73,4 @@ export interface Meta {
   key: string
 }
 
-export type MetaEntries = Partial<Meta & UnsafeKeys>[]
+export type MetaEntries<T extends Record<string, any> = UnsafeKeys> = Partial<Meta & T>[]
