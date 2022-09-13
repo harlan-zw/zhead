@@ -2,6 +2,7 @@ import type { ComputedRef, Ref } from 'vue'
 import type {
   Base,
   BodyAttributes,
+  Head,
   HtmlAttributes,
   Link,
   Meta,
@@ -13,11 +14,11 @@ import type {
 
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
-type MaybeRefObject<T> = MaybeRef<T> | {
+export type MaybeRefObject<T> = MaybeRef<T> | {
   [key in keyof T]?: MaybeRef<T[key]>
 }
 
-type HeadEntry<T> = MaybeRefObject<Partial<T &
+export type HeadEntry<T> = MaybeRefObject<Partial<T &
 // pass through for untyped attributes (data-*)
 {
   [key: string]: string | boolean | number
@@ -33,7 +34,9 @@ export type HtmlAttributesRef = HeadEntry<HtmlAttributes>
 export type BodyAttributesRef = HeadEntry<BodyAttributes>
 export type MetaFlatRef = MaybeRefObject<Partial<MetaFlat>>
 
-export interface Head {
+export { Head } from '@zhead/schema'
+
+export interface ReactiveHead {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
