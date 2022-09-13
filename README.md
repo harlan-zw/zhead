@@ -56,6 +56,20 @@ Typescript base schema for document &lt;head&gt;. Only ships types for easy acce
 
 [`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
 
+```ts
+export interface Head {
+  title?: string
+  base?: Base
+  link?: LinkEntries
+  meta?: MetaEntries
+  style?: StyleEntries
+  script?: ScriptEntries
+  noscript?: NoscriptEntries
+  htmlAttrs?: HtmlAttributes
+  bodyAttrs?: BodyAttributes
+}
+```
+
 ### Validation and parsing
 
 [Zod](https://zod.dev/) schema for validating and parsing head tags.
@@ -67,6 +81,7 @@ Typescript base schema for document &lt;head&gt;. Only ships types for easy acce
 Vue bindings for handling deep reactive `Ref` and `Computed` head tags.
 
 [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
+
 
 ## API
 
