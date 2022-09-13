@@ -1,5 +1,5 @@
 import type { MetaFlat } from './meta-flat'
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
 type Kebab<T extends string, A extends string = ''> =
   T extends `${infer F}${infer R}` ?
@@ -41,7 +41,7 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content
    */
-  content: MetaFlat[keyof MetaFlat] | string
+  content: MetaFlat[keyof MetaFlat] | string | number
   /**
    * Defines a pragma directive. The attribute is named http-equiv(alent) because all the allowed values are names of
    * particular HTTP headers.
@@ -60,23 +60,17 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
-  name: FixCase<ContentKeys<keyof MetaFlat>>
+  name: FixCase<ContentKeys<keyof MetaFlat>> | string
   /**
    * The property attribute is used to define a property associated with the content attribute.
    *
    * Mainly used for og and twitter meta tags.
    */
-  property: FixCase<PropertyKeys<keyof MetaFlat>>
+  property: FixCase<PropertyKeys<keyof MetaFlat>> | string
   /**
    * @internal This property is used to dedupe the link tags
    */
   key: string
 }
 
-export type MetaEntries = Partial<
-  Meta &
-  // pass through for data attributes
-  {
-    [key: string]: Stringable
-  }
-  >[]
+export type MetaEntries = Partial<Meta & UnsafeKeys>[]

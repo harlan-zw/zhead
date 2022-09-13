@@ -1,6 +1,6 @@
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
-export interface HtmlAttributes {
+export interface HtmlAttributes extends UnsafeKeys {
   /**
    * The lang global attribute helps define the language of an element: the language that non-editable elements are
    * written in, or the language that the editable elements should be written in by the user.
@@ -12,8 +12,4 @@ export interface HtmlAttributes {
    * The dir global attribute is an enumerated attribute that indicates the directionality of the element's text.
    */
   dir: 'ltr' | 'rtl' | 'auto'
-  /**
-   * Any arbitrary keys such as `data-*`.
-   */
-  [key: string]: Stringable
 }

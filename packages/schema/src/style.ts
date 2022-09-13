@@ -1,4 +1,4 @@
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
 export interface Style {
   /**
@@ -32,10 +32,4 @@ export interface Style {
   children: string
 }
 
-export type StyleEntries = Partial<
-  Style &
-  // pass through for data attributes
-  {
-    [key: string]: Stringable
-  }
-  >[]
+export type StyleEntries = Partial<Style & UnsafeKeys>[]

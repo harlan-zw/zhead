@@ -80,11 +80,11 @@ export interface MetaFlat {
     /**
      * Defines the pixel width of the viewport that you want the web site to be rendered at.
      */
-    width: number | 'device-width'
+    width: number | string | 'device-width'
     /**
      * Defines the height of the viewport. Not used by any browser.
      */
-    height: number | 'device-height'
+    height: number | string | 'device-height'
     /**
      * Defines the ratio between the device width
      * (device-width in portrait mode or device-height in landscape mode) and the viewport size.
@@ -92,7 +92,7 @@ export interface MetaFlat {
      * @minimum 0
      * @maximum 10
      */
-    initialScale: number
+    initialScale: number | string
     /**
      * Defines the maximum amount to zoom in.
      * It must be greater or equal to the minimum-scale or the behavior is undefined.
@@ -101,7 +101,7 @@ export interface MetaFlat {
      * @minimum 0
      * @maximum 10
      */
-    maximumScale: number
+    maximumScale: number | string
     /**
      * Defines the minimum zoom level. It must be smaller or equal to the maximum-scale or the behavior is undefined.
      * Browser settings can ignore this rule and iOS10+ ignores it by default.
@@ -109,7 +109,7 @@ export interface MetaFlat {
      * @minimum 0
      * @maximum 10
      */
-    minimumScale: number
+    minimumScale: number | string
     /**
      * If set to no, the user is unable to zoom in the webpage.
      * The default is yes. Browser settings can ignore this rule, and iOS10+ ignores it by default.
@@ -178,7 +178,7 @@ export interface MetaFlat {
     /**
      * Use a maximum of [number] characters as a textual snippet for this search result.
      */
-    maxSnippet: number
+    maxSnippet: number | string
     /**
      * Set the maximum size of an image preview for this page in a search results.
      */
@@ -186,7 +186,7 @@ export interface MetaFlat {
     /**
      * Use a maximum of [number] seconds as a video snippet for videos on this page in search results.
      */
-    maxVideoPreview: number
+    maxVideoPreview: number | string
     /**
      * Don't offer translation of this page in search results.
      */
@@ -607,7 +607,7 @@ export interface MetaFlat {
   defaultStyle: string
   xUaCompatible: 'IE=edge'
   refresh: string | {
-    seconds: number
+    seconds: number | string
     url: string
   }
 }

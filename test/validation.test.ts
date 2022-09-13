@@ -6,7 +6,6 @@ describe('validation', () => {
   it('can validate', () => {
     const tags = defineHead({
       meta: [
-        // @ts-expect-error throwing type
         { description: 'My Description' },
       ],
     })

@@ -1,4 +1,4 @@
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
 export interface Noscript {
   /**
@@ -11,10 +11,4 @@ export interface Noscript {
   children: string
 }
 
-export type NoscriptEntries = Partial<
-  Noscript &
-  // pass through for data attributes
-  {
-    [key: string]: Stringable
-  }
->[]
+export type NoscriptEntries = Partial<Noscript & UnsafeKeys>[]

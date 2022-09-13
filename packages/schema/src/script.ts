@@ -1,4 +1,4 @@
-import type { Stringable } from '@zhead/schema/src/types'
+import type { UnsafeKeys } from '@zhead/schema/src/types'
 
 export interface Script {
   /**
@@ -97,10 +97,4 @@ export interface Script {
   children: string
 }
 
-export type ScriptEntries = Partial<
-  Script &
-  // pass through for data attributes
-  {
-    [key: string]: Stringable
-  }
->[]
+export type ScriptEntries = Partial<Script & UnsafeKeys>[]

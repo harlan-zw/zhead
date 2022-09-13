@@ -1,4 +1,4 @@
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
 export interface Link {
   /**
@@ -175,10 +175,4 @@ export interface Link {
   key: string
 }
 
-export type LinkEntries = Partial<
-  Link &
-  // pass through for data attributes
-  {
-    [key: string]: Stringable
-  }
-  >[]
+export type LinkEntries = Partial<Link & UnsafeKeys>[]

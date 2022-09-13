@@ -1,8 +1,4 @@
-import type { Stringable } from './types'
+import type { UnsafeKeys } from './types'
 
-export interface BodyAttributes {
-  /**
-   * Any arbitrary keys such as `data-*`.
-   */
-  [key: string]: Stringable
+export interface BodyAttributes extends UnsafeKeys {
 }
