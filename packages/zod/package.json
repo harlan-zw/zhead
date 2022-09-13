@@ -34,6 +34,6 @@
     "generate": "unbuild . --stub"
   },
   "dependencies": {
-    "zod": "^3.19.0"
+    "zod": "^3.19.1"
   }
 }

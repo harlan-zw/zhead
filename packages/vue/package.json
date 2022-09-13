@@ -41,6 +41,6 @@
     "zhead": "workspace:*"
   },
   "devDependencies": {
-    "vue": "^3.2.38"
+    "vue": "^3.2.39"
   }
 }
