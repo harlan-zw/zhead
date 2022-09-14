@@ -27,49 +27,66 @@ Typed utilities for defining, validating and building best-practice document &lt
 </table>
 </p>
 
-## Features
+## Types
 
-- 🇹 Fully typed document &lt;head&gt; with inline doc
-- 💎 [Zod](https://zod.dev/) powered schema parsing and validation
-- 🔨 Vue bindings for deep reactive `Ref` and `Computed` support, [useHead](https://github.com/vueuse/head) compatible
-- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
+- 🇹 Fully typed &lt;head&gt; Schema
+- 🇹 Integrated MDN doc
+- 🇹 [100+ typed meta's](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)
+- 🇹 Vue schema for deep reactive `Ref` and `Computed` support
 
-Numerous utilities
-- 🧙 Resolve flat meta tags ([100+ typed](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)) `unpackMeta`
+## Functions
+
+- 💎 Validation and schema parsing provided by [Zod](https://zod.dev/)
+- 🧙 Resolve flat meta tags and back again `unpackMeta` `packMeta`
 - ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
 - 📣 Title template support `renderTitle`
 - ✍️ Output to HTML `generateHtml`
+- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 
-## Installation
+## Packages
 
-```bash
-npm install --save-dev zhead
-
-# Using yarn
-yarn add --dev zhead
-```
-
-## Sub-packages
-
-### TypeScript 
+### Schema 
 
 Typescript base schema for document &lt;head&gt;. Only ships types for easy access to type augmentation.
 
-[`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
-
 ```ts
-export interface Head {
+export interface Head<E extends MergeHead = MergeHead> {
   title?: string
-  base?: Base
-  link?: LinkEntries
-  meta?: MetaEntries
-  style?: StyleEntries
-  script?: ScriptEntries
-  noscript?: NoscriptEntries
-  htmlAttrs?: HtmlAttributes
-  bodyAttrs?: BodyAttributes
+  titleTemplate?: string | ((title?: string) => string)
+  base?: Partial<Merge<E['base'], Base>>
+  link?: (Link & UnsafeKeys & Default<E['link']>)[]
+  meta?: (Meta & UnsafeKeys & Default<E['meta']>)[]
+  style?: (Style & UnsafeKeys & Default<E['style']>)[]
+  script?: (Script & UnsafeKeys & Default<E['script']>)[]
+  noscript?: (Noscript & UnsafeKeys & Default<E['noscript']>)[]
+  htmlAttrs?: (HtmlAttributes & UnsafeKeys & Default<E['htmlAttrs']>)
+  bodyAttrs?: (BodyAttributes & UnsafeKeys & Default<E['bodyAttrs']>)
 }
 ```
+
+[`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
+
+### Vue Schema
+
+Typescript schema for document &lt;head&gt; with Vue reactivity.
+
+```ts
+export interface ReactiveHead<E extends MergeHead = MergeHead> {
+  title?: MaybeRef<Head<E>['title']>
+  titleTemplate?: Head<E>['titleTemplate'] | Ref<string>
+  base?: Head<E>['base'] | MaybeRef<MaybeRefObject<Head<E>['base']>>
+  link?: Head<E>['link'] | ReffableArrayEntries<Head<E>['link']>
+  meta?: Head<E>['meta'] | ReffableArrayEntries<Head<E>['meta']>
+  style?: Head<E>['style'] | ReffableArrayEntries<Head<E>['style']>
+  script?: Head<E>['script'] | ReffableArrayEntries<Head<E>['script']>
+  noscript?: Head<E>['noscript'] | ReffableArrayEntries<Head<E>['noscript']>
+  htmlAttrs?: MaybeRef<MaybeRefObject<Head<E>['htmlAttrs']>>
+  bodyAttrs?: MaybeRef<MaybeRefObject<Head<E>['bodyAttrs']>>
+}
+```
+
+[`@zhead/schema-vue`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
+
 
 ### Validation and parsing
 
@@ -83,8 +100,21 @@ Vue bindings for handling deep reactive `Ref` and `Computed` head tags.
 
 [`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
 
+### Core
 
-## API
+See below
+
+## Core Installation
+
+```bash
+npm install --save-dev zhead
+
+# Using yarn
+yarn add --dev zhead
+```
+
+
+## Core API
 
 ### defineHead
 
