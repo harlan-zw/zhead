@@ -1,4 +1,4 @@
-# `@zhead/head`
+# `@zhead/schema`
 
 Typescript definitions for document `<head>`.
 
@@ -13,18 +13,11 @@ yarn add --dev @zhead/schema
 
 ## Types
 
-- `Head` - `<head>` schema. [head.ts](./src/head.ts)
-- `Link` - `<link>` schema. [link.ts](./src/link.ts)
-- `Meta` - `<meta>` schema. [meta.ts](./src/meta.ts)
-- `MetaFlat` - `<meta>` schema as a flat object. [meta-flat.ts](./src/meta-flat.ts) (see `zhead` `unpackMeta` function)
-- `Script` - `<script>` schema. [script.ts](./src/script.ts)
-- `Style` - `<style>` schema. [style.ts](./src/style.ts)
-
-## Preview
+See [head.ts](./src/head.ts) for the full list of types.
 
 ```ts
 
-export interface Head {
+export interface Head<E extends MergeHead = MergeHead> {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
@@ -33,12 +26,16 @@ export interface Head {
    */
   title?: string
   /**
+   * Generate the title from a template.
+   */
+  titleTemplate?: string | ((title?: string) => string)
+  /**
    * The <base> HTML element specifies the base URL to use for all relative URLs in a document.
    * There can be only one <base> element in a document.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
    */
-  base?: Base
+  base?: Partial<Merge<E['base'], Base>>
   /**
    * The <link> HTML element specifies relationships between the current document and an external resource.
    * This element is most commonly used to link to stylesheets, but is also used to establish site icons
@@ -46,25 +43,45 @@ export interface Head {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  link?: LinkEntries
+  link?: (Link & UnsafeKeys & Default<E['link']>)[]
   /**
    * The <meta> element represents metadata that cannot be expressed in other HTML elements, like <link> or <script>.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
    */
-  meta?: MetaEntries
+  meta?: (Meta & UnsafeKeys & Default<E['meta']>)[]
   /**
    * The <style> HTML element contains style information for a document, or part of a document.
    * It contains CSS, which is applied to the contents of the document containing the <style> element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
    */
-  style?: StyleEntries
+  style?: (Style & UnsafeKeys & Default<E['style']>)[]
   /**
    * The <script> HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: ScriptEntries
+  script?: (Script & UnsafeKeys & Default<E['script']>)[]
+  /**
+   * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
+   * or if scripting is currently turned off in the browser.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+   */
+  noscript?: (Noscript & UnsafeKeys & Default<E['noscript']>)[]
+  /**
+   * Attributes for the <html> HTML element.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
+   */
+  htmlAttrs?: (HtmlAttributes & UnsafeKeys & Default<E['htmlAttrs']>)
+  /**
+   * Attributes for the <body> HTML element.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+   */
+  bodyAttrs?: (BodyAttributes & UnsafeKeys & Default<E['bodyAttrs']>)
 }
+
 ```

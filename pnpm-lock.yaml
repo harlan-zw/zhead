@@ -33,13 +33,24 @@ importers:
   packages/schema:
     specifiers: {}
 
+  packages/schema-vue:
+    specifiers:
+      '@zhead/schema': workspace:*
+      vue: ^3.2.39
+    dependencies:
+      '@zhead/schema': link:../schema
+    devDependencies:
+      vue: 3.2.39
+
   packages/vue:
     specifiers:
       '@zhead/schema': workspace:*
+      '@zhead/schema-vue': workspace:*
       vue: ^3.2.39
       zhead: workspace:*
     dependencies:
       '@zhead/schema': link:../schema
+      '@zhead/schema-vue': link:../schema-vue
       zhead: link:../zhead
     devDependencies:
       vue: 3.2.39

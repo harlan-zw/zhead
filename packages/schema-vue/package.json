@@ -1,8 +1,8 @@
 {
-  "name": "@zhead/vue",
+  "name": "@zhead/schema-vue",
   "version": "0.6.2",
   "packageManager": "pnpm@7.8.0",
-  "description": "Use zhead with types for Vue ref's and computed.",
+  "description": "Schema for Vue head reactivity.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/harlan-zw",
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harlan-zw/zhead.git",
-    "directory": "packages/vue"
+    "directory": "packages/schema-vue"
   },
   "bugs": {
     "url": "https://github.com/harlan-zw/zhead/issues"
@@ -37,9 +37,7 @@
     "vue": ">=2.7 || >=3"
   },
   "dependencies": {
-    "@zhead/schema": "workspace:*",
-    "@zhead/schema-vue": "workspace:*",
-    "zhead": "workspace:*"
+    "@zhead/schema": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.39"
