@@ -1,5 +1,5 @@
-import type { Head } from '@zhead/schema'
+import type { Head, MergeHead } from '@zhead/schema'
 
-export function defineHead<T extends Head>(input: T) {
+export function defineHead<T extends MergeHead>(input: Head<T>) {
   return input
 }

@@ -9,7 +9,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async
    */
-  async: boolean
+  async?: boolean
   /**
    * Normal script elements pass minimal information to the window.onerror
    * for scripts which do not pass the standard CORS checks.
@@ -17,7 +17,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-crossorigin
    */
-  crossorigin: '' |
+  crossorigin?: '' |
   'anonymous' |
   'use-credentials'
   /**
@@ -26,13 +26,13 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-defer
    */
-  defer: boolean
+  defer?: boolean
   /**
    * Provides a hint of the relative priority to use when fetching an external script.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-fetchpriority
    */
-  fetchpriority: 'high' |
+  fetchpriority?: 'high' |
   'low' |
   'auto'
   /**
@@ -41,7 +41,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-integrity
    */
-  integrity: string
+  integrity?: string
   /**
    * This Boolean attribute is set to indicate that the script should not be executed in browsers
    * that support ES modules — in effect,
@@ -49,7 +49,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nomodule
    */
-  nomodule: boolean
+  nomodule?: boolean
   /**
    * A cryptographic nonce (number used once) to allow scripts in a script-src Content-Security-Policy.
    * The server must generate a unique nonce value each time it transmits a policy.
@@ -57,13 +57,13 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nonce
    */
-  nonce: string
+  nonce?: string
   /**
    * Indicates which referrer to send when fetching the script, or resources fetched by the script.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-referrerpolicy
    */
-  referrerpolicy: '' |
+  referrerpolicy?: '' |
   'no-referrer' |
   'no-referrer-when-downgrade' |
   'origin' |
@@ -78,13 +78,11 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-src
    */
-  src: string
+  src?: string
   /**
    * This attribute indicates the type of script represented.
    */
-  type: '' |
+  type?: '' |
   'text/javascript' |
   'module'
 }
-
-export type ScriptEntries<T extends Record<string, any>> = Partial<Script & T>[]

@@ -1,12 +1,17 @@
 import { describe, it } from 'vitest'
-import { resolveSeoHead, unpackMeta } from 'zhead'
+import { resolveSeoHead, unpackMeta } from '../packages/zhead/src'
 
 describe('seo head', () => {
   it('build seo head', () => {
     const tags = resolveSeoHead({
       title: 'test',
       link: [
-        { href: 'style.css', as: 'style', crossorigin: 'anonymous' },
+        {
+          id: 'test',
+          href: 'style.css',
+          as: 'style',
+          crossorigin: 'anonymous',
+        },
       ],
       meta: unpackMeta({
         description: 'test',
@@ -22,6 +27,7 @@ describe('seo head', () => {
             "as": "style",
             "crossorigin": "anonymous",
             "href": "style.css",
+            "id": "test",
           },
         ],
         "meta": [

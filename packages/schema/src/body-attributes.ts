@@ -1,2 +1,1 @@
-export interface BodyAttributes {
-}
+export interface BodyAttributes {}

@@ -1,4 +1,4 @@
-import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
+import type { Head, MetaFlatInput } from '@zhead/schema'
 import { packArray } from 'packrup'
 import { MetaPackingSchema } from './utils'
 
@@ -6,7 +6,7 @@ import { MetaPackingSchema } from './utils'
  * Convert an array of meta entries to a flat object.
  * @param inputs
  */
-export function packMeta<T extends MetaEntries>(inputs: T): MetaFlatInput {
+export function packMeta<T extends Required<Head>['meta']>(inputs: T): MetaFlatInput {
   const mappedPackingSchema = Object.entries(MetaPackingSchema)
     .map(([key, value]) => [key, value.keyValue])
 

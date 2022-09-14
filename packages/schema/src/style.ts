@@ -5,7 +5,7 @@ export interface Style {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-media
    */
-  media: string
+  media?: string
   /**
    * A cryptographic nonce (number used once) used to allow inline styles in a style-src Content-Security-Policy.
    * The server must generate a unique nonce value each time it transmits a policy.
@@ -13,13 +13,13 @@ export interface Style {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-nonce
    */
-  nonce: string
+  nonce?: string
   /**
    * This attribute specifies alternative style sheet sets.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-title
    */
-  title: string
+  title?: string
 }
 
 export type StyleEntries<T extends Record<string, any>> = Partial<Style & T>[]

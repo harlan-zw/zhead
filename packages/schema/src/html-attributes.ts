@@ -5,9 +5,9 @@ export interface HtmlAttributes {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
    */
-  lang: string
+  lang?: string
   /**
    * The dir global attribute is an enumerated attribute that indicates the directionality of the element's text.
    */
-  dir: 'ltr' | 'rtl' | 'auto'
+  dir?: 'ltr' | 'rtl' | 'auto'
 }

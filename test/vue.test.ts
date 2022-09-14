@@ -1,14 +1,14 @@
 import { describe, it } from 'vitest'
 import { computed, nextTick, ref } from 'vue'
-import type { MetaRef, ScriptRef } from '../packages/vue/src'
+import type { Head } from '../packages/vue/src'
 import { defineHead, packMeta, unpackMeta } from '../packages/vue/src'
 import { deepUnref } from '../packages/vue/src/util'
 
 describe('vue', () => {
   it('define head', async () => {
     const title = ref('')
-    const scripts = ref<Array<ScriptRef>>([])
-    const desc = computed<MetaRef>(() => {
+    const scripts = ref<Required<Head>['script']>([])
+    const desc = computed<Required<Head>['meta'][number]>(() => {
       return {
         name: 'description',
         content: 'test2',
@@ -20,6 +20,12 @@ describe('vue', () => {
         href: ref('title'),
         target: computed(() => 'test'),
       },
+      link: [
+        {
+          as: 'style',
+
+        },
+      ],
       meta: [
         desc,
         {
@@ -31,12 +37,15 @@ describe('vue', () => {
           content: 'adult',
         },
       ],
+      htmlAttrs: {
+        lang: 'test',
+        dir: 'ltr',
+      },
       script: scripts,
     })
     scripts.value.push({
-      'src': 'foo.js',
-      'defer': true,
-      'data-test': 'trr',
+      src: 'foo.js',
+      defer: true,
     })
     title.value = 'hello'
     await nextTick()
@@ -47,6 +56,15 @@ describe('vue', () => {
           "href": "title",
           "target": "test",
         },
+        "htmlAttrs": {
+          "dir": "ltr",
+          "lang": "test",
+        },
+        "link": [
+          {
+            "as": "style",
+          },
+        ],
         "meta": [
           {
             "content": "test2",
@@ -63,7 +81,6 @@ describe('vue', () => {
         ],
         "script": [
           {
-            "data-test": "trr",
             "defer": true,
             "src": "foo.js",
           },

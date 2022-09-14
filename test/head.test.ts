@@ -1,9 +1,12 @@
 import { describe, it } from 'vitest'
 import { defineHead } from 'zhead'
+import type { UnsafeKeys } from '@zhead/schema'
 
 describe('head', () => {
   it('define head', () => {
-    const tags = defineHead({
+    const tags = defineHead<{
+      script: UnsafeKeys
+    }>({
       title: 'test',
       script: [
         {
@@ -13,16 +16,37 @@ describe('head', () => {
           'defer': true,
         },
       ],
+      bodyAttrs: {
+        'data-something': 'some value',
+      },
+      htmlAttrs: {
+        lang: 'test',
+        dir: 'ltr',
+      },
       link: [
-        { href: 'style.css', as: 'style', crossorigin: 'anonymous' },
+        {
+          href: 'style.css',
+          as: 'style',
+          crossorigin: 'anonymous',
+        },
       ],
       meta: [
-        { name: 'description', content: 'test' },
+        {
+          name: 'description',
+          content: 'ad',
+        },
       ],
     })
 
     expect(tags).toMatchInlineSnapshot(`
       {
+        "bodyAttrs": {
+          "data-something": "some value",
+        },
+        "htmlAttrs": {
+          "dir": "ltr",
+          "lang": "test",
+        },
         "link": [
           {
             "as": "style",
@@ -32,7 +56,7 @@ describe('head', () => {
         ],
         "meta": [
           {
-            "content": "test",
+            "content": "ad",
             "name": "description",
           },
         ],

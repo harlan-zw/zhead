@@ -1,4 +1,3 @@
-import type { UnsafeKeys } from '@zhead/schema/src/types'
 import type { MetaFlat } from './meta-flat'
 
 type Kebab<T extends string, A extends string = ''> =
@@ -35,20 +34,20 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset
    */
-  charset: string
+  charset?: string
   /**
    * This attribute contains the value for the http-equiv or name attribute, depending on which is used.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content
    */
-  content: MetaFlat[keyof MetaFlat] | string | number
+  content?: (MetaFlat[keyof MetaFlat] extends string ? MetaFlat[keyof MetaFlat] : never) | string | number
   /**
    * Defines a pragma directive. The attribute is named http-equiv(alent) because all the allowed values are names of
    * particular HTTP headers.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv
    */
-  ['http-equiv']: 'content-security-policy' |
+  ['http-equiv']?: 'content-security-policy' |
   'content-type' |
   'default-style' |
   'x-ua-compatible' |
@@ -60,17 +59,11 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-name
    */
-  name: FixCase<ContentKeys<keyof MetaFlat>> | string
+  name?: FixCase<ContentKeys<keyof MetaFlat>> | string
   /**
    * The property attribute is used to define a property associated with the content attribute.
    *
    * Mainly used for og and twitter meta tags.
    */
-  property: FixCase<PropertyKeys<keyof MetaFlat>> | string
-  /**
-   * @internal This property is used to dedupe the link tags
-   */
-  key: string
+  property?: FixCase<PropertyKeys<keyof MetaFlat>> | string
 }
-
-export type MetaEntries<T extends Record<string, any> = UnsafeKeys> = Partial<Meta & T>[]

@@ -7,7 +7,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  as: 'audio' |
+  as?: 'audio' |
   'document' |
   'embed' |
   'fetch' |
@@ -25,7 +25,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin
    */
-  crossorigin: '' |
+  crossorigin?: '' |
   'anonymous' |
   'use-credentials'
   /**
@@ -33,7 +33,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-fetchpriority
    */
-  fetchpriority: 'high' |
+  fetchpriority?: 'high' |
   'low' |
   'auto'
   /**
@@ -41,7 +41,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-href
    */
-  href: string
+  href?: string
   /**
    * This attribute indicates the language of the linked resource. It is purely advisory.
    * Allowed values are specified by RFC 5646: Tags for Identifying Languages (also known as BCP 47).
@@ -49,14 +49,14 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-hreflang
    */
-  hreflang: string
+  hreflang?: string
   /**
    * For rel="preload" and as="image" only, the imagesizes attribute is a sizes attribute that indicates to preload
    * the appropriate resource used by an img element with corresponding values for its srcset and sizes attributes.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-imagesizes
    */
-  imagesizes: string
+  imagesizes?: string
   /**
    * For rel="preload" and as="image" only, the imagesrcset attribute is a sourceset attribute that indicates
    * to preload the appropriate resource used by an img element with corresponding values for its srcset and
@@ -64,7 +64,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-imagesrcset
    */
-  imagesrcset: string
+  imagesrcset?: string
   /**
    * Contains inline metadata — a base64-encoded cryptographic hash of the resource (file)
    * you're telling the browser to fetch.
@@ -72,7 +72,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-integrity
    */
-  integrity: string
+  integrity?: string
   /**
    * This attribute specifies the media that the linked resource applies to.
    * Its value must be a media type / media query.
@@ -81,7 +81,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-integrity
    */
-  media: string
+  media?: string
 
   /**
    * Identifies a resource that might be required by the next navigation and that the user agent should retrieve it.
@@ -89,14 +89,14 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-prefetch
    */
-  prefetch: string
+  prefetch?: string
 
   /**
    * A string indicating which referrer to use when fetching the resource.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-referrerpolicy
    */
-  referrerpolicy: '' |
+  referrerpolicy?: '' |
   'no-referrer' |
   'no-referrer-when-downgrade' |
   'origin' |
@@ -111,7 +111,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel
    */
-  rel: 'alternate' |
+  rel?: 'alternate' |
   'author' |
   'shortcut icon' |
   'bookmark' |
@@ -148,14 +148,14 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-sizes
    */
-  sizes: string
+  sizes?: string
   /**
    * The title attribute has special semantics on the <link> element.
    * When used on a <link rel="stylesheet"> it defines a default or an alternate stylesheet.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-title
    */
-  title: string
+  title?: string
   /**
    * This attribute is used to define the type of the content linked to.
    * The value of the attribute should be a MIME type such as text/html, text/css, and so on.
@@ -166,11 +166,5 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-type
    */
-  type: string
-  /**
-   * @internal This property is used to dedupe the link tags
-   */
-  key: string
+  type?: string
 }
-
-export type LinkEntries<T extends Record<string, any>> = Partial<Link & T>[]

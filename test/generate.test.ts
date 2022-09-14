@@ -9,7 +9,10 @@ describe('generate', () => {
         { src: 'https://example.com/script.js' },
       ],
       meta: [
-        { name: 'description', content: 'test' },
+        {
+          name: 'description',
+          content: 'test',
+        },
       ],
     })
 

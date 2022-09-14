@@ -1,4 +1,4 @@
-import type { MetaEntries, MetaFlatInput } from '@zhead/schema'
+import type { Head, MetaFlatInput } from '@zhead/schema'
 import { unpackToArray, unpackToString } from 'packrup'
 import { changeKeyCasingDeep, fixKeyCase } from '../transforms'
 import { MetaPackingSchema, resolveMetaKeyType } from './utils'
@@ -7,7 +7,7 @@ import { MetaPackingSchema, resolveMetaKeyType } from './utils'
  * Converts a flat meta object into an array of meta entries.
  * @param input
  */
-export function unpackMeta<T extends MetaFlatInput>(input: T): MetaEntries {
+export function unpackMeta<T extends MetaFlatInput>(input: T): Required<Head>['meta'] {
   return unpackToArray((input), {
     key({ key }) {
       return resolveMetaKeyType(key) as string
