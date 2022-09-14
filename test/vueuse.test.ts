@@ -1,6 +1,5 @@
 import { describe, it } from 'vitest'
 import { defineHead } from 'zhead'
-import type { UnsafeKeys } from '@zhead/schema'
 
 interface Dedupes {
   /**

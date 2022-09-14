@@ -29,7 +29,7 @@ type ReffableArrayEntries<T> =
 
 export { Head } from '@zhead/schema'
 
-export interface ReactiveHead<E extends MergeHead = {}> {
+export interface ReactiveHead<E extends MergeHead = MergeHead> {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
@@ -42,7 +42,7 @@ export interface ReactiveHead<E extends MergeHead = {}> {
    */
   titleTemplate?:
   // function should not be reactive but string can be
-  Head<E>['titleTemplate'] | MaybeRef<string>
+  Head<E>['titleTemplate'] | Ref<string>
   /**
    * The <base> HTML element specifies the base URL to use for all relative URLs in a document.
    * There can be only one <base> element in a document.

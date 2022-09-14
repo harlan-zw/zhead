@@ -8,8 +8,6 @@ export type Default<T extends undefined | Record<string, any>, D = {}> = [T] ext
 export type Merge<T extends undefined | Record<string, any>, D = {}> = [T] extends [undefined] ? D : D & T
 
 export interface MergeHead {
-  title?: any
-  titleTemplate?: any
   base?: Record<string, any>
   link?: Record<string, any>
   meta?: Record<string, any>
