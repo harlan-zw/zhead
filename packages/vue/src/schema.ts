@@ -74,7 +74,7 @@ export interface ReactiveHead<E extends MergeHead = {}> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: ReffableArrayEntries<Head<E>['script']>
+  script?: Head<E>['script'] | ReffableArrayEntries<Head<E>['script']>
   /**
    * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
    * or if scripting is currently turned off in the browser.
