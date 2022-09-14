@@ -89,12 +89,12 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
    */
-  htmlAttrs?: MaybeRef<Head<E>['htmlAttrs']>
+  htmlAttrs?: MaybeRef<MaybeRefObject<Head<E>['htmlAttrs']>>
   /**
    * Attributes for the <body> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
    */
-  bodyAttrs?: MaybeRef<Head<E>['bodyAttrs']>
+  bodyAttrs?: MaybeRef<MaybeRefObject<Head<E>['bodyAttrs']>>
 }
 
