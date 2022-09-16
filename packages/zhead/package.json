@@ -1,6 +1,6 @@
 {
   "name": "zhead",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "packageManager": "pnpm@7.8.0",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
