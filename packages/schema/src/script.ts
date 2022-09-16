@@ -81,8 +81,13 @@ export interface Script {
   src?: string
   /**
    * This attribute indicates the type of script represented.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type
    */
   type?: '' |
   'text/javascript' |
-  'module'
+  'module' |
+  'application/json' |
+  'application/ld+json' |
+  string
 }
