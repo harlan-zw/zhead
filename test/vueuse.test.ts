@@ -1,5 +1,6 @@
 import { describe, it } from 'vitest'
-import { defineHead } from 'zhead'
+import { ref } from 'vue'
+import { defineHead } from '../packages/schema-vue'
 
 interface Dedupes {
   /**
@@ -81,6 +82,7 @@ interface HeadAugmentation {
 
 describe('vueuse example', () => {
   it('define head', () => {
+    const title = ref('title')
     const tags = defineHead<HeadAugmentation>({
       title: 'hello',
       base: {
@@ -89,7 +91,7 @@ describe('vueuse example', () => {
       meta: [
         {
           name: 'description',
-          content: 'desc',
+          content: () => `${title.value} - hello`,
         },
         {
           name: 'description',
@@ -106,6 +108,10 @@ describe('vueuse example', () => {
           key: 'zh',
         },
       ],
+      htmlAttrs: {
+        lang: () => 'en',
+        dir: () => 'ltr',
+      },
       script: [
         {
           'src': 'foo.js',
@@ -120,9 +126,13 @@ describe('vueuse example', () => {
         "base": {
           "href": "/base",
         },
+        "htmlAttrs": {
+          "dir": [Function],
+          "lang": [Function],
+        },
         "meta": [
           {
-            "content": "desc",
+            "content": [Function],
             "name": "description",
           },
           {

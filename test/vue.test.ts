@@ -23,14 +23,13 @@ describe('vue', () => {
       link: [
         {
           as: 'style',
-
         },
       ],
       meta: [
         desc,
         {
           name: 'description',
-          content: computed(() => `${title.value} this is my description`),
+          content: () => `${title.value} this is my description`,
         },
         {
           property: 'og:url',
@@ -71,7 +70,7 @@ describe('vue', () => {
             "name": "description",
           },
           {
-            "content": "hello this is my description",
+            "content": [Function],
             "name": "description",
           },
           {

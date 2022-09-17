@@ -1,27 +1,27 @@
-import type { ComputedRef, Ref } from 'vue'
 import type {
   Head,
   MergeHead,
   MetaFlat,
 } from '@zhead/schema'
+import type { MaybeComputedRef } from '@vueuse/shared'
 
-export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
+export type InferArrayEntry<T> = T extends Array<infer U> ? U : T
 
-export type MaybeRefObject<T> = MaybeRef<T> | {
-  [key in keyof T]?: MaybeRef<T[key]>
+export type MaybeComputedRefEntries<T> = MaybeComputedRef<T> | {
+  [key in keyof T]?: MaybeComputedRef<T[key]>
 }
 
-export type MetaFlatRef = MaybeRefObject<Partial<MetaFlat>>
+export type MetaFlatRef = MaybeComputedRefEntries<Partial<MetaFlat>>
 
-type InferArrayEntry<T> = T extends Array<infer U> ? U : T
-type ReffableArrayEntries<T> =
-  // root can be ref / computed
-  MaybeRef<
-    // each entry can be ref / computed
-    MaybeRef<
-      // each entries values can be ref / computed
-      MaybeRefObject<
-        // need to infer array contents rather then the array itself to swap reactivity properly
+export type MaybeDeeplyComputedRefArray<T> =
+  T |
+  // root can be a plain value, or ref or a getter function
+  MaybeComputedRef<
+    // each entry can be a plain value, or ref or a getter function
+    MaybeComputedRef<
+      // each entries values can be a plain value, or ref or a getter function
+      MaybeComputedRefEntries<
+        // need to infer array contents rather than the array itself to swap reactivity properly
         InferArrayEntry<T>
         >
       >[]
@@ -36,20 +36,20 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
    */
-  title?: MaybeRef<Head<E>['title']>
+  title?: MaybeComputedRef<Head<E>['title']>
   /**
    * Generate the title from a template.
    */
   titleTemplate?:
   // function should not be reactive but string can be
-  Head<E>['titleTemplate'] | Ref<string>
+  Head<E>['titleTemplate'] | MaybeComputedRef<string>
   /**
    * The <base> HTML element specifies the base URL to use for all relative URLs in a document.
    * There can be only one <base> element in a document.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
    */
-  base?: Head<E>['base'] | MaybeRef<MaybeRefObject<Head<E>['base']>>
+  base?: MaybeComputedRef<MaybeComputedRefEntries<Head<E>['base']>>
   /**
    * The <link> HTML element specifies relationships between the current document and an external resource.
    * This element is most commonly used to link to stylesheets, but is also used to establish site icons
@@ -57,44 +57,44 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  link?: Head<E>['link'] | ReffableArrayEntries<Head<E>['link']>
+  link?: MaybeDeeplyComputedRefArray<Head<E>['link']>
   /**
    * The <meta> element represents metadata that cannot be expressed in other HTML elements, like <link> or <script>.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
    */
-  meta?: Head<E>['meta'] | ReffableArrayEntries<Head<E>['meta']>
+  meta?: MaybeDeeplyComputedRefArray<Head<E>['meta']>
   /**
    * The <style> HTML element contains style information for a document, or part of a document.
    * It contains CSS, which is applied to the contents of the document containing the <style> element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
    */
-  style?: Head<E>['style'] | ReffableArrayEntries<Head<E>['style']>
+  style?: MaybeDeeplyComputedRefArray<Head<E>['style']>
   /**
    * The <script> HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: Head<E>['script'] | ReffableArrayEntries<Head<E>['script']>
+  script?: MaybeDeeplyComputedRefArray<Head<E>['script']>
   /**
    * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
    * or if scripting is currently turned off in the browser.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
    */
-  noscript?: Head<E>['noscript'] | ReffableArrayEntries<Head<E>['noscript']>
+  noscript?: MaybeDeeplyComputedRefArray<Head<E>['noscript']>
   /**
    * Attributes for the <html> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
    */
-  htmlAttrs?: MaybeRef<MaybeRefObject<Head<E>['htmlAttrs']>>
+  htmlAttrs?: MaybeComputedRef<MaybeComputedRefEntries<Head<E>['htmlAttrs']>>
   /**
    * Attributes for the <body> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
    */
-  bodyAttrs?: MaybeRef<MaybeRefObject<Head<E>['bodyAttrs']>>
+  bodyAttrs?: MaybeComputedRef<MaybeComputedRefEntries<Head<E>['bodyAttrs']>>
 }
 

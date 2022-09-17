@@ -37,6 +37,7 @@
     "vue": ">=2.7 || >=3"
   },
   "dependencies": {
+    "@vueuse/shared": "^9.2.0",
     "@zhead/schema": "workspace:*"
   },
   "devDependencies": {
