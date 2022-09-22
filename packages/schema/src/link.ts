@@ -1,3 +1,34 @@
+export type LinkRelTypes = 'alternate' |
+  'author' |
+  'shortcut icon' |
+  'bookmark' |
+  'canonical' |
+  'dns-prefetch' |
+  'external' |
+  'help' |
+  'icon' |
+  'license' |
+  'manifest' |
+  'me' |
+  'modulepreload' |
+  'next' |
+  'nofollow' |
+  'noopener' |
+  'noreferrer' |
+  'opener' |
+  'pingback' |
+  'preconnect' |
+  'prefetch' |
+  'preload' |
+  'prerender' |
+  'prev' |
+  'search' |
+  'shortlink' |
+  'stylesheet' |
+  'tag' |
+  'apple-touch-icon' |
+  'apple-touch-startup-image'
+
 export interface Link {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
@@ -111,36 +142,7 @@ export interface Link {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel
    */
-  rel?: 'alternate' |
-  'author' |
-  'shortcut icon' |
-  'bookmark' |
-  'canonical' |
-  'dns-prefetch' |
-  'external' |
-  'help' |
-  'icon' |
-  'license' |
-  'manifest' |
-  'me' |
-  'modulepreload' |
-  'next' |
-  'nofollow' |
-  'noopener' |
-  'noreferrer' |
-  'opener' |
-  'pingback' |
-  'preconnect' |
-  'prefetch' |
-  'preload' |
-  'prerender' |
-  'prev' |
-  'search' |
-  'shortlink' |
-  'stylesheet' |
-  'tag' |
-  'apple-touch-icon' |
-  'apple-touch-startup-image'
+  rel?: LinkRelTypes | string
   /**
    * This attribute defines the sizes of the icons for visual media contained in the resource.
    * It must be present only if the rel contains a value of icon or a non-standard type
