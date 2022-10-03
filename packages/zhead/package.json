@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@zhead/schema": "workspace:*",
+    "@zhead/schema-raw": "workspace:*",
     "@zhead/zod": "workspace:*",
     "packrup": "^0.1.0"
   }

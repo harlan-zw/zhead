@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "@vueuse/shared": "^9.2.0",
-    "@zhead/schema": "workspace:*"
+    "@zhead/schema": "workspace:*",
+    "@zhead/schema-raw": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.39"

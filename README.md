@@ -29,10 +29,9 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 ## Types
 
-- 🇹 Fully typed &lt;head&gt; Schema
-- 🇹 Integrated MDN doc
-- 🇹 [100+ typed meta's](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)
-- 🇹 Vue schema for deep reactive `Ref` and `Computed` support
+- 💎 Fully typed Head, ReactiveHead, RawHead with MDN docs
+- 💎 [100+ typed meta's](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)
+- 💎 Reactive Vue schema with computed getter support
 
 ## Functions
 

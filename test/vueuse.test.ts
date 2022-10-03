@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest'
 import { ref } from 'vue'
-import { defineHead } from '../packages/schema-vue'
+import { defineHead } from '../packages/vue'
 
 interface Dedupes {
   /**

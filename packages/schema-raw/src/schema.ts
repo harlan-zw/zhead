@@ -1,4 +1,4 @@
-import type {Head, MergeHead} from '@zhead/schema'
+import type { Head, MergeHead } from '@zhead/schema'
 import type { AnyKey, AriaAttributes, EventAttributes, GlobalAttributes } from './types'
 
 export type RawKeys = GlobalAttributes & AriaAttributes & EventAttributes & AnyKey
@@ -59,4 +59,4 @@ export interface RawHeadAugmentation extends MergeHead {
   bodyAttrs?: RawKeys
 }
 
-export type HeadRaw = Head<RawHeadAugmentation>
+export type HeadRaw<T extends MergeHead = {}> = Head<RawHeadAugmentation & T>
