@@ -1,7 +1,7 @@
 export type Stringable = string | boolean | number
 
-export interface UnsafeKeys {
-  [key: string]: Stringable
+export interface DataKeys {
+  [key: `data-${string}`]: Stringable
 }
 
 export type Default<T extends undefined | Record<string, any>, D = {}> = [T] extends [undefined] ? D : T

@@ -1,11 +1,11 @@
 import { describe, it } from 'vitest'
 import { defineHead } from 'zhead'
-import type { UnsafeKeys } from '@zhead/schema'
+import type { DataKeys } from '@zhead/schema'
 
 describe('head', () => {
   it('define head', () => {
     const tags = defineHead<{
-      script: UnsafeKeys
+      script: DataKeys
     }>({
       title: 'test',
       script: [
