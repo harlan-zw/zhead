@@ -74,3 +74,6 @@ export interface Head<E extends MergeHead = MergeHead> {
    */
   bodyAttrs?: (BodyAttributes & DataKeys & Default<E['bodyAttrs']>)
 }
+
+export const Head: Head = {}
+

@@ -60,3 +60,5 @@ export interface RawHeadAugmentation extends MergeHead {
 }
 
 export type HeadRaw<T extends MergeHead = {}> = Head<RawHeadAugmentation & T>
+
+export const HeadRaw: HeadRaw = {}

@@ -7,9 +7,6 @@ import type { MaybeComputedRef } from '@vueuse/shared'
 import type { RawHeadAugmentation } from '@zhead/schema-raw'
 import type { MaybeComputedRefEntries, MaybeDeeplyComputedRefArray } from './types'
 
-export { Head } from '@zhead/schema'
-export { HeadRaw } from '@zhead/schema-raw'
-
 export interface ReactiveHead<E extends MergeHead = MergeHead> {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
