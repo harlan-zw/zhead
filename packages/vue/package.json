@@ -1,6 +1,6 @@
 {
   "name": "@zhead/vue",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "packageManager": "pnpm@7.8.0",
   "description": "Use zhead with types for Vue ref's and computed.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
