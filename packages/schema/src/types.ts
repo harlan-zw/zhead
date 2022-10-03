@@ -1,4 +1,5 @@
-export type Stringable = string | boolean | number
+export type Booleanable = boolean | 'false' | 'true' | ''
+export type Stringable = string | Booleanable | number
 
 export interface DataKeys {
   [key: `data-${string}`]: Stringable

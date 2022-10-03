@@ -1,3 +1,5 @@
+import type { Booleanable } from './types'
+
 export interface MetaFlat {
   /**
    * This attribute declares the document's character encoding.
@@ -135,46 +137,46 @@ export interface MetaFlat {
      * There are no restrictions for indexing or serving.
      * This directive is the default value and has no effect if explicitly listed.
      */
-    all: boolean
+    all: Booleanable
     /**
      * Do not show this page, media, or resource in search results.
      * If you don't specify this directive, the page, media, or resource may be indexed and shown in search results.
      */
-    noindex: boolean
+    noindex: Booleanable
     /**
      * Do not follow the links on this page.
      * If you don't specify this directive, Google may use the links on the page to discover those linked pages.
      */
-    nofollow: boolean
+    nofollow: Booleanable
     /**
      * Equivalent to noindex, nofollow.
      */
-    none: boolean
+    none: Booleanable
     /**
      * Do not show a cached link in search results.
      * If you don't specify this directive,
      * Google may generate a cached page and users may access it through the search results.
      */
-    noarchive: boolean
+    noarchive: Booleanable
     /**
      * Do not show a sitelinks search box in the search results for this page.
      * If you don't specify this directive, Google may generate a search box specific to your site in search results,
      * along with other direct links to your site.
      */
-    nositelinkssearchbox: boolean
+    nositelinkssearchbox: Booleanable
     /**
      *
      * Do not show a text snippet or video preview in the search results for this page.
      * A static image thumbnail (if available) may still be visible, when it results in a better user experience.
      */
-    nosnippet: boolean
+    nosnippet: Booleanable
     /**
      * Google is allowed to index the content of a page if it's embedded in another
      * page through iframes or similar HTML tags, in spite of a noindex directive.
      *
      * indexifembedded only has an effect if it's accompanied by noindex.
      */
-    indexifembedded: boolean
+    indexifembedded: Booleanable
     /**
      * Use a maximum of [number] characters as a textual snippet for this search result.
      */
@@ -190,7 +192,7 @@ export interface MetaFlat {
     /**
      * Don't offer translation of this page in search results.
      */
-    notranslate: boolean
+    notranslate: Booleanable
     /**
      * Do not show this page in search results after the specified date/time.
      */
@@ -198,7 +200,7 @@ export interface MetaFlat {
     /**
      * Do not index images on this page.
      */
-    noimageindex: boolean
+    noimageindex: Booleanable
   }>
   google:
   /**

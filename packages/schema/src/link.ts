@@ -1,33 +1,33 @@
 export type LinkRelTypes = 'alternate' |
-  'author' |
-  'shortcut icon' |
-  'bookmark' |
-  'canonical' |
-  'dns-prefetch' |
-  'external' |
-  'help' |
-  'icon' |
-  'license' |
-  'manifest' |
-  'me' |
-  'modulepreload' |
-  'next' |
-  'nofollow' |
-  'noopener' |
-  'noreferrer' |
-  'opener' |
-  'pingback' |
-  'preconnect' |
-  'prefetch' |
-  'preload' |
-  'prerender' |
-  'prev' |
-  'search' |
-  'shortlink' |
-  'stylesheet' |
-  'tag' |
-  'apple-touch-icon' |
-  'apple-touch-startup-image'
+'author' |
+'shortcut icon' |
+'bookmark' |
+'canonical' |
+'dns-prefetch' |
+'external' |
+'help' |
+'icon' |
+'license' |
+'manifest' |
+'me' |
+'modulepreload' |
+'next' |
+'nofollow' |
+'noopener' |
+'noreferrer' |
+'opener' |
+'pingback' |
+'preconnect' |
+'prefetch' |
+'preload' |
+'prerender' |
+'prev' |
+'search' |
+'shortlink' |
+'stylesheet' |
+'tag' |
+'apple-touch-icon' |
+'apple-touch-startup-image'
 
 export interface Link {
   /**

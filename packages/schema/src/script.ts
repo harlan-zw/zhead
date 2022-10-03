@@ -1,3 +1,5 @@
+import type { Booleanable } from '@zhead/schema/src/types'
+
 export interface Script {
   /**
    * For classic scripts, if the async attribute is present,
@@ -9,7 +11,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async
    */
-  async?: boolean
+  async?: Booleanable
   /**
    * Normal script elements pass minimal information to the window.onerror
    * for scripts which do not pass the standard CORS checks.
@@ -26,7 +28,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-defer
    */
-  defer?: boolean
+  defer?: Booleanable
   /**
    * Provides a hint of the relative priority to use when fetching an external script.
    *
@@ -49,7 +51,7 @@ export interface Script {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nomodule
    */
-  nomodule?: boolean
+  nomodule?: Booleanable
   /**
    * A cryptographic nonce (number used once) to allow scripts in a script-src Content-Security-Policy.
    * The server must generate a unique nonce value each time it transmits a policy.
