@@ -4,28 +4,8 @@ import type {
   MetaFlat,
 } from '@zhead/schema'
 import type { MaybeComputedRef } from '@vueuse/shared'
-
-export type InferArrayEntry<T> = T extends Array<infer U> ? U : T
-
-export type MaybeComputedRefEntries<T> = MaybeComputedRef<T> | {
-  [key in keyof T]?: MaybeComputedRef<T[key]>
-}
-
-export type MetaFlatRef = MaybeComputedRefEntries<Partial<MetaFlat>>
-
-export type MaybeDeeplyComputedRefArray<T> =
-  T |
-  // root can be a plain value, or ref or a getter function
-  MaybeComputedRef<
-    // each entry can be a plain value, or ref or a getter function
-    MaybeComputedRef<
-      // each entries values can be a plain value, or ref or a getter function
-      MaybeComputedRefEntries<
-        // need to infer array contents rather than the array itself to swap reactivity properly
-        InferArrayEntry<T>
-        >
-      >[]
-    >
+import type { RawHeadAugmentation } from '@zhead/schema-raw'
+import type { MaybeComputedRefEntries, MaybeDeeplyComputedRefArray } from './types'
 
 export { Head } from '@zhead/schema'
 
