@@ -3,6 +3,7 @@
     "name": "zhead",
     "dependencies": [
       "@zhead/schema",
+      "@zhead/schema-raw",
       "@zhead/zod",
       "packrup"
     ],
@@ -75,6 +76,13 @@
       "minified": 74,
       "minzipped": 70,
       "bundled": 204
+    },
+    {
+      "name": "defineHeadRaw",
+      "path": "dist/index.mjs",
+      "minified": 74,
+      "minzipped": 70,
+      "bundled": 210
     }
   ]
 }
