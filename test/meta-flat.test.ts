@@ -41,6 +41,10 @@ describe('meta flat', () => {
         initialScale: 1,
         viewportFit: 'auto',
       },
+      appleItunesApp: {
+        appId: '123456789',
+        appArgument: 'https://example.com',
+      },
       google: 'nositelinkssearchbox',
       googlebot: 'notranslate',
       googleSiteVerification: '1234567890',
@@ -88,6 +92,10 @@ describe('meta flat', () => {
         {
           "content": "width=600, height=600, user-scalable=yes, maximum-scale=5, initial-scale=1, viewport-fit=auto",
           "name": "viewport",
+        },
+        {
+          "content": "app-id=123456789, app-argument=https://example.com",
+          "name": "apple-itunes-app",
         },
         {
           "content": "nositelinkssearchbox",
