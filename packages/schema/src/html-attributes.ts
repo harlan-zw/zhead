@@ -16,4 +16,9 @@ export interface HtmlAttributes {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
    */
   class?: string
+  /**
+   * The style global attribute contains CSS styling declarations to be applied to the element.
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style
+   */
+  style?: string
 }
