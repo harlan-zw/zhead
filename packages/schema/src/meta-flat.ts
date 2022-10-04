@@ -557,6 +557,21 @@ export interface MetaFlat {
    */
   appleMobileWebAppTitle: string
   /**
+   * Promoting Apps with Smart App Banners
+   * 
+   * @see https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners
+   */
+  appleItunesApp: string | {
+    /**
+    * Your app’s unique identifier.
+    */
+    appId: string,
+    /**
+    * A URL that provides context to your native app.
+    */
+    appArgument?: string
+  }
+  /**
    * Enables or disables automatic detection of possible phone numbers in a webpage in Safari on iOS.
    *
    * @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
