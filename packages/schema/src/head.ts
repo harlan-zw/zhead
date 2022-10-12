@@ -18,8 +18,10 @@ export interface Head<E extends MergeHead = MergeHead> {
   title?: string
   /**
    * Generate the title from a template.
+   *
+   * Should include a `%s` placeholder for the title, for example `%s - My Site`.
    */
-  titleTemplate?: string | ((title?: string) => string)
+  titleTemplate?: string
   /**
    * The <base> HTML element specifies the base URL to use for all relative URLs in a document.
    * There can be only one <base> element in a document.

@@ -18,9 +18,7 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
   /**
    * Generate the title from a template.
    */
-  titleTemplate?:
-  // function should not be reactive but string can be
-  Head<E>['titleTemplate'] | MaybeComputedRef<string>
+  titleTemplate?: MaybeComputedRef<Head<E>['titleTemplate']>
   /**
    * The <base> HTML element specifies the base URL to use for all relative URLs in a document.
    * There can be only one <base> element in a document.

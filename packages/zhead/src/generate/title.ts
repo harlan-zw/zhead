@@ -7,8 +7,5 @@ export const renderTemplate = (
 ): string => {
   if (template == null)
     return ''
-  if (typeof template === 'string')
-    return template.replace('%s', title ?? '')
-
-  return template(title)
+  return template.replace('%s', title ?? '')
 }

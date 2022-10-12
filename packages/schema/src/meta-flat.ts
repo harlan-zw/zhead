@@ -558,14 +558,14 @@ export interface MetaFlat {
   appleMobileWebAppTitle: string
   /**
    * Promoting Apps with Smart App Banners
-   * 
+   *
    * @see https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners
    */
   appleItunesApp: string | {
     /**
     * Your app’s unique identifier.
     */
-    appId: string,
+    appId: string
     /**
     * A URL that provides context to your native app.
     */
