@@ -81,7 +81,20 @@ interface HeadAugmentation {
 }
 
 describe('vueuse example', () => {
-  it('define head', () => {
+  it('define head augment', () => {
+    const tags = defineHead({
+      title: 'test',
+      script: [
+        {
+          'src': 'foo.js',
+          'data-something': 'test',
+          'some-rubbish': 'test',
+        },
+      ],
+    })
+    expect(tags).toMatchInlineSnapshot()
+  })
+  it('define head augment', () => {
     const title = ref('title')
     const tags = defineHead<HeadAugmentation>({
       title: 'hello',
