@@ -10,12 +10,12 @@ export type MaybeDeeplyComputedRefArray<T> =
   T |
   // root can be a plain value, or ref or a getter function
   MaybeComputedRef<
-    // each entry can be a plain value, or ref or a getter function
-    MaybeComputedRef<
+    // simplify types, must provide an array
+    Array<
       // each entry's values can be a plain value, or ref or a getter function
       MaybeComputedRefEntries<
         // need to infer array contents rather than the array itself to swap reactivity properly
         InferArrayEntry<T>
-        >
-      >[]
+      >
     >
+  >
