@@ -66,9 +66,9 @@
     {
       "name": "renderTemplate",
       "path": "dist/index.mjs",
-      "minified": 121,
-      "minzipped": 99,
-      "bundled": 357
+      "minified": 97,
+      "minzipped": 86,
+      "bundled": 293
     },
     {
       "name": "defineHead",
