@@ -1,3 +1,5 @@
+import type { HttpEventAttributes } from '@zhead/schema/src/attributes'
+
 export type LinkRelTypes = 'alternate' |
 'author' |
 'shortcut icon' |
@@ -29,7 +31,7 @@ export type LinkRelTypes = 'alternate' |
 'apple-touch-icon' |
 'apple-touch-startup-image'
 
-export interface Link {
+export interface Link extends HttpEventAttributes {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
    * It specifies the type of content being loaded by the <link>, which is necessary for request matching,
@@ -243,4 +245,8 @@ export interface Link {
   'audio/3gpp' |
   'video/3gpp2' |
   'audio/3gpp2' | string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
 }

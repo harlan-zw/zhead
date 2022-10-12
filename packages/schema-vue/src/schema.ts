@@ -4,7 +4,6 @@ import type {
   MetaFlat,
 } from '@zhead/schema'
 import type { MaybeComputedRef } from '@vueuse/shared'
-import type { RawHeadAugmentation } from '@zhead/schema-raw'
 import type { MaybeComputedRefEntries, MaybeDeeplyComputedRefArray } from './types'
 
 export interface ReactiveHead<E extends MergeHead = MergeHead> {
@@ -74,5 +73,4 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
   bodyAttrs?: MaybeComputedRef<MaybeComputedRefEntries<Head<E>['bodyAttrs']>>
 }
 
-export type RawReactiveHead<T extends MergeHead = {}> = ReactiveHead<T & RawHeadAugmentation>
 export type MetaFlatRef = MaybeComputedRefEntries<Partial<MetaFlat>>

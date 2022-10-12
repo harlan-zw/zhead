@@ -20,6 +20,10 @@ export interface Style {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attr-title
    */
   title?: string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
 }
 
 export type StyleEntries<T extends Record<string, any>> = Partial<Style & T>[]

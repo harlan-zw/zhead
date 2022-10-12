@@ -1,6 +1,7 @@
-import type { Booleanable } from '@zhead/schema/src/types'
+import type { Booleanable } from './types'
+import type { HttpEventAttributes } from './attributes'
 
-export interface Script {
+export interface Script extends HttpEventAttributes {
   /**
    * For classic scripts, if the async attribute is present,
    * then the classic script will be fetched in parallel to parsing and evaluated as soon as it is available.
@@ -92,4 +93,8 @@ export interface Script {
   'application/json' |
   'application/ld+json' |
   string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
 }

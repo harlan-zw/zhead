@@ -21,4 +21,8 @@ export interface HtmlAttributes {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style
    */
   style?: string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
 }

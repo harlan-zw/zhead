@@ -66,4 +66,8 @@ export interface Meta {
    * Mainly used for og and twitter meta tags.
    */
   property?: FixCase<PropertyKeys<keyof MetaFlat>> | string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
 }

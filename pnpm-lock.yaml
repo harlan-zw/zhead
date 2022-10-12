@@ -33,22 +33,14 @@ importers:
   packages/schema:
     specifiers: {}
 
-  packages/schema-raw:
-    specifiers:
-      '@zhead/schema': workspace:*
-    dependencies:
-      '@zhead/schema': link:../schema
-
   packages/schema-vue:
     specifiers:
       '@vueuse/shared': ^9.2.0
       '@zhead/schema': workspace:*
-      '@zhead/schema-raw': workspace:*
       vue: ^3.2.39
     dependencies:
       '@vueuse/shared': 9.2.0_vue@3.2.39
       '@zhead/schema': link:../schema
-      '@zhead/schema-raw': link:../schema-raw
     devDependencies:
       vue: 3.2.39
 
@@ -70,12 +62,10 @@ importers:
   packages/zhead:
     specifiers:
       '@zhead/schema': workspace:*
-      '@zhead/schema-raw': workspace:*
       '@zhead/zod': workspace:*
       packrup: ^0.1.0
     dependencies:
       '@zhead/schema': link:../schema
-      '@zhead/schema-raw': link:../schema-raw
       '@zhead/zod': link:../zod
       packrup: 0.1.0
 
