@@ -53,6 +53,17 @@ export interface Link extends HttpEventAttributes {
   'video' |
   'worker'
   /**
+   * The color attribute is used with the mask-icon link type.
+   * The attribute must only be specified on link elements that have a rel attribute
+   * that contains the mask-icon keyword.
+   * The value must be a string that matches the CSS <color> production,
+   * defining a suggested color that user agents can use to customize the display
+   * of the icon that the user sees when they pin your site.
+   * 
+   * @see https://html.spec.whatwg.org/multipage/semantics.html#attr-link-color
+   */
+  color?: string
+  /**
    * This enumerated attribute indicates whether CORS must be used when fetching the resource.
    * CORS-enabled images can be reused in the <canvas> element without being tainted.
    *
