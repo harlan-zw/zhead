@@ -92,7 +92,18 @@ describe('vueuse example', () => {
         },
       ],
     })
-    expect(tags).toMatchInlineSnapshot()
+    expect(tags).toMatchInlineSnapshot(`
+      {
+        "script": [
+          {
+            "data-something": "test",
+            "some-rubbish": "test",
+            "src": "foo.js",
+          },
+        ],
+        "title": "test",
+      }
+    `)
   })
   it('define head augment', () => {
     const title = ref('title')
