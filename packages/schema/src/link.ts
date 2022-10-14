@@ -1,4 +1,4 @@
-import type { HttpEventAttributes } from '@zhead/schema/src/attributes'
+import type { HttpEventAttributes } from './attributes'
 
 export type LinkRelTypes = 'alternate' |
 'author' |
@@ -59,7 +59,7 @@ export interface Link extends HttpEventAttributes {
    * The value must be a string that matches the CSS <color> production,
    * defining a suggested color that user agents can use to customize the display
    * of the icon that the user sees when they pin your site.
-   * 
+   *
    * @see https://html.spec.whatwg.org/multipage/semantics.html#attr-link-color
    */
   color?: string
@@ -155,7 +155,7 @@ export interface Link extends HttpEventAttributes {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel
    */
-  rel?: LinkRelTypes | string
+  rel?: LinkRelTypes | (string & Record<never, never>)
   /**
    * This attribute defines the sizes of the icons for visual media contained in the resource.
    * It must be present only if the rel contains a value of icon or a non-standard type
@@ -163,7 +163,7 @@ export interface Link extends HttpEventAttributes {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-sizes
    */
-  sizes?: 'any' | '16x16x' | '32x32' | '64x64' | '180x180' | string
+  sizes?: 'any' | '16x16x' | '32x32' | '64x64' | '180x180' | (string & Record<never, never>)
   /**
    * The title attribute has special semantics on the <link> element.
    * When used on a <link rel="stylesheet"> it defines a default or an alternate stylesheet.
@@ -255,7 +255,7 @@ export interface Link extends HttpEventAttributes {
   'video/3gpp' |
   'audio/3gpp' |
   'video/3gpp2' |
-  'audio/3gpp2' | string
+  'audio/3gpp2' | (string & Record<never, never>)
   /**
    * This attribute defines the unique ID.
    */
