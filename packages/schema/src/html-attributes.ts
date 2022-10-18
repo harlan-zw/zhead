@@ -11,6 +11,14 @@ export interface HtmlAttributes {
    */
   dir?: 'ltr' | 'rtl' | 'auto'
   /**
+   * The translate global attribute is an enumerated attribute that is used to specify whether an element's 
+   * translatable attribute values and its Text node children should be translated when the page is localized, 
+   * or whether to leave them unchanged.
+   * 
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate
+   */
+  translate?: 'yes' | 'no'
+  /**
    * The class global attribute is a space-separated list of the case-sensitive classes of the element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
