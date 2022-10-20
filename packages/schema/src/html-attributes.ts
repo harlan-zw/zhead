@@ -33,4 +33,22 @@ export interface HtmlAttributes {
    * This attribute defines the unique ID.
    */
   id?: string
+  /**
+   * Open-graph protocol prefix.
+   *
+   * @see https://ogp.me/
+   */
+  prefix?: 'og: https://ogp.me/ns#' | (string & Record<never, never>)
+  /**
+   * XML namespace
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/SVG/Namespaces_Crash_Course
+   */
+  xmlns?: string
+  /**
+   * Custom XML namespace
+   *
+   * @See
+   */
+  [key: `xmlns:${'og' | string}`]: string
 }
