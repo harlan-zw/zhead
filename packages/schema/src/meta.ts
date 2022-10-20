@@ -1,3 +1,5 @@
+import type { Stringable } from './types'
+
 export type MetaNames =
 'charset' |
 'description' |
@@ -95,7 +97,7 @@ export interface Meta {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-content
    */
-  content?: string
+  content?: Stringable
   /**
    * Defines a pragma directive. The attribute is named http-equiv(alent) because all the allowed values are names of
    * particular HTTP headers.
