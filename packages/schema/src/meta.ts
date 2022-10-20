@@ -127,4 +127,10 @@ export interface Meta {
    * This attribute defines the unique ID.
    */
   id?: string
+  /**
+   * A valid media query list that can be included to set the media the `theme-color` metadata applies to.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
+   */
+  media?: '(prefers-color-scheme: light)' | '(prefers-color-scheme: dark)' | (string & Record<never, never>)
 }
