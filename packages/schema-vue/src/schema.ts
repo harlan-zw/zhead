@@ -4,8 +4,8 @@ import type {
   MetaFlat,
 } from '@zhead/schema'
 import type { MaybeComputedRef } from '@vueuse/shared'
+import type { Ref } from 'vue'
 import type { MaybeComputedRefEntries, MaybeDeeplyComputedRefArray } from './types'
-import {Ref} from "vue";
 
 export interface ReactiveHead<E extends MergeHead = MergeHead> {
   /**
