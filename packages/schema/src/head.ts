@@ -5,7 +5,7 @@ import type { Meta } from './meta'
 import type { HtmlAttributes } from './html-attributes'
 import type { BodyAttributes } from './body-attributes'
 import type { Noscript } from './noscript'
-import type { DataKeys, Default, Merge, MergeHead } from './types'
+import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './types'
 import type { Link } from './link'
 
 export interface Head<E extends MergeHead = MergeHead> {
@@ -36,45 +36,45 @@ export interface Head<E extends MergeHead = MergeHead> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  link?: (Link & DataKeys & Default<E['link']>)[]
+  link?: (Link & DataKeys & DefinedValueOrEmptyObject<E['link']>)[]
   /**
    * The <meta> element represents metadata that cannot be expressed in other HTML elements, like <link> or <script>.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
    */
-  meta?: (Meta & DataKeys & Default<E['meta']>)[]
+  meta?: (Meta & DataKeys & DefinedValueOrEmptyObject<E['meta']>)[]
   /**
    * The <style> HTML element contains style information for a document, or part of a document.
    * It contains CSS, which is applied to the contents of the document containing the <style> element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
    */
-  style?: (Style & DataKeys & Default<E['style']>)[]
+  style?: (Style & DataKeys & DefinedValueOrEmptyObject<E['style']>)[]
   /**
    * The <script> HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: (Script & DataKeys & Default<E['script']>)[]
+  script?: (Script & DataKeys & DefinedValueOrEmptyObject<E['script']>)[]
   /**
    * The <noscript> HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
    * or if scripting is currently turned off in the browser.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
    */
-  noscript?: (Noscript & DataKeys & Default<E['noscript']>)[]
+  noscript?: (Noscript & DataKeys & DefinedValueOrEmptyObject<E['noscript']>)[]
   /**
    * Attributes for the <html> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
    */
-  htmlAttrs?: (HtmlAttributes & DataKeys & Default<E['htmlAttrs']>)
+  htmlAttrs?: (HtmlAttributes & DataKeys & DefinedValueOrEmptyObject<E['htmlAttrs']>)
   /**
    * Attributes for the <body> HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
    */
-  bodyAttrs?: (BodyAttributes & DataKeys & Default<E['bodyAttrs']>)
+  bodyAttrs?: (BodyAttributes & DataKeys & DefinedValueOrEmptyObject<E['bodyAttrs']>)
 }
 
 export const Head: Head = {}
