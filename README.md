@@ -91,7 +91,7 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
 
 [Zod](https://zod.dev/) schema for validating and parsing head tags.
 
-[`@zhead/zod`](./tree/main/packages/zod)
+[`@zhead/validation`](./tree/main/packages/zod)
 
 ### Framework bindings 
 

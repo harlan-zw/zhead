@@ -3,7 +3,7 @@
     "name": "zhead",
     "dependencies": [
       "@zhead/schema",
-      "@zhead/zod",
+      "@zhead/validation",
       "packrup"
     ],
     "versions": {

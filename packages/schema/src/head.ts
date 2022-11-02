@@ -2,10 +2,10 @@ import type { Base } from './base'
 import type { Style } from './style'
 import type { Script } from './script'
 import type { Meta } from './meta'
-import type { HtmlAttributes } from './html-attributes'
-import type { BodyAttributes } from './body-attributes'
+import type { HtmlAttributes } from './htmlAttributes'
+import type { BodyAttributes } from './bodyAttributes'
 import type { Noscript } from './noscript'
-import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './types'
+import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
 import type { Link } from './link'
 
 export interface Head<E extends MergeHead = MergeHead> {
@@ -76,6 +76,3 @@ export interface Head<E extends MergeHead = MergeHead> {
    */
   bodyAttrs?: (BodyAttributes & DataKeys & DefinedValueOrEmptyObject<E['bodyAttrs']>)
 }
-
-export const Head: Head = {}
-

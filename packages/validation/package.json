@@ -1,7 +1,8 @@
 {
-  "name": "zhead",
+  "name": "@zhead/validation",
   "version": "0.9.9",
   "packageManager": "pnpm@7.8.0",
+  "description": "",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/harlan-zw",
@@ -9,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harlan-zw/zhead.git",
-    "directory": "packages/zhead"
+    "directory": "packages/validation"
   },
   "bugs": {
     "url": "https://github.com/harlan-zw/zhead/issues"
@@ -30,12 +31,10 @@
   ],
   "scripts": {
     "build": "unbuild .",
-    "stub": "unbuild . --stub"
+    "generate": "unbuild . --stub"
   },
   "dependencies": {
-    "@zhead/schema": "workspace:*"
-  },
-  "devDependencies": {
-    "packrup": "^0.1.0"
+    "@zhead/schema": "workspace:*",
+    "zod": "^3.19.1"
   }
 }
