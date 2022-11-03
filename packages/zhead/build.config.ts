@@ -4,12 +4,8 @@ export default defineBuildConfig({
   clean: true,
   declaration: true,
   rollup: {
-    emitCJS: true,
     inlineDependencies: true,
   },
-  externals: [
-    'packrup',
-  ],
   entries: [
     { input: 'src/index', name: 'index' },
   ],
