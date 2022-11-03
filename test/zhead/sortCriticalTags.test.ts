@@ -1,12 +1,12 @@
-import {resolveTags, sortCriticalTags} from "zhead";
-import {basicSchema} from "../fixtures";
+import { resolveTags, sortCriticalTags } from 'zhead'
+import { basicSchema } from '../fixtures'
 
 describe('sortCriticalTags', () => {
   test('basic schema', async () => {
     const tags = resolveTags(basicSchema).sort(sortCriticalTags)
     // charset -> base -> http-equiv -> title -> everything else
     expect(tags[0].tag).toEqual('meta')
-    expect(tags[0].props['charset']).toEqual('utf-8')
+    expect(tags[0].props.charset).toEqual('utf-8')
 
     expect(tags).toMatchInlineSnapshot(`
       [
@@ -30,9 +30,8 @@ describe('sortCriticalTags', () => {
           "tag": "meta",
         },
         {
-          "props": {
-            "children": "hello world",
-          },
+          "children": "hello world",
+          "props": {},
           "tag": "title",
         },
         {

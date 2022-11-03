@@ -9,20 +9,20 @@ describe('ssrRenderTags', () => {
         tagPosition: 'bodyOpen',
         props: {
           src: 'https://example.com/body-open.js',
-        }
+        },
       },
       {
         tag: 'script',
         tagPosition: 'bodyClose',
         props: {
           src: 'https://example.com/body-close.js',
-        }
+        },
       },
       {
         tag: 'script',
         props: {
           src: 'https://example.com/head.js',
-        }
+        },
       },
     ])
     expect(head).toMatchInlineSnapshot(`

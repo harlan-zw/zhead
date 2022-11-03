@@ -16,10 +16,11 @@ export const setAttributes = ($el: Element, attrs: Record<string, any> = {}) => 
       continue
     }
     $el.setAttribute(k, String(attrs[k]))
-    if (!k.startsWith('data-h-'))
+    if (!k.startsWith('data-h-')) {
       sideEffects.push(() => {
         $el.removeAttribute(k)
       })
+    }
   }
   return sideEffects
 }

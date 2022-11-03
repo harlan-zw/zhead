@@ -1,5 +1,5 @@
-import {describe, it} from "vitest";
-import {propsToString} from "zhead";
+import { describe, it } from 'vitest'
+import { propsToString } from 'zhead'
 
 describe('propsToStrings', () => {
   it('basic', () => {

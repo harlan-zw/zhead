@@ -1,4 +1,4 @@
-import {resolveTitleTemplateFromTags} from "zhead";
+import { resolveTitleTemplateFromTags } from 'zhead'
 
 describe('titleTemplate', () => {
   test('string replace', async () => {
@@ -6,13 +6,13 @@ describe('titleTemplate', () => {
       {
         tag: 'titleTemplate',
         children: '%s - my template',
-        props: {}
+        props: {},
       },
       {
         tag: 'title',
         children: 'test',
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags[0].children).toEqual('test - my template')
   })
@@ -22,13 +22,13 @@ describe('titleTemplate', () => {
         tag: 'titleTemplate',
         // @ts-expect-error runtime type
         children: (title?: string) => `${title} - my template`,
-        props: {}
+        props: {},
       },
       {
         tag: 'title',
         children: 'test',
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags[0].children).toEqual('test - my template')
   })
@@ -38,14 +38,14 @@ describe('titleTemplate', () => {
         tag: 'titleTemplate',
         // @ts-expect-error runtime type
         children: (title?: string) => title ? `${title} - Template` : 'Default Title',
-        props: {}
+        props: {},
       },
       {
         tag: 'title',
         // @ts-expect-error runtime type
         children: null,
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags[0].children).toEqual('Default Title')
   })
@@ -55,13 +55,13 @@ describe('titleTemplate', () => {
         tag: 'titleTemplate',
         // @ts-expect-error runtime type
         children: null,
-        props: {}
+        props: {},
       },
       {
         tag: 'title',
         children: 'page title',
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags).toMatchInlineSnapshot(`
       [
@@ -81,13 +81,13 @@ describe('titleTemplate', () => {
         tag: 'titleTemplate',
         // @ts-expect-error runtime type
         children: (title?: string | null) => title === 'test' ? null : `${title} - Template`,
-        props: {}
+        props: {},
       },
       {
         tag: 'title',
         children: 'test',
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags.length).toEqual(0)
   })
@@ -97,8 +97,8 @@ describe('titleTemplate', () => {
       {
         tag: 'title',
         children: '',
-        props: {}
-      }
+        props: {},
+      },
     ])
     expect(tags[0].children).toEqual('')
   })

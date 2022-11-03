@@ -1,14 +1,14 @@
-import {describe, it} from "vitest";
-import {tagToString} from "zhead";
+import { describe, it } from 'vitest'
+import { tagToString } from 'zhead'
 
 describe('tagToString', () => {
   it('basic', () => {
     expect(tagToString({
       tag: 'script',
       props: {
-        src: 'https://website.com',
-        async: true,
-        id: 'test',
+        'src': 'https://website.com',
+        'async': true,
+        'id': 'test',
         'data-test': 'test',
         'data-test2': 'test2',
       },

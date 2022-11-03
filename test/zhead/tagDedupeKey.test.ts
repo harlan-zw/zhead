@@ -1,11 +1,11 @@
-import { tagDedupeKey} from "zhead";
+import { tagDedupeKey } from 'zhead'
 
 describe('tagDedupeKey', () => {
   test('title key', async () => {
     const key = tagDedupeKey({
       tag: 'title',
       children: 'test',
-      props: {}
+      props: {},
     })
     expect(key).toEqual('title')
   })
@@ -15,8 +15,8 @@ describe('tagDedupeKey', () => {
       tag: 'link',
       props: {
         rel: 'canonical',
-        href: 'https://website.com'
-      }
+        href: 'https://website.com',
+      },
     })
     expect(key).toEqual('canonical')
   })
@@ -25,8 +25,8 @@ describe('tagDedupeKey', () => {
     const key = tagDedupeKey({
       tag: 'meta',
       props: {
-        charset: 'utf-test'
-      }
+        charset: 'utf-test',
+      },
     })
     expect(key).toEqual('charset')
   })
@@ -36,8 +36,8 @@ describe('tagDedupeKey', () => {
       tag: 'script',
       props: {
         id: 'test',
-        src: 'https://website.com'
-      }
+        src: 'https://website.com',
+      },
     })
     expect(key).toEqual('script:id:test')
   })
@@ -46,8 +46,8 @@ describe('tagDedupeKey', () => {
     const key = tagDedupeKey({
       tag: 'meta',
       props: {
-        name: 'description'
-      }
+        name: 'description',
+      },
     })
     expect(key).toEqual('meta:name:description')
   })

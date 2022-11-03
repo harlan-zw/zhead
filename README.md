@@ -36,9 +36,8 @@ Typed utilities for defining, validating and building best-practice document &lt
 ## Functions
 
 - 💎 Validation and schema parsing provided by [Zod](https://zod.dev/)
+- ✨ Bunch of utils: `normaliseTag`, `sortCriticalTags`, `tagDedupeKey`, `titleTemplate
 - 🧙 Resolve flat meta tags and back again `unpackMeta` `packMeta`
-- ✨ SEO inferring to generate minimal tags with maximum SEO `buildSeoHead`
-- 📣 Title template support `renderTitle`
 - ✍️ Output to HTML `generateHtml`
 - 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
 

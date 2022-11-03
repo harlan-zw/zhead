@@ -18,9 +18,8 @@ describe('resolveTags', () => {
     expect(head).toMatchInlineSnapshot(`
       [
         {
-          "props": {
-            "children": "test",
-          },
+          "children": "test",
+          "props": {},
           "tag": "title",
         },
         {

@@ -38,8 +38,8 @@ export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
       tags[titleTemplateIdx].tag = 'title'
     }
   }
-  if (titleTemplateIdx !== -1) {
+  if (titleTemplateIdx !== -1)
     tags = tags.filter((_, i) => i !== titleTemplateIdx)
-  }
+
   return tags
 }

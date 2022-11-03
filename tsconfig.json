@@ -21,8 +21,8 @@
       "zhead/*": ["packages/zhead/*"],
       "@zhead/schema": ["packages/schema/src/index.ts"],
       "@zhead/schema/*": ["packages/schema/*"],
-      "@zhead/validation": ["packages/zod/src/index.ts"],
-      "@zhead/validation/*": ["packages/zod/*"]
+      "@zhead/validation": ["packages/validation/src/index.ts"],
+      "@zhead/validation/*": ["packages/validation/*"]
     }
   },
 }

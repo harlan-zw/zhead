@@ -1,7 +1,6 @@
 import { describe, it } from 'vitest'
 import { defineHead, resolveTags, ssrRenderTags, unpackMeta } from 'zhead'
-import { validateTag } from '../../packages/validation/src'
-import { headSchema } from '../../packages/validation'
+import { headSchema, validateTag } from '@zhead/validation'
 
 describe('headSchema', () => {
   it('can validate', () => {
@@ -43,10 +42,19 @@ describe('headSchema', () => {
       [
         {
           "props": {
-            "data-test-id": "12345",
+            "dataTestId": "12345",
             "src": "https://example.com/script.js",
           },
           "tag": "script",
+        },
+        {
+          "props": {
+            "0": "t",
+            "1": "e",
+            "2": "s",
+            "3": "t",
+          },
+          "tag": "somethingMissing",
         },
       ]
     `)
@@ -98,16 +106,23 @@ describe('headSchema', () => {
     const validatedTags = tags.map(tag => validateTag(tag))
 
     expect(ssrRenderTags(validatedTags)).toMatchInlineSnapshot(`
-      "<title>hello</title>
-      <base href=\\"/base\\">
-      <meta charset=\\"utf-8\\">
+      {
+        "bodyAttrs": "",
+        "bodyTags": "",
+        "bodyTagsOpen": "",
+        "headTags": "<meta charset=\\"utf-8\\">
       <meta content=\\"test\\" property=\\"og:title\\">
       <meta content=\\"desc\\" name=\\"description\\">
       <meta content=\\"desc 2\\" name=\\"description\\">
-      <meta content=\\"fr\\" property=\\"og:locale:alternate\\">
-      <meta content=\\"zh\\" property=\\"og:locale:alternate\\">
-      <script src=\\"https://example.com/script.js\\" data-test-id=\\"12345\\"></script>
-      <script src=\\"foo.js\\" data-something=\\"test\\" some-rubbish=\\"test\\"></script>"
+      <meta content=\\"fr\\" key=\\"fr\\" property=\\"og:locale:alternate\\">
+      <meta content=\\"zh\\" key=\\"zh\\" property=\\"og:locale:alternate\\">
+      <script src=\\"https://example.com/script.js\\" dataTestId=\\"12345\\"></script>
+      <script src=\\"foo.js\\" dataSomething=\\"test\\" someRubbish=\\"test\\"></script>
+      <somethingMissing 0=\\"t\\" 1=\\"e\\" 2=\\"s\\" 3=\\"t\\"></somethingMissing>
+      <title>hello</title>
+      <base href=\\"/base\\">",
+        "htmlAttrs": "",
+      }
     `)
   })
 })

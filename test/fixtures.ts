@@ -1,4 +1,4 @@
-import {Head} from "@zhead/schema";
+import type { Head } from '@zhead/schema'
 
 export const basicSchema: Head = {
   htmlAttrs: {
@@ -22,9 +22,9 @@ export const basicSchema: Head = {
       charset: 'utf-8',
     },
     {
-      "http-equiv": 'content-security-policy',
-      content: 'default-src \'self\'',
-    }
+      'http-equiv': 'content-security-policy',
+      'content': 'default-src \'self\'',
+    },
   ],
   link: [
     {

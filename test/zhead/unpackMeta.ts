@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest'
 import { packMeta, unpackMeta } from 'zhead'
 
-describe('meta flat', () => {
+describe('unpackMeta', () => {
   it('charset', () => {
     const tags = unpackMeta({
       charset: 'utf-8',

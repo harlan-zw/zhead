@@ -1,4 +1,4 @@
-import {Head} from "./head";
+import type { Head } from './head'
 
 export type TagKey = keyof Head
 
