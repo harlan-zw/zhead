@@ -3,10 +3,12 @@ import { TagConfigKeys } from './constants'
 
 export function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: any): T | T[] {
   const tag = { tag: tagName, props: {} } as T
-  if (tagName === 'title')
-    tag.children = String(input)
-  else
-    tag.props = normaliseProps({ ...input })
+  if (tagName === 'title' || tagName === 'titleTemplate') {
+    tag.children = input
+    return tag
+  }
+
+  tag.props = normaliseProps({ ...input })
 
   ;(['children', 'innerHtml', 'innerHTML'])
     .forEach((key: string) => {
