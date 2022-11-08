@@ -9,7 +9,7 @@ export function resolveTags<T extends Head>(input: T) {
     const v = Array.isArray(input[tag]) ? input[tag] : [input[tag]]
     output.push(
       // @ts-expect-error untyped
-      v.map(entry => normaliseTag(tag, entry)).filter(v => !!v),
+      v.map(entry => normaliseTag(tag, entry)).flat().filter(v => !!v),
     )
   }
   return output.flat()

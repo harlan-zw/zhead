@@ -20,3 +20,5 @@ export const ValidHeadTags = [
   'script',
   'noscript',
 ]
+
+export const TagConfigKeys = ['tagPosition', 'tagPriority', 'tagDuplicateStrategy']

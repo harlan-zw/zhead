@@ -1,9 +1,41 @@
-import { resolveTags, sortCriticalTags } from 'zhead'
+import { resolveTags, sortTags } from 'zhead'
 import { basicSchema } from '../fixtures'
 
-describe('sortCriticalTags', () => {
+describe('sortTags', () => {
+  test('basic numeric', () => {
+    const tags = resolveTags({
+      script: [
+        {
+          src: '/not-important-script.js',
+        },
+        {
+          src: '/very-important-script.js',
+          tagPriority: 1,
+        },
+      ],
+    }).sort(sortTags)
+
+    expect(tags).toMatchInlineSnapshot(`
+      [
+        {
+          "props": {
+            "src": "/very-important-script.js",
+          },
+          "tag": "script",
+          "tagPriority": 1,
+        },
+        {
+          "props": {
+            "src": "/not-important-script.js",
+          },
+          "tag": "script",
+        },
+      ]
+    `)
+  })
+
   test('basic schema', async () => {
-    const tags = resolveTags(basicSchema).sort(sortCriticalTags)
+    const tags = resolveTags(basicSchema).sort(sortTags)
     // charset -> base -> http-equiv -> title -> everything else
     expect(tags[0].tag).toEqual('meta')
     expect(tags[0].props.charset).toEqual('utf-8')
