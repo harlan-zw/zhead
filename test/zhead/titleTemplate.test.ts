@@ -75,6 +75,22 @@ describe('titleTemplate', () => {
     expect(tags[0].children).toEqual('page title')
   })
   //
+  test('null fn return inverse', async () => {
+    const tags = resolveTitleTemplateFromTags([
+      {
+        tag: 'title',
+        children: 'test',
+        props: {},
+      },
+      {
+        tag: 'titleTemplate',
+        // @ts-expect-error runtime type
+        children: (title?: string | null) => title === 'test' ? null : `${title} - Template`,
+        props: {},
+      },
+    ])
+    expect(tags.length).toEqual(0)
+  })
   test('null fn return', async () => {
     const tags = resolveTitleTemplateFromTags([
       {

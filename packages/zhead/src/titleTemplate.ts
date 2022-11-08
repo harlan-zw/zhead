@@ -15,17 +15,18 @@ export const renderTitleTemplate = (
 export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
   const titleTemplateIdx = tags.findIndex(i => i.tag === 'titleTemplate')
   const titleIdx = tags.findIndex(i => i.tag === 'title')
+  const title = tags[titleIdx].children
   if (titleIdx !== -1 && titleTemplateIdx !== -1) {
     const newTitle = renderTitleTemplate(
       tags[titleTemplateIdx].children!,
-      tags[titleIdx].children,
+      title,
     )
     if (newTitle !== null) {
-      tags[titleIdx].children = newTitle || tags[titleIdx].children
+      tags[titleIdx].children = newTitle || title
     }
     else {
-      // remove the title
-      tags = tags.filter((_, i) => i !== titleIdx)
+      // remove the title tag
+      delete tags[titleIdx]
     }
   }
   // titleTemplate is set but title is not set, convert to a title
@@ -38,8 +39,10 @@ export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
       tags[titleTemplateIdx].tag = 'title'
     }
   }
-  if (titleTemplateIdx !== -1)
-    tags = tags.filter((_, i) => i !== titleTemplateIdx)
+  if (titleTemplateIdx !== -1) {
+    // remove the titleTemplate tag
+    delete tags[titleTemplateIdx]
+  }
 
-  return tags
+  return tags.filter(Boolean)
 }
