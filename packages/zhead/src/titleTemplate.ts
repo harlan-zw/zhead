@@ -15,14 +15,13 @@ export const renderTitleTemplate = (
 export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
   const titleTemplateIdx = tags.findIndex(i => i.tag === 'titleTemplate')
   const titleIdx = tags.findIndex(i => i.tag === 'title')
-  const title = tags[titleIdx].children
   if (titleIdx !== -1 && titleTemplateIdx !== -1) {
     const newTitle = renderTitleTemplate(
       tags[titleTemplateIdx].children!,
-      title,
+      tags[titleIdx].children,
     )
     if (newTitle !== null) {
-      tags[titleIdx].children = newTitle || title
+      tags[titleIdx].children = newTitle || tags[titleIdx].children
     }
     else {
       // remove the title tag
