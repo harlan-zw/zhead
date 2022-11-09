@@ -45,6 +45,7 @@ importers:
       packrup: ^0.1.0
     dependencies:
       '@zhead/schema': link:../schema
+    devDependencies:
       packrup: 0.1.0
 
 packages:
@@ -3304,7 +3305,7 @@ packages:
 
   /packrup/0.1.0:
     resolution: {integrity: sha512-HnUl9ztHGty5ZK13WM8Q7854SWPKH/eCT+MiTO0P1qCu1Y4S5PPJ8E9MwD3cnjSr7PUPzXDnmOVJIKM043OfJQ==}
-    dev: false
+    dev: true
 
   /parent-module/1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
