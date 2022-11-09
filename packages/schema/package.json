@@ -34,6 +34,7 @@
   ],
   "scripts": {
     "build": "unbuild .",
-    "stub": "unbuild . --stub"
+    "stub": "unbuild . --stub",
+    "export:sizes": "npx export-size . -r"
   }
 }

@@ -31,7 +31,8 @@
   ],
   "scripts": {
     "build": "unbuild .",
-    "generate": "unbuild . --stub"
+    "generate": "unbuild . --stub",
+    "export:sizes": "npx export-size . -r"
   },
   "dependencies": {
     "@zhead/schema": "workspace:*",

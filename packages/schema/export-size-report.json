@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "name": "@zhead/schema",
+    "dependencies": [],
+    "versions": {
+      "export-size": "0.5.2",
+      "esbuild": "^0.13.8",
+      "brotli-size": "^4.0.0"
+    }
+  },
+  "exports": []
+}
