@@ -1,6 +1,6 @@
 import type { Head, MetaFlatInput } from '@zhead/schema'
 import { unpackToArray, unpackToString } from 'packrup'
-import { changeKeyCasingDeep, fixKeyCase } from '../transforms'
+import { changeKeyCasingDeep, fixKeyCase } from '..'
 import { MetaPackingSchema, resolveMetaKeyType } from './utils'
 
 /**

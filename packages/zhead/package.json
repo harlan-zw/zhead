@@ -31,7 +31,9 @@
     "stub": "unbuild . --stub"
   },
   "dependencies": {
-    "@zhead/schema": "workspace:*",
+    "@zhead/schema": "workspace:*"
+  },
+  "devDependencies": {
     "packrup": "^0.1.0"
   }
 }
