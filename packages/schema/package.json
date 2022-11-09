@@ -1,6 +1,6 @@
 {
   "name": "@zhead/schema",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "packageManager": "pnpm@7.8.0",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
