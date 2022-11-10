@@ -31,7 +31,7 @@ export type LinkRelTypes = 'alternate' |
 'apple-touch-icon' |
 'apple-touch-startup-image'
 
-export interface Link extends HttpEventAttributes {
+export interface LinkBase {
   /**
    * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
    * It specifies the type of content being loaded by the <link>, which is necessary for request matching,
@@ -261,3 +261,5 @@ export interface Link extends HttpEventAttributes {
    */
   id?: string
 }
+
+export type Link = LinkBase & HttpEventAttributes

@@ -1,19 +1,4 @@
-export interface BodyAttributes {
-  /**
-   * The class global attribute is a space-separated list of the case-sensitive classes of the element.
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
-   */
-  class?: string
-  /**
-   * The style global attribute contains CSS styling declarations to be applied to the element.
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style
-   */
-  style?: string
-  /**
-   * This attribute defines the unique ID.
-   */
-  id?: string
+export interface BodyEvents {
   /**
    * Script to be run after the document is printed
    */
@@ -75,3 +60,23 @@ export interface BodyAttributes {
    */
   onunload?: string
 }
+
+export interface BaseBodyAttributes {
+  /**
+   * The class global attribute is a space-separated list of the case-sensitive classes of the element.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
+   */
+  class?: string
+  /**
+   * The style global attribute contains CSS styling declarations to be applied to the element.
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style
+   */
+  style?: string
+  /**
+   * This attribute defines the unique ID.
+   */
+  id?: string
+}
+
+export type BodyAttributes = BaseBodyAttributes & BodyEvents
