@@ -28,9 +28,12 @@ export function tagDedupeKey<T extends HeadTag>(tag: T): string | false {
     name.push(...['name', 'property', 'http-equiv'])
   for (const n of name) {
     // open graph props can have multiple tags with the same property
-    if (typeof props[n] !== 'undefined' && !ArrayMetaProperties.findIndex(p => !props[n].startsWith(p))) {
+    if (typeof props[n] !== 'undefined') {
+      const val = String(props[n])
+      if (ArrayMetaProperties.findIndex(p => val.startsWith(p)) !== -1)
+        return false
       // for example: meta-name-description
-      return `${tagName}:${n}:${props[n]}`
+      return `${tagName}:${n}:${val}`
     }
   }
   return false
