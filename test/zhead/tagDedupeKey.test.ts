@@ -51,4 +51,24 @@ describe('tagDedupeKey', () => {
     })
     expect(key).toEqual('meta:name:description')
   })
+
+  test('og', async () => {
+    const key = tagDedupeKey({
+      tag: 'meta',
+      props: {
+        property: 'og:locale',
+      },
+    })
+    expect(key).toEqual('meta:property:og:locale')
+  })
+
+  test('og exception', async () => {
+    const key = tagDedupeKey({
+      tag: 'meta',
+      props: {
+        property: 'og:image',
+      },
+    })
+    expect(key).toEqual(false)
+  })
 })
