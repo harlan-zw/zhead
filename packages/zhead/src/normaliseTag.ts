@@ -4,7 +4,7 @@ import { TagConfigKeys } from './constants'
 export async function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: any): Promise<T | T[]> {
   const tag = { tag: tagName, props: {} } as T
   if (tagName === 'title' || tagName === 'titleTemplate') {
-    tag.children = input
+    tag.children = input instanceof Promise ? await input : input
     return tag
   }
 
