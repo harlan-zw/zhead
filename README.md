@@ -31,7 +31,6 @@ Typed utilities for defining, validating and building best-practice document &lt
 
 - 💎 Fully typed Head, ReactiveHead with MDN docs
 - 💎 [100+ typed meta's](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/meta-flat.ts)
-- 💎 Reactive Vue schema with computed getter support
 
 ## Functions
 
@@ -91,12 +90,6 @@ export interface ReactiveHead<E extends MergeHead = MergeHead> {
 [Zod](https://zod.dev/) schema for validating and parsing head tags.
 
 [`@zhead/validation`](./tree/main/packages/zod)
-
-### Framework bindings 
-
-Vue bindings for handling deep reactive `Ref` and `Computed` head tags.
-
-[`@zhead/vue`](https://github.com/harlan-zw/zhead/tree/main/packages/vue)
 
 ### Core
 
