@@ -1,4 +1,4 @@
-import type { Booleanable } from '../types'
+import type { Booleanable } from '../utils'
 
 export interface AriaAttributes {
   /**

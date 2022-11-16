@@ -1,4 +1,4 @@
-import type { Booleanable, Stringable } from '../types'
+import type { Booleanable, Stringable } from '../utils'
 
 export interface GlobalAttributes {
   /**

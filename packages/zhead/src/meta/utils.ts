@@ -1,9 +1,9 @@
 import type { TransformValueOptions } from 'packrup'
-import { PropertyPrefixKeys } from '../transforms'
+import { PropertyPrefixKeys } from '..'
 
 export type ValidMetaType = 'name' | 'http-equiv' | 'property' | 'charset'
 
-export interface PackingDefinition {
+interface PackingDefinition {
   metaKey?: ValidMetaType
   keyValue?: string
   unpack?: TransformValueOptions

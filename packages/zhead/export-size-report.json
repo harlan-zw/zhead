@@ -3,7 +3,6 @@
     "name": "zhead",
     "dependencies": [
       "@zhead/schema",
-      "@zhead/zod",
       "packrup"
     ],
     "versions": {
@@ -14,67 +13,179 @@
   },
   "exports": [
     {
-      "name": "resolveSeoHead",
-      "path": "dist/index.mjs",
-      "minified": 2290,
-      "minzipped": 915,
-      "bundled": 4079
-    },
-    {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 1481,
-      "minzipped": 605,
-      "bundled": 2571
-    },
-    {
-      "name": "generateHtmlStrict",
-      "path": "dist/index.mjs",
-      "minified": 1137,
-      "minzipped": 541,
-      "bundled": 2050
-    },
-    {
-      "name": "generateHtml",
-      "path": "dist/index.mjs",
-      "minified": 1071,
-      "minzipped": 521,
-      "bundled": 1920
+      "minified": 2165,
+      "minzipped": 841,
+      "bundled": 3926
     },
     {
       "name": "packMeta",
       "path": "dist/index.mjs",
-      "minified": 923,
-      "minzipped": 396,
-      "bundled": 1442
+      "minified": 1597,
+      "minzipped": 701,
+      "bundled": 3029
     },
     {
-      "name": "generateTagsStrict",
+      "name": "resolveTags",
       "path": "dist/index.mjs",
-      "minified": 733,
-      "minzipped": 361,
-      "bundled": 1380
+      "minified": 1069,
+      "minzipped": 434,
+      "bundled": 1756
     },
     {
-      "name": "generateTags",
+      "name": "ssrRenderTags",
       "path": "dist/index.mjs",
-      "minified": 667,
-      "minzipped": 334,
-      "bundled": 1262
+      "minified": 746,
+      "minzipped": 376,
+      "bundled": 1367
     },
     {
-      "name": "renderTemplate",
+      "name": "normaliseTag",
       "path": "dist/index.mjs",
-      "minified": 97,
-      "minzipped": 86,
-      "bundled": 293
+      "minified": 910,
+      "minzipped": 374,
+      "bundled": 1476
+    },
+    {
+      "name": "inferSeoMetaTags",
+      "path": "dist/index.mjs",
+      "minified": 694,
+      "minzipped": 251,
+      "bundled": 1152
+    },
+    {
+      "name": "tagToString",
+      "path": "dist/index.mjs",
+      "minified": 345,
+      "minzipped": 232,
+      "bundled": 734
+    },
+    {
+      "name": "tagDedupeKey",
+      "path": "dist/index.mjs",
+      "minified": 362,
+      "minzipped": 218,
+      "bundled": 590
+    },
+    {
+      "name": "resolveTitleTemplateFromTags",
+      "path": "dist/index.mjs",
+      "minified": 430,
+      "minzipped": 210,
+      "bundled": 1115
+    },
+    {
+      "name": "changeKeyCasingDeep",
+      "path": "dist/index.mjs",
+      "minified": 351,
+      "minzipped": 203,
+      "bundled": 669
+    },
+    {
+      "name": "sortTags",
+      "path": "dist/index.mjs",
+      "minified": 267,
+      "minzipped": 181,
+      "bundled": 515
+    },
+    {
+      "name": "propsToString",
+      "path": "dist/index.mjs",
+      "minified": 213,
+      "minzipped": 158,
+      "bundled": 469
+    },
+    {
+      "name": "tagWeight",
+      "path": "dist/index.mjs",
+      "minified": 248,
+      "minzipped": 150,
+      "bundled": 436
+    },
+    {
+      "name": "ensureCriticalTags",
+      "path": "dist/index.mjs",
+      "minified": 287,
+      "minzipped": 143,
+      "bundled": 561
+    },
+    {
+      "name": "fixKeyCase",
+      "path": "dist/index.mjs",
+      "minified": 178,
+      "minzipped": 118,
+      "bundled": 302
+    },
+    {
+      "name": "createElement",
+      "path": "dist/index.mjs",
+      "minified": 168,
+      "minzipped": 110,
+      "bundled": 286
+    },
+    {
+      "name": "ValidHeadTags",
+      "path": "dist/index.mjs",
+      "minified": 121,
+      "minzipped": 96,
+      "bundled": 202
+    },
+    {
+      "name": "normaliseProps",
+      "path": "dist/index.mjs",
+      "minified": 122,
+      "minzipped": 93,
+      "bundled": 270
+    },
+    {
+      "name": "renderTitleTemplate",
+      "path": "dist/index.mjs",
+      "minified": 93,
+      "minzipped": 83,
+      "bundled": 271
+    },
+    {
+      "name": "HasElementTags",
+      "path": "dist/index.mjs",
+      "minified": 73,
+      "minzipped": 77,
+      "bundled": 144
+    },
+    {
+      "name": "TagConfigKeys",
+      "path": "dist/index.mjs",
+      "minified": 75,
+      "minzipped": 74,
+      "bundled": 127
+    },
+    {
+      "name": "TagsWithInnerContent",
+      "path": "dist/index.mjs",
+      "minified": 52,
+      "minzipped": 56,
+      "bundled": 118
+    },
+    {
+      "name": "SelfClosingTags",
+      "path": "dist/index.mjs",
+      "minified": 45,
+      "minzipped": 49,
+      "bundled": 101
+    },
+    {
+      "name": "PropertyPrefixKeys",
+      "path": "dist/index.mjs",
+      "minified": 41,
+      "minzipped": 45,
+      "bundled": 101
     },
     {
       "name": "defineHead",
       "path": "dist/index.mjs",
-      "minified": 74,
-      "minzipped": 70,
-      "bundled": 204
+      "minified": 39,
+      "minzipped": 43,
+      "bundled": 95
     }
   ]
 }

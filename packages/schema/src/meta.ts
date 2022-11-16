@@ -1,4 +1,4 @@
-import type { Stringable } from './types'
+import type { MaybePromiseProps, Stringable } from './utils'
 
 export type MetaNames =
 'charset' |
@@ -134,3 +134,5 @@ export interface Meta {
    */
   media?: '(prefers-color-scheme: light)' | '(prefers-color-scheme: dark)' | (string & Record<never, never>)
 }
+
+export type AsyncMeta = MaybePromiseProps<Meta>

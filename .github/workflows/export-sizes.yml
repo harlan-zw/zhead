@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Install
+        run: npm i --location=global export-size
+
       - name: Run package sizes
         run: pnpm run export:sizes
 
@@ -42,7 +45,7 @@ jobs:
         uses: EndBug/add-and-commit@v4
         with:
           message: "chore: update export size report"
-          add: "packages/zhead/export-size-report.json"
+          add: "**/export-size-report.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
