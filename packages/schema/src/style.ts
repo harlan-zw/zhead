@@ -1,3 +1,5 @@
+import type { MaybePromiseProps } from '@zhead/schema/src/utils'
+
 export interface Style {
   /**
    * This attribute defines which media the style should be applied to.
@@ -26,4 +28,4 @@ export interface Style {
   id?: string
 }
 
-export type StyleEntries<T extends Record<string, any>> = Partial<Style & T>[]
+export type AsyncStyle = MaybePromiseProps<Style>

@@ -2,13 +2,26 @@ import type { Base } from './base'
 import type { Style } from './style'
 import type { Script } from './script'
 import type { Meta } from './meta'
-import type { HtmlAttributes } from './html-attributes'
-import type { BodyAttributes } from './body-attributes'
+import type { HtmlAttributes } from './htmlAttributes'
+import type { BodyAttributes } from './bodyAttributes'
 import type { Noscript } from './noscript'
-import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './types'
+import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
 import type { Link } from './link'
 
-export interface Head<E extends MergeHead = MergeHead> {
+export interface BaseHead {
+  title?: any
+  titleTemplate?: any
+  base?: Record<string, any>
+  link?: any[]
+  meta?: any[]
+  style?: any[]
+  script?: any[]
+  noscript?: any[]
+  htmlAttrs?: Record<string, any>
+  bodyAttrs?: Record<string, any>
+}
+
+export interface Head<E extends MergeHead = MergeHead> extends BaseHead {
   /**
    * The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
@@ -76,6 +89,3 @@ export interface Head<E extends MergeHead = MergeHead> {
    */
   bodyAttrs?: (BodyAttributes & DataKeys & DefinedValueOrEmptyObject<E['bodyAttrs']>)
 }
-
-export const Head: Head = {}
-

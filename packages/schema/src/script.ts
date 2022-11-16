@@ -1,7 +1,7 @@
-import type { Booleanable } from './types'
+import type { Booleanable, MaybePromiseProps } from './utils'
 import type { HttpEventAttributes } from './attributes'
 
-export interface Script extends HttpEventAttributes {
+export interface ScriptBase {
   /**
    * For classic scripts, if the async attribute is present,
    * then the classic script will be fetched in parallel to parsing and evaluated as soon as it is available.
@@ -98,3 +98,7 @@ export interface Script extends HttpEventAttributes {
    */
   id?: string
 }
+
+export type Script = ScriptBase & HttpEventAttributes
+
+export type AsyncScript = MaybePromiseProps<Script>

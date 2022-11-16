@@ -1,6 +1,6 @@
 {
   "name": "zhead",
-  "version": "0.9.9",
+  "version": "1.0.0-beta.13",
   "packageManager": "pnpm@7.8.0",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
@@ -30,11 +30,13 @@
   ],
   "scripts": {
     "build": "unbuild .",
-    "stub": "unbuild . --stub"
+    "stub": "unbuild . --stub",
+    "export:sizes": "npx export-size . -r"
   },
   "dependencies": {
-    "@zhead/schema": "workspace:*",
-    "@zhead/zod": "workspace:*",
+    "@zhead/schema": "workspace:*"
+  },
+  "devDependencies": {
     "packrup": "^0.1.0"
   }
 }

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "name": "@zhead/validation",
+    "dependencies": [
+      "@zhead/schema",
+      "zod"
+    ],
+    "versions": {
+      "export-size": "0.5.2",
+      "esbuild": "^0.13.8",
+      "brotli-size": "^4.0.0"
+    }
+  },
+  "exports": [
+    {
+      "name": "validateTag",
+      "path": "dist/index.mjs",
+      "minified": 8378,
+      "minzipped": 1849,
+      "bundled": 9865
+    },
+    {
+      "name": "headSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1772,
+      "bundled": 9378
+    },
+    {
+      "name": "metaFlatInputSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1772,
+      "bundled": 9387
+    },
+    {
+      "name": "linkSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1771,
+      "bundled": 9378
+    },
+    {
+      "name": "metaFlatSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1771,
+      "bundled": 9382
+    },
+    {
+      "name": "metaSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1771,
+      "bundled": 9378
+    },
+    {
+      "name": "baseSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1769,
+      "bundled": 9378
+    },
+    {
+      "name": "scriptSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1769,
+      "bundled": 9380
+    },
+    {
+      "name": "styleSchema",
+      "path": "dist/index.mjs",
+      "minified": 8134,
+      "minzipped": 1769,
+      "bundled": 9379
+    }
+  ]
+}
