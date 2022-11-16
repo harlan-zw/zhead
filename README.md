@@ -10,7 +10,7 @@
 
 
 <p align="center">
-Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.  
+Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s. Powering [unhead](https://github.com/harlan-zw/unhead).
 </p>
 
 <p align="center">
