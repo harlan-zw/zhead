@@ -18,3 +18,7 @@ export interface MergeHead {
   htmlAttrs?: {}
   bodyAttrs?: {}
 }
+
+export type MaybePromiseProps<T> = T | {
+  [key in keyof T]?: T[key] | Promise<T[key]>
+}

@@ -1,3 +1,4 @@
+import type { MaybePromiseProps } from '@zhead/schema/src/utils'
 import type { HttpEventAttributes } from './attributes'
 
 export type LinkRelTypes = 'alternate' |
@@ -263,3 +264,5 @@ export interface LinkBase {
 }
 
 export type Link = LinkBase & HttpEventAttributes
+
+export type AsyncLink = MaybePromiseProps<Link>

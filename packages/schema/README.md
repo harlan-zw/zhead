@@ -13,4 +13,4 @@ yarn add --dev @zhead/schema
 
 ## Types
 
-See [head.ts](./src/head.ts) for the full list of types.
+See [head.ts](./src/syncHead.ts) for the full list of types.

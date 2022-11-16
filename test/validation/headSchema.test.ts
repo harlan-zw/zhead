@@ -3,7 +3,7 @@ import { defineHead, resolveTags, ssrRenderTags, unpackMeta } from 'zhead'
 import { headSchema, validateTag } from '@zhead/validation'
 
 describe('headSchema', () => {
-  it('can validate', () => {
+  it('can validate', async () => {
     const tags = defineHead({
       meta: [
         { description: 'My Description' },
@@ -26,8 +26,8 @@ describe('headSchema', () => {
       }
     `)
   })
-  it('tags malformed example', () => {
-    const tags = resolveTags({
+  it('tags malformed example', async () => {
+    const tags = await resolveTags({
       meta: [
       ],
       script: [
@@ -59,8 +59,8 @@ describe('headSchema', () => {
       ]
     `)
   })
-  it('html malformed example', () => {
-    const tags = resolveTags({
+  it('html malformed example', async () => {
+    const tags = await resolveTags({
       meta: [
         {
           charset: 'utf-8',

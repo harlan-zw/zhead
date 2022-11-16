@@ -1,14 +1,14 @@
 import type { HeadTag } from '@zhead/schema'
 import { TagConfigKeys } from './constants'
 
-export function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: any): T | T[] {
+export async function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: any): Promise<T | T[]> {
   const tag = { tag: tagName, props: {} } as T
   if (tagName === 'title' || tagName === 'titleTemplate') {
     tag.children = input
     return tag
   }
 
-  tag.props = normaliseProps({ ...input })
+  tag.props = await normaliseProps({ ...input })
 
   ;(['children', 'innerHtml', 'innerHTML'])
     .forEach((key: string) => {
@@ -48,9 +48,14 @@ export function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: any): 
   return tag
 }
 
-export function normaliseProps<T extends HeadTag['props']>(props: T): T {
+export async function normaliseProps<T extends HeadTag['props']>(props: T): Promise<T> {
   // handle boolean props, see https://html.spec.whatwg.org/#boolean-attributes
-  for (const k in props) {
+  for (const k of Object.keys(props)) {
+    // first resolve any promises
+    if (props[k] instanceof Promise) {
+      // @ts-expect-error untyped
+      props[k] = await props[k]
+    }
     if (String(props[k]) === 'true') {
       // @ts-expect-error untyped
       props[k] = ''

@@ -1,15 +1,17 @@
-import type { Head, HeadTag } from '@zhead/schema'
+import type { BaseHead, Head, HeadTag } from '@zhead/schema'
 import { normaliseTag } from '../src/normaliseTag'
 
-export function resolveTags<T extends Head>(input: T) {
+export async function resolveTags<T extends BaseHead = Head>(input: T) {
   // strips unused keys
   const output: HeadTag[] = []
   for (const tag of Object.keys(input)) {
     // @ts-expect-error untyped
     const v = Array.isArray(input[tag]) ? input[tag] : [input[tag]]
+    // @ts-expect-error untyped
+    const entries = await Promise.all(v.map(e => normaliseTag(tag, e)).flat())
     output.push(
       // @ts-expect-error untyped
-      v.map(entry => normaliseTag(tag, entry)).flat().filter(v => !!v),
+      entries.filter(v => !!v),
     )
   }
   return output.flat()

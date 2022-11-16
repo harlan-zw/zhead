@@ -2,7 +2,7 @@ import { normaliseTag } from 'zhead'
 
 describe('normaliseTag', () => {
   test('basic', async () => {
-    const tag = normaliseTag('meta', {
+    const tag = await normaliseTag('meta', {
       test: true,
       something: false,
     })
@@ -11,8 +11,18 @@ describe('normaliseTag', () => {
     expect(tag.props.test).toBe('')
   })
 
+  test('promise', async () => {
+    const tag = await normaliseTag('meta', {
+      test: new Promise<true>(resolve => resolve(true)),
+      something: new Promise(resolve => setTimeout(() => resolve(false), 250)),
+    })
+
+    expect(tag.props.something).toBeUndefined()
+    expect(tag.props.test).toBe('')
+  })
+
   test('children', async () => {
-    const tag = normaliseTag('title', 'test')
+    const tag = await normaliseTag('title', 'test')
 
     expect(tag).toMatchInlineSnapshot(`
       {

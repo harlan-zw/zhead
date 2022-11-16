@@ -1,4 +1,4 @@
-import type { Booleanable } from './utils'
+import type { Booleanable, MaybePromiseProps } from './utils'
 import type { HttpEventAttributes } from './attributes'
 
 export interface ScriptBase {
@@ -100,3 +100,5 @@ export interface ScriptBase {
 }
 
 export type Script = ScriptBase & HttpEventAttributes
+
+export type AsyncScript = MaybePromiseProps<Script>

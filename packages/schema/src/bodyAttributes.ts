@@ -1,3 +1,5 @@
+import type { MaybePromiseProps } from '@zhead/schema/src/utils'
+
 export interface BodyEvents {
   /**
    * Script to be run after the document is printed
@@ -80,3 +82,5 @@ export interface BaseBodyAttributes {
 }
 
 export type BodyAttributes = BaseBodyAttributes & BodyEvents
+
+export type AsyncBodyAttributes = MaybePromiseProps<BodyAttributes>

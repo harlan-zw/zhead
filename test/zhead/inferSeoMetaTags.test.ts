@@ -2,8 +2,8 @@ import { describe, it } from 'vitest'
 import { inferSeoMetaTags, resolveTags, unpackMeta } from 'zhead'
 
 describe('inferSeoMetaTags', () => {
-  it('basic', () => {
-    const tags = resolveTags({
+  it('basic', async () => {
+    const tags = await resolveTags({
       title: 'test',
       link: [
         {
@@ -84,8 +84,8 @@ describe('inferSeoMetaTags', () => {
     `)
   })
 
-  it('build seo head example', () => {
-    const tags = resolveTags({
+  it('build seo head example', async () => {
+    const tags = await resolveTags({
       title: 'My Title',
       meta: [
         { name: 'description', content: 'Some description' },

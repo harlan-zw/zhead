@@ -1,4 +1,4 @@
-import type { Booleanable } from './utils'
+import type { Booleanable, MaybePromiseProps } from './utils'
 
 export interface MetaFlat {
   /**
@@ -631,3 +631,4 @@ export interface MetaFlat {
 
 export type MetaFlatInput = Partial<MetaFlat>
 
+export type AsyncMetaFlatInput = MaybePromiseProps<MetaFlatInput>
