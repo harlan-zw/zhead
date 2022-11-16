@@ -1,4 +1,4 @@
-import { tagDedupeKey } from 'zhead'
+import {tagDedupeKey, tagDedupeKeyWithMetaProps} from 'zhead'
 
 describe('tagDedupeKey', () => {
   test('title key', async () => {
@@ -63,7 +63,7 @@ describe('tagDedupeKey', () => {
   })
 
   test('og exception', async () => {
-    const key = tagDedupeKey({
+    const key = tagDedupeKeyWithMetaProps({
       tag: 'meta',
       props: {
         property: 'og:image',

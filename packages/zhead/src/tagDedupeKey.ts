@@ -9,7 +9,11 @@ const ArrayMetaProperties = [
   'music:album', 'music:musician',
 ]
 
-export function tagDedupeKey<T extends HeadTag>(tag: T): string | false {
+export function tagDedupeKeyWithMetaProps<T extends HeadTag>(tag: T): string | false {
+  return tagDedupeKey(tag, (val) => ArrayMetaProperties.findIndex(p => val.startsWith(p)) === -1)
+}
+
+export function tagDedupeKey<T extends HeadTag>(tag: T, fn?: (key: string) => boolean): string | false {
   const { props, tag: tagName } = tag
   // must only be a single base so we always dedupe
   if (UniqueTags.includes(tagName))
@@ -30,7 +34,7 @@ export function tagDedupeKey<T extends HeadTag>(tag: T): string | false {
     // open graph props can have multiple tags with the same property
     if (typeof props[n] !== 'undefined') {
       const val = String(props[n])
-      if (ArrayMetaProperties.findIndex(p => val.startsWith(p)) !== -1)
+      if (fn && !fn(val))
         return false
       // for example: meta-name-description
       return `${tagName}:${n}:${val}`
