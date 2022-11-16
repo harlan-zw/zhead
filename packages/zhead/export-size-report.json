@@ -48,11 +48,11 @@
       "bundled": 1367
     },
     {
-      "name": "tagDedupeKey",
+      "name": "tagDedupeKeyWithMetaProps",
       "path": "dist/index.mjs",
-      "minified": 634,
-      "minzipped": 324,
-      "bundled": 1018
+      "minified": 674,
+      "minzipped": 350,
+      "bundled": 1132
     },
     {
       "name": "inferSeoMetaTags",
@@ -60,6 +60,13 @@
       "minified": 694,
       "minzipped": 251,
       "bundled": 1152
+    },
+    {
+      "name": "tagDedupeKey",
+      "path": "dist/index.mjs",
+      "minified": 404,
+      "minzipped": 245,
+      "bundled": 702
     },
     {
       "name": "tagToString",
