@@ -34,6 +34,84 @@ describe('sortTags', () => {
     `)
   })
 
+  test('aliases', async () => {
+
+    const tags = [
+      ...(await resolveTags(basicSchema)),
+      ...(await resolveTags({
+        script: [
+          {
+            src: '/very-important-script.js',
+            tagPriority: 'critical',
+          }
+        ]
+      }))
+    ].sort(sortTags)
+
+    expect(tags).toMatchInlineSnapshot(`
+      [
+        {
+          "props": {
+            "charset": "utf-8",
+          },
+          "tag": "meta",
+        },
+        {
+          "props": {
+            "href": "/",
+          },
+          "tag": "base",
+        },
+        {
+          "props": {
+            "content": "default-src 'self'",
+            "http-equiv": "content-security-policy",
+          },
+          "tag": "meta",
+        },
+        {
+          "children": "hello world",
+          "props": {},
+          "tag": "title",
+        },
+        {
+          "props": {
+            "src": "/very-important-script.js",
+          },
+          "tag": "script",
+          "tagPriority": "critical",
+        },
+        {
+          "props": {
+            "dir": "ltr",
+            "lang": "en",
+          },
+          "tag": "htmlAttrs",
+        },
+        {
+          "props": {
+            "class": "dark",
+          },
+          "tag": "bodyAttrs",
+        },
+        {
+          "props": {
+            "src": "https://cdn.example.com/script.js",
+          },
+          "tag": "script",
+        },
+        {
+          "props": {
+            "href": "https://cdn.example.com/favicon.ico",
+            "rel": "icon",
+            "type": "image/x-icon",
+          },
+          "tag": "link",
+        },
+      ]
+    `)
+  })
+
   test('basic schema', async () => {
     const tags = (await resolveTags(basicSchema)).sort(sortTags)
     // charset -> base -> http-equiv -> title -> everything else

@@ -3,7 +3,14 @@ import type { HeadTag } from '@zhead/schema'
 export const tagWeight = <T extends HeadTag>(tag: T) => {
   if (typeof tag.tagPriority === 'number')
     return tag.tagPriority
-
+  switch(tag.tagPriority) {
+    case 'critical':
+      return 2
+    case 'high':
+      return 9
+    case 'low':
+      return 12
+  }
   // charset -> base -> http-equiv -> title -> everything else
   switch (tag.tag) {
     // This element must come before other elements with attribute values of URLs

@@ -8,7 +8,7 @@ export interface HeadTag {
   innerHTML?: string
   children?: string
   textContent?: string
-  tagPriority?: number | `before:${string}` | `after:${string}`
+  tagPriority?: number | 'critical' | 'high' | 'low' | `before:${string}` | `after:${string}`
   tagPosition?: 'head' | 'bodyClose' | 'bodyOpen'
   key?: string
   tagDuplicateStrategy?: 'replace' | 'merge'
