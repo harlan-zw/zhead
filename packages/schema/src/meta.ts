@@ -103,13 +103,15 @@ export interface Meta {
    * particular HTTP headers.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv
+   * @see https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
    */
   ['http-equiv']?: 'content-security-policy' |
   'content-type' |
   'default-style' |
   'x-ua-compatible' |
   'refresh' |
-  'accept-ch'
+  'accept-ch' |
+  'x-dns-prefetch-control'
   /**
    * The name and content attributes can be used together to provide document metadata in terms of name-value pairs,
    * with the name attribute giving the metadata name, and the content attribute giving the value.
