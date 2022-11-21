@@ -49,6 +49,17 @@ describe('titleTemplate', () => {
     ])
     expect(tags[0].children).toEqual('Default Title')
   })
+  test('titleTemplate only', async () => {
+    const tags = resolveTitleTemplateFromTags([
+      {
+        tag: 'titleTemplate',
+        // @ts-expect-error runtime type
+        children: (title?: string) => title ? `${title} - Template` : 'Default Title',
+        props: {},
+      },
+    ])
+    expect(tags[0].children).toEqual('Default Title')
+  })
   test('reset title template', async () => {
     const tags = resolveTitleTemplateFromTags([
       {

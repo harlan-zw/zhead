@@ -13,7 +13,7 @@ export const renderTitleTemplate = (
 }
 
 export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
-  const titleTemplateIdx = tags.findIndex(i => i.tag === 'titleTemplate')
+  let titleTemplateIdx = tags.findIndex(i => i.tag === 'titleTemplate')
   const titleIdx = tags.findIndex(i => i.tag === 'title')
   if (titleIdx !== -1 && titleTemplateIdx !== -1) {
     const newTitle = renderTitleTemplate(
@@ -36,6 +36,7 @@ export function resolveTitleTemplateFromTags(tags: HeadTag[]) {
     if (newTitle !== null) {
       tags[titleTemplateIdx].children = newTitle
       tags[titleTemplateIdx].tag = 'title'
+      titleTemplateIdx = -1
     }
   }
   if (titleTemplateIdx !== -1) {
