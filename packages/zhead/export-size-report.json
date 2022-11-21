@@ -92,9 +92,16 @@
     {
       "name": "sortTags",
       "path": "dist/index.mjs",
-      "minified": 267,
-      "minzipped": 181,
-      "bundled": 515
+      "minified": 353,
+      "minzipped": 196,
+      "bundled": 651
+    },
+    {
+      "name": "tagWeight",
+      "path": "dist/index.mjs",
+      "minified": 334,
+      "minzipped": 177,
+      "bundled": 572
     },
     {
       "name": "propsToString",
@@ -102,13 +109,6 @@
       "minified": 213,
       "minzipped": 158,
       "bundled": 469
-    },
-    {
-      "name": "tagWeight",
-      "path": "dist/index.mjs",
-      "minified": 248,
-      "minzipped": 150,
-      "bundled": 436
     },
     {
       "name": "ensureCriticalTags",
