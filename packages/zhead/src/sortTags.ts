@@ -3,7 +3,7 @@ import type { HeadTag } from '@zhead/schema'
 export const tagWeight = <T extends HeadTag>(tag: T) => {
   if (typeof tag.tagPriority === 'number')
     return tag.tagPriority
-  switch(tag.tagPriority) {
+  switch (tag.tagPriority) {
     case 'critical':
       return 2
     case 'high':

@@ -1,4 +1,4 @@
-import {tagDedupeKey, tagDedupeKeyWithMetaProps} from 'zhead'
+import { tagDedupeKey, tagDedupeKeyWithMetaProps } from 'zhead'
 
 describe('tagDedupeKey', () => {
   test('title key', async () => {

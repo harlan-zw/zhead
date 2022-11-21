@@ -35,7 +35,6 @@ describe('sortTags', () => {
   })
 
   test('aliases', async () => {
-
     const tags = [
       ...(await resolveTags(basicSchema)),
       ...(await resolveTags({
@@ -43,9 +42,9 @@ describe('sortTags', () => {
           {
             src: '/very-important-script.js',
             tagPriority: 'critical',
-          }
-        ]
-      }))
+          },
+        ],
+      })),
     ].sort(sortTags)
 
     expect(tags).toMatchInlineSnapshot(`

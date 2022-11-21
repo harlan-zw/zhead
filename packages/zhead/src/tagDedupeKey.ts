@@ -10,7 +10,7 @@ const ArrayMetaProperties = [
 ]
 
 export function tagDedupeKeyWithMetaProps<T extends HeadTag>(tag: T): string | false {
-  return tagDedupeKey(tag, (val) => ArrayMetaProperties.findIndex(p => val.startsWith(p)) === -1)
+  return tagDedupeKey(tag, val => ArrayMetaProperties.findIndex(p => val.startsWith(p)) === -1)
 }
 
 export function tagDedupeKey<T extends HeadTag>(tag: T, fn?: (key: string) => boolean): string | false {
