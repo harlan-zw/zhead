@@ -78,9 +78,9 @@
     {
       "name": "resolveTitleTemplateFromTags",
       "path": "dist/index.mjs",
-      "minified": 430,
-      "minzipped": 210,
-      "bundled": 1115
+      "minified": 439,
+      "minzipped": 219,
+      "bundled": 1142
     },
     {
       "name": "changeKeyCasingDeep",
