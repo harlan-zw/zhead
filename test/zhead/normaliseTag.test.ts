@@ -32,4 +32,14 @@ describe('normaliseTag', () => {
       }
     `)
   })
+
+  test('json', async () => {
+    const tag = await normaliseTag('script', {
+      innerHTML: {
+        test: true,
+      },
+    })
+
+    expect(tag.children).toBe('{"test":true}')
+  })
 })

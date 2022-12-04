@@ -14,6 +14,10 @@ export async function normaliseTag<T extends HeadTag>(tagName: T['tag'], input: 
     .forEach((key: string) => {
       if (typeof tag.props[key] !== 'undefined') {
         tag.children = tag.props[key]
+        // support objects as children
+        if (typeof tag.children === 'object')
+          tag.children = JSON.stringify(tag.children)
+
         delete tag.props[key]
       }
     })
