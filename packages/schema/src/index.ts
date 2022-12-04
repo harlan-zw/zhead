@@ -12,5 +12,6 @@ export * from './base'
 export * from './attributes'
 export * from './tags'
 export * from './utils'
+export * from './struct/speculationRules'
 
 export {}
