@@ -109,7 +109,8 @@ export interface Meta {
   'default-style' |
   'x-ua-compatible' |
   'refresh' |
-  'accept-ch'
+  'accept-ch' |
+  (string & Record<never, never>)
   /**
    * The name and content attributes can be used together to provide document metadata in terms of name-value pairs,
    * with the name attribute giving the metadata name, and the content attribute giving the value.
