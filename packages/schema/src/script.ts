@@ -1,3 +1,4 @@
+import type { ReferrerPolicy } from '@zhead/schema/src/shared'
 import type { Booleanable, MaybePromiseProps } from './utils'
 import type { HttpEventAttributes } from './attributes'
 
@@ -66,15 +67,7 @@ export interface ScriptBase {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-referrerpolicy
    */
-  referrerpolicy?: '' |
-  'no-referrer' |
-  'no-referrer-when-downgrade' |
-  'origin' |
-  'origin-when-cross-origin' |
-  'same-origin' |
-  'strict-origin' |
-  'strict-origin-when-cross-origin' |
-  'unsafe-url'
+  referrerpolicy?: ReferrerPolicy
   /**
    * This attribute specifies the URI of an external script;
    * this can be used as an alternative to embedding a script directly within a document.
@@ -92,7 +85,8 @@ export interface ScriptBase {
   'module' |
   'application/json' |
   'application/ld+json' |
-  string
+  'speculationrules' |
+  (string & Record<never, never>)
   /**
    * This attribute defines the unique ID.
    */
