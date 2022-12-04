@@ -1,6 +1,6 @@
 {
   "name": "@zhead/validation",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "packageManager": "pnpm@7.8.0",
   "description": "",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
