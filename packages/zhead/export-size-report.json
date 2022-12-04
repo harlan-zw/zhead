@@ -29,16 +29,16 @@
     {
       "name": "resolveTags",
       "path": "dist/index.mjs",
-      "minified": 1200,
-      "minzipped": 474,
-      "bundled": 1952
+      "minified": 1269,
+      "minzipped": 500,
+      "bundled": 2049
     },
     {
       "name": "normaliseTag",
       "path": "dist/index.mjs",
-      "minified": 1012,
-      "minzipped": 408,
-      "bundled": 1626
+      "minified": 1081,
+      "minzipped": 431,
+      "bundled": 1723
     },
     {
       "name": "ssrRenderTags",
