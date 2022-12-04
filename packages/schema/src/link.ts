@@ -1,4 +1,5 @@
 import type { MaybePromiseProps } from '@zhead/schema/src/utils'
+import type { ReferrerPolicy } from '@zhead/schema/src/shared'
 import type { HttpEventAttributes } from './attributes'
 
 export type LinkRelTypes = 'alternate' |
@@ -141,15 +142,7 @@ export interface LinkBase {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-referrerpolicy
    */
-  referrerpolicy?: '' |
-  'no-referrer' |
-  'no-referrer-when-downgrade' |
-  'origin' |
-  'origin-when-cross-origin' |
-  'same-origin' |
-  'strict-origin' |
-  'strict-origin-when-cross-origin' |
-  'unsafe-url'
+  referrerpolicy?: ReferrerPolicy
   /**
    * This attribute names a relationship of the linked document to the current document.
    * The attribute must be a space-separated list of link type values.

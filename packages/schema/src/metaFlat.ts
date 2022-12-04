@@ -1,3 +1,4 @@
+import type { ReferrerPolicy } from '@zhead/schema/src/shared'
 import type { Booleanable, MaybePromiseProps } from './utils'
 
 export interface MetaFlat {
@@ -63,15 +64,7 @@ export interface MetaFlat {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification
    */
-  referrer: '' |
-  'no-referrer' |
-  'no-referrer-when-downgrade' |
-  'origin' |
-  'origin-when-cross-origin' |
-  'same-origin' |
-  'strict-origin' |
-  'strict-origin-when-cross-origin' |
-  'unsafe-url'
+  referrer: ReferrerPolicy
   /**
    * This tag tells the browser how to render a page on a mobile device.
    * Presence of this tag indicates to Google that the page is mobile friendly.
