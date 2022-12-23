@@ -2,6 +2,22 @@ import { describe, it } from 'vitest'
 import { packMeta, unpackMeta } from 'zhead'
 
 describe('unpackMeta', () => {
+  it('null values', () => {
+    const tags = unpackMeta({
+      ogTitle: 'should stay',
+      description: null
+    })
+
+    expect(tags).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "should stay",
+          "property": "og:title",
+        },
+      ]
+    `)
+  })
+
   it('charset', () => {
     const tags = unpackMeta({
       charset: 'utf-8',

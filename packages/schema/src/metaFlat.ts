@@ -622,6 +622,10 @@ export interface MetaFlat {
   }
 }
 
-export type MetaFlatInput = Partial<MetaFlat>
+// make MetaFlat record entries also possibly be null
+type MetaFlatNullable = {
+  [K in keyof MetaFlat]: MetaFlat[K] | null
+}
+export type MetaFlatInput = Partial<MetaFlatNullable>
 
 export type AsyncMetaFlatInput = MaybePromiseProps<MetaFlatInput>
