@@ -5,7 +5,7 @@ describe('unpackMeta', () => {
   it('null values', () => {
     const tags = unpackMeta({
       ogTitle: 'should stay',
-      description: null
+      description: null,
     })
 
     expect(tags).toMatchInlineSnapshot(`

@@ -31,7 +31,7 @@ export type MetaNames =
 'content-type' |
 'default-style' |
 'x-ua-compatible' |
-'refresh'|
+'refresh' |
 'keywords'
 
 export type MetaProperties = 'og:url' |
