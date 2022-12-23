@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "@zhead/schema": "workspace:*",
-    "zod": "^3.19.1"
+    "zod": "^3.20.2"
   }
 }
