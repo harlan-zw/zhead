@@ -409,107 +409,107 @@ describe('unpackMeta', () => {
         },
         {
           "content": "summary",
-          "property": "twitter:card",
+          "name": "twitter:card",
         },
         {
           "content": "my title",
-          "property": "twitter:title",
+          "name": "twitter:title",
         },
         {
           "content": "my description",
-          "property": "twitter:description",
+          "name": "twitter:description",
         },
         {
           "content": "https://example.com/image.png",
-          "property": "twitter:image",
+          "name": "twitter:image",
         },
         {
           "content": "my image",
-          "property": "twitter:image:alt",
+          "name": "twitter:image:alt",
         },
         {
           "content": "@my_site",
-          "property": "twitter:site",
+          "name": "twitter:site",
         },
         {
           "content": "1234567890",
-          "property": "twitter:site:id",
+          "name": "twitter:site:id",
         },
         {
           "content": "@my_creator",
-          "property": "twitter:creator",
+          "name": "twitter:creator",
         },
         {
           "content": "1234567890",
-          "property": "twitter:creator:id",
+          "name": "twitter:creator:id",
         },
         {
           "content": "https://example.com/video.mp4",
-          "property": "twitter:player",
+          "name": "twitter:player",
         },
         {
           "content": "1280",
-          "property": "twitter:player:width",
+          "name": "twitter:player:width",
         },
         {
           "content": "720",
-          "property": "twitter:player:height",
+          "name": "twitter:player:height",
         },
         {
           "content": "https://example.com/video.mp4",
-          "property": "twitter:player:stream",
+          "name": "twitter:player:stream",
         },
         {
           "content": "my app",
-          "property": "twitter:app:name:iphone",
+          "name": "twitter:app:name:iphone",
         },
         {
           "content": "1234567890",
-          "property": "twitter:app:id:iphone",
+          "name": "twitter:app:id:iphone",
         },
         {
           "content": "https://example.com",
-          "property": "twitter:app:url:iphone",
+          "name": "twitter:app:url:iphone",
         },
         {
           "content": "my app",
-          "property": "twitter:app:name:ipad",
+          "name": "twitter:app:name:ipad",
         },
         {
           "content": "1234567890",
-          "property": "twitter:app:id:ipad",
+          "name": "twitter:app:id:ipad",
         },
         {
           "content": "https://example.com",
-          "property": "twitter:app:url:ipad",
+          "name": "twitter:app:url:ipad",
         },
         {
           "content": "my app",
-          "property": "twitter:app:name:googleplay",
+          "name": "twitter:app:name:googleplay",
         },
         {
           "content": "1234567890",
-          "property": "twitter:app:id:googleplay",
+          "name": "twitter:app:id:googleplay",
         },
         {
           "content": "https://example.com",
-          "property": "twitter:app:url:googleplay",
+          "name": "twitter:app:url:googleplay",
         },
         {
           "content": "my data",
-          "property": "twitter:data1",
+          "name": "twitter:data1",
         },
         {
           "content": "my label",
-          "property": "twitter:label1",
+          "name": "twitter:label1",
         },
         {
           "content": "my data",
-          "property": "twitter:data2",
+          "name": "twitter:data2",
         },
         {
           "content": "my label",
-          "property": "twitter:label2",
+          "name": "twitter:label2",
         },
       ]
     `)

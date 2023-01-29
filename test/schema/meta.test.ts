@@ -58,7 +58,7 @@ describe('metatags', () => {
           content: 'https://example.com/image.jpg',
         },
         {
-          property: 'twitter:card',
+          name: 'twitter:card',
           content: 'summary_large_image',
         },
         {
@@ -81,7 +81,7 @@ describe('metatags', () => {
           },
           {
             "content": "summary_large_image",
-            "property": "twitter:card",
+            "name": "twitter:card",
           },
           {
             "content": "origin-when-cross-origin",
