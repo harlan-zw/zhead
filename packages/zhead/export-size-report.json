@@ -15,9 +15,9 @@
     {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 2165,
-      "minzipped": 841,
-      "bundled": 3926
+      "minified": 2274,
+      "minzipped": 883,
+      "bundled": 4128
     },
     {
       "name": "packMeta",

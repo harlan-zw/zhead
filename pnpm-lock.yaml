@@ -34,10 +34,10 @@ importers:
   packages/validation:
     specifiers:
       '@zhead/schema': workspace:*
-      zod: ^3.19.1
+      zod: ^3.20.2
     dependencies:
       '@zhead/schema': link:../schema
-      zod: 3.19.1
+      zod: 3.20.2
 
   packages/zhead:
     specifiers:
@@ -4108,6 +4108,6 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod/3.19.1:
-    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
     dev: false

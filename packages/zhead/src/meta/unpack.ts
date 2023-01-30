@@ -8,7 +8,7 @@ import { MetaPackingSchema, resolveMetaKeyType } from './utils'
  * @param input
  */
 export function unpackMeta<T extends MetaFlatInput>(input: T): Required<Head>['meta'] {
-  return unpackToArray((input), {
+  const meta = unpackToArray((input), {
     key({ key }) {
       return resolveMetaKeyType(key) as string
     },
@@ -19,6 +19,9 @@ export function unpackMeta<T extends MetaFlatInput>(input: T): Required<Head>['m
       return MetaPackingSchema[key]?.keyValue || fixKeyCase(key)
     },
     resolveValueData({ value, key }) {
+      if (value === null)
+        return '_null'
+
       if (typeof value === 'object') {
         const definition = MetaPackingSchema[key]
 
@@ -31,6 +34,8 @@ export function unpackMeta<T extends MetaFlatInput>(input: T): Required<Head>['m
             entrySeparator: ', ',
             keyValueSeparator: '=',
             resolve({ value, key }) {
+              if (value === null)
+                return ''
               if (typeof value === 'boolean')
                 return `${key}`
             },
@@ -41,4 +46,6 @@ export function unpackMeta<T extends MetaFlatInput>(input: T): Required<Head>['m
       return typeof value === 'number' ? value.toString() : value
     },
   })
+  // remove keys with defined but empty content
+  return meta.filter(v => typeof v.content === 'undefined' || v.content !== '_null')
 }
