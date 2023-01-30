@@ -3,7 +3,6 @@ import type { SpeculationRules } from '@zhead/schema/src/struct/speculationRules
 
 describe('speculationRules', () => {
   it('types', () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const a: SpeculationRules = {
       prefetch: [
         {
@@ -13,7 +12,8 @@ describe('speculationRules', () => {
         },
       ],
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    expect(a).toMatchInlineSnapshot()
+
     const b: SpeculationRules = {
       prerender: [
         {
@@ -27,8 +27,8 @@ describe('speculationRules', () => {
           urls: ['page.html'],
         }],
     }
+    expect(b).toMatchInlineSnapshot()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const c: SpeculationRules = {
       prefetch: [
         {
@@ -38,8 +38,8 @@ describe('speculationRules', () => {
         },
       ],
     }
+    expect(c).toMatchInlineSnapshot()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const d: SpeculationRules = {
       prefetch: [
         {
@@ -58,8 +58,8 @@ describe('speculationRules', () => {
         },
       ],
     }
+    expect(d).toMatchInlineSnapshot()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const e: SpeculationRules = {
       prerender: [
         {
@@ -75,8 +75,8 @@ describe('speculationRules', () => {
         },
       ],
     }
+    expect(e).toMatchInlineSnapshot()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const f: SpeculationRules = {
       prerender: [
         {
@@ -92,8 +92,8 @@ describe('speculationRules', () => {
         },
       ],
     }
+    expect(f).toMatchInlineSnapshot()
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const g: SpeculationRules = {
       prefetch: [
         {
@@ -108,5 +108,6 @@ describe('speculationRules', () => {
         },
       ],
     }
+    expect(g).toMatchInlineSnapshot()
   })
 })

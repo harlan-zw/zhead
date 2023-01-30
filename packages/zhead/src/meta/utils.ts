@@ -62,4 +62,3 @@ export const MetaPackingSchema: Record<string, PackingDefinition> = {
 export function resolveMetaKeyType(key: string): ValidMetaType {
   return PropertyPrefixKeys.test(key) ? 'property' : (MetaPackingSchema[key]?.metaKey || 'name')
 }
-
