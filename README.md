@@ -10,7 +10,7 @@
 
 
 <p align="center">
-Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s. Powering <a href="https://github.com/harlan-zw/unhead">unhead</a>.
+Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.<br><br>Powering <a href="https://github.com/harlan-zw/unhead">Unhead</a>.
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@ Typed utilities for defining, validating and building best-practice document &lt
 <tbody>
 <td align="center">
 <img width="800" height="0" /><br>
-<i>Status:</i> Pre-release</b> <br>
+<i>Status:</i> Stable</b> <br>
 <sup> Please report any issues 🐛</sup><br>
 <sub>Made possible by my <a href="https://github.com/sponsors/harlan-zw">Sponsor Program 💖</a><br> Follow me <a href="https://twitter.com/harlan_zw">@harlan_zw</a> 🐦 • Join <a href="https://discord.gg/275MBUBvgP">Discord</a> for help</sub><br>
 <img width="800" height="0" />
