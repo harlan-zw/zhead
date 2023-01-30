@@ -127,6 +127,18 @@ export interface MetaFlat {
    */
   robots: string | Partial<{
     /**
+     * Allow search engines to index this page.
+     *
+     * Note: This is not officially supported by Google but is used widely.
+     */
+    index: Booleanable,
+    /**
+     * Allow search engines to follow links on this page.
+     *
+     * Note: This is not officially supported by Google but is used widely.
+     */
+    follow: Booleanable,
+    /**
      * There are no restrictions for indexing or serving.
      * This directive is the default value and has no effect if explicitly listed.
      */
