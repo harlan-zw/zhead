@@ -588,4 +588,312 @@ describe('unpackMeta', () => {
       }
     `)
   })
+
+  it('unpack og image', () => {
+    const stringOgImage = unpackMeta({
+      ogImage: 'string',
+      ogImageUrl: 'string',
+      ogImageSecureUrl: 'string',
+    })
+    expect(stringOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "string",
+          "property": "og:image",
+        },
+        {
+          "content": "string",
+          "property": "og:image:url",
+        },
+        {
+          "content": "string",
+          "property": "og:image:secure_url",
+        },
+      ]
+    `)
+
+    const objOgImage = unpackMeta({
+      ogImage: {
+        url: 'https://example.com/image.png',
+        secureUrl: 'https://example.com/image.png',
+        width: 1280,
+        height: 720,
+        alt: 'my image',
+      },
+    })
+    expect(objOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:image",
+        },
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:image:secure_url",
+        },
+        {
+          "content": "1280",
+          "property": "og:image:width",
+        },
+        {
+          "content": "720",
+          "property": "og:image:height",
+        },
+        {
+          "content": "my image",
+          "property": "og:image:alt",
+        },
+      ]
+    `)
+
+    const objArrOgImage = unpackMeta({
+      ogImage: [
+        {
+          url: 'https://example.com/image.png',
+          width: 1280,
+          height: 720,
+          alt: 'my image',
+        },
+        {
+          width: 1280,
+          height: 720,
+          alt: 'my image 2',
+          url: 'https://example.com/image2.png',
+        },
+      ],
+    })
+    expect(objArrOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:image",
+        },
+        {
+          "content": "1280",
+          "property": "og:image:width",
+        },
+        {
+          "content": "720",
+          "property": "og:image:height",
+        },
+        {
+          "content": "my image",
+          "property": "og:image:alt",
+        },
+        {
+          "content": "https://example.com/image2.png",
+          "property": "og:image",
+        },
+        {
+          "content": "1280",
+          "property": "og:image:width",
+        },
+        {
+          "content": "720",
+          "property": "og:image:height",
+        },
+        {
+          "content": "my image 2",
+          "property": "og:image:alt",
+        },
+      ]
+    `)
+  })
+
+  it('unpack og video', () => {
+    const stringOgImage = unpackMeta({
+      ogVideo: 'string',
+      ogVideoUrl: 'string',
+      ogVideoSecureUrl: 'string',
+    })
+    expect(stringOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "string",
+          "property": "og:video",
+        },
+        {
+          "content": "string",
+          "property": "og:video:url",
+        },
+        {
+          "content": "string",
+          "property": "og:video:secure_url",
+        },
+      ]
+    `)
+
+    const objOgImage = unpackMeta({
+      ogVideo: {
+        url: 'https://example.com/image.png',
+        secureUrl: 'https://example.com/image.png',
+        width: 1280,
+        height: 720,
+        alt: 'my image',
+      },
+    })
+    expect(objOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:video",
+        },
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:video:secure_url",
+        },
+        {
+          "content": "1280",
+          "property": "og:video:width",
+        },
+        {
+          "content": "720",
+          "property": "og:video:height",
+        },
+        {
+          "content": "my image",
+          "property": "og:video:alt",
+        },
+      ]
+    `)
+
+    const objArrOgImage = unpackMeta({
+      ogImage: [
+        {
+          url: 'https://example.com/image.png',
+          width: 1280,
+          height: 720,
+          alt: 'my image',
+        },
+        {
+          width: 1280,
+          height: 720,
+          alt: 'my image 2',
+          url: 'https://example.com/image2.png',
+        },
+      ],
+    })
+    expect(objArrOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/image.png",
+          "property": "og:image",
+        },
+        {
+          "content": "1280",
+          "property": "og:image:width",
+        },
+        {
+          "content": "720",
+          "property": "og:image:height",
+        },
+        {
+          "content": "my image",
+          "property": "og:image:alt",
+        },
+        {
+          "content": "https://example.com/image2.png",
+          "property": "og:image",
+        },
+        {
+          "content": "1280",
+          "property": "og:image:width",
+        },
+        {
+          "content": "720",
+          "property": "og:image:height",
+        },
+        {
+          "content": "my image 2",
+          "property": "og:image:alt",
+        },
+      ]
+    `)
+  })
+
+  it('unpack og audio', () => {
+    const stringOgImage = unpackMeta({
+      ogAudio: 'string',
+      ogAudioUrl: 'string',
+    })
+    expect(stringOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "string",
+          "property": "og:audio",
+        },
+        {
+          "content": "string",
+          "property": "og:audio:url",
+        },
+      ]
+    `)
+
+    const objOgImage = unpackMeta({
+      ogAudio: {
+        url: 'https://example.com/sound.mp3',
+        secureUrl: 'https://example.com/sound.mp3',
+        type: 'audio/mpeg',
+      },
+    })
+    expect(objOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/sound.mp3",
+          "property": "og:audio",
+        },
+        {
+          "content": "https://example.com/sound.mp3",
+          "property": "og:audio:secure_url",
+        },
+        {
+          "content": "audio/mpeg",
+          "property": "og:audio:type",
+        },
+      ]
+    `)
+
+    const objArrOgImage = unpackMeta({
+      ogAudio: [
+        {
+          url: 'https://example.com/sound.mp3',
+          secureUrl: 'https://example.com/sound.mp3',
+          type: 'audio/mpeg',
+        },
+        {
+          url: 'https://example.com/sound2.mp3',
+          secureUrl: 'https://example.com/sound2.mp3',
+          type: 'audio/mpeg',
+        },
+      ],
+    })
+    expect(objArrOgImage).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "https://example.com/sound.mp3",
+          "property": "og:audio",
+        },
+        {
+          "content": "https://example.com/sound.mp3",
+          "property": "og:audio:secure_url",
+        },
+        {
+          "content": "audio/mpeg",
+          "property": "og:audio:type",
+        },
+        {
+          "content": "https://example.com/sound2.mp3",
+          "property": "og:audio",
+        },
+        {
+          "content": "https://example.com/sound2.mp3",
+          "property": "og:audio:secure_url",
+        },
+        {
+          "content": "audio/mpeg",
+          "property": "og:audio:type",
+        },
+      ]
+    `)
+  })
 })

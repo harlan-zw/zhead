@@ -1,5 +1,5 @@
-import type { ReferrerPolicy } from '@zhead/schema/src/shared'
-import type { Booleanable, MaybePromiseProps } from './utils'
+import type { ReferrerPolicy } from './shared'
+import type { Arrayable, Booleanable, MaybePromiseProps } from './utils'
 
 export interface MetaFlat {
   /**
@@ -131,13 +131,13 @@ export interface MetaFlat {
      *
      * Note: This is not officially supported by Google but is used widely.
      */
-    index: Booleanable,
+    index: Booleanable
     /**
      * Allow search engines to follow links on this page.
      *
      * Note: This is not officially supported by Google but is used widely.
      */
-    follow: Booleanable,
+    follow: Booleanable
     /**
      * There are no restrictions for indexing or serving.
      * This directive is the default value and has no effect if explicitly listed.
@@ -275,7 +275,7 @@ export interface MetaFlat {
   /**
    * An array of other locales this page is available in.
    */
-  ogLocaleAlternate: string | string[]
+  ogLocaleAlternate: Arrayable<string>
 
   /**
    * The word that appears before this object's title in a sentence.
@@ -294,7 +294,35 @@ export interface MetaFlat {
   /**
    * The URL for the video. If you want the video to play in-line in Feed, you should use the https:// URL if possible.
    */
-  ogVideo: string
+  ogVideo: string | Arrayable<{
+    /**
+     * Equivalent to og:video
+     */
+    url: string
+    /**
+     *
+     * Secure URL for the video. Include this even if you set the secure URL in og:video.
+     */
+    secureUrl?: string
+    /**
+     * MIME type of the video.
+     */
+    type?: 'application/x-shockwave-flash' | 'video/mp4'
+
+    /**
+     * Width of video in pixels. This property is required for videos.
+     */
+    width?: string | number
+
+    /**
+     * Height of video in pixels. This property is required for videos.
+     */
+    height?: string | number
+    /**
+     * A text description of the video.
+     */
+    alt?: string
+  }>
   /**
    * Equivalent to og:video
    */
@@ -318,13 +346,45 @@ export interface MetaFlat {
    * Height of video in pixels. This property is required for videos.
    */
   ogVideoHeight: string | number
+  /**
+   * A text description of the video.
+   */
+  ogVideoAlt: string
 
   // OpenGraph Image
 
   /**
    * The URL of the image that appears when someone shares the content.
    */
-  ogImage: string
+  ogImage: string | Arrayable<{
+    /**
+     * Equivalent to og:image
+     */
+    url: string
+    /**
+     *
+     * https:// URL for the image
+     */
+    secureUrl?: string
+    /**
+     * MIME type of the image.
+     */
+    type?: 'image/jpeg' | 'image/gif' | 'image/png'
+
+    /**
+     * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     */
+    width?: string | number
+
+    /**
+     * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     */
+    height?: string | number
+    /**
+     * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
+     */
+    alt?: string
+  }>
 
   /**
    * Equivalent to og:image
@@ -349,6 +409,40 @@ export interface MetaFlat {
    * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
    */
   ogImageHeight: string | number
+
+  /**
+   * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
+   */
+  ogImageAlt: string
+
+  ogAudio: string | Arrayable<{
+    /**
+     * Equivalent to og:audio
+     */
+    url: string
+    /**
+     * Secure URL for the audio. Include this even if you set the secure URL in og:audio.
+     */
+    secureUrl?: string
+    /**
+     * MIME type of the audio.
+     */
+    type?: 'audio/mpeg' | 'audio/ogg' | 'audio/wav'
+  }>
+  /**
+   * Equivalent to og:audio
+   */
+  ogAudioUrl: string
+
+  /**
+   * Secure URL for the audio. Include this even if you set the secure URL in og:audio.
+   */
+  ogAudioSecureUrl: string
+
+  /**
+   * MIME type of the audio.
+   */
+  ogAudioType: 'audio/mpeg' | 'audio/ogg' | 'audio/wav'
 
   // Twitter meta
 
