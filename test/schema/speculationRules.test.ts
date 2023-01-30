@@ -12,7 +12,21 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(a).toMatchInlineSnapshot()
+    expect(a).toMatchInlineSnapshot(`
+      {
+        "prefetch": [
+          {
+            "requires": [
+              "anonymous-client-ip-when-cross-origin",
+            ],
+            "source": "list",
+            "urls": [
+              "/my-url",
+            ],
+          },
+        ],
+      }
+    `)
 
     const b: SpeculationRules = {
       prerender: [
@@ -27,7 +41,26 @@ describe('speculationRules', () => {
           urls: ['page.html'],
         }],
     }
-    expect(b).toMatchInlineSnapshot()
+    expect(b).toMatchInlineSnapshot(`
+      {
+        "prerender": [
+          {
+            "source": "list",
+            "target_hint": "_self",
+            "urls": [
+              "page.html",
+            ],
+          },
+          {
+            "source": "list",
+            "target_hint": "_blank",
+            "urls": [
+              "page.html",
+            ],
+          },
+        ],
+      }
+    `)
 
     const c: SpeculationRules = {
       prefetch: [
@@ -38,7 +71,19 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(c).toMatchInlineSnapshot()
+    expect(c).toMatchInlineSnapshot(`
+      {
+        "prefetch": [
+          {
+            "referrer_policy": "no-referrer",
+            "source": "list",
+            "urls": [
+              "https://en.wikipedia.org/wiki/Lethe",
+            ],
+          },
+        ],
+      }
+    `)
 
     const d: SpeculationRules = {
       prefetch: [
@@ -58,7 +103,28 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(d).toMatchInlineSnapshot()
+    expect(d).toMatchInlineSnapshot(`
+      {
+        "prefetch": [
+          {
+            "score": 0.8,
+            "source": "list",
+            "urls": [
+              "/item?id=32480009",
+            ],
+          },
+          {
+            "score": 0.5,
+            "source": "list",
+            "urls": [
+              "https://support.signal.org/hc/en-us/articles/4850133017242",
+              "https://discord.com/blog/how-discord-supercharges-network-disks-for-extreme-low-latency",
+              "https://github.com/containers/krunvm",
+            ],
+          },
+        ],
+      }
+    `)
 
     const e: SpeculationRules = {
       prerender: [
@@ -75,7 +141,33 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(e).toMatchInlineSnapshot()
+    expect(e).toMatchInlineSnapshot(`
+      {
+        "prerender": [
+          {
+            "score": 0.1,
+            "source": "document",
+            "where": {
+              "and": [
+                {
+                  "href_matches": "/*\\\\?*",
+                },
+                {
+                  "not": {
+                    "href_matches": "/logout\\\\?*",
+                  },
+                },
+                {
+                  "not": {
+                    "selector_matches": ".no-prerender",
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      }
+    `)
 
     const f: SpeculationRules = {
       prerender: [
@@ -92,7 +184,30 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(f).toMatchInlineSnapshot()
+    expect(f).toMatchInlineSnapshot(`
+      {
+        "prefetch": [
+          {
+            "requires": [
+              "anonymous-client-ip-when-cross-origin",
+            ],
+            "source": "list",
+            "urls": [
+              "https://en.wikipedia.org/wiki/Hamster_racing",
+            ],
+          },
+        ],
+        "prerender": [
+          {
+            "source": "list",
+            "urls": [
+              "/home",
+              "/about",
+            ],
+          },
+        ],
+      }
+    `)
 
     const g: SpeculationRules = {
       prefetch: [
@@ -108,6 +223,23 @@ describe('speculationRules', () => {
         },
       ],
     }
-    expect(g).toMatchInlineSnapshot()
+    expect(g).toMatchInlineSnapshot(`
+      {
+        "prefetch": [
+          {
+            "requires": [
+              "anonymous-client-ip-when-cross-origin",
+            ],
+            "source": "list",
+            "urls": [
+              "/item?id=32480009",
+              "https://support.signal.org/hc/en-us/articles/4850133017242",
+              "https://discord.com/blog/how-discord-supercharges-network-disks-for-extreme-low-latency",
+              "https://github.com/containers/krunvm",
+            ],
+          },
+        ],
+      }
+    `)
   })
 })
