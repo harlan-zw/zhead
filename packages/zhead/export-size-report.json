@@ -15,9 +15,9 @@
     {
       "name": "unpackMeta",
       "path": "dist/index.mjs",
-      "minified": 2274,
-      "minzipped": 883,
-      "bundled": 4128
+      "minified": 2287,
+      "minzipped": 884,
+      "bundled": 4159
     },
     {
       "name": "packMeta",
@@ -57,9 +57,9 @@
     {
       "name": "inferSeoMetaTags",
       "path": "dist/index.mjs",
-      "minified": 694,
+      "minified": 686,
       "minzipped": 251,
-      "bundled": 1152
+      "bundled": 1144
     },
     {
       "name": "tagDedupeKey",
@@ -87,7 +87,7 @@
       "path": "dist/index.mjs",
       "minified": 351,
       "minzipped": 203,
-      "bundled": 669
+      "bundled": 663
     },
     {
       "name": "sortTags",
@@ -122,7 +122,7 @@
       "path": "dist/index.mjs",
       "minified": 178,
       "minzipped": 118,
-      "bundled": 302
+      "bundled": 296
     },
     {
       "name": "normaliseProps",
@@ -181,11 +181,11 @@
       "bundled": 101
     },
     {
-      "name": "PropertyPrefixKeys",
+      "name": "ColonPrefixKeys",
       "path": "dist/index.mjs",
       "minified": 41,
       "minzipped": 45,
-      "bundled": 101
+      "bundled": 95
     },
     {
       "name": "defineHead",
@@ -193,6 +193,13 @@
       "minified": 39,
       "minzipped": 43,
       "bundled": 95
+    },
+    {
+      "name": "PropertyPrefixKeys",
+      "path": "dist/index.mjs",
+      "minified": 33,
+      "minzipped": 37,
+      "bundled": 93
     }
   ]
 }
