@@ -32,29 +32,7 @@ export type MetaNames =
 'default-style' |
 'x-ua-compatible' |
 'refresh' |
-'keywords'
-
-export type MetaProperties = 'og:url' |
-'og:title' |
-'og:description' |
-'og:type' |
-'og:locale' |
-'og:locale:alternate' |
-'og:determiner' |
-'og:site:name' |
-'og:video' |
-'og:video:url' |
-'og:video:secure_url' |
-'og:video:type' |
-'og:video:width' |
-'og:video:height' |
-'og:image' |
-'og:image:url' |
-'og:image:secure_url' |
-'og:image:type' |
-'og:image:width' |
-'og:image:height' |
-'fb:app:id' |
+'keywords' |
 'twitter:card' |
 'twitter:title' |
 'twitter:description' |
@@ -81,6 +59,28 @@ export type MetaProperties = 'og:url' |
 'twitter:label:1' |
 'twitter:data:2' |
 'twitter:label:2'
+
+export type MetaProperties = 'og:url' |
+'og:title' |
+'og:description' |
+'og:type' |
+'og:locale' |
+'og:locale:alternate' |
+'og:determiner' |
+'og:site:name' |
+'og:video' |
+'og:video:url' |
+'og:video:secure_url' |
+'og:video:type' |
+'og:video:width' |
+'og:video:height' |
+'og:image' |
+'og:image:url' |
+'og:image:secure_url' |
+'og:image:type' |
+'og:image:width' |
+'og:image:height' |
+'fb:app:id'
 
 export interface Meta {
   /**

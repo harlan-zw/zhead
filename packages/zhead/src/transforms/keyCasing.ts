@@ -1,8 +1,9 @@
-export const PropertyPrefixKeys = /^(og|twitter|fb)/
+export const PropertyPrefixKeys = /^(og|fb)/
+export const ColonPrefixKeys = /^(og|twitter|fb)/
 
 export function fixKeyCase(key: string) {
   key = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-  if (PropertyPrefixKeys.test(key)) {
+  if (ColonPrefixKeys.test(key)) {
     key = key
       .replace('secure-url', 'secure_url')
       .replace(/-/g, ':')
