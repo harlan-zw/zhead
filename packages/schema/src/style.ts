@@ -1,4 +1,4 @@
-import type { MaybePromiseProps } from '@zhead/schema/src/utils'
+import type { MaybePromiseProps } from './utils'
 
 export interface Style {
   /**

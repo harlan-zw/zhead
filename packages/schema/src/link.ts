@@ -1,5 +1,5 @@
-import type { MaybePromiseProps } from '@zhead/schema/src/utils'
-import type { ReferrerPolicy } from '@zhead/schema/src/shared'
+import type { MaybePromiseProps } from './utils'
+import type { ReferrerPolicy } from './shared'
 import type { HttpEventAttributes } from './attributes'
 
 export type LinkRelTypes = 'alternate' |

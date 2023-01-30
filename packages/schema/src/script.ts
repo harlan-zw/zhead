@@ -1,4 +1,4 @@
-import type { ReferrerPolicy } from '@zhead/schema/src/shared'
+import type { ReferrerPolicy } from './shared'
 import type { Booleanable, MaybePromiseProps } from './utils'
 import type { HttpEventAttributes } from './attributes'
 
