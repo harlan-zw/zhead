@@ -231,6 +231,8 @@ const head = resolveSeoHead({
 
 ### generateHtml
 
+:warning: This function is not XSS safe. Make sure you sanitise any input.
+
 ```ts
 import { generateHtml } from 'zhead'
 
