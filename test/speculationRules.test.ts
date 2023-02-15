@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import type { SpeculationRules } from '@zhead/schema/src/struct/speculationRules'
+import type { SpeculationRules } from '../src'
 
 describe('speculationRules', () => {
   it('types', () => {

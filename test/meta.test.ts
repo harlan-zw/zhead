@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest'
-import { defineHead } from 'zhead'
+import { defineHead } from '../src'
 
 describe('metatags', () => {
   it('charset', () => {

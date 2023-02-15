@@ -1,4 +1,4 @@
-import type { Head } from '@zhead/schema'
+import type { Head } from '../src'
 
 export const basicSchema: Head = {
   htmlAttrs: {

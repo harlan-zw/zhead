@@ -13,5 +13,6 @@ export * from './attributes'
 export * from './tags'
 export * from './utils'
 export * from './struct/speculationRules'
+export * from './defineHead'
 
 export {}

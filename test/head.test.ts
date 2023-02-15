@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest'
-import { defineHead } from 'zhead'
-import type { DataKeys } from '@zhead/schema'
+import { defineHead } from '../src'
+import type { DataKeys } from '../src'
 
 describe('head', () => {
   it('define head', () => {

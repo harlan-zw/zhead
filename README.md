@@ -10,7 +10,7 @@
 
 
 <p align="center">
-Typed utilities for defining, validating and building best-practice document &lt;head&gt;'s.<br><br>Powering <a href="https://github.com/harlan-zw/unhead">Unhead</a>.
+All the types you need for your &lt;head&gt;.<br><br>Powering <a href="https://github.com/harlan-zw/unhead">Unhead</a>.
 </p>
 
 <p align="center">
@@ -27,22 +27,25 @@ Typed utilities for defining, validating and building best-practice document &lt
 </table>
 </p>
 
-## Types
+## Features
 
-- 💎 Fully typed Head, ReactiveHead with MDN docs
+- 💎 Fully typed Head schema
+- 💎 Commented with MDN docs
+- 💎 Fully Augmentable
 - 💎 [100+ typed meta's](https://github.com/harlan-zw/zhead/blob/main/packages/schema/src/metaFlat.ts)
 
-## Functions
+## Installation
 
-- 💎 Validation and schema parsing provided by [Zod](https://zod.dev/)
-- ✨ Bunch of utils: `normaliseTag`, `sortTags`, `tagDedupeKey`, `titleTemplate`, `inferSeoMetaTags`, `ensureCriticalTags`
-- 🧙 Resolve flat meta tags and back again `unpackMeta` `packMeta`
-- ✍️ Output to HTML `generateHtml`
-- 🌳 Composable, tree-shakable and tiny (< 1kb, see [export-size-report](https://github.com/harlan-zw/zhead/blob/main/packages/zhead/export-size-report.json))
+```bash
+npm install --save-dev zhead
 
-## Packages
+# Using yarn
+yarn add --dev zhead
+```
 
-### Schema 
+## Types
+
+### Head
 
 Typescript base schema for document &lt;head&gt;. Only ships types for easy access to type augmentation.
 
@@ -61,51 +64,7 @@ export interface Head<E extends MergeHead = MergeHead> {
 }
 ```
 
-[`@zhead/schema`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
-
-### Vue Schema
-
-Typescript schema for document &lt;head&gt; with Vue reactivity.
-
-```ts
-export interface ReactiveHead<E extends MergeHead = MergeHead> {
-  title?: MaybeRef<Head<E>['title']>
-  titleTemplate?: Head<E>['titleTemplate'] | Ref<string>
-  base?: Head<E>['base'] | MaybeRef<MaybeRefObject<Head<E>['base']>>
-  link?: Head<E>['link'] | ReffableArrayEntries<Head<E>['link']>
-  meta?: Head<E>['meta'] | ReffableArrayEntries<Head<E>['meta']>
-  style?: Head<E>['style'] | ReffableArrayEntries<Head<E>['style']>
-  script?: Head<E>['script'] | ReffableArrayEntries<Head<E>['script']>
-  noscript?: Head<E>['noscript'] | ReffableArrayEntries<Head<E>['noscript']>
-  htmlAttrs?: MaybeRef<MaybeRefObject<Head<E>['htmlAttrs']>>
-  bodyAttrs?: MaybeRef<MaybeRefObject<Head<E>['bodyAttrs']>>
-}
-```
-
-[`@zhead/schema-vue`](https://github.com/harlan-zw/zhead/tree/main/packages/schema)
-
-
-### Validation and parsing
-
-[Zod](https://zod.dev/) schema for validating and parsing head tags.
-
-[`@zhead/validation`](./tree/main/packages/zod)
-
-### Core
-
-See below
-
-## Core Installation
-
-```bash
-npm install --save-dev zhead
-
-# Using yarn
-yarn add --dev zhead
-```
-
-
-## Core API
+## API
 
 ### defineHead
 
@@ -121,170 +80,6 @@ const head = defineHead({
 // {
 //    title: 'My Page',
 // }
-```
-
-### unpackMeta
-
-Define your meta tags in a simple object with full type-safety.
-
-```ts
-import { defineHead, resolveMetaFlat } from 'zhead'
-
-const meta = unpackMeta({
-  contentSecurityPolicy: {
-    contentSrc: 'none'
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    userScalable: 'yes',
-  }
-})
-
-//  [
-//    { 'http-equiv': 'content-security-policy', content: 'content-src none' },
-//    { 'name': 'viewport', content: 'width=device-width, user-scalable=yes, initial-scale=1' }
-//  ]
-```
-
-### packMeta
-
-Turn array meta tags into a flat packed object.
-
-```ts
-import { defineHead, resolveMetaFlat } from 'zhead'
-
-const meta = packMeta([
-  {
-    'content': 'default-src \'self\' https://example.com; content-src none',
-    'http-equiv': 'content-security-policy',
-  },
-  {
-    name: 'description',
-    content: 'desc',
-  },
-  {
-    content: '1234567890',
-    property: 'fb:app_id',
-  },
-])
-
-// {
-//   "description": "desc",
-//   "fbAppId": "1234567890",
-//   "contentSecurityPolicy": "default-src 'self' https://example.com; content-src none"
-// }
-```
-
-### resolveSeoHead
-
-Generate a minimal SEO head with maximum SEO.
-
-Internally this function uses the `withDefaults` and `inferSocialShare` utilities.
-
-- Adds utf-8 charset
-- Sets default best practice viewport
-- Infers social share tags from `title` and `description`
-- Sets twitter card to `summary_large_image`
-- Sets robots best practice
-
-```ts
-import { resolveSeoHead, resolveMetaFlat } from 'zhead'
-
-const head = resolveSeoHead({
-  title: 'Learn about zHead - zHead',
-  description: 'Describing the basic usage of zHead.',
-})
-
-// {
-//   "title": "My Title",
-//   "meta": [
-//     {
-//       "content": "Some description",
-//       "name": "description",
-//     },
-//     {
-//       "charset": "utf-8",
-//     },
-//     {
-//       "content": "initial-scale=1, width=device-width",
-//       "name": "viewport",
-//     },
-//     {
-//       "content": "My Title",
-//       "property": "og:title",
-//     },
-//     {
-//       "content": "Some description",
-//       "property": "og:description",
-//     },
-//     {
-//       "content": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-//       "name": "robots",
-//     },
-//   ],
-// }
-```
-
-
-## Generate API
-
-### generateHtml
-
-```ts
-import { generateHtml } from 'zhead'
-
-const html = generateHtml({
-  title: 'test',
-  script: [
-    { src: 'https://example.com/script.js' },
-  ],
-  meta: [
-    { name: 'description', content: 'test' },
-  ]
-})
-
-// <title>test</title>
-// <meta content="test" name="description">
-// <script src="https://example.com/script.js"></script>
-```
-
-### generateTags
-
-```ts
-import { generateTags } from 'zhead'
-
-const tags = generateTags({
-  title: 'test',
-  script: [
-    { src: 'https://example.com/script.js' },
-  ],
-  meta: [
-    { name: 'description', content: 'test' },
-  ]
-})
-
-// [
-//   {
-//     "props": {
-//       "children": "test",
-//     },
-//     "tag": "title",
-//   },
-//   {
-//     "props": {
-//       "content": "test",
-//       "name": "description",
-//     },
-//     "tag": "meta",
-//   },
-//   {
-//     "props": {
-//       "src": "https://example.com/script.js",
-//     },
-//     "tag": "script",
-//   },
-// ]
 ```
 
 ## Sponsors
