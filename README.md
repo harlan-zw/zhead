@@ -1,4 +1,4 @@
-_<h1 align='center'>zhead</h1>
+<h1 align='center'>zhead</h1>
 
 <p align="center">
 <a href='https://github.com/harlan-zw/zhead/actions/workflows/test.yml'>
@@ -10,7 +10,7 @@ _<h1 align='center'>zhead</h1>
 
 
 <p align="center">
-All the types you need for your &lt;head&gt;.<br><br>Powering <a href="https://github.com/harlan-zw/unhead">Unhead</a>.
+All of the TypeScript definitions for &lt;head&gt;.<br><br>Powering <a href="https://github.com/harlan-zw/unhead">Unhead</a>.
 </p>
 
 <p align="center">
@@ -235,4 +235,4 @@ const head = defineHead({
 
 ## License
 
-MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)_
+MIT License © 2022-PRESENT [Harlan Wilton](https://github.com/harlan-zw)
