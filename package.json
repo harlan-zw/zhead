@@ -1,6 +1,6 @@
 {
   "name": "zhead",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "packageManager": "pnpm@7.8.0",
   "description": "All the types you need for your <head>",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
