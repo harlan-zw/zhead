@@ -17,7 +17,7 @@
     "skipDefaultLibCheck": true,
     "noUnusedLocals": true,
     "paths": {
-      "zhead": ["src/index.ts"],
+      "zhead": ["src/index.ts"]
     }
   }
 }
