@@ -91,6 +91,15 @@ export interface ScriptBase {
    * This attribute defines the unique ID.
    */
   id?: string
+
+  /**
+   * A custom element name
+   *
+   * Used by the AMP specification.
+   *
+   * @see https://amp.dev/documentation/guides-and-tutorials/learn/spec/amphtml/#custom-elements
+   */
+  ['custom-element']: 'amp-story' | 'amp-carousel' | 'amp-ad' | (string & Record<never, never>)
 }
 
 export type Script = ScriptBase & HttpEventAttributes
