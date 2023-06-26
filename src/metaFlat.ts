@@ -726,6 +726,13 @@ export interface MetaFlat {
     seconds: number | string
     url: string
   }
+  // deprecated meta
+  /**
+   * A comma-separated list of keywords - relevant to the page (Legacy tag used to tell search engines what the page is about).
+   * @deprecated the "keywords" metatag is no longer used.
+   * @see https://web.dev/learn/html/metadata/#keywords
+   */
+  keywords: string
 }
 
 // make MetaFlat record entries also possibly be null
