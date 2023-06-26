@@ -633,8 +633,22 @@ export interface MetaFlat {
    * of the surrounding user interface.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
+   * @example `#4285f4` or `{ color: '#4285f4', media: '(prefers-color-scheme: dark)'}`
    */
-  themeColor: string
+  themeColor: string | Arrayable<{
+    /**
+     * A valid CSS color value that matches the value used for the `theme-color` CSS property.
+     *
+     * @example `#4285f4`
+     */
+    color: string
+    /**
+      * A valid media query that defines when the value should be used.
+     *
+     * @example `(prefers-color-scheme: dark)`
+     */
+    media: string
+  }>
   /**
    * Sets whether a web application runs in full-screen mode.
    */
