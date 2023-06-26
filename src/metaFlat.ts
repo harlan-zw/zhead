@@ -641,7 +641,7 @@ export interface MetaFlat {
      *
      * @example `#4285f4`
      */
-    color: string
+    name: string
     /**
       * A valid media query that defines when the value should be used.
      *
