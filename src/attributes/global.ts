@@ -15,7 +15,7 @@ export interface GlobalAttributes {
    */
   autocapitalize?: 'off' | 'none' | 'on' | 'sentences' | 'words' | 'characters'
   /**
-   * Indicates that an element is to be focused on page load, or as soon as the <dialog> it is part of is displayed.
+   * Indicates that an element is to be focused on page load, or as soon as the `<dialog>` it is part of is displayed.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus
    */
@@ -134,7 +134,7 @@ export interface GlobalAttributes {
   part?: string
   /**
    * Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot
-   * created by the <slot> element whose name attribute's value matches that slot attribute's value.
+   * created by the `<slot>` element whose name attribute's value matches that slot attribute's value.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot
    */

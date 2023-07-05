@@ -6,7 +6,7 @@ export interface MetaFlat {
    * This attribute declares the document's character encoding.
    * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
    * because UTF-8 is the only valid encoding for HTML5 documents.
-   * <meta> elements which declare a character encoding must be located entirely within the first 1024 bytes
+   * `<meta>` elements which declare a character encoding must be located entirely within the first 1024 bytes
    * of the document.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset
@@ -23,7 +23,7 @@ export interface MetaFlat {
    * Specifies one or more color schemes with which the document is compatible.
    * The browser will use this information in tandem with the user's browser or device settings to determine what colors
    * to use for everything from background and foregrounds to form controls and scrollbars.
-   * The primary use for <meta name="color-scheme"> is to indicate compatibility with—and order of preference
+   * The primary use for `<meta name="color-scheme">` is to indicate compatibility with—and order of preference
    * for—light and dark color modes.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name

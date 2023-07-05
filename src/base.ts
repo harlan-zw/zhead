@@ -8,8 +8,8 @@ export interface Base {
    */
   href?: string
   /**
-   * A keyword or author-defined name of the default browsing context to show the results of navigation from <a>,
-   * <area>, or <form> elements without explicit target attributes.
+   * A keyword or author-defined name of the default browsing context to show the results of navigation from `<a>`,
+   * `<area>`, or `<form>` elements without explicit target attributes.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base#attr-target
    */

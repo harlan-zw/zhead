@@ -35,8 +35,8 @@ export type LinkRelTypes = 'alternate' |
 
 export interface LinkBase {
   /**
-   * This attribute is only used when rel="preload" or rel="prefetch" has been set on the <link> element.
-   * It specifies the type of content being loaded by the <link>, which is necessary for request matching,
+   * This attribute is only used when rel="preload" or rel="prefetch" has been set on the `<link>` element.
+   * It specifies the type of content being loaded by the `<link>`, which is necessary for request matching,
    * application of correct content security policy, and setting of correct Accept request header.
    * Furthermore, rel="preload" uses this as a signal for request prioritization.
    *
@@ -58,7 +58,7 @@ export interface LinkBase {
    * The color attribute is used with the mask-icon link type.
    * The attribute must only be specified on link elements that have a rel attribute
    * that contains the mask-icon keyword.
-   * The value must be a string that matches the CSS <color> production,
+   * The value must be a string that matches the CSS `<color>` production,
    * defining a suggested color that user agents can use to customize the display
    * of the icon that the user sees when they pin your site.
    *
@@ -67,7 +67,7 @@ export interface LinkBase {
   color?: string
   /**
    * This enumerated attribute indicates whether CORS must be used when fetching the resource.
-   * CORS-enabled images can be reused in the <canvas> element without being tainted.
+   * CORS-enabled images can be reused in the `<canvas>` element without being tainted.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin
    */
@@ -159,8 +159,8 @@ export interface LinkBase {
    */
   sizes?: 'any' | '16x16x' | '32x32' | '64x64' | '180x180' | (string & Record<never, never>)
   /**
-   * The title attribute has special semantics on the <link> element.
-   * When used on a <link rel="stylesheet"> it defines a default or an alternate stylesheet.
+   * The title attribute has special semantics on the `<link>` element.
+   * When used on a `<link rel="stylesheet">` it defines a default or an alternate stylesheet.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-title
    */
