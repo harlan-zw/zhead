@@ -491,7 +491,55 @@ export interface MetaFlat {
    *
    * Same as `og:image`.
    */
-  twitterImage: string
+  twitterImage: string | Arrayable<{
+    /**
+     * Equivalent to twitter:image
+     */
+    url: string
+    /**
+     * MIME type of the image.
+     */
+    type?: 'image/jpeg' | 'image/gif' | 'image/png'
+
+    /**
+     * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     */
+    width?: string | number
+
+    /**
+     * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     */
+    height?: string | number
+    /**
+     * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
+     */
+    alt?: string
+  }>
+
+  /**
+   * The width of the image in pixels.
+   *
+   * Note: This is not officially documented.
+   *
+   * Same as `og:image:width`
+   */
+  twitterImageWidth: string | number
+  /**
+   * The height of the image in pixels.
+   *
+   * Note: This is not officially documented.
+   *
+   * Same as `og:image:height`
+   */
+  twitterImageHeight: string | number
+  /**
+   * The type of the image.
+   *
+   * Note: This is not officially documented.
+   *
+   * Same as `og:image:type`
+   */
+  twitterImageType: 'image/jpeg' | 'image/gif' | 'image/png'
   /**
    * A text description of the image conveying the essential nature of an image to users who are visually impaired.
    * Maximum 420 characters.
