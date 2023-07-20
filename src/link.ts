@@ -157,7 +157,7 @@ export interface LinkBase {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-sizes
    */
-  sizes?: 'any' | '16x16x' | '32x32' | '64x64' | '180x180' | (string & Record<never, never>)
+  sizes?: 'any' | '16x16' | '32x32' | '64x64' | '180x180' | (string & Record<never, never>)
   /**
    * The title attribute has special semantics on the `<link>` element.
    * When used on a `<link rel="stylesheet">` it defines a default or an alternate stylesheet.
