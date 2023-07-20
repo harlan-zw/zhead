@@ -1,7 +1,7 @@
 {
   "name": "zhead",
   "version": "2.0.9",
-  "packageManager": "pnpm@8.6.3",
+  "packageManager": "pnpm@8.6.9",
   "description": "All the types you need for your <head>",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
@@ -41,16 +41,16 @@
     "lint": "eslint \"**/*.{ts,vue,json,yml}\" --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.7",
+    "@antfu/eslint-config": "^0.39.8",
     "@types/fs-extra": "^11.0.1",
-    "@vitest/ui": "^0.32.4",
+    "@vitest/ui": "^0.33.0",
     "bumpp": "^9.1.1",
-    "eslint": "^8.44.0",
+    "eslint": "^8.45.0",
     "fs-extra": "^11.1.1",
     "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
     "unbuild": "^1.2.1",
     "utility-types": "^3.10.0",
-    "vitest": "^0.32.4"
+    "vitest": "^0.33.0"
   }
 }
