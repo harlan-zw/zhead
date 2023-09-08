@@ -61,6 +61,16 @@ export type MetaNames =
 'x-ua-compatible'
 
 export type MetaProperties = 'fb:app:id' |
+'og:article:author' |
+'og:article:expiration_time' |
+'og:article:modified_time' |
+'og:article:published_time' |
+'og:article:section' |
+'og:article:tag' |
+'og:book:author' |
+'og:book:isbn' |
+'og:book:release_data' |
+'og:book:tag' |
 'og:description' |
 'og:determiner' |
 'og:image:height' |
@@ -71,6 +81,10 @@ export type MetaProperties = 'fb:app:id' |
 'og:image' |
 'og:locale:alternate' |
 'og:locale' |
+'og:profile:first_name' |
+'og:profile:gender' |
+'og:profile:last_name' |
+'og:profile:username' |
 'og:site:name' |
 'og:title' |
 'og:type' |
