@@ -773,7 +773,6 @@ export interface MetaFlat {
     sandbox: string
     formAction: string
     frameAncestors: string
-    navigateTo: string
     reportUri: string
     reportTo: string
     requireSriFor: string
