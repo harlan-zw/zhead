@@ -1,7 +1,93 @@
 import type { ReferrerPolicy } from './shared'
 import type { Arrayable, Booleanable, MaybePromiseProps } from './utils'
 
-export interface MetaFlat {
+export interface MetaFlatArticle {
+
+  /**
+   * Writers of the article.
+   * @example ['https://example.com/some.html', 'https://example.com/one.html']
+   */
+  articleAuthor?: string[]
+
+  /**
+   * When the article is out of date after.
+   * @example '1970-01-01T00:00:00.000Z'
+   */
+  articleExpirationTime?: string
+
+  /**
+   * When the article was last changed.
+   * @example '1970-01-01T00:00:00.000Z'
+   */
+  articleModifiedTime?: string
+  /**
+   * When the article was first published.
+   * @example '1970-01-01T00:00:00.000Z'
+   */
+  articlePublishedTime?: string
+
+  /**
+   * A high-level section name.
+   * @example 'Technology'
+   */
+  articleSection?: string
+
+  /**
+   * Tag words associated with this article.
+   * @example ['Apple', 'Steve Jobs]
+   */
+  articleTag?: string[]
+}
+
+export interface MetaFlatBook {
+  /**
+   * Who wrote this book.
+   * @example ['https://example.com/some.html', 'https://example.com/one.html']
+   */
+  bookAuthor?: string[]
+
+  /**
+   * The ISBN.
+   * @example '978-3-16-148410-0'
+   */
+  bookIsbn?: string
+
+  /**
+   * The date the book was released.
+   * @example '1970-01-01T00:00:00.000Z'
+   */
+  bookReleaseDate?: string
+
+  /**
+   * Tag words associated with this book.
+   * @example ['Apple', 'Steve Jobs]
+   */
+  bookTag?: string[]
+}
+
+export interface MetaFlatProfile {
+  /**
+   * A name normally given to an individual by a parent or self-chosen.
+   */
+  profileFirstName?: string
+
+  /**
+   * Their gender.
+   */
+  profileGender?: 'male' | 'female'
+
+  /**
+   * A name inherited from a family or marriage and by which the individual is commonly known.
+   */
+  profileLastName?: string
+
+  /**
+   * A short unique string to identify them.
+   */
+  profileUsername?: string
+}
+
+export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile {
   /**
    * This attribute declares the document's character encoding.
    * If the attribute is present, its value must be an ASCII case-insensitive match for the string "utf-8",
@@ -415,40 +501,6 @@ export interface MetaFlat {
    */
   ogImageAlt: string
 
-  // OpenGraph Article
-
-  ogArticle: {
-    /**
-     * When the article was first published.
-     */
-    published_time?: Date
-
-    /**
-     * When the article was last changed.
-     */
-    modified_time?: Date
-
-    /**
-     * When the article is out of date after.
-     */
-    expiration_time?: Date
-
-    /**
-     * Writers of the article.
-     */
-    author?: MetaFlat['ogProfile'][]
-
-    /**
-     * A high-level section name. E.g. Technology
-     */
-    section?: string
-
-    /**
-     * Tag words associated with this article.
-     */
-    tag?: string[]
-  }
-
   // OpenGraph Audio
 
   ogAudio: string | Arrayable<{
@@ -479,54 +531,6 @@ export interface MetaFlat {
    * MIME type of the audio.
    */
   ogAudioType: 'audio/mpeg' | 'audio/ogg' | 'audio/wav'
-
-  // OpenGraph Book
-
-  ogBook: {
-    /**
-     * Who wrote this book.
-     */
-    author?: MetaFlat['ogProfile'][]
-
-    /**
-     * The ISBN.
-     */
-    isbn?: string
-
-    /**
-     * The date the book was released.
-     */
-    release_date?: Date
-
-    /**
-     * Tag words associated with this book.
-     */
-    tag?: string[]
-  }
-
-  // OpenGraph Profile
-
-  ogProfile: {
-    /**
-     * A name normally given to an individual by a parent or self-chosen.
-     */
-    first_name?: string
-
-    /**
-     * A name inherited from a family or marriage and by which the individual is commonly known.
-     */
-    last_name?: string
-
-    /**
-     * A short unique string to identify them.
-     */
-    username?: string
-
-    /**
-     * Their gender.
-     */
-    gender?: 'male' | 'female'
-  }
 
   // Twitter meta
 
