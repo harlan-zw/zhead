@@ -60,17 +60,20 @@ export type MetaNames =
 'viewport' |
 'x-ua-compatible'
 
-export type MetaProperties = 'fb:app:id' |
-'og:article:author' |
-'og:article:expiration_time' |
-'og:article:modified_time' |
-'og:article:published_time' |
-'og:article:section' |
-'og:article:tag' |
-'og:book:author' |
-'og:book:isbn' |
-'og:book:release_data' |
-'og:book:tag' |
+export type MetaProperties = 'article:author' |
+'article:expiration_time' |
+'article:modified_time' |
+'article:published_time' |
+'article:section' |
+'article:tag' |
+'book:author' |
+'book:isbn' |
+'book:release_data' |
+'book:tag' |
+'fb:app:id' |
+'og:audio:secure_url' |
+'og:audio:type' |
+'og:audio:url' |
 'og:description' |
 'og:determiner' |
 'og:image:height' |
@@ -81,10 +84,6 @@ export type MetaProperties = 'fb:app:id' |
 'og:image' |
 'og:locale:alternate' |
 'og:locale' |
-'og:profile:first_name' |
-'og:profile:gender' |
-'og:profile:last_name' |
-'og:profile:username' |
 'og:site:name' |
 'og:title' |
 'og:type' |
@@ -94,7 +93,11 @@ export type MetaProperties = 'fb:app:id' |
 'og:video:type' |
 'og:video:url' |
 'og:video:width' |
-'og:video'
+'og:video' |
+'profile:first_name' |
+'profile:gender' |
+'profile:last_name' |
+'profile:username'
 
 export interface Meta {
   /**
