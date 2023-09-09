@@ -773,7 +773,8 @@ export interface MetaFlat {
     sandbox: string
     formAction: string
     frameAncestors: string
-    //navigateTo: string
+    // See https://github.com/w3c/webappsec-csp/pull/564
+    // navigateTo: string
     reportUri: string
     reportTo: string
     requireSriFor: string
