@@ -584,20 +584,25 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      * Equivalent to twitter:image
      */
     url: string
+
     /**
      * MIME type of the image.
+     * @deprecated Twitter removed this property from their card specification.
      */
     type?: 'image/jpeg' | 'image/gif' | 'image/png'
 
     /**
      * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     * @deprecated Twitter removed this property from their card specification.
      */
     width?: string | number
 
     /**
      * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+     * @deprecated Twitter removed this property from their card specification.
      */
     height?: string | number
+
     /**
      * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
      */
@@ -610,6 +615,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Note: This is not officially documented.
    *
    * Same as `og:image:width`
+   *
+   * @deprecated Twitter removed this property from their card specification.
    */
   twitterImageWidth: string | number
   /**
@@ -618,6 +625,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Note: This is not officially documented.
    *
    * Same as `og:image:height`
+   *
+   * @deprecated Twitter removed this property from their card specification.
    */
   twitterImageHeight: string | number
   /**
@@ -626,8 +635,11 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Note: This is not officially documented.
    *
    * Same as `og:image:type`
+   *
+   * @deprecated Twitter removed this property from their card specification.
    */
   twitterImageType: 'image/jpeg' | 'image/gif' | 'image/png'
+
   /**
    * A text description of the image conveying the essential nature of an image to users who are visually impaired.
    * Maximum 420 characters.
@@ -748,18 +760,34 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   twitterAppUrlGoogleplay: string
   /**
    * Top customizable data field, can be a relatively short string (ie “$3.99”)
+   *
+   * Used by Slack.
+   *
+   * @see https://api.slack.com/reference/messaging/link-unfurling#classic_unfurl
    */
   twitterData1: string
   /**
    * Customizable label or units for the information in twitter:data1 (best practice: use all caps)
+   *
+   * Used by Slack.
+   *
+   * @see https://api.slack.com/reference/messaging/link-unfurling#classic_unfurl
    */
   twitterLabel1: string
   /**
    * Bottom customizable data field, can be a relatively short string (ie “Seattle, WA”)
+   *
+   * Used by Slack.
+   *
+   * @see https://api.slack.com/reference/messaging/link-unfurling#classic_unfurl
    */
   twitterData2: string
   /**
    * Customizable label or units for the information in twitter:data2 (best practice: use all caps)
+   *
+   * Used by Slack.
+   *
+   * @see https://api.slack.com/reference/messaging/link-unfurling#classic_unfurl
    */
   twitterLabel2: string
 
