@@ -36,7 +36,8 @@ describe('head', () => {
           content: 'ad',
         },
       ],
-    })
+    },
+    )
 
     expect(tags).toMatchInlineSnapshot(`
       {

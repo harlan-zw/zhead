@@ -295,19 +295,19 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   }>
   google:
   /**
-     * When users search for your site, Google Search results sometimes display a search box specific to your site,
-     * along with other direct links to your site. This tag tells Google not to show the sitelinks search box.
-     */
+   * When users search for your site, Google Search results sometimes display a search box specific to your site,
+   * along with other direct links to your site. This tag tells Google not to show the sitelinks search box.
+   */
   'nositelinkssearchbox' |
   /**
-     * Prevents various Google text-to-speech services from reading aloud web pages using text-to-speech (TTS).
-     */
+   * Prevents various Google text-to-speech services from reading aloud web pages using text-to-speech (TTS).
+   */
   'nopagereadaloud'
   googlebot:
   /**
-     * When Google recognizes that the contents of a page aren't in the language that the user likely wants to read,
-     * Google may provide a translated title link and snippet in search results.
-     */
+   * When Google recognizes that the contents of a page aren't in the language that the user likely wants to read,
+   * Google may provide a translated title link and snippet in search results.
+   */
   'notranslate'
 
   /**
@@ -807,7 +807,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      */
     content: string
     /**
-      * A valid media query that defines when the value should be used.
+     * A valid media query that defines when the value should be used.
      *
      * @example `(prefers-color-scheme: dark)`
      */
@@ -840,12 +840,12 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    */
   appleItunesApp: string | {
     /**
-    * Your app’s unique identifier.
-    */
+     * Your app’s unique identifier.
+     */
     appId: string
     /**
-    * A URL that provides context to your native app.
-    */
+     * A URL that provides context to your native app.
+     */
     appArgument?: string
   }
   /**

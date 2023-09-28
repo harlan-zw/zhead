@@ -39,7 +39,8 @@ describe('speculationRules', () => {
           source: 'list',
           target_hint: '_blank',
           urls: ['page.html'],
-        }],
+        },
+      ],
     }
     expect(b).toMatchInlineSnapshot(`
       {
