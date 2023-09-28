@@ -1,8 +1,8 @@
 import type { ReferrerPolicy } from './shared'
 import type { Booleanable, MaybePromiseProps } from './utils'
-import type { HttpEventAttributes } from './attributes'
+import type { GlobalAttributes, HttpEventAttributes } from './attributes'
 
-export interface ScriptBase {
+export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
   /**
    * For classic scripts, if the async attribute is present,
    * then the classic script will be fetched in parallel to parsing and evaluated as soon as it is available.
@@ -54,14 +54,6 @@ export interface ScriptBase {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nomodule
    */
   nomodule?: Booleanable
-  /**
-   * A cryptographic nonce (number used once) to allow scripts in a script-src Content-Security-Policy.
-   * The server must generate a unique nonce value each time it transmits a policy.
-   * It is critical to provide a nonce that cannot be guessed as bypassing a resource's policy is otherwise trivial.
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nonce
-   */
-  nonce?: string
   /**
    * Indicates which referrer to send when fetching the script, or resources fetched by the script.
    *
