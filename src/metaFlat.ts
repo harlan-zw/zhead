@@ -97,7 +97,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset
    */
-  charset: string
+  charset: 'utf-8' | (string & Record<never, never>)
   /**
    * Use this tag to provide a short description of the page.
    * In some situations, this description is used in the snippet shown in search results.
@@ -157,7 +157,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_other_specifications
    */
-  viewport: string | Partial<{
+  viewport: 'width=device-width, initial-scale=1.0' | string | Partial<{
     /**
      * Defines the pixel width of the viewport that you want the web site to be rendered at.
      */
@@ -173,7 +173,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      * @minimum 0
      * @maximum 10
      */
-    initialScale: number | string
+    initialScale: '1.0' | number | (string & Record<never, never>)
     /**
      * Defines the maximum amount to zoom in.
      * It must be greater or equal to the minimum-scale or the behavior is undefined.
@@ -211,7 +211,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   /**
    * Control the behavior of search engine crawling and indexing.
    */
-  robots: string | Partial<{
+  robots: 'noindex, nofollow' | 'index, follow' | string | Partial<{
     /**
      * Allow search engines to index this page.
      *
@@ -460,12 +460,12 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
     /**
      * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
      */
-    width?: string | number
+    width?: '1200' | string | number
 
     /**
      * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
      */
-    height?: string | number
+    height?: '630' | string | number
     /**
      * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
      */
@@ -595,13 +595,13 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
      * @deprecated Twitter removed this property from their card specification.
      */
-    width?: string | number
+    width?: '1200' | string | number
 
     /**
      * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
      * @deprecated Twitter removed this property from their card specification.
      */
-    height?: string | number
+    height?: '630' | string | number
 
     /**
      * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
@@ -811,7 +811,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      *
      * @example `(prefers-color-scheme: dark)`
      */
-    media: string
+    media: '(prefers-color-scheme: dark)' | '(prefers-color-scheme: light)' | string
   }>
   /**
    * Sets whether a web application runs in full-screen mode.
