@@ -25,6 +25,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./db": {
+      "types": "./dist/db.d.ts",
+      "import": "./dist/db.mjs",
+      "require": "./dist/db.cjs"
     }
   },
   "main": "dist/index.cjs",
