@@ -74,7 +74,7 @@ export interface MetaFlatProfile {
   /**
    * Their gender.
    */
-  profileGender?: 'male' | 'female'
+  profileGender?: 'male' | 'female' | string
 
   /**
    * A name inherited from a family or marriage and by which the individual is commonly known.
@@ -112,11 +112,14 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * The primary use for `<meta name="color-scheme">` is to indicate compatibility with—and order of preference
    * for—light and dark color modes.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#normal
    */
-  colorScheme: string
+  colorScheme: 'normal' | 'light dark' | 'dark light' | 'only light' | (string & Record<never, never>)
   /**
    * The name of the application running in the web page.
+   *
+   * Uses:
+   * - When adding the page to the home screen.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name
    */
@@ -210,6 +213,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
 
   /**
    * Control the behavior of search engine crawling and indexing.
+   *
+   * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
    */
   robots: 'noindex, nofollow' | 'index, follow' | string | Partial<{
     /**
@@ -293,6 +298,11 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
      */
     noimageindex: Booleanable
   }>
+  /**
+   * Special meta tag for controlling Google's indexing behavior.
+   *
+   * @see https://developers.google.com/search/docs/crawling-indexing/special-tags
+   */
   google:
   /**
    * When users search for your site, Google Search results sometimes display a search box specific to your site,
@@ -303,24 +313,36 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Prevents various Google text-to-speech services from reading aloud web pages using text-to-speech (TTS).
    */
   'nopagereadaloud'
+  /**
+   * Control how Google indexing works specifically for the googlebot crawler.
+   *
+   * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+   */
   googlebot:
   /**
    * When Google recognizes that the contents of a page aren't in the language that the user likely wants to read,
    * Google may provide a translated title link and snippet in search results.
    */
   'notranslate'
-
+  | 'noimageindex' | 'noarchive' | 'nosnippet' | 'max-snippet' | 'max-image-preview' | 'max-video-preview'
+  /**
+   * Control how Google indexing works specifically for the googlebot-news crawler.
+   *
+   * @see https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+   */
+  googlebotNews: 'noindex' | 'nosnippet' | 'notranslate' | 'noimageindex'
   /**
    * You can use this tag on the top-level page of your site to verify ownership for Search Console.
+   *
+   * @see https://developers.google.com/search/docs/crawling-indexing/special-tags
    */
   googleSiteVerification: string
-
   /**
-   * Labels a page as containing adult content, to signal that it be filtered by SafeSearch results.
+   * Labels a page as containing adult content, to signal that it be filtered by SafeSearch results
+   * .
    * @see https://developers.google.com/search/docs/advanced/guidelines/safesearch
    */
   rating: 'adult'
-
   // RFDa
   /**
    * The canonical URL for your page.
@@ -330,22 +352,28 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    *
    * For example: mobile domain URLs should point to the desktop version of the URL as the canonical URL to aggregate
    * Likes and Shares across different versions of the page.
+   *
+   * @see https://ogp.me/#metadata
    */
   ogUrl: string
-
   /**
    * The title of your page without any branding such as your site name.
+   *
+   * @see https://ogp.me/#metadata
    */
   ogTitle: string
   /**
    * A brief description of the content, usually between 2 and 4 sentences.
+   *
+   * @see https://ogp.me/#optional
    */
   ogDescription: string
-
   /**
    * The type of media of your content. This tag impacts how your content shows up in Feed. If you don't specify a type,
    * the default is website.
    * Each URL should be a single object, so multiple og:type values are not possible.
+   *
+   * @see https://ogp.me/#metadata
    */
   ogType: 'website' | 'article' | 'book' | 'profile' |
   // Namespace URI https://ogp.me/ns/music#
@@ -355,11 +383,15 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
 
   /**
    * The locale of the resource. Defaults to en_US.
+   *
+   * @see https://ogp.me/#optional
    */
   ogLocale: string
 
   /**
    * An array of other locales this page is available in.
+   *
+   * @see https://ogp.me/#optional
    */
   ogLocaleAlternate: Arrayable<string>
 
@@ -368,17 +400,21 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * An enum of (a, an, the, "", auto).
    * If auto is chosen, the consumer of your data should choose between "a" or "an".
    * Default is "" (blank).
+   *
+   * @see https://ogp.me/#optional
    */
   ogDeterminer: 'a' | 'an' | 'the' | '' | 'auto'
   /**
    * If your object is part of a larger website, the name which should be displayed for the overall site. e.g., "IMDb".
+   *
+   * @see https://ogp.me/#optional
    */
   ogSiteName: string
-
   // OpenGraph Video
-
   /**
    * The URL for the video. If you want the video to play in-line in Feed, you should use the https:// URL if possible.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideo: string | Arrayable<{
     /**
@@ -411,29 +447,41 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   }>
   /**
    * Equivalent to og:video
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoUrl: string
   /**
    *
    * Secure URL for the video. Include this even if you set the secure URL in og:video.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoSecureUrl: string
   /**
    * MIME type of the video.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoType: 'application/x-shockwave-flash' | 'video/mp4'
 
   /**
    * Width of video in pixels. This property is required for videos.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoWidth: string | number
 
   /**
    * Height of video in pixels. This property is required for videos.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoHeight: string | number
   /**
    * A text description of the video.
+   *
+   * @see https://ogp.me/#type_video
    */
   ogVideoAlt: string
 
@@ -441,6 +489,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
 
   /**
    * The URL of the image that appears when someone shares the content.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
   ogImage: string | Arrayable<{
     /**
@@ -474,35 +524,51 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
 
   /**
    * Equivalent to og:image
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
   ogImageUrl: string
   /**
    *
    * https:// URL for the image
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
   ogImageSecureUrl: string
   /**
    * MIME type of the image.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
   ogImageType: 'image/jpeg' | 'image/gif' | 'image/png'
 
   /**
    * Width of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
-  ogImageWidth: string | number
+  ogImageWidth: '1200' | string | number
 
   /**
    * Height of image in pixels. Specify height and width for your image to ensure that the image loads properly the first time it's shared.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
-  ogImageHeight: string | number
+  ogImageHeight: '630' | string | number
 
   /**
    * A description of what is in the image (not a caption). If the page specifies an og:image, it should specify og:image:alt.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#images
    */
   ogImageAlt: string
 
   // OpenGraph Audio
-
+  /**
+   * The URL for an audio file to accompany this object.
+   *
+   * @see https://ogp.me/#optional
+   */
   ogAudio: string | Arrayable<{
     /**
      * Equivalent to og:audio
@@ -519,28 +585,34 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   }>
   /**
    * Equivalent to og:audio
+   *
+   * @see https://ogp.me/#optional
    */
   ogAudioUrl: string
 
   /**
    * Secure URL for the audio. Include this even if you set the secure URL in og:audio.
+   *
+   * @see https://ogp.me/#optional
    */
   ogAudioSecureUrl: string
 
   /**
    * MIME type of the audio.
+   *
+   * @see https://ogp.me/#optional
    */
   ogAudioType: 'audio/mpeg' | 'audio/ogg' | 'audio/wav'
-
-  // Twitter meta
-
   /**
    * Your Facebook app ID.
    *
    * In order to use Facebook Insights you must add the app ID to your page.
    * Insights lets you view analytics for traffic to your site from Facebook. Find the app ID in your App Dashboard.
+   *
+   * @see https://developers.facebook.com/docs/sharing/webmasters#basic
    */
   fbAppId: string | number
+  // Twitter meta
   /**
    * The card type
    *
@@ -557,6 +629,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:title`
    *
    * @maxLength 70
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterTitle: string
   /**
@@ -567,6 +640,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:description`
    *
    * @maxLength 200
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterDescription: string
   /**
@@ -578,6 +652,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Used with summary, summary_large_image, player cards
    *
    * Same as `og:image`.
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterImage: string | Arrayable<{
     /**
@@ -617,6 +693,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:image:width`
    *
    * @deprecated Twitter removed this property from their card specification.
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterImageWidth: string | number
   /**
@@ -627,6 +704,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:image:height`
    *
    * @deprecated Twitter removed this property from their card specification.
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterImageHeight: string | number
   /**
@@ -637,6 +715,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:image:type`
    *
    * @deprecated Twitter removed this property from their card specification.
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterImageType: 'image/jpeg' | 'image/gif' | 'image/png'
 
@@ -649,6 +728,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Same as `og:image:alt`.
    *
    * @maxLength 420
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
    */
   twitterImageAlt: string
   /**
@@ -657,6 +737,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Used with summary, summary_large_image, app, player cards
    *
    * @example @harlan_zw
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterSite: string
   /**
@@ -665,6 +746,7 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Used with summary, summary_large_image, player cards
    *
    * @example 1296047337022742529
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterSiteId: string | number
   /**
@@ -673,18 +755,23 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Used with summary_large_image cards
    *
    * @example harlan_zw
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterCreator: string
   /**
    * Twitter user ID of content creator
    *
    * Used with summary, summary_large_image cards
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterCreatorId: string | number
   /**
    * HTTPS URL of player iframe
    *
    * Used with player card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterPlayer: string
   /**
@@ -692,70 +779,94 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * Width of iframe in pixels
    *
    * Used with player card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterPlayerWidth: string | number
   /**
    * Height of iframe in pixels
    *
    * Used with player card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterPlayerHeight: string | number
   /**
    * URL to raw video or audio stream
    *
    * Used with player card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterPlayerStream: string
   /**
    * Name of your iPhone app
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppNameIphone: string
   /**
    * Your app ID in the iTunes App Store
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppIdIphone: string
   /**
    * Your app’s custom URL scheme (you must include ”://” after your scheme name)
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppUrlIphone: string
   /**
    * Name of your iPad optimized app
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppNameIpad: string
   /**
    * Your app ID in the iTunes App Store
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppIdIpad: string
   /**
    * Your app’s custom URL scheme
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppUrlIpad: string
   /**
    * Name of your Android app
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppNameGoogleplay: string
   /**
    * Your app ID in the Google Play Store
    *
    * Used with app card
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppIdGoogleplay: string
   /**
    * Your app’s custom URL scheme
+   *
+   * @see https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
    */
   twitterAppUrlGoogleplay: string
   /**
@@ -856,14 +967,20 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
   formatDetection: 'telephone=no'
   /**
    * Tile image for windows.
+   *
+   * @see https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
    */
   msapplicationTileImage: string
   /**
    * Tile colour for windows
+   *
+   * @see https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
    */
   msapplicationTileColor: string
   /**
    * URL of a config for windows tile.
+   *
+   * @see https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
    */
   msapplicationConfig: string
 
