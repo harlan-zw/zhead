@@ -23,32 +23,32 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     tips: [
       {
         title: 'Specify Character Encoding',
-        description: 'Always include the "charset" meta tag with a character encoding declaration to prevent character display issues.'
+        description: 'Always include the "charset" meta tag with a character encoding declaration to prevent character display issues.',
       },
       {
         title: 'Use UTF-8',
-        description: 'The most widely supported and recommended character encoding for web pages is UTF-8.'
+        description: 'The most widely supported and recommended character encoding for web pages is UTF-8.',
       },
       {
         title: 'Place in the Head Section',
-        description: 'Ensure that the "charset" meta tag is placed within the <head> section of your HTML document, within the first 1kb if not at the very top.'
+        description: 'Ensure that the "charset" meta tag is placed within the <head> section of your HTML document, within the first 1kb if not at the very top.',
       },
     ],
     examples: [
       {
         value: 'UTF-8',
-        description: 'Specifies the "charset" meta tag with UTF-8 character encoding for a web page, ensuring compatibility with a wide range of characters.'
+        description: 'Specifies the "charset" meta tag with UTF-8 character encoding for a web page, ensuring compatibility with a wide range of characters.',
       },
       {
         value: 'ISO-8859-1',
-        description: 'Defines the "charset" meta tag with ISO-8859-1 character encoding for a web page, which is less common but may be necessary for specific cases.'
+        description: 'Defines the "charset" meta tag with ISO-8859-1 character encoding for a web page, which is less common but may be necessary for specific cases.',
       },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset',
-      'https://developers.google.com/search/docs/crawling-indexing/special-tags#meta-tags'
+      'https://developers.google.com/search/docs/crawling-indexing/special-tags#meta-tags',
       // Add links to other documentation sources as needed
-    ]
+    ],
   },
   description: {
     name: 'description',
@@ -58,27 +58,27 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A comprehensive guide to HTML meta tags and their usage.',
-        description: 'Provides a brief and engaging description of the page content for search engine results.'
+        description: 'Provides a brief and engaging description of the page content for search engine results.',
       },
     ],
     tips: [
       {
         title: 'Concise and Descriptive',
-        description: 'Craft a concise but informative description that accurately summarizes the page\'s content. Aim for 150-160 characters for optimal display in search results.'
+        description: 'Craft a concise but informative description that accurately summarizes the page\'s content. Aim for 150-160 characters for optimal display in search results.',
       },
       {
         title: 'Include Keywords',
-        description: 'Incorporate relevant keywords into the description to improve search engine optimization (SEO) and attract the right audience.'
+        description: 'Incorporate relevant keywords into the description to improve search engine optimization (SEO) and attract the right audience.',
       },
       {
         title: 'Unique for Each Page',
-        description: 'Ensure that each page of your website has a unique description that reflects the specific content and purpose of that page.'
+        description: 'Ensure that each page of your website has a unique description that reflects the specific content and purpose of that page.',
       },
     ],
     importance: 'important',
     documentation: [
       'https://moz.com/learn/seo/meta-description',
-      'https://developers.google.com/search/docs/advanced/appearance/snippet#meta-descriptions'
+      'https://developers.google.com/search/docs/advanced/appearance/snippet#meta-descriptions',
     ],
   },
   colorScheme: {
@@ -88,20 +88,20 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'normal',
-        description: 'Sets the color scheme to "normal," following the default system or user preferences.'
+        description: 'Sets the color scheme to "normal," following the default system or user preferences.',
       },
       {
         value: 'light dark',
-        description: 'Specifies a preference for a "light" color scheme but allows "dark" as an alternative, accommodating user choices.'
+        description: 'Specifies a preference for a "light" color scheme but allows "dark" as an alternative, accommodating user choices.',
       },
       {
         value: 'dark light',
-        description: 'Specifies a preference for a "dark" color scheme but allows "light" as an alternative, accommodating user choices.'
+        description: 'Specifies a preference for a "dark" color scheme but allows "light" as an alternative, accommodating user choices.',
       },
       {
         value: 'only light',
-        description: 'Mandates the use of the "light" color scheme, regardless of user or system preferences.'
-      }
+        description: 'Mandates the use of the "light" color scheme, regardless of user or system preferences.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#normal',
@@ -116,7 +116,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'My Web App',
-        description: 'Defines the application name as "My Web App," which appears when users add the app to their home screen.'
+        description: 'Defines the application name as "My Web App," which appears when users add the app to their home screen.',
       },
     ],
     documentation: [
@@ -134,12 +134,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'John Doe',
-        description: 'Specifies the author as "John Doe," providing clear authorship attribution for the web page.'
+        description: 'Specifies the author as "John Doe," providing clear authorship attribution for the web page.',
       },
       {
         value: 'Jane Smith',
-        description: 'Defines the author as "Jane Smith," indicating the content creator of the page.'
-      }
+        description: 'Defines the author as "Jane Smith," indicating the content creator of the page.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name',
@@ -153,12 +153,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'Alice Johnson',
-        description: 'Specifies the creator as "Alice Johnson," providing clear creatorship attribution for the web page.'
+        description: 'Specifies the creator as "Alice Johnson," providing clear creatorship attribution for the web page.',
       },
       {
         value: 'Bob Smith',
-        description: 'Defines the creator as "Bob Smith," indicating the content creator of the page.'
-      }
+        description: 'Defines the creator as "Bob Smith," indicating the content creator of the page.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#other_metadata_names',
@@ -174,12 +174,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'XYZ Media Inc.',
-        description: 'Specifies the publisher as "XYZ Media Inc.," providing clear publisher attribution for the web page.'
+        description: 'Specifies the publisher as "XYZ Media Inc.," providing clear publisher attribution for the web page.',
       },
       {
         value: 'ABC News Corporation',
-        description: 'Defines the publisher as "ABC News Corporation," indicating the publisher of the news content.'
-      }
+        description: 'Defines the publisher as "ABC News Corporation," indicating the publisher of the news content.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#other_metadata_names',
@@ -197,12 +197,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'WordPress 5.5',
-        description: 'Specifies the generator as "WordPress 5.5," indicating that the web page was created using WordPress version 5.5.'
+        description: 'Specifies the generator as "WordPress 5.5," indicating that the web page was created using WordPress version 5.5.',
       },
       {
         value: 'Joomla 4.0',
-        description: 'Defines the generator as "Joomla 4.0," showing that the page was generated with Joomla version 4.0.'
-      }
+        description: 'Defines the generator as "Joomla 4.0," showing that the page was generated with Joomla version 4.0.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification',
@@ -221,12 +221,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'no-referrer',
-        description: 'Sets the referrer policy to "no-referrer," ensuring no referrer information is shared with linked pages.'
+        description: 'Sets the referrer policy to "no-referrer," ensuring no referrer information is shared with linked pages.',
       },
       {
         value: 'strict-origin',
-        description: 'Enforces a referrer policy that only includes the origin (scheme, host, and port) when navigating to another page.'
-      }
+        description: 'Enforces a referrer policy that only includes the origin (scheme, host, and port) when navigating to another page.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification',
@@ -243,12 +243,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'width=device-width, initial-scale=1',
-        description: 'Configures the viewport to match the device\'s width and set the initial zoom level to 1, creating a responsive layout.'
+        description: 'Configures the viewport to match the device\'s width and set the initial zoom level to 1, creating a responsive layout.',
       },
       {
         value: 'width=320, initial-scale=2',
-        description: 'Sets a fixed viewport width of 320 pixels and an initial zoom level of 2, useful for mobile web apps with specific design requirements.'
-      }
+        description: 'Sets a fixed viewport width of 320 pixels and an initial zoom level of 2, useful for mobile web apps with specific design requirements.',
+      },
     ],
     documentation: [
       'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_other_specifications',
@@ -266,12 +266,12 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'index, follow',
-        description: 'Allows search engines to index the page and follow links.'
+        description: 'Allows search engines to index the page and follow links.',
       },
       {
         value: 'noindex, nofollow',
-        description: 'Instructs search engines not to index the page and not to follow any links on the page.'
-      }
+        description: 'Instructs search engines not to index the page and not to follow any links on the page.',
+      },
     ],
     documentation: [
       'https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag',
@@ -320,8 +320,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'your-verification-code',
-        description: 'Replace "your-verification-code" with the unique code provided by Google Search Console for your website. This code is specific to your site and is used for verification.'
-      }
+        description: 'Replace "your-verification-code" with the unique code provided by Google Search Console for your website. This code is specific to your site and is used for verification.',
+      },
     ],
     documentation: [
       'https://support.google.com/webmasters/answer/9008080',
@@ -336,7 +336,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'adult',
-        description: 'Specifies the "adult" rating, signaling that the web page contains adult content and should be filtered accordingly by SafeSearch.'
+        description: 'Specifies the "adult" rating, signaling that the web page contains adult content and should be filtered accordingly by SafeSearch.',
       },
     ],
     documentation: [
@@ -350,7 +350,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://www.example.com/page',
-        description: 'Specifies "og:url" as "https://www.example.com/page," indicating the canonical URL of the web page associated with the Open Graph object.'
+        description: 'Specifies "og:url" as "https://www.example.com/page," indicating the canonical URL of the web page associated with the Open Graph object.',
       },
     ],
     documentation: [
@@ -368,15 +368,15 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'website',
-        description: 'Specifies the "og:type" as "website," indicating that the web page represents a general website or web page.'
+        description: 'Specifies the "og:type" as "website," indicating that the web page represents a general website or web page.',
       },
       {
         value: 'article',
-        description: 'Indicates "og:type" as "article," signifying that the web page contains an article or blog post.'
+        description: 'Indicates "og:type" as "article," signifying that the web page contains an article or blog post.',
       },
       {
         value: 'video.movie',
-        description: 'Defines the "og:type" as "video.movie," showing that the page features a video, specifically a movie.'
+        description: 'Defines the "og:type" as "video.movie," showing that the page features a video, specifically a movie.',
       },
     ],
     documentation: [
@@ -392,7 +392,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'Example Article Title',
-        description: 'Specifies "og:title" as "Example Article Title," representing the title of an article when shared on social media.'
+        description: 'Specifies "og:title" as "Example Article Title," representing the title of an article when shared on social media.',
       },
     ],
     documentation: [
@@ -409,11 +409,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A thought-provoking article about technology trends.',
-        description: 'Specifies "og:description" as "A thought-provoking article about technology trends," offering a concise and engaging description of the article when shared on social media.'
+        description: 'Specifies "og:description" as "A thought-provoking article about technology trends," offering a concise and engaging description of the article when shared on social media.',
       },
       {
         value: 'Discover the latest product innovations in this video.',
-        description: 'Defines "og:description" as "Discover the latest product innovations in this video," providing a compelling description of a video when shared on social media.'
+        description: 'Defines "og:description" as "Discover the latest product innovations in this video," providing a compelling description of a video when shared on social media.',
       },
     ],
     documentation: [
@@ -431,15 +431,15 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'a',
-        description: 'Specifies "og:determiner" as "a," indicating that the title of the object should be introduced with the determiner "a" in sentences.'
+        description: 'Specifies "og:determiner" as "a," indicating that the title of the object should be introduced with the determiner "a" in sentences.',
       },
       {
         value: 'an',
-        description: 'Defines "og:determiner" as "an," suggesting that the title of the object should be introduced with the determiner "an" in sentences.'
+        description: 'Defines "og:determiner" as "an," suggesting that the title of the object should be introduced with the determiner "an" in sentences.',
       },
       {
         value: 'the',
-        description: 'Sets "og:determiner" to "the," signifying that the title of the object should be introduced with the determiner "the" in sentences.'
+        description: 'Sets "og:determiner" to "the," signifying that the title of the object should be introduced with the determiner "the" in sentences.',
       },
     ],
     documentation: [
@@ -456,11 +456,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'en_US',
-        description: 'Specifies "og:locale" as "en_US," indicating that the content is in English (United States).'
+        description: 'Specifies "og:locale" as "en_US," indicating that the content is in English (United States).',
       },
       {
         value: 'fr_FR',
-        description: 'Defines "og:locale" as "fr_FR," signifying that the content is in French (France).'
+        description: 'Defines "og:locale" as "fr_FR," signifying that the content is in French (France).',
       },
     ],
     documentation: [
@@ -476,11 +476,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'es_ES',
-        description: 'Specifies "og:locale:alternate" as "es_ES," indicating an alternate locale of Spanish (Spain) for the content.'
+        description: 'Specifies "og:locale:alternate" as "es_ES," indicating an alternate locale of Spanish (Spain) for the content.',
       },
       {
         value: 'fr_CA',
-        description: 'Defines "og:locale:alternate" as "fr_CA," signifying an alternate locale of French (Canada) for the content.'
+        description: 'Defines "og:locale:alternate" as "fr_CA," signifying an alternate locale of French (Canada) for the content.',
       },
     ],
     documentation: [
@@ -496,11 +496,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'Example News',
-        description: 'Specifies "og:site_name" as "Example News," indicating the name of the website or platform hosting the content.'
+        description: 'Specifies "og:site_name" as "Example News," indicating the name of the website or platform hosting the content.',
       },
       {
         value: 'My Online Store',
-        description: 'Defines "og:site_name" as "My Online Store," signifying the name of the e-commerce platform hosting the product content.'
+        description: 'Defines "og:site_name" as "My Online Store," signifying the name of the e-commerce platform hosting the product content.',
       },
     ],
     documentation: [
@@ -517,8 +517,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/video.mp4',
-        description: 'Specifies "og:video" as "https://example.com/video.mp4," indicating the URL of the video to be shared.'
-      }
+        description: 'Specifies "og:video" as "https://example.com/video.mp4," indicating the URL of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -532,8 +532,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/video.mp4',
-        description: 'Specifies "og:video:url" as "https://example.com/video.mp4," indicating the URL of the video to be shared.'
-      }
+        description: 'Specifies "og:video:url" as "https://example.com/video.mp4," indicating the URL of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -547,8 +547,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/video.mp4',
-        description: 'Specifies "og:video:secure_url" as "https://example.com/video.mp4," indicating the URL of the video to be shared.'
-      }
+        description: 'Specifies "og:video:secure_url" as "https://example.com/video.mp4," indicating the URL of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -562,8 +562,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'video/mp4',
-        description: 'Specifies "og:video:type" as "video/mp4," indicating the MIME type of the video to be shared.'
-      }
+        description: 'Specifies "og:video:type" as "video/mp4," indicating the MIME type of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -577,8 +577,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A video about the latest product innovations.',
-        description: 'Specifies "og:video:alt" as "A video about the latest product innovations," providing a description of the video to be shared.'
-      }
+        description: 'Specifies "og:video:alt" as "A video about the latest product innovations," providing a description of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -591,8 +591,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '630',
-        description: 'Specifies "og:video:height" as "630," indicating the height of the video to be shared.'
-      }
+        description: 'Specifies "og:video:height" as "630," indicating the height of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -606,8 +606,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '1200',
-        description: 'Specifies "og:video:width" as "1200," indicating the width of the video to be shared.'
-      }
+        description: 'Specifies "og:video:width" as "1200," indicating the width of the video to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_video',
@@ -621,8 +621,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/image.jpg',
-        description: 'Specifies "og:image" as "https://example.com/image.jpg," indicating the URL of the image to be shared.'
-      }
+        description: 'Specifies "og:image" as "https://example.com/image.jpg," indicating the URL of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -638,8 +638,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A delicious recipe for chocolate chip cookies.',
-        description: 'Specifies "og:image:alt" as "A delicious recipe for chocolate chip cookies," providing a description of the image to be shared.'
-      }
+        description: 'Specifies "og:image:alt" as "A delicious recipe for chocolate chip cookies," providing a description of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -655,8 +655,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '630',
-        description: 'Specifies "og:image:height" as "630," indicating the height of the image to be shared.'
-      }
+        description: 'Specifies "og:image:height" as "630," indicating the height of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -671,8 +671,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '1200',
-        description: 'Specifies "og:image:width" as "1200," indicating the width of the image to be shared.'
-      }
+        description: 'Specifies "og:image:width" as "1200," indicating the width of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -688,8 +688,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/image.jpg',
-        description: 'Specifies "og:image:url" as "https://example.com/image.jpg," indicating the URL of the image to be shared.'
-      }
+        description: 'Specifies "og:image:url" as "https://example.com/image.jpg," indicating the URL of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -705,8 +705,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'image/jpeg',
-        description: 'Specifies "og:image:type" as "image/jpeg," indicating the MIME type of the image to be shared.'
-      }
+        description: 'Specifies "og:image:type" as "image/jpeg," indicating the MIME type of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -722,8 +722,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/image.jpg',
-        description: 'Specifies "og:image:secure_url" as "https://example.com/image.jpg," indicating the URL of the image to be shared.'
-      }
+        description: 'Specifies "og:image:secure_url" as "https://example.com/image.jpg," indicating the URL of the image to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#structured',
@@ -739,8 +739,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/audio.mp3',
-        description: 'Specifies "og:audio" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.'
-      }
+        description: 'Specifies "og:audio" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_audio',
@@ -754,8 +754,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/audio.mp3',
-        description: 'Specifies "og:audio:url" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.'
-      }
+        description: 'Specifies "og:audio:url" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_audio',
@@ -769,8 +769,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://example.com/audio.mp3',
-        description: 'Specifies "og:audio:secure_url" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.'
-      }
+        description: 'Specifies "og:audio:secure_url" as "https://example.com/audio.mp3," indicating the URL of the audio to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_audio',
@@ -784,8 +784,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'audio/mpeg',
-        description: 'Specifies "og:audio:type" as "audio/mpeg," indicating the MIME type of the audio to be shared.'
-      }
+        description: 'Specifies "og:audio:type" as "audio/mpeg," indicating the MIME type of the audio to be shared.',
+      },
     ],
     documentation: [
       'https://ogp.me/#type_audio',
@@ -799,7 +799,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '123456789012345',
-        description: 'Specifies "fb:app_id" with the App ID "123456789012345." This associates the web page with a specific Facebook App.'
+        description: 'Specifies "fb:app_id" with the App ID "123456789012345." This associates the web page with a specific Facebook App.',
       },
     ],
     documentation: [
@@ -815,23 +815,23 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'summary',
-        description: 'Specifies "twitter:card" as "summary," indicating the use of a summary card. This card type provides a title, description, and a thumbnail image when shared.'
+        description: 'Specifies "twitter:card" as "summary," indicating the use of a summary card. This card type provides a title, description, and a thumbnail image when shared.',
       },
       {
         value: 'summary_large_image',
-        description: 'Defines "twitter:card" as "summary_large_image," signifying the use of a summary card with a larger featured image for enhanced visual impact.'
+        description: 'Defines "twitter:card" as "summary_large_image," signifying the use of a summary card with a larger featured image for enhanced visual impact.',
       },
       {
         value: 'app',
-        description: 'Sets "twitter:card" to "app," indicating the use of an app card. This card type provides a preview of a mobile app when shared.'
+        description: 'Sets "twitter:card" to "app," indicating the use of an app card. This card type provides a preview of a mobile app when shared.',
       },
       {
         value: 'player',
-        description: 'Specifies "twitter:card" as "player," indicating the use of a player card. This card type provides a preview of a video or audio player when shared.'
+        description: 'Specifies "twitter:card" as "player," indicating the use of a player card. This card type provides a preview of a video or audio player when shared.',
       },
       {
         value: 'product',
-        description: 'Defines "twitter:card" as "product," signifying the use of a product card. This card type provides a preview of a product when shared.'
+        description: 'Defines "twitter:card" as "product," signifying the use of a product card. This card type provides a preview of a product when shared.',
       },
     ],
     documentation: [
@@ -847,11 +847,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '@examplewebsite',
-        description: 'Specifies "twitter:site" with the Twitter username "@examplewebsite," associating the web page with the Twitter account.'
+        description: 'Specifies "twitter:site" with the Twitter username "@examplewebsite," associating the web page with the Twitter account.',
       },
       {
         value: '@anotheraccount',
-        description: 'Defines "twitter:site" with the Twitter username "@anotheraccount," attributing the web page to another Twitter account.'
+        description: 'Defines "twitter:site" with the Twitter username "@anotheraccount," attributing the web page to another Twitter account.',
       },
     ],
     documentation: [
@@ -867,11 +867,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '@author123',
-        description: 'Specifies "twitter:creator" with the Twitter username "@author123," attributing the content to its creator.'
+        description: 'Specifies "twitter:creator" with the Twitter username "@author123," attributing the content to its creator.',
       },
       {
         value: '@anotherwriter',
-        description: 'Defines "twitter:creator" with the Twitter username "@anotherwriter," crediting another author as the creator of the content.'
+        description: 'Defines "twitter:creator" with the Twitter username "@anotherwriter," crediting another author as the creator of the content.',
       },
     ],
     documentation: [
@@ -887,11 +887,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'Engaging Article Title',
-        description: 'Specifies "twitter:title" with the title "Engaging Article Title." A concise and engaging title that follows the 70-character tip.'
+        description: 'Specifies "twitter:title" with the title "Engaging Article Title." A concise and engaging title that follows the 70-character tip.',
       },
       {
         value: 'This is a Very Long Title That Should Be Shortened',
-        description: 'Defines "twitter:title" with a long title. It\'s important to shorten this title to adhere to the 70-character tip for optimal display on Twitter.'
+        description: 'Defines "twitter:title" with a long title. It\'s important to shorten this title to adhere to the 70-character tip for optimal display on Twitter.',
       },
     ],
     tags: ['twitter', 'social-share'],
@@ -907,11 +907,11 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A concise and engaging description of the content.',
-        description: 'Specifies "twitter:description" with a concise and engaging description. It follows the 200-character tip for optimal display on Twitter.'
+        description: 'Specifies "twitter:description" with a concise and engaging description. It follows the 200-character tip for optimal display on Twitter.',
       },
       {
         value: 'This is a very long description that should be shortened to adhere to the 200-character tip.',
-        description: 'Defines "twitter:description" with a long description. It\'s important to shorten this description to ensure it fits within the recommended character limit for Twitter sharing.'
+        description: 'Defines "twitter:description" with a long description. It\'s important to shorten this description to ensure it fits within the recommended character limit for Twitter sharing.',
       },
     ],
     documentation: [
@@ -928,25 +928,25 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://www.example.com/image.jpg',
-        description: 'Specifies "twitter:image" with the URL of an image file. Ensure the image is optimized and stays within the 5MB image size limit for Twitter.'
+        description: 'Specifies "twitter:image" with the URL of an image file. Ensure the image is optimized and stays within the 5MB image size limit for Twitter.',
       },
       {
         value: 'https://www.example.com/large-image.png',
-        description: 'Defines "twitter:image" with the URL of a larger image. It\'s important to optimize the image to fit within the recommended 5MB image size limit for Twitter sharing.'
+        description: 'Defines "twitter:image" with the URL of a larger image. It\'s important to optimize the image to fit within the recommended 5MB image size limit for Twitter sharing.',
       },
     ],
     tips: [
       {
         title: 'Image Optimization',
-        description: 'Optimize images for the web by compressing them without significant quality loss for faster loading.'
+        description: 'Optimize images for the web by compressing them without significant quality loss for faster loading.',
       },
       {
         title: 'File Size Limit',
-        description: 'Keep the image file size below 5MB for improved loading times and user experience.'
+        description: 'Keep the image file size below 5MB for improved loading times and user experience.',
       },
       {
         title: 'Aspect Ratio',
-        description: 'Maintain a recommended aspect ratio to ensure correct image display on Twitter (e.g., 1:1, 16:9, 2:1).'
+        description: 'Maintain a recommended aspect ratio to ensure correct image display on Twitter (e.g., 1:1, 16:9, 2:1).',
       },
     ],
     documentation: [
@@ -962,25 +962,25 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'A person reading a book in a quiet library.',
-        description: 'Specifies "twitter:image:alt" with a descriptive alternative text for the image, enhancing accessibility.'
+        description: 'Specifies "twitter:image:alt" with a descriptive alternative text for the image, enhancing accessibility.',
       },
       {
         value: 'A beautiful sunset over the mountains.',
-        description: 'Defines "twitter:image:alt" with alternative text that describes the image content for accessibility purposes.'
+        description: 'Defines "twitter:image:alt" with alternative text that describes the image content for accessibility purposes.',
       },
     ],
     tips: [
       {
         title: 'Descriptive Alt Text',
-        description: 'Provide alt text that accurately and concisely describes the content and context of the image for users with disabilities.'
+        description: 'Provide alt text that accurately and concisely describes the content and context of the image for users with disabilities.',
       },
       {
         title: 'Max 420 Characters',
-        description: 'Keep the alternative text within a maximum of 420 characters to ensure it\'s concise and easily understandable.'
+        description: 'Keep the alternative text within a maximum of 420 characters to ensure it\'s concise and easily understandable.',
       },
       {
         title: 'Avoid Redundancy',
-        description: 'Ensure that the alternative text adds meaningful information and doesn\'t duplicate the image\'s caption or title.'
+        description: 'Ensure that the alternative text adds meaningful information and doesn\'t duplicate the image\'s caption or title.',
       },
     ],
     documentation: [
@@ -996,25 +996,25 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: 'https://www.example.com/player.html',
-        description: 'Specifies "twitter:player" with the URL of a web page containing a Twitter Player Card for embedded media content.'
+        description: 'Specifies "twitter:player" with the URL of a web page containing a Twitter Player Card for embedded media content.',
       },
       {
         value: 'https://www.example.com/video-player.html',
-        description: 'Defines "twitter:player" with a different web page URL that hosts a Twitter Player Card for interactive video sharing on Twitter.'
+        description: 'Defines "twitter:player" with a different web page URL that hosts a Twitter Player Card for interactive video sharing on Twitter.',
       },
     ],
     tips: [
       {
         title: 'Twitter Player Card',
-        description: 'Ensure that the specified web page contains a valid Twitter Player Card that is properly configured for video or media content.'
+        description: 'Ensure that the specified web page contains a valid Twitter Player Card that is properly configured for video or media content.',
       },
       {
         title: 'Responsive Design',
-        description: 'Design the web page with a responsive layout to ensure the embedded media content is displayed optimally on various devices.'
+        description: 'Design the web page with a responsive layout to ensure the embedded media content is displayed optimally on various devices.',
       },
       {
         title: 'Video Content',
-        description: 'For video content, use the "twitter:player:stream" tag to specify a direct link to the video stream.'
+        description: 'For video content, use the "twitter:player:stream" tag to specify a direct link to the video stream.',
       },
     ],
     documentation: [
@@ -1029,26 +1029,26 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     tips: [
       {
         title: 'Optimal Sizing',
-        description: 'Set the width to match the dimensions of your video or media player for the best presentation.'
+        description: 'Set the width to match the dimensions of your video or media player for the best presentation.',
       },
       {
         title: 'Comprehensive Player Dimensions',
-        description: 'Use this tag in conjunction with "twitter:player" and "twitter:player:height" to comprehensively define the player\'s dimensions.'
+        description: 'Use this tag in conjunction with "twitter:player" and "twitter:player:height" to comprehensively define the player\'s dimensions.',
       },
       {
         title: 'Adhere to Twitter Guidelines',
-        description: 'Ensure the specified width aligns with Twitter\'s recommended player dimensions for an optimal user experience.'
+        description: 'Ensure the specified width aligns with Twitter\'s recommended player dimensions for an optimal user experience.',
       },
     ],
     description: `The "twitter:player:width" meta tag specifies the width of an embedded player for video or media content when sharing a web page on Twitter, ensuring proper display within the Twitter platform.`,
     examples: [
       {
         value: '640',
-        description: 'Specifies "twitter:player:width" as 640 for a player with a width of 640 pixels.'
+        description: 'Specifies "twitter:player:width" as 640 for a player with a width of 640 pixels.',
       },
       {
         value: '1280',
-        description: 'Defines "twitter:player:width" as 1280 for a player with a width of 1280 pixels.'
+        description: 'Defines "twitter:player:width" as 1280 for a player with a width of 1280 pixels.',
       },
     ],
     documentation: [
@@ -1064,25 +1064,25 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     tips: [
       {
         title: 'Matching Width and Height',
-        description: 'Set the height to match the dimensions of your video or media player, ensuring proper aspect ratio and presentation.'
+        description: 'Set the height to match the dimensions of your video or media player, ensuring proper aspect ratio and presentation.',
       },
       {
         title: 'Comprehensive Player Dimensions',
-        description: 'Use this tag in conjunction with "twitter:player" and "twitter:player:width" to comprehensively define the player\'s dimensions.'
+        description: 'Use this tag in conjunction with "twitter:player" and "twitter:player:width" to comprehensively define the player\'s dimensions.',
       },
       {
         title: 'Adhere to Twitter Guidelines',
-        description: 'Ensure the specified height aligns with Twitter\'s recommended player dimensions for the best user experience.'
+        description: 'Ensure the specified height aligns with Twitter\'s recommended player dimensions for the best user experience.',
       },
     ],
     examples: [
       {
         value: '360',
-        description: 'Specifies "twitter:player:height" as 360 for a player with a height of 360 pixels.'
+        description: 'Specifies "twitter:player:height" as 360 for a player with a height of 360 pixels.',
       },
       {
         value: '720',
-        description: 'Defines "twitter:player:height" as 720 for a player with a height of 720 pixels.'
+        description: 'Defines "twitter:player:height" as 720 for a player with a height of 720 pixels.',
       },
     ],
     documentation: [
@@ -1098,21 +1098,21 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     tips: [
       {
         title: 'Provide a Direct Video Stream URL',
-        description: 'Use this tag to specify the direct URL for streaming video content. Ensure that the URL is accessible and serves the video stream.'
+        description: 'Use this tag to specify the direct URL for streaming video content. Ensure that the URL is accessible and serves the video stream.',
       },
       {
         title: 'Comprehensive Player Dimensions',
-        description: 'Consider using this tag in conjunction with "twitter:player:width" and "twitter:player:height" to define the player dimensions for the best viewing experience.'
+        description: 'Consider using this tag in conjunction with "twitter:player:width" and "twitter:player:height" to define the player dimensions for the best viewing experience.',
       },
       {
         title: 'Test Playback on Twitter',
-        description: 'Test the video stream playback on Twitter to ensure compatibility and optimal user experience.'
+        description: 'Test the video stream playback on Twitter to ensure compatibility and optimal user experience.',
       },
     ],
     examples: [
       {
         value: 'https://example.com/stream/video.mp4',
-        description: 'Specifies "twitter:player:stream" with a direct video stream URL, enabling the playback of the specified video stream on Twitter.'
+        description: 'Specifies "twitter:player:stream" with a direct video stream URL, enabling the playback of the specified video stream on Twitter.',
       },
     ],
     documentation: [
@@ -1277,8 +1277,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '1200',
-        description: 'Specifies "twitter:image:height" as 1200, indicating the height of the image in pixels.'
-      }
+        description: 'Specifies "twitter:image:height" as 1200, indicating the height of the image in pixels.',
+      },
     ],
     documentation: [
       'https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards',
@@ -1302,8 +1302,8 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaFlatSchema> = {
     examples: [
       {
         value: '1200',
-        description: 'Specifies "twitter:image:width" as 1200, indicating the width of the image in pixels.'
-      }
+        description: 'Specifies "twitter:image:width" as 1200, indicating the width of the image in pixels.',
+      },
     ],
     documentation: [
       'https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards',
