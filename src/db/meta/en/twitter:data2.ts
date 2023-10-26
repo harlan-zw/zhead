@@ -1,7 +1,7 @@
 import type { MetaSchema } from '../../metaFlat'
 
 export const twitterData2: MetaSchema = {
-  name: 'data2',
+  name: 'twitter:data2',
   key: 'name',
   color: '#FF00FF',
   tags: 'social-share',
