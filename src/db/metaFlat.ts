@@ -1,4 +1,4 @@
-import type { MetaFlat } from 'zhead'
+import type { MetaFlat } from '../metaFlat'
 import { appleItunesApp } from './meta/en/apple-itunes-app'
 import { appleMobileWebAppCapable } from './meta/en/apple-mobile-web-app-capable'
 import { appleMobileWebAppStatusBarStyle } from './meta/en/apple-mobile-web-app-status-bar-style'
@@ -114,6 +114,8 @@ export interface MetaSchema {
   documentation?: string[]
   parameters?: { value: string; description: string }[]
 }
+
+export type { MetaFlat }
 
 export const metaFlatSchema: Record<keyof MetaFlat, MetaSchema> = {
   appleItunesApp,

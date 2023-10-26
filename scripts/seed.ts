@@ -11,8 +11,7 @@ const openai = new OpenAI({
 const stream = await openai.chat.completions.create({
   model: 'gpt-3.5-turbo',
   messages: [
-    { role: 'user',
-content: `
+    { role: 'user',content: `
 You are a senior web developer with strong writing skills who is writing documentation for all meta tags. You
 have deep knowledge of SEO, device and browser compatibility, and performance.
 

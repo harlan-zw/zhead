@@ -1,7 +1,7 @@
 import type { MetaSchema } from '../../metaFlat'
 
 export const contentSecurityPolicy: MetaSchema = {
-  name: 'Content-Security-Policy',
+  name: 'content-security-policy',
   key: 'http-equiv',
   color: '#FF1493',
   tags: 'security',
