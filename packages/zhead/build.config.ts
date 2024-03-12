@@ -8,6 +8,5 @@ export default defineBuildConfig({
   },
   entries: [
     { input: 'src/index', name: 'index' },
-    { input: 'src/db/index', name: 'db' },
   ],
 })

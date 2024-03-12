@@ -308,11 +308,11 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * When users search for your site, Google Search results sometimes display a search box specific to your site,
    * along with other direct links to your site. This tag tells Google not to show the sitelinks search box.
    */
-  'nositelinkssearchbox' |
+    'nositelinkssearchbox' |
   /**
    * Prevents various Google text-to-speech services from reading aloud web pages using text-to-speech (TTS).
    */
-  'nopagereadaloud'
+    'nopagereadaloud'
   /**
    * Control how Google indexing works specifically for the googlebot crawler.
    *
@@ -323,8 +323,8 @@ export interface MetaFlat extends MetaFlatArticle, MetaFlatBook, MetaFlatProfile
    * When Google recognizes that the contents of a page aren't in the language that the user likely wants to read,
    * Google may provide a translated title link and snippet in search results.
    */
-  'notranslate'
-  | 'noimageindex' | 'noarchive' | 'nosnippet' | 'max-snippet' | 'max-image-preview' | 'max-video-preview'
+    'notranslate'
+    | 'noimageindex' | 'noarchive' | 'nosnippet' | 'max-snippet' | 'max-image-preview' | 'max-video-preview'
   /**
    * Control how Google indexing works specifically for the googlebot-news crawler.
    *

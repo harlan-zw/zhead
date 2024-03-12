@@ -2,6 +2,7 @@
 node_modules
 *.log*
 dist
+**/dist
 coverage
 .profile
 .idea

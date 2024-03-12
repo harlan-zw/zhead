@@ -35,7 +35,7 @@ export interface SpeculationRuleBase {
    *
    * @see https://github.com/WICG/nav-speculation/blob/main/triggers.md#explicit-referrer-policy
    */
-  'referrer_policy'?: ReferrerPolicy
+  referrer_policy?: ReferrerPolicy
 }
 
 export interface SpeculationRuleList extends SpeculationRuleBase {

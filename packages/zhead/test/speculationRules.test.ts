@@ -151,11 +151,11 @@ describe('speculationRules', () => {
             "where": {
               "and": [
                 {
-                  "href_matches": "/*\\\\?*",
+                  "href_matches": "/*\\?*",
                 },
                 {
                   "not": {
-                    "href_matches": "/logout\\\\?*",
+                    "href_matches": "/logout\\?*",
                   },
                 },
                 {

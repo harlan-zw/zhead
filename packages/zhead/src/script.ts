@@ -73,12 +73,12 @@ export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type
    */
   type?: '' |
-  'text/javascript' |
-  'module' |
-  'application/json' |
-  'application/ld+json' |
-  'speculationrules' |
-  (string & Record<never, never>)
+    'text/javascript' |
+    'module' |
+    'application/json' |
+    'application/ld+json' |
+    'speculationrules' |
+    (string & Record<never, never>)
   /**
    * This attribute defines the unique ID.
    */

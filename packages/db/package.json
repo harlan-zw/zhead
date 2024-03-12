@@ -1,0 +1,44 @@
+{
+  "name": "@zhead/db",
+  "type": "module",
+  "version": "2.2.4",
+  "description": "The head tag database.",
+  "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "homepage": "https://github.com/harlan-zw/zhead#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harlan-zw/zhead.git",
+    "path": "packages/db"
+  },
+  "bugs": {
+    "url": "https://github.com/harlan-zw/zhead/issues"
+  },
+  "keywords": [
+    "head",
+    "types"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "export:sizes": "npx export-size -r"
+  },
+  "dependencies": {
+    "zhead": "workspace:*"
+  }
+}

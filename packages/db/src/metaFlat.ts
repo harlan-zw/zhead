@@ -1,4 +1,4 @@
-import type { MetaFlat } from '../metaFlat'
+import type { MetaFlat } from 'zhead'
 import { appleItunesApp } from './meta/en/apple-itunes-app'
 import { appleMobileWebAppCapable } from './meta/en/apple-mobile-web-app-capable'
 import { appleMobileWebAppStatusBarStyle } from './meta/en/apple-mobile-web-app-status-bar-style'
@@ -108,11 +108,11 @@ export interface MetaSchema {
   type?: 'standard' | 'facebook' | 'twitter' | 'google' | 'robots' | 'other' | 'open-graph-protocol'
   description: string
   color?: string
-  examples: { value: string; description: string }[]
-  tips?: { title: string; description: string }[]
+  examples: { value: string, description: string }[]
+  tips?: { title: string, description: string }[]
   tags?: string | string[]
   documentation?: string[]
-  parameters?: { value: string; description: string }[]
+  parameters?: { value: string, description: string }[]
 }
 
 export type { MetaFlat }
