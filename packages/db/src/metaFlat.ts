@@ -104,7 +104,7 @@ import { xUaCompatible } from './meta/en/x-ua-compatible'
 
 export interface MetaSchema {
   name: string
-  key: 'charset' | 'name' | 'property' | 'http-equiv'
+  key: string | 'charset' | 'name' | 'property' | 'http-equiv'
   type?: 'standard' | 'facebook' | 'twitter' | 'google' | 'robots' | 'other' | 'open-graph-protocol'
   description: string
   color?: string
