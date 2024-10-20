@@ -123,12 +123,12 @@ export interface Meta {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv
    */
   ['http-equiv']?: 'content-security-policy' |
-  'content-type' |
-  'default-style' |
-  'x-ua-compatible' |
-  'refresh' |
-  'accept-ch' |
-  (string & Record<never, never>)
+    'content-type' |
+    'default-style' |
+    'x-ua-compatible' |
+    'refresh' |
+    'accept-ch' |
+    (string & Record<never, never>)
   /**
    * The name and content attributes can be used together to provide document metadata in terms of name-value pairs,
    * with the name attribute giving the metadata name, and the content attribute giving the value.

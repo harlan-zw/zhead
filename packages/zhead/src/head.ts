@@ -1,12 +1,12 @@
 import type { Base } from './base'
-import type { Style } from './style'
-import type { Script } from './script'
-import type { Meta } from './meta'
-import type { HtmlAttributes } from './htmlAttributes'
 import type { BodyAttributes } from './bodyAttributes'
-import type { Noscript } from './noscript'
-import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
+import type { HtmlAttributes } from './htmlAttributes'
 import type { Link } from './link'
+import type { Meta } from './meta'
+import type { Noscript } from './noscript'
+import type { Script } from './script'
+import type { Style } from './style'
+import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
 
 export interface BaseHead {
   title?: any

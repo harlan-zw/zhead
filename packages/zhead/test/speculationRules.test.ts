@@ -1,5 +1,5 @@
-import { describe, it } from 'vitest'
 import type { SpeculationRules } from '../src'
+import { describe, it } from 'vitest'
 
 describe('speculationRules', () => {
   it('types', () => {

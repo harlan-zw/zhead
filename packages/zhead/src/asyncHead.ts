@@ -1,12 +1,12 @@
 import type { Base } from './base'
-import type { AsyncStyle } from './style'
-import type { AsyncScript } from './script'
-import type { AsyncMeta } from './meta'
-import type { AsyncHtmlAttributes } from './htmlAttributes'
 import type { AsyncBodyAttributes } from './bodyAttributes'
-import type { AsyncNoscript } from './noscript'
-import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
 import type { BaseHead } from './head'
+import type { AsyncHtmlAttributes } from './htmlAttributes'
+import type { AsyncMeta } from './meta'
+import type { AsyncNoscript } from './noscript'
+import type { AsyncScript } from './script'
+import type { AsyncStyle } from './style'
+import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
 
 export interface AsyncHead<E extends MergeHead = MergeHead> extends BaseHead {
   /**

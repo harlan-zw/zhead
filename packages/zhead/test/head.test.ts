@@ -1,6 +1,6 @@
+import type { DataKeys } from '../src'
 import { describe, it } from 'vitest'
 import { defineHead } from '../src'
-import type { DataKeys } from '../src'
 
 describe('head', () => {
   it('define head', () => {

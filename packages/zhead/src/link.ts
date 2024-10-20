@@ -1,6 +1,6 @@
-import type { MaybePromiseProps } from './utils'
-import type { ReferrerPolicy } from './shared'
 import type { GlobalAttributes, HttpEventAttributes } from './attributes'
+import type { ReferrerPolicy } from './shared'
+import type { MaybePromiseProps } from './utils'
 
 export type LinkRelTypes = 'alternate' |
   'author' |
@@ -43,17 +43,17 @@ export interface LinkBase extends Pick<GlobalAttributes, 'nonce'> {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
   as?: 'audio' |
-  'document' |
-  'embed' |
-  'fetch' |
-  'font' |
-  'image' |
-  'object' |
-  'script' |
-  'style' |
-  'track' |
-  'video' |
-  'worker'
+    'document' |
+    'embed' |
+    'fetch' |
+    'font' |
+    'image' |
+    'object' |
+    'script' |
+    'style' |
+    'track' |
+    'video' |
+    'worker'
   /**
    * The color attribute is used with the mask-icon link type.
    * The attribute must only be specified on link elements that have a rel attribute
@@ -72,16 +72,16 @@ export interface LinkBase extends Pick<GlobalAttributes, 'nonce'> {
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin
    */
   crossorigin?: '' |
-  'anonymous' |
-  'use-credentials'
+    'anonymous' |
+    'use-credentials'
   /**
    * Provides a hint of the relative priority to use when fetching a preloaded resource.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-fetchpriority
    */
   fetchpriority?: 'high' |
-  'low' |
-  'auto'
+    'low' |
+    'auto'
   /**
    * This attribute specifies the URL of the linked resource. A URL can be absolute or relative.
    *
