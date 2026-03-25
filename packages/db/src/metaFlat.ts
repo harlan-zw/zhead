@@ -23,6 +23,7 @@ import { creator } from './meta/en/creator'
 import { defaultStyle } from './meta/en/default-style'
 import { description } from './meta/en/description'
 import { fbAppId } from './meta/en/fb:app_id'
+import { fediverseCreator } from './meta/en/fediverse:creator'
 import { formatDetection } from './meta/en/format-detection'
 import { generator } from './meta/en/generator'
 import { google } from './meta/en/google'
@@ -142,6 +143,7 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaSchema> = {
   defaultStyle,
   description,
   fbAppId,
+  fediverseCreator,
   formatDetection,
   generator,
   google,

@@ -2,7 +2,8 @@ import type { MetaSchema } from '../../metaFlat'
 
 export const twitterImage: MetaSchema = {
   name: 'twitter:image',
-  key: 'property',
+  key: 'name',
+  type: 'twitter',
   color: '#1DA1F2',
   tags: 'social-share',
   description: 'Specifies the URL of the image to be displayed in tweets when a web page is shared on Twitter. The image should have a minimum size of 120x120px and a maximum size of 4096x4096px.',

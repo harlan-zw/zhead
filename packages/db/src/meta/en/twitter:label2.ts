@@ -2,7 +2,8 @@ import type { MetaSchema } from '../../metaFlat'
 
 export const twitterLabel2: MetaSchema = {
   name: 'twitter:label2',
-  key: 'property',
+  key: 'name',
+  type: 'twitter',
   description: 'Custom label for the second value of a Twitter card.',
   tags: 'social-share',
   color: '#FFA500',

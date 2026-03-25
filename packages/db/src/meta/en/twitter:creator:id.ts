@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterCreatorId: MetaSchema = {
   name: 'twitter:creator:id',
   key: 'name',
+  type: 'twitter',
   color: '#85c1e9',
   tags: 'social-share',
   description: 'Specifies the Twitter user ID of the content creator or author. This meta tag helps Twitter display the correct Twitter card when the content is shared on the platform.',

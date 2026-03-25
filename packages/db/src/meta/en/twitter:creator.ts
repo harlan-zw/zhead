@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterCreator: MetaSchema = {
   name: 'twitter:creator',
   key: 'name',
+  type: 'twitter',
   color: '#00acee',
   tags: 'social-share',
   description: 'Indicates the Twitter username of the content creator or author for a webpage.',

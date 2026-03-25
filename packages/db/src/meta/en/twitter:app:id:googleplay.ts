@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterAppIdGoogleplay: MetaSchema = {
   name: 'twitter:app:id:googleplay',
   key: 'name',
+  type: 'twitter',
   color: '#B4C1D7',
   tags: 'social-share',
   description: 'Specifies the Google Play app ID associated with the website for use on Twitter.',

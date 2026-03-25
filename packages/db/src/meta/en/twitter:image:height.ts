@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterImageHeight: MetaSchema = {
   name: 'twitter:image:height',
   key: 'name',
+  type: 'twitter',
   color: '#FFAC33',
   tags: 'social-share',
   description: 'Specifies the height of the image to be displayed when a web page is shared on Twitter. It is used by Twitter to properly display the image in the tweet.',

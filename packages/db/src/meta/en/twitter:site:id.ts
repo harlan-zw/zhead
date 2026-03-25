@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterSiteId: MetaSchema = {
   name: 'twitter:site:id',
   key: 'name',
+  type: 'twitter',
   color: '#1DA1F2',
   tags: 'social-share',
   description: 'Specifies the Twitter username associated with the website or content.',

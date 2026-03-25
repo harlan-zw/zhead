@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterCard: MetaSchema = {
   name: 'twitter:card',
   key: 'name',
+  type: 'twitter',
   color: '#1DA1F2',
   tags: 'social-share',
   description: 'Specifies the card type to be used when a link to a web page is shared on Twitter. The card type determines how the shared content appears on Twitter.',

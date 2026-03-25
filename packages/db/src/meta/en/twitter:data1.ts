@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterData1: MetaSchema = {
   name: 'twitter:data1',
   key: 'name',
+  type: 'twitter',
   color: '#00ACEE',
   tags: 'social-share',
   description: 'A data field used by Twitter Cards to display additional information in a tweet containing a URL to a web page. The "twitter:data1" meta tag allows you to specify the value for the data field, which can be used to provide context or important details about the shared content.',

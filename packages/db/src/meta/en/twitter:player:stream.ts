@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterPlayerStream: MetaSchema = {
   name: 'twitter:player:stream',
   key: 'name',
+  type: 'twitter',
   color: '#00ACEE',
   tags: 'social-share',
   description: 'Specifies the URL to a live video stream on Twitter. When shared on Twitter, this meta tag allows the video player to display and play the live stream directly in the tweet.',

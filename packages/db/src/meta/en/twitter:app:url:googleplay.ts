@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterAppUrlGoogleplay: MetaSchema = {
   name: 'twitter:app:url:googleplay',
   key: 'name',
+  type: 'twitter',
   color: '#29B6F6',
   tags: 'social-share',
   description: 'Specifies the custom URL scheme for an Android app on the Google Play Store. It allows users to open the app directly from a link in a Twitter post on Android devices.',
