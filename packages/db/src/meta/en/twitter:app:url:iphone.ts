@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterAppUrlIphone: MetaSchema = {
   name: 'twitter:app:url:iphone',
   key: 'name',
+  type: 'twitter',
   color: '#0390fc',
   tags: 'social-share',
   description: 'Specifies the deep link URL for the iOS app associated with the website when shared on Twitter using an iPhone.',

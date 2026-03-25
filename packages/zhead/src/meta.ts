@@ -15,6 +15,7 @@ export type MetaNames =
   'default-style' |
   'description' |
   'fb:app_id' |
+  'fediverse:creator' |
   'format-detection' |
   'generator' |
   'google-site-verification' |

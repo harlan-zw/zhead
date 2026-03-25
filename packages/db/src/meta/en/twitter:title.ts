@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterTitle: MetaSchema = {
   name: 'twitter:title',
   key: 'name',
+  type: 'twitter',
   color: '#33CCFF',
   tags: 'social-share',
   description: 'Specifies the title of a webpage when shared on Twitter. It is used to provide a concise and compelling title that grabs users\' attention and encourages engagement.',

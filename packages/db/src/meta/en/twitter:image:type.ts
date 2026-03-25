@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterImageType: MetaSchema = {
   name: 'twitter:image:type',
   key: 'name',
+  type: 'twitter',
   description: 'Specifies the type of the image referenced in the "twitter:image" meta tag. This meta tag is used to define the type of image file that is being shared on Twitter.',
   tags: 'social-share',
   color: '#FFB536',

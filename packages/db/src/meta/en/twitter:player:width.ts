@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterPlayerWidth: MetaSchema = {
   name: 'twitter:player:width',
   key: 'name',
+  type: 'twitter',
   color: '#FFB30D',
   tags: 'social-share',
   description: 'Specifies the width of the Twitter card player on a web page when shared on Twitter. The Twitter card player allows users to play video or audio content directly within a tweet.',

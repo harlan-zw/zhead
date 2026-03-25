@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterAppIdIphone: MetaSchema = {
   name: 'twitter:app:id:iphone',
   key: 'name',
+  type: 'twitter',
   color: '#00ACED',
   tags: 'social-share',
   description: 'Specifies the Twitter App ID for iOS devices. This meta tag is used to associate your iOS app with your website, allowing users to easily navigate between your website and app.',

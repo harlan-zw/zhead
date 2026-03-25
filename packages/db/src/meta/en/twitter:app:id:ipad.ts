@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterAppIdIpad: MetaSchema = {
   name: 'twitter:app:id:ipad',
   key: 'name',
+  type: 'twitter',
   color: '#FFB30D',
   tags: 'social-share',
   description: 'Specifies the unique identifier for the iPad-specific app associated with the web page, allowing the app to be deep-linked when shared on Twitter.',

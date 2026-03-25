@@ -2,7 +2,7 @@ import type { MetaSchema } from '../../metaFlat'
 
 export const twitterDescription: MetaSchema = {
   name: 'twitter:description',
-  key: 'property',
+  key: 'name',
   type: 'twitter',
   color: '#1DA1F2',
   tags: 'social-share',

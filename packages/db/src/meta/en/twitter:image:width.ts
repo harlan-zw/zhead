@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterImageWidth: MetaSchema = {
   name: 'twitter:image:width',
   key: 'name',
+  type: 'twitter',
   color: '#FF8C42',
   tags: 'social-share',
   description: 'Specifies the width of the image to be displayed when sharing a web page on Twitter.',

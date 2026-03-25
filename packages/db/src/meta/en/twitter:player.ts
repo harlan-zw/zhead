@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterPlayer: MetaSchema = {
   name: 'twitter:player',
   key: 'name',
+  type: 'twitter',
   color: '#1DA1F2',
   tags: 'social-share',
   description: 'Specifies the URL to a Twitter card player that should be used when the URL in the "twitter:card" meta tag is set to "player".',

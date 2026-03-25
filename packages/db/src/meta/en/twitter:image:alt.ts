@@ -3,6 +3,7 @@ import type { MetaSchema } from '../../metaFlat'
 export const twitterImageAlt: MetaSchema = {
   name: 'twitter:image:alt',
   key: 'name',
+  type: 'twitter',
   color: '#FFDD85',
   tags: 'social-share',
   description: 'Specifies the alternative text for an image when shared on Twitter. Alternative text provides a text description of the image for users who can\'t see it, such as those using screen readers or with slow internet connections.',
