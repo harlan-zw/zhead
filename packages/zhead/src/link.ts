@@ -1,6 +1,5 @@
 import type { GlobalAttributes, HttpEventAttributes } from './attributes'
 import type { ReferrerPolicy } from './shared'
-import type { MaybePromiseProps } from './utils'
 
 export type LinkRelTypes = 'alternate'
   | 'author'
@@ -257,5 +256,3 @@ export interface LinkBase extends Pick<GlobalAttributes, 'nonce'> {
 }
 
 export type Link = LinkBase & HttpEventAttributes
-
-export type AsyncLink = MaybePromiseProps<Link>

@@ -1,12 +1,9 @@
-import type { DataKeys } from '../src'
-import { describe, it } from 'vitest'
-import { defineHead } from '../src'
+import type { Head } from '../src'
+import { describe, expect, it } from 'vitest'
 
 describe('head', () => {
   it('define head', () => {
-    const tags = defineHead<{
-      script: DataKeys
-    }>({
+    const tags: Head = {
       title: 'test',
       script: [
         {
@@ -36,8 +33,7 @@ describe('head', () => {
           content: 'ad',
         },
       ],
-    },
-    )
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {

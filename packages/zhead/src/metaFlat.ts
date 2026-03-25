@@ -1,5 +1,5 @@
 import type { ReferrerPolicy } from './shared'
-import type { Arrayable, Booleanable, MaybePromiseProps } from './utils'
+import type { Arrayable, Booleanable } from './utils'
 
 export interface MetaFlatArticle {
 
@@ -1043,5 +1043,3 @@ type MetaFlatNullable = {
   [K in keyof MetaFlat]: MetaFlat[K] | null
 }
 export type MetaFlatInput = Partial<MetaFlatNullable>
-
-export type AsyncMetaFlatInput = MaybePromiseProps<MetaFlatInput>

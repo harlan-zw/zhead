@@ -1,8 +1,6 @@
-export * from './asyncHead'
 export * from './attributes'
 export * from './base'
 export * from './bodyAttributes'
-export * from './defineHead'
 export * from './head'
 export * from './htmlAttributes'
 export * from './link'
@@ -10,8 +8,7 @@ export * from './meta'
 export * from './metaFlat'
 export * from './noscript'
 export * from './script'
+export * from './shared'
 export * from './struct/speculationRules'
 export * from './style'
 export * from './utils'
-
-export {}

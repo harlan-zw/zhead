@@ -1,6 +1,6 @@
 import type { GlobalAttributes, HttpEventAttributes } from './attributes'
 import type { ReferrerPolicy } from './shared'
-import type { Booleanable, MaybePromiseProps } from './utils'
+import type { Booleanable } from './utils'
 
 export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
   /**
@@ -95,5 +95,3 @@ export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
 }
 
 export type Script = ScriptBase & HttpEventAttributes
-
-export type AsyncScript = MaybePromiseProps<Script>

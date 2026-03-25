@@ -1,5 +1,3 @@
-import type { MaybePromiseProps } from './utils'
-
 export interface HtmlAttributes {
   /**
    * The lang global attribute helps define the language of an element: the language that non-editable elements are
@@ -54,5 +52,3 @@ export interface HtmlAttributes {
    */
   [key: `xmlns:${'og' | string}`]: string
 }
-
-export type AsyncHtmlAttributes = MaybePromiseProps<HtmlAttributes>

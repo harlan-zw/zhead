@@ -1,5 +1,3 @@
-import type { MaybePromiseProps } from './utils'
-
 export interface Noscript {
   /**
    * This attribute defines the unique ID.
@@ -17,5 +15,3 @@ export interface Noscript {
    */
   style?: string
 }
-
-export type AsyncNoscript = MaybePromiseProps<Noscript>

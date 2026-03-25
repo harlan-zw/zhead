@@ -1,5 +1,3 @@
-import type { MaybePromiseProps } from './utils'
-
 export interface Base {
   /**
    * The base URL to be used throughout the document for relative URLs. Absolute and relative URLs are allowed.
@@ -15,5 +13,3 @@ export interface Base {
    */
   target?: string
 }
-
-export type AsyncBase = MaybePromiseProps<Base>

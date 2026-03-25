@@ -1,15 +1,15 @@
-import { describe, it } from 'vitest'
-import { defineHead } from '../src'
+import type { Head } from '../src'
+import { describe, expect, it } from 'vitest'
 
 describe('attributes', () => {
   it('html', () => {
-    const tags = defineHead({
+    const tags: Head = {
       htmlAttrs: {
         'lang': 'en',
         'dir': 'ltr',
         'data-something': '123',
       },
-    })
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {
@@ -23,11 +23,11 @@ describe('attributes', () => {
   })
 
   it('body', () => {
-    const tags = defineHead({
+    const tags: Head = {
       bodyAttrs: {
         'data-something': '123',
       },
-    })
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {

@@ -1,4 +1,4 @@
-import type { MaybePromiseProps, Stringable } from './utils'
+import type { Stringable } from './utils'
 
 export type MetaNames
   = 'apple-itunes-app'
@@ -69,7 +69,7 @@ export type MetaProperties = 'article:author'
   | 'article:tag'
   | 'book:author'
   | 'book:isbn'
-  | 'book:release_data'
+  | 'book:release_date'
   | 'book:tag'
   | 'fb:app:id'
   | 'og:audio:secure_url'
@@ -154,5 +154,3 @@ export interface Meta {
    */
   media?: '(prefers-color-scheme: light)' | '(prefers-color-scheme: dark)' | (string & Record<never, never>)
 }
-
-export type AsyncMeta = MaybePromiseProps<Meta>

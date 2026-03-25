@@ -1,15 +1,15 @@
-import { describe, it } from 'vitest'
-import { defineHead } from '../src'
+import type { Head } from '../src'
+import { describe, expect, it } from 'vitest'
 
 describe('metatags', () => {
   it('charset', () => {
-    const tags = defineHead({
+    const tags: Head = {
       meta: [
         {
           charset: 'utf-8',
         },
       ],
-    })
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {
@@ -23,7 +23,7 @@ describe('metatags', () => {
   })
 
   it('http equiv', () => {
-    const tags = defineHead({
+    const tags: Head = {
       meta: [
         {
           'http-equiv': 'refresh',
@@ -31,7 +31,7 @@ describe('metatags', () => {
           'data-test': '123',
         },
       ],
-    })
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {
@@ -47,7 +47,7 @@ describe('metatags', () => {
   })
 
   it('typing', () => {
-    const tags = defineHead({
+    const tags: Head = {
       meta: [
         {
           name: 'google',
@@ -66,7 +66,7 @@ describe('metatags', () => {
           content: 'origin-when-cross-origin',
         },
       ],
-    })
+    }
 
     expect(tags).toMatchInlineSnapshot(`
       {

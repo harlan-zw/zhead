@@ -6,21 +6,9 @@ import type { Meta } from './meta'
 import type { Noscript } from './noscript'
 import type { Script } from './script'
 import type { Style } from './style'
-import type { DataKeys, DefinedValueOrEmptyObject, Merge, MergeHead } from './utils'
+import type { DataKeys } from './utils'
 
-export interface BaseHead {
-  title?: any
-  base?: Record<string, any>
-  link?: any[]
-  meta?: any[]
-  style?: any[]
-  script?: any[]
-  noscript?: any[]
-  htmlAttrs?: Record<string, any>
-  bodyAttrs?: Record<string, any>
-}
-
-export interface Head<E extends MergeHead = MergeHead> extends BaseHead {
+export interface Head {
   /**
    * The `<title>` HTML element defines the document's title that is shown in a browser's title bar or a page's tab.
    * It only contains text; tags within the element are ignored.
@@ -34,7 +22,7 @@ export interface Head<E extends MergeHead = MergeHead> extends BaseHead {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
    */
-  base?: Partial<Merge<E['base'], Base>>
+  base?: Partial<Base>
   /**
    * The `<link>` HTML element specifies relationships between the current document and an external resource.
    * This element is most commonly used to link to stylesheets, but is also used to establish site icons
@@ -42,43 +30,43 @@ export interface Head<E extends MergeHead = MergeHead> extends BaseHead {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as
    */
-  link?: (Link & DataKeys & DefinedValueOrEmptyObject<E['link']>)[]
+  link?: (Link & DataKeys)[]
   /**
    * The `<meta>` element represents metadata that cannot be expressed in other HTML elements, like `<link>` or `<script>`.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
    */
-  meta?: (Meta & DataKeys & DefinedValueOrEmptyObject<E['meta']>)[]
+  meta?: (Meta & DataKeys)[]
   /**
    * The `<style>` HTML element contains style information for a document, or part of a document.
    * It contains CSS, which is applied to the contents of the document containing the `<style>` element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
    */
-  style?: (Style & DataKeys & DefinedValueOrEmptyObject<E['style']>)[]
+  style?: (Style & DataKeys)[]
   /**
    * The `<script>` HTML element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
    */
-  script?: (Script & DataKeys & DefinedValueOrEmptyObject<E['script']>)[]
+  script?: (Script & DataKeys)[]
   /**
    * The `<noscript>` HTML element defines a section of HTML to be inserted if a script type on the page is unsupported
    * or if scripting is currently turned off in the browser.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
    */
-  noscript?: (Noscript & DataKeys & DefinedValueOrEmptyObject<E['noscript']>)[]
+  noscript?: (Noscript & DataKeys)[]
   /**
    * Attributes for the `<html>` HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
    */
-  htmlAttrs?: (HtmlAttributes & DataKeys & DefinedValueOrEmptyObject<E['htmlAttrs']>)
+  htmlAttrs?: HtmlAttributes & DataKeys
   /**
    * Attributes for the `<body>` HTML element.
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
    */
-  bodyAttrs?: (BodyAttributes & DataKeys & DefinedValueOrEmptyObject<E['bodyAttrs']>)
+  bodyAttrs?: BodyAttributes & DataKeys
 }

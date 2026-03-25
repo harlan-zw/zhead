@@ -1,5 +1,3 @@
-import type { MaybePromiseProps } from './utils'
-
 export interface Style {
   /**
    * This attribute defines which media the style should be applied to.
@@ -27,5 +25,3 @@ export interface Style {
    */
   id?: string
 }
-
-export type AsyncStyle = MaybePromiseProps<Style>
