@@ -16,11 +16,11 @@ All of the TypeScript definitions for &lt;head&gt;.<br><br>Powering <a href="htt
 <table>
 <tbody>
 <td align="center">
-<img width="800" height="0" /><br>
+<img width="800" height="0" alt="" /><br>
 <i>Status:</i> Stable</b> <br>
 <sup> Please report any issues 🐛</sup><br>
 <sub>Made possible by my <a href="https://github.com/sponsors/harlan-zw">Sponsor Program 💖</a><br> Follow me <a href="https://twitter.com/harlan_zw">@harlan_zw</a> 🐦 • Join <a href="https://discord.gg/275MBUBvgP">Discord</a> for help</sub><br>
-<img width="800" height="0" />
+<img width="800" height="0" alt="" />
 </td>
 </tbody>
 </table>
@@ -221,7 +221,7 @@ const head = defineHead({
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg">
-    <img src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg'/>
+    <img src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg' alt="Sponsors" />
   </a>
 </p>
 

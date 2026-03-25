@@ -138,6 +138,5 @@ for await (const part of stream) {
 }
 
 // do write
-const path = import.meta.url.replace('file://', '')
-  .replace('scripts/seed.ts', `packages/db/src/meta/en/${meta}.ts`)
+const path = import.meta.url.replace('file://', '').replace('scripts/seed.ts', `packages/db/src/meta/en/${meta}.ts`)
 await fsp.writeFile(path, output)

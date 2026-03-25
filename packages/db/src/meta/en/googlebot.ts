@@ -35,6 +35,5 @@ export const googlebot: MetaSchema = {
     'https://developers.google.com/search/reference/robots_meta_tag',
     'https://developers.google.com/search/docs/advanced/crawling/control-crawl-index',
   ],
-  importance: 'recommended',
   tags: 'seo',
 }

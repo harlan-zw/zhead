@@ -1,23 +1,19 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "baseUrl": ".",
+    "moduleDetection": "force",
     "rootDir": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "paths": {
-      "zhead": ["src/index.ts"]
-    },
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "types": ["node", "vitest/globals"],
+    "allowImportingTsExtensions": true,
     "strict": true,
-    "strictFunctionTypes": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "declaration": true,
     "esModuleInterop": true,
-    "skipDefaultLibCheck": true,
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["scripts"]
 }

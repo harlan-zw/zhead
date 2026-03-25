@@ -4,7 +4,7 @@ export const defaultStyle: MetaSchema = {
   name: 'default-style',
   key: 'http-equiv',
   parameters: [
-    'content-type',
+    { value: 'content-type', description: 'The default content type style for the web page.' },
   ],
   type: 'standard',
   color: '#FFB300',

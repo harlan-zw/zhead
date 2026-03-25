@@ -21,9 +21,9 @@ export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-crossorigin
    */
-  crossorigin?: '' |
-    'anonymous' |
-    'use-credentials'
+  crossorigin?: ''
+    | 'anonymous'
+    | 'use-credentials'
   /**
    * This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document
    * has been parsed, but before firing DOMContentLoaded.
@@ -36,9 +36,9 @@ export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-fetchpriority
    */
-  fetchpriority?: 'high' |
-    'low' |
-    'auto'
+  fetchpriority?: 'high'
+    | 'low'
+    | 'auto'
   /**
    * This attribute contains inline metadata that a user agent can use to verify
    * that a fetched resource has been delivered free of unexpected manipulation.
@@ -72,13 +72,13 @@ export interface ScriptBase extends Pick<GlobalAttributes, 'nonce'> {
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type
    */
-  type?: '' |
-    'text/javascript' |
-    'module' |
-    'application/json' |
-    'application/ld+json' |
-    'speculationrules' |
-    (string & Record<never, never>)
+  type?: ''
+    | 'text/javascript'
+    | 'module'
+    | 'application/json'
+    | 'application/ld+json'
+    | 'speculationrules'
+    | (string & Record<never, never>)
   /**
    * This attribute defines the unique ID.
    */

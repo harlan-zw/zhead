@@ -1,5 +1,9 @@
 name: Release
 
+permissions:
+  contents: write
+  id-token: write
+
 on:
   push:
     tags:
@@ -7,33 +11,28 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
 
-      - name: Use Node.js v18
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v6
         with:
-          node-version: v18
-          registry-url: https://registry.npmjs.org/
+          node-version: lts/*
           cache: pnpm
+          registry-url: https://registry.npmjs.org
 
-      - run: export DEBUG=conventional-github-releaser && npx conventional-github-releaser -p angular
-        continue-on-error: false
+      - run: npx changelogithub
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - run: pnpm i
 
-      - name: PNPM build
-        run: pnpm run build
+      - run: pnpm build
 
-      - name: Publish to NPM
-        run: pnpm -r publish --access public --no-git-checks
+      - run: pnpm -r publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

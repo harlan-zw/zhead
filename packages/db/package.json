@@ -22,21 +22,21 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
-    "export:sizes": "npx export-size -r"
+    "build": "obuild",
+    "dev:prepare": "obuild --stub",
+    "typecheck": "tsc --noEmit",
+    "test:attw": "attw --pack",
+    "prepack": "pnpm run build"
   },
   "dependencies": {
     "zhead": "workspace:*"

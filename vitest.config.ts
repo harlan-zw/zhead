@@ -1,19 +1,14 @@
-/// <reference types="vitest" />
-/// <reference types="vitest/globals" />
-
-import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      zhead: resolve(__dirname, 'src/index.ts'),
-    },
-  },
   test: {
     globals: true,
-    environment: 'jsdom',
-    reporters: 'dot',
-    isolate: true,
+    include: ['packages/*/test/**/*.test.ts'],
+    coverage: {
+      provider: 'v8',
+      include: ['packages/*/src/**/*.ts'],
+      exclude: ['packages/*/src/**/*.d.ts'],
+      reporter: ['text', 'text-summary'],
+    },
   },
 })
