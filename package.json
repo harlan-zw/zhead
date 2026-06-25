@@ -20,7 +20,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm run -r typecheck",
     "test": "vitest",
-    "test:attw": "pnpm -r --parallel --filter=./packages/** run test:attw",
+    "test:attw": "pnpm -r --parallel --filter './packages/**' run test:attw",
     "release": "pnpm build && bumpp --output=CHANGELOG.md packages/*/package.json"
   },
   "devDependencies": {

@@ -18,3 +18,5 @@ catalog:
 
 ignoredBuiltDependencies:
   - esbuild
+
+trustPolicyIgnoreAfter: 262800

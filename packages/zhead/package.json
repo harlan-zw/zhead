@@ -35,7 +35,7 @@
     "build": "obuild",
     "dev:prepare": "obuild --stub",
     "typecheck": "tsc --noEmit",
-    "test:attw": "attw --pack",
+    "test:attw": "attw --pack --profile esm-only",
     "prepack": "pnpm run build"
   }
 }

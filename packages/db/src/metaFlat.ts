@@ -61,6 +61,13 @@ import { ogVideoSecureUrl } from './meta/en/og:video:secure_url'
 import { ogVideoType } from './meta/en/og:video:type'
 import { ogVideoUrl } from './meta/en/og:video:url'
 import { ogVideoWidth } from './meta/en/og:video:width'
+import { paymentAmount } from './meta/en/payment:amount'
+import { paymentCurrency } from './meta/en/payment:currency'
+import { paymentDescription } from './meta/en/payment:description'
+import { paymentExpiresAt } from './meta/en/payment:expires_at'
+import { paymentId } from './meta/en/payment:id'
+import { paymentStatus } from './meta/en/payment:status'
+import { paymentSuccessUrl } from './meta/en/payment:success_url'
 import { profileFirstName } from './meta/en/profile:first_name'
 import { profileGender } from './meta/en/profile:gender'
 import { profileLastName } from './meta/en/profile:last_name'
@@ -181,6 +188,13 @@ export const metaFlatSchema: Record<keyof MetaFlat, MetaSchema> = {
   ogVideoType,
   ogVideoUrl,
   ogVideoWidth,
+  paymentAmount,
+  paymentCurrency,
+  paymentDescription,
+  paymentExpiresAt,
+  paymentId,
+  paymentStatus,
+  paymentSuccessUrl,
   profileFirstName,
   profileGender,
   profileLastName,
