@@ -1,7 +1,7 @@
 {
   "name": "@zhead/db",
   "type": "module",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "The head tag database.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",

@@ -1,7 +1,7 @@
 {
   "name": "zhead",
   "type": "module",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "All the types you need for your <head>",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
