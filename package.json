@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@11.21.0",
   "description": "All the types you need for your <head>",
   "author": {
     "name": "Harlan Wilton",
