@@ -134,8 +134,12 @@ describe('speculationRules', () => {
           where: {
             and: [
               { href_matches: '/*\\?*' },
-              { not: { href_matches: '/logout\\?*' } },
-              { not: { selector_matches: '.no-prerender' } },
+              {
+                not: { href_matches: '/logout\\?*' },
+              },
+              {
+                not: { selector_matches: '.no-prerender' },
+              },
             ],
           },
           score: 0.1,
