@@ -16,7 +16,7 @@ catalog:
   lint-staged: ^17.6.2
   obuild: ^0.4.45
   typescript: 6.0.3
-  vitest: ^4.1.10
+  vitest: ^4.1.11
 
 ignoredBuiltDependencies:
   - esbuild
